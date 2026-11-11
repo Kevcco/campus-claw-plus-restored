@@ -8,6 +8,8 @@ COPY public ./public
 RUN npm run build
 
 FROM nginx@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311
+# Patch CVE-2026-87636/CVE-2026-9947 without changing the pinned Nginx runtime.
+RUN apk add --no-cache --upgrade libxslt=1.1.43-r4
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /src/dist /usr/share/nginx/html
 EXPOSE 80
