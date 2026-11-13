@@ -1,0 +1,167 @@
+{
+  "date": "2026-11-13",
+  "actor": "zwh9616 / 小张 (AI-assisted)",
+  "main": "d06198de7cbff56b4304b3483aeec32ad9a3e085",
+  "tree": "0c46acc490690816be0bca0d7bca1d9c0d4c4dc0",
+  "approved_head": "e59b57a2f7f3b53c497df1732528e276f9cfedd3",
+  "reviewer": "Kevcco",
+  "review_url": "https://github.com/zwh9616/campus-claw-plus/pull/41#pullrequestreview-5885799083",
+  "main_ci": {
+    "id": 43362518043,
+    "status": "completed",
+    "conclusion": "success",
+    "artifact_id": 14008414768,
+    "sha256": "77fbd1916ffc87246c78bc0222e9f774d459009d648262b4c8e1a37568215d99"
+  },
+  "gate": {
+    "time": "2026-11-13T04:02:57.323Z",
+    "node": "v22.23.4",
+    "exitCode": 0,
+    "results": [
+      {
+        "name": "check",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 39423
+      },
+      {
+        "name": "audit",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 660
+      },
+      {
+        "name": "secret-scan",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 1251
+      },
+      {
+        "name": "verify",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 168924
+      }
+    ],
+    "notRun": []
+  },
+  "batch_source": {
+    "commit": "d06198de7cbff56b4304b3483aeec32ad9a3e085",
+    "dirty": false,
+    "fingerprint": "4559f8a99a1b828b204e877d61a2e36baee1daa3f642a3bd4856aa9f7d12bd02"
+  },
+  "images": [
+    {
+      "service": "mysql",
+      "image_id": "sha256:1c3cd9f1e4348cc536985c5f75a9a782e4119480470d2dfb289217d321e207a3",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "admin",
+      "image_id": "sha256:38f6ef38497034b8a4a9615173964a7ccdf70d043e8cd7997f4ef8e2db82496b",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "backend",
+      "image_id": "sha256:512f2fc87030d60d5dc3894640ab6e6eb8d7e5c7c6299ed6b70e9cc1594e0ab4",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "frontend",
+      "image_id": "sha256:510909d32596a0356486ea185950b1cb108dea36f1f8d43c1221422f31295b07",
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  ],
+  "cleanup": [
+    {
+      "tag": "campus-mysql-audit-e5c8c41c3aa2:verification",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "tag": "campus-app-audit-3e109edf5a4d-backend:verification",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "tag": "campus-app-audit-3e109edf5a4d-admin:verification",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "tag": "campus-app-audit-3e109edf5a4d-frontend:verification",
+      "exit_code": 0,
+      "ok": true
+    }
+  ],
+  "ci_files": [
+    {
+      "path": "mysql-image-verify/results.json",
+      "sha256": "a626b7eb50f164fb5eceb5163ba4f7dfa1cfe5a0082562b398541a88154df956"
+    },
+    {
+      "path": "application-image-verify/results.json",
+      "sha256": "812436fefcf9078f449704da3bcb517a122cbd1bb01c2d7910a76ba9a8dd9855"
+    },
+    {
+      "path": "mysql-image-verify/mysql.json",
+      "sha256": "8dc3d7a6c1a77c2d7cc7fb8ff7fa074c9b66b541dd63ea56a664e7a3135f3a60"
+    },
+    {
+      "path": "application-image-verify/backend.json",
+      "sha256": "eee011451aea8717b1426fd2cc99cc84f5b50bc552e4efa79b54ca8b04ea7f07"
+    },
+    {
+      "path": "application-image-verify/admin.json",
+      "sha256": "f82609cf298daeb647f30e6ffc1247a672d4a5112fd7221b90ff8764c18a85b6"
+    },
+    {
+      "path": "application-image-verify/frontend.json",
+      "sha256": "c2fd7e50c15ad70eeb034e526a4ee2c6f083ebb265a7a60a7f76b61dadc9368b"
+    },
+    {
+      "path": "identity/results.json",
+      "sha256": "8d8ff94d6bc6398deac0f7ee1fbe1064091dcd112b036ccc4a71ad490c36b9d1"
+    },
+    {
+      "path": "identity-wiring/results.json",
+      "sha256": "12faac5be4cfcd0c991ca70221be329f9fdff035de5438c6873c3f05a984bbee"
+    },
+    {
+      "path": "verification/gate-results.json",
+      "sha256": "5172d6566ddb3ba0380d093d3e8d08ac89c3aa8956d2990ee65d789a2067482e"
+    },
+    {
+      "path": "service-batches/results.json",
+      "sha256": "1172970777c79102e261e29ac1c6c05d0489301781ab827ac8e742cf2b500027"
+    }
+  ],
+  "local_attempt": {
+    "source": "d06198de7cbff56b4304b3483aeec32ad9a3e085",
+    "npm_ci": 0,
+    "npm_setup": 0,
+    "gate_exit": 1,
+    "failed_stage": "check:backend",
+    "not_run": [
+      "audit",
+      "secret-scan",
+      "verify"
+    ],
+    "cause": "Docker Desktop engine unavailable; repeated startup failed to bind sailor-ingest.sock (WSAEADDRINUSE)",
+    "recovery": "normal launch/quit/retry and stop only own hung launch helpers; no factory reset, no volume deletion, no security/privacy change",
+    "claim": "not a successful local full gate or local integration run"
+  },
+  "limits": [
+    "production executor and result adapter unbound; genuinely pending",
+    "no real model/grade/assignment UI",
+    "operator deployment or production upgrade/rollback not performed"
+  ]
+}

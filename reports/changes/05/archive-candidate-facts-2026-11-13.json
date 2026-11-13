@@ -1,0 +1,98 @@
+{
+  "base": "d06198de7cbff56b4304b3483aeec32ad9a3e085",
+  "requirements": 8,
+  "scenarios": 21,
+  "requirements_exact": true,
+  "original_files": 4,
+  "original_hashes": {
+    "design.md": "c30e494dbee2fc342cdefc009e6455ce4e5d7cd6efb2f160a697c3b679348ad8",
+    "proposal.md": "1ddda42a639e872f303c47a0f80256547de584e02eed3c8a6372a41d4c0f5f7f",
+    "tasks.md": "f9ab553f88a804a319daba40488d7a5956261b756aa20e71b755c81f6703a9c9",
+    "specs/assignment-tasks/spec.md": "044edc6a8d7649fcfa9b9c8f74706205fcd22f14da15a66e3d14bbac3e24a1ff"
+  },
+  "navigation_rebases": [
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/design.md",
+      "from": "../2026-11-04-business-contracts/design.md",
+      "to": "../../2026-11-04-business-contracts/design.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/design.md",
+      "from": "../../specs/identity-foundation/spec.md",
+      "to": "../../../specs/identity-foundation/spec.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/design.md",
+      "from": "../../../docs/contracts/change-dependencies.md",
+      "to": "../../../../docs/contracts/change-dependencies.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/design.md",
+      "from": "../../../docs/contracts/schemas/Task.schema.json",
+      "to": "../../../../docs/contracts/schemas/Task.schema.json"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/design.md",
+      "from": "../../../reports/changes/05/contracts-main-integration-2026-11-12.md",
+      "to": "../../../../reports/changes/05/contracts-main-integration-2026-11-12.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/tasks.md",
+      "from": "../../../reports/changes/05/contracts-main-integration-2026-11-12.md",
+      "to": "../../../../reports/changes/05/contracts-main-integration-2026-11-12.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/tasks.md",
+      "from": "../../../reports/changes/05/chen-contract-review-2026-11-12.md",
+      "to": "../../../../reports/changes/05/chen-contract-review-2026-11-12.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/tasks.md",
+      "from": "../../../reports/changes/05/zhang-spec-review-2026-11-12.md",
+      "to": "../../../../reports/changes/05/zhang-spec-review-2026-11-12.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/tasks.md",
+      "from": "../../../reports/changes/05/contracts-freeze-2026-11-12.md",
+      "to": "../../../../reports/changes/05/contracts-freeze-2026-11-12.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/tasks.md",
+      "from": "../../../reports/changes/05/migration-foundation-2026-11-12.md",
+      "to": "../../../../reports/changes/05/migration-foundation-2026-11-12.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/tasks.md",
+      "from": "../../../reports/changes/05/assignment-submission-2026-11-12.md",
+      "to": "../../../../reports/changes/05/assignment-submission-2026-11-12.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/tasks.md",
+      "from": "../../../reports/changes/05/worker-2026-11-12.md",
+      "to": "../../../../reports/changes/05/worker-2026-11-12.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/tasks.md",
+      "from": "../../../reports/changes/05/chen-migration-review-2026-11-12.md",
+      "to": "../../../../reports/changes/05/chen-migration-review-2026-11-12.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/tasks.md",
+      "from": "../../../reports/changes/05/worker-2026-11-12.md",
+      "to": "../../../../reports/changes/05/worker-2026-11-12.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/tasks.md",
+      "from": "../../../reports/changes/05/chen-migration-review-2026-11-12.md",
+      "to": "../../../../reports/changes/05/chen-migration-review-2026-11-12.md"
+    },
+    {
+      "file": "openspec/changes/archive/2026-11-12-assignment-tasks/tasks.md",
+      "from": "../../../reports/changes/05/chen-http-worker-review-2026-11-12.md",
+      "to": "../../../../reports/changes/05/chen-http-worker-review-2026-11-12.md"
+    }
+  ],
+  "archive": "openspec/changes/archive/2026-11-12-assignment-tasks",
+  "status": "candidate; not approved/merged; task3.3 remains unchecked",
+  "runtime": "Go/frontend/SQL/config/Compose unchanged; metadata paths/service provenance only"
+}
