@@ -1,0 +1,102 @@
+{
+  "observer": "小陈 / Kevcco (AI辅助)",
+  "run": 43674335158,
+  "head": "6ff53ae1bb66eded6d9346f9f6c5e42bbdb93114",
+  "source": {
+    "commit": "be735e24af937a3123b07d8575c08b81c1247d43",
+    "dirty": false
+  },
+  "artifact_id": 14146301273,
+  "artifact_digest": "sha256:b2baab2edafa9f748650f9aca81a9cc68f85a69cf9ac827bc1ea5dcf7ed06fe6",
+  "sql_sha256": {
+    "000006_documents.down.sql": "bcd282b537db970249565148410f67a18737d5350055df20dd6efd51c8db5756",
+    "000006_documents.up.sql": "ae898e2c8166ac8e201102e6077ad5cf71a89259fb16553d3f5a1a0380e022ef"
+  },
+  "mysql_version": "8.4.13",
+  "assertions": {
+    "old_tables": 14,
+    "added_tables": 5,
+    "foreign_keys": 6,
+    "enforced_checks": 11,
+    "codepoint_offsets": true,
+    "binary_keys": true,
+    "application_quote_recheck_still_required": true,
+    "runtime_target_still": 6
+  },
+  "negative_count": 16,
+  "actual_rejections": [
+    [
+      "ready PDF cannot omit page count",
+      3819
+    ],
+    [
+      "ready cannot omit body",
+      3819
+    ],
+    [
+      "fourth parse attempt",
+      3819
+    ],
+    [
+      "original byte count mismatch",
+      3819
+    ],
+    [
+      "Word cannot use PDF page count",
+      3819
+    ],
+    [
+      "location cross-class composite FK",
+      1452
+    ],
+    [
+      "location cross-version composite FK",
+      1452
+    ],
+    [
+      "PDF logical unit exceeds page bound",
+      3819
+    ],
+    [
+      "empty source range",
+      3819
+    ],
+    [
+      "chunk cross-class FK",
+      1452
+    ],
+    [
+      "chunk Unicode range mismatch",
+      3819
+    ],
+    [
+      "leased owner cannot be null",
+      3819
+    ],
+    [
+      "leased epoch cannot be zero",
+      3819
+    ],
+    [
+      "same scoped key cannot duplicate",
+      1062
+    ],
+    [
+      "snapshot cannot bind another creator",
+      1452
+    ],
+    [
+      "closed original response must be JSON",
+      3819
+    ]
+  ],
+  "unicode_body_counts": [
+    8,
+    21
+  ],
+  "quote_check_application_only": true,
+  "cleanup_count": 2,
+  "secret_file_removed": true,
+  "scope": "Independently verified downloaded CI evidence; not a local Docker rerun; this separate SQL constraint suite alone does not prove runtime migration/repair/restore",
+  "exit_code": 0
+}

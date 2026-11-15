@@ -1,0 +1,8 @@
+{
+  "check_foundation_exit": 0,
+  "check_contracts_exit": 0,
+  "check_spec_exit": 0,
+  "runtime_input_changed": false,
+  "runtime_verification": "Exact main d874b663991730474e2360944ba1587a1e7c1d65 CI43675360843 already completed success; not a local Docker rerun",
+  "this_document_pr_ci": "pending"
+}
