@@ -1,0 +1,8 @@
+{
+  "scenario": "DI-SC-08 length-prefix prevents ambiguous payload concatenation",
+  "red_exit": 1,
+  "green_exit": 0,
+  "source_restored_exact": true,
+  "source_sha256": "263478076f3281fbb45066c4fe93a36614212a988fefa59d33e625cad8335995",
+  "scope": "Reviewer local input and digest tests only; no MySQL execution"
+}
