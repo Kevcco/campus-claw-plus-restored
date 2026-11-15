@@ -1,0 +1,28 @@
+{
+  "reviewer": "小陈 / Kevcco (AI辅助)",
+  "checked_at": "2026-11-15T02:58:26.705Z",
+  "pr": 52,
+  "head": "20191c4157be936c948fc0faa58aaa3ec853836d",
+  "approval": {
+    "id": 5908725476,
+    "user": "Kevcco",
+    "head": "20191c4157be936c948fc0faa58aaa3ec853836d",
+    "url": "https://github.com/zwh9616/campus-claw-plus/pull/52#pullrequestreview-5908725476"
+  },
+  "merge": "2ece150b39d794acc849fe8812624bf5ed1ecb86",
+  "main_protected": true,
+  "protection_settings": "Admin endpoint HTTP404 for non-admin account; normal merge API enforces applicable protection",
+  "tree": "88f2c2b5abc2ba26d255f6aaafb129026f34cff5",
+  "ci": {
+    "id": 43669560990,
+    "url": "https://github.com/zwh9616/campus-claw-plus/actions/runs/43669560990",
+    "head": "2ece150b39d794acc849fe8812624bf5ed1ecb86",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "id": 14144156151,
+    "digest": "sha256:142959fbbc2c637093a14a880a5ed5083f233ea74b753b3bd081ff636c0493ba"
+  },
+  "scope": "Private Go client component only. No default activation, Target6, persistent upload or whole A/B/C acceptance"
+}

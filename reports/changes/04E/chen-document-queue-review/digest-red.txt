@@ -1,0 +1,6 @@
+=== RUN   TestReviewerDigestPreservesBoundaries
+    reviewer_test.go:56: field concatenation collision
+--- FAIL: TestReviewerDigestPreservesBoundaries (0.00s)
+FAIL
+FAIL	github.com/zwh9616/campus-claw-plus/backend/internal/documentqueue	0.523s
+FAIL
