@@ -1,5 +1,11 @@
 import assert from 'node:assert/strict'
-export function validateDocumentHTTP(report){
+export const documentHTTPDatabaseTests=['TestDHExplicitRetryStopsAtThreeAndPreservesOriginal202','TestDHPublicAuthorizationOriginalsAndCitations','TestDHConcurrentIdempotencySharedQuotaAndRollback','TestDHSnapshotConsistencyAndStrictInput','TestDHSlowBodyUsesWholeFiveSecondBudget']
+export function validateDocumentHTTP(report,sql){
+  const sqlRows=sql.results.filter(r=>r.label==='real MySQL identity scenarios')
+  assert.equal(sqlRows.length,1);assert.equal(sqlRows[0].exit_code,0)
+  const sqlLog=sqlRows[0].output
+  assert.ok(!/^\s*--- (?:FAIL|SKIP): TestDH/m.test(sqlLog))
+  for(const name of documentHTTPDatabaseTests)assert.equal((sqlLog.match(new RegExp('^--- PASS: '+name+' \\(\\d+(?:\\.\\d+)?s\\)$','gm'))??[]).length,1,'Required actual public SQL test: '+name)
   let previous=-1
   for(const stage of ['main','outage','persist']){
     const rows=report.results.filter(r=>r.label==='DI public HTTPS '+stage)
@@ -15,5 +21,5 @@ export function validateDocumentHTTP(report){
   assert.ok(index('recreate isolated HTTPS path')<index('DI public HTTPS persist'))
   const main=report.results.find(r=>r.label==='DI public HTTPS main').output
   assert.ok(main.includes('2 real formats; 5 actors; exact originals and persisted codepoint citations; replay and authorization PASS'))
-  return {stages:['main','outage','persist'],real_formats:2,actors:5,default_https:true,real_parser:true,exact_originals:true,persistent_quotes:true,actual_parser_outage:true,container_recreation:true}
+  return {stages:['main','outage','persist'],database_tests:documentHTTPDatabaseTests,real_formats:2,actors:5,default_https:true,real_parser:true,exact_originals:true,persistent_quotes:true,actual_parser_outage:true,container_recreation:true}
 }

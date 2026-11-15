@@ -8,4 +8,5 @@
 .document-source { padding: 16px 0; border-bottom: 1px solid var(--color-divider); scroll-margin-top: 24px; }
 .document-source:focus { outline: 2px solid var(--color-focus); outline-offset: 4px; }
 .document-body { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.9; }
-.document-body mark { color: var(--color-text); background: var(--color-brand-soft); }
+.document-body mark { color: var(--color-text); background: var(--color-brand-soft); scroll-margin-top: 24px; }
+.document-body mark:focus { outline: 2px solid var(--color-focus); outline-offset: 2px; }

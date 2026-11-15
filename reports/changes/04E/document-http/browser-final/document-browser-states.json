@@ -1,0 +1,36 @@
+{
+  "checks": [
+    "teacher-empty-search-1440无横向溢出",
+    "teacher-empty-search-360无横向溢出",
+    "teacher-loading-1440无横向溢出",
+    "teacher-loading-360无横向溢出",
+    "仅延迟真实请求，恢复后显示真实资料",
+    "teacher-network-error-1440无横向溢出",
+    "teacher-network-error-360无横向溢出",
+    "网络中断错误可手动恢复",
+    "真实扫描件终态真实",
+    "真实扫描件不提供错误重试",
+    "teacher-needs-ocr-1440无横向溢出",
+    "teacher-needs-ocr-360无横向溢出",
+    "真实加密PDF终态真实",
+    "真实加密PDF不提供错误重试",
+    "teacher-encrypted-failed-1440无横向溢出",
+    "teacher-encrypted-failed-360无横向溢出"
+  ],
+  "screens": [
+    "teacher-empty-search-1440.png",
+    "teacher-empty-search-360.png",
+    "teacher-loading-1440.png",
+    "teacher-loading-360.png",
+    "teacher-network-error-1440.png",
+    "teacher-network-error-360.png",
+    "teacher-needs-ocr-1440.png",
+    "teacher-needs-ocr-360.png",
+    "teacher-encrypted-failed-1440.png",
+    "teacher-encrypted-failed-360.png"
+  ],
+  "loading": "held request then continued through actual browser TLS stack",
+  "error": "explicit browser network-abort injection; no fake backend data",
+  "terminal": "real parser scan/encryption states",
+  "url": "https://campus.test:32768/app/materials/documents"
+}

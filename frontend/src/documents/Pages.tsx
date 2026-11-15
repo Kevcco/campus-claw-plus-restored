@@ -65,7 +65,13 @@ export function DocumentView({ client, principal, id, citation }: { client: Clie
     alive.current = true; let timer = 0; const controller = new AbortController(); requests.current.add(controller); setData(undefined); setError(undefined); setBusy(true)
     async function load() {
       try { const d = await client.detail(id, controller.signal); if (citation) checkCitation(d, citation); if (!alive.current || controller.signal.aborted) return; setData(d); setBusy(false)
-        if (citation) requestAnimationFrame(() => { if (!alive.current || controller.signal.aborted) return; const node = document.getElementById('source-' + citation.location.unit); node?.focus(); node?.scrollIntoView({ block: 'start' }) })
+        if (citation) requestAnimationFrame(() => {
+          if (!alive.current || controller.signal.aborted) return
+          const source = document.getElementById('source-' + citation.location.unit)
+          const target = source?.querySelector('mark') ?? source
+          target?.focus({ preventScroll: true })
+          target?.scrollIntoView({ block: 'start' })
+        })
         if (d.document.status === 'queued' || d.document.status === 'processing') timer = window.setTimeout(() => { void load() }, 2000)
       } catch (e) { if (alive.current && !controller.signal.aborted) { setError(failure(e)); setBusy(false) } }
     }
@@ -90,7 +96,7 @@ export function DocumentView({ client, principal, id, citation }: { client: Clie
       <ErrorSummary id="document-action-error" error={actionError} wait={wait} />
       {d.status === 'queued' || d.status === 'processing' ? <p role="status" className="material-state">{d.status === 'queued' ? '资料已保存，等待解析。' : '正在解析正文，完成后会自动更新。'}</p> : d.status === 'needs_ocr' ? <div className="material-state"><h2>待文字识别</h2><p>这份 PDF 含扫描图片，当前不能检索正文。教师可下载原件；文字识别将在后续阶段提供。</p></div> : d.status === 'failed' ? <div className="material-state"><h2>解析失败</h2><p>{reasons[d.failure_reason ?? '']}</p>{d.attempts >= 3 && <p>已达到重试上限，请核对原件后发起新上传。</p>}</div> : <section className="document-sources"><h2>原文与出处</h2><p className="muted">{d.format === 'pdf' ? `原件共 ${d.page_count} 页，以下保留原页码。` : '以下按正文顺序显示段落和表格逻辑块，逻辑块不是Word排版页码。'}</p>{data.locations.map(p => {
         const selected = citation?.location.unit === p.unit ? citation.location : undefined
-        const content: ReactNode = selected ? <>{chars.slice(p.char_start, selected.char_start).join('')}<mark>{chars.slice(selected.char_start, selected.char_end).join('')}</mark>{chars.slice(selected.char_end, p.char_end).join('')}</> : chars.slice(p.char_start, p.char_end).join('')
+        const content: ReactNode = selected ? <>{chars.slice(p.char_start, selected.char_start).join('')}<mark tabIndex={-1}>{chars.slice(selected.char_start, selected.char_end).join('')}</mark>{chars.slice(selected.char_end, p.char_end).join('')}</> : chars.slice(p.char_start, p.char_end).join('')
         return <section key={p.unit} id={'source-' + p.unit} className="document-source" tabIndex={-1}><h3>{locationName(p)}</h3><p className="document-body">{content}</p></section>
       })}</section>}
     </>}
@@ -115,7 +121,7 @@ export function DocumentUpload({ client, principal, completed }: { client: Clien
   if (principal.role !== 'teacher') return <div className="materials-page"><h1>无权上传资料</h1><p>只有当前班级教师可以上传资料。</p><Link to="/app/materials/documents">返回资料列表</Link></div>
   return <div className="materials-page"><Link to="/app/materials/documents" className="material-back">← 返回PDF与Word资料</Link><h1>上传PDF与Word资料</h1><p className="muted intro">资料将保留原件并异步解析。受理成功后可查看真实解析状态。</p>
     <form className="material-upload-form" onSubmit={submit} noValidate aria-busy={busy}>
-      <label htmlFor="document-title">资料标题 <span className="muted">（必填，最多200个字符）</span></label><input id="document-title" required value={title} disabled={busy || !!attempt.current} onChange={e => { setTitle(e.target.value); setHint('') }} onBlur={() => { try { validateTitle(title); setHint('') } catch { setHint('请输入 1–200 个字符的有效标题。') } }} aria-invalid={!!hint || error?.fields.includes('title')} aria-describedby={hint ? 'document-title-hint' : undefined} />
+      <label htmlFor="document-title">资料标题 <span className="muted">（必填，最多200个字符）</span></label><input id="document-title" required value={title} disabled={busy || !!attempt.current} onChange={e => { setTitle(e.target.value); setHint('') }} onBlur={() => { try { validateTitle(title); setHint('') } catch { setHint('请输入 1–200 个字符的有效标题。') } }} aria-invalid={!!hint || error?.fields.includes('title')} aria-describedby={hint ? 'document-title-hint' : error?.fields.includes('title') ? 'document-upload-error' : undefined} />
       {hint && <p id="document-title-hint" className="error-message help">{hint}</p>}
       <label htmlFor="document-file">资料文件 <span className="muted">（必填，最大10 MiB）</span></label><input ref={input} id="document-file" type="file" required accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" disabled={busy || !!attempt.current} onChange={e => setFile(e.target.files?.[0])} aria-invalid={error?.fields.includes('file')} aria-describedby="document-file-help document-upload-error" />
       <p id="document-file-help" className="help muted">支持文本型 PDF 和普通 .docx；旧 .doc 请先另存为 .docx。不支持宏、图片或密码保护；扫描页会进入待文字识别。</p>

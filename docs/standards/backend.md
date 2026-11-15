@@ -1,7 +1,7 @@
 # 后端开发规范
 
 2026-11-15本批04E公开接线：前置#52/#53/#54/#55已获Kevcco实际批准并正常合入，精确main d874b66完整CI43675360843及原件已核验。本候选将已批准#45的六个Document操作原子转current（共28），提供真实PDF/Word列表、上传、解析状态、关键词出处、原文及原件下载；沿用#49样板方向，用户本轮明确授权继续真实页面。持久异步解析保持Target6/15空active/五服务，持有人库未自动升级，生产进程不执行DDL。OCR与语义检索仍列后续任务。本批最终门禁、浏览器、远端批准和main复验以共享表为准；下面较早日期的候选状态属于历史记录。
-当前运行已接入MySQL、六个身份、六个资料、九个作业/提交/任务操作及健康，共22个current操作；不引入模型或成绩。00只落实[公共合同](../contracts/README.md)与检查；G2及自身规约批准后，各业务按OpenAPI3.1和唯一2020-12 Schema实施。health仅采用MySQL up/down合同；planned操作禁止假实现。
+当前运行已接入MySQL、六个身份、六个TXT资料、六个Document资料、九个作业/提交/任务操作及健康，共28个current操作；不引入模型或成绩。00只落实[公共合同](../contracts/README.md)与检查；G2及自身规约批准后，各业务按OpenAPI3.1和唯一2020-12 Schema实施。health仅采用MySQL up/down合同；planned操作禁止假实现。
 | 条目 | 规则/示例 | 检查 |
 | --- | --- | --- |
 | 分层 | backend/cmd/server装配；internal/config读取配置；internal/httpserver处理HTTP；未来service业务、repository接口、adapter实现 | 当前import单向，入口不写HTTP业务；后续service不依赖transport/adapter，SQL只在存储适配器 |
@@ -60,7 +60,7 @@
 依据已批准#48的I3，本候选逐字追加000006，server/admin共享精确Target6，000001..000005字节不改。available只表示嵌入代码，持有人库未升级；仍须停写/一致备份、离线migrate，dirty/摘要/完整结构漂移阻断，仅显式前向repair6。五新增表全部空且明确可丢弃集成库才允许测试down；方法仅integration构建存在，无生产CLI或force/down入口。当前22 current、13 active与两frozen键、四默认生产服务和MySQL健康保持，解析服务未生产装配。实际五DDL/备份恢复与完整门禁结果见共享表，未验不记通过。
 
 
-## 04E私有生产接线候选（2026-11-14，本分支优先）
+## 历史：04E私有生产接线候选（2026-11-14，现状见本文开头）
 
 本分支组合待审#52客户端、#53队列、#54迁移6，默认server在精确Target6/TLS/DML连接检查后启动独立资料worker；不自动DDL，不绑定05批改执行器。仅新增DOCUMENT_PARSER_URL和DOCUMENT_PARSER_TOKEN两active键（共15，样例全部空值），固定origin http://document-parser:8091，32随机字节canonical base64url令牌，非法/缺失启动非零且不回显。原身份12键及HTTP_PORT不变；两个新值在根本机.env，Compose只给backend两个键、parser仅TOKEN，admin/MySQL/frontend不取得它们。旧backend.env和admin.env仍严格分离。
 

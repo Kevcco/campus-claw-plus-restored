@@ -34,7 +34,7 @@ try {
   output.images = validateRuntimeEvidence(reports, started, Date.now(), inventory)
   output.document_migration6 = validateDocumentMigrationEvidence(reports['output/identity/results.json'])
   output.document_worker = validateDocumentRuntimeEvidence(reports['output/identity-wiring/results.json'],output.images)
-  output.document_http = validateDocumentHTTP(reports['output/identity-wiring/results.json'])
+  output.document_http = validateDocumentHTTP(reports['output/identity-wiring/results.json'],reports['output/identity/results.json'])
   output.evidence = evidencePaths.map(path => ({ path, sha256: sha256(bytes[path]) }))
   // DI-SC-14: retain all production validation, including the exact fifth
   // service artifact, and separately repeat standalone component/scan tests.

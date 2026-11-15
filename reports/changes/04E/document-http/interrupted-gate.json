@@ -1,0 +1,12 @@
+{
+  "source": "b55265e",
+  "tracked_dirty": [
+    "README.md"
+  ],
+  "result": "interrupted_no_final_result",
+  "gate_lock_pid": 41116,
+  "process_observed_absent": true,
+  "docker_observed_stopped": true,
+  "verify_last_completed": "default HTTPS plus public main/outage/persist; SQL fixture started",
+  "not_claimed": "complete gate or clean working tree"
+}

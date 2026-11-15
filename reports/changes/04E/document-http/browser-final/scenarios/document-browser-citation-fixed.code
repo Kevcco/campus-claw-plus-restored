@@ -1,0 +1,14 @@
+async page=>{
+ await page.setViewportSize({width:1440,height:900})
+ await page.getByLabel('关键词',{exact:true}).fill('核对出处与授权');await page.getByRole('button',{name:'搜索',exact:true}).click();await page.locator('.material-citations li').nth(1).waitFor()
+ const expected=await page.locator('.material-citations li').nth(1).locator('.material-quote').innerText()
+ await page.locator('.material-citations li').nth(1).getByRole('link').click();await page.locator('mark').waitFor()
+ const measured=await page.locator('mark').evaluate(el=>{const first=el.getClientRects()[0];return{top:first.top,bottom:first.bottom,view:innerHeight,focused:el===document.activeElement,exactScroll:first.top>=0&&first.top<innerHeight-40}})
+ if(await page.locator('mark').innerText()!==expected||!measured.exactScroll||!measured.focused)throw new Error('exact citation navigation failed: '+JSON.stringify(measured))
+ const base='C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/output/document-browser/screenshots/'
+ await page.screenshot({path:base+'long-citation-fixed-1440.png'})
+ await page.getByRole('link',{name:'← 返回PDF与Word资料',exact:true}).click();await page.setViewportSize({width:360,height:900});await page.getByLabel('关键词',{exact:true}).fill('核对出处与授权');await page.getByRole('button',{name:'搜索',exact:true}).click();await page.locator('.material-citations li').nth(1).getByRole('link').click();await page.locator('mark').waitFor();await page.screenshot({path:base+'long-citation-fixed-360.png'})
+ const narrow=await page.locator('mark').evaluate(el=>({top:el.getClientRects()[0].top,view:innerHeight,overflow:document.documentElement.scrollWidth>document.documentElement.clientWidth}))
+ if(narrow.top<0||narrow.top>=narrow.view-40||narrow.overflow)throw Error('narrow quote positioning')
+ return {expectedCodepoints:[...expected].length,...measured,narrow,url:page.url()}
+}
