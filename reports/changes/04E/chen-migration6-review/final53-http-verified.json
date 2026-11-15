@@ -1,0 +1,44 @@
+{
+  "observer": "小陈 / Kevcco (AI辅助)",
+  "run": 43670365904,
+  "head": "ce0fd30830105292fe78d1f3e8866f3d271b6d6c",
+  "source": {
+    "commit": "84359e1a4fa59b02c1bfa90838019cf436df83ce",
+    "dirty": false,
+    "fingerprint": "9479e2e12ad530958be13305119a88c02f95348f9bed2feba74627b9e26bfce9"
+  },
+  "artifact_id": 14143978461,
+  "artifact_digest": "sha256:b5fc4dc87c0e882fc172297b475ae89254235af8a570b4439c62c5dc6b3b4c03",
+  "scope": "Independently verified original CI HTTP evidence, including real children; local reviewer protocol probes are separate. No production activation or local Docker rerun claim.",
+  "results": [
+    {
+      "mode": "check",
+      "source": {
+        "commit": "84359e1a4fa59b02c1bfa90838019cf436df83ce",
+        "dirty": false,
+        "fingerprint": "9b3e9e9fad8a2bace77480d77bd85eff5961ffd14e2a6000c10df9163a4426b4"
+      },
+      "image_id": "sha256:bc229cf80d64aa3739416ecd6b4d89cba395ec3a1c13afc5767d73950e885bf6",
+      "groups": 7,
+      "actual_http_documents": 40,
+      "locations": 195,
+      "safe_logs": true,
+      "cleanup_count": 2
+    },
+    {
+      "mode": "scan",
+      "source": {
+        "commit": "84359e1a4fa59b02c1bfa90838019cf436df83ce",
+        "dirty": false,
+        "fingerprint": "9b3e9e9fad8a2bace77480d77bd85eff5961ffd14e2a6000c10df9163a4426b4"
+      },
+      "image_id": "sha256:bc229cf80d64aa3739416ecd6b4d89cba395ec3a1c13afc5767d73950e885bf6",
+      "groups": 7,
+      "actual_http_documents": 40,
+      "locations": 195,
+      "safe_logs": true,
+      "cleanup_count": 2
+    }
+  ],
+  "exit_code": 0
+}

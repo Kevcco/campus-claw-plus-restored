@@ -1,0 +1,12 @@
+{
+  "run_id": 43670365904,
+  "run_url": "https://github.com/zwh9616/campus-claw-plus/actions/runs/43670365904",
+  "event": "pull_request",
+  "head_sha": "ce0fd30830105292fe78d1f3e8866f3d271b6d6c",
+  "status": "completed",
+  "conclusion": "success",
+  "artifact_id": 14143978461,
+  "artifact_name": "runtime-image-scans-84359e1a4fa59b02c1bfa90838019cf436df83ce",
+  "artifact_digest": "sha256:b5fc4dc87c0e882fc172297b475ae89254235af8a570b4439c62c5dc6b3b4c03",
+  "actor": "Kevcco"
+}

@@ -1,0 +1,9 @@
+{
+  "verify": "not run",
+  "secret_scan_exit": 0,
+  "mysql": "not run",
+  "npm_ci_exit": 0,
+  "check_exit": 1,
+  "setup_exit": 0,
+  "audit_exit": 0
+}
