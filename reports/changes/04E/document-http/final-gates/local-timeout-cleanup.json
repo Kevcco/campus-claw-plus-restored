@@ -1,0 +1,15 @@
+{
+  "time": "2026-11-15T08:29:45.324Z",
+  "project": "campus-parser-client-30a45bf5744d",
+  "private_fixture_removed": true,
+  "network_removed": true,
+  "retained_tags_removed": [
+    "campus-mysql-audit-aeb2a3cba3cd:verification",
+    "campus-app-audit-4dddf0fcd029-backend:verification",
+    "campus-app-audit-4dddf0fcd029-admin:verification",
+    "campus-app-audit-4dddf0fcd029-frontend:verification",
+    "campus-app-audit-4dddf0fcd029-document-parser:verification"
+  ],
+  "exit_code": 0,
+  "scope": "Only verified owned orphan client and recorded retained tags; no other projects stopped"
+}
