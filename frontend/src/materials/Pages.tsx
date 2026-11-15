@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { MaterialTypes } from '../documents/Pages'
 import type { FormEvent } from 'react'
 import { AuthError } from '../auth/client'
 import type { createAuthClient, Principal } from '../auth/client'
@@ -48,7 +49,7 @@ export function MaterialsList({ client, principal, openCitation }: { client: Cli
     void load(1, q)
   }
   const isSearch = data && 'mode' in data
-  return <div className="materials-page">
+  return <div className="materials-page"><MaterialTypes />
     <div className="material-title-row"><div><h1>班级资料</h1><p className="muted">查找本班资料，阅读原文并核对出处。</p></div>{principal.role === 'teacher' && <Link to="/app/materials/upload" className="material-upload-link">上传资料</Link>}</div>
     <form className="material-search" onSubmit={search} noValidate>
       <div className="material-search-field"><label htmlFor="material-query">关键词</label><input id="material-query" value={query} onChange={event => setQuery(event.target.value)} placeholder="按资料内容搜索" aria-invalid={error?.fields.includes('q')} aria-describedby={error ? 'material-list-error' : undefined} /></div>

@@ -3,8 +3,8 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 // DI-SC-03..07/10/14. Operate only CIDs with this disposable Compose project
-// label. No host database/parser ports and no public Document API activation.
-export async function verifyDocumentRuntime({ id, directory, compose, run, client, goArgs, goImage, evidence }) {
+// label. No host database/parser ports. Public HTTPS proof uses separate actors.
+export async function verifyDocumentRuntime({ id, directory, compose, run, client, documentHTTPClient, goArgs, goImage, evidence }) {
   const own = service => {
     const cid = compose('DI resolve own '+service, ['ps','--all','-q',service]).trim()
     assert.match(cid,/^[a-f0-9]{64}$/)
@@ -38,9 +38,11 @@ export async function verifyDocumentRuntime({ id, directory, compose, run, clien
     '--mount',`type=bind,source=${resolve('document-parser/testdata/acceptance-v1')},target=/corpus,readonly`,
     goImage,'go','test','-count=1','-tags=integration,documentruntime','-run=^TestDocumentProductionWorker$','-timeout=120s','-v','./internal/integration/wiring'],{timeout:145000})
   stage('corpus')
+  documentHTTPClient('main')
   compose('DI stop actual parser only',['stop','--timeout','15','document-parser'])
   // Preserve all original HTTPS assertions while the parser is really absent.
   client('persist','DI-SC-14 parser outage preserves original HTTPS health TXT and pending tasks')
+  documentHTTPClient('outage')
   compose('DI recreate backend without parser dependency',['up','-d','--no-deps','--force-recreate','--wait','--wait-timeout','45','backend'])
   assert.equal(own('backend').Image,backendImage)
   stage('outage-enqueue')
@@ -75,7 +77,7 @@ export async function verifyDocumentRuntime({ id, directory, compose, run, clien
     'import glob;assert not glob.glob("/tmp/di-rpc-*")'])
   const proof=JSON.parse(readFileSync(path,'utf8'))
   const summary={label:'DI-SC-03..07/10/14 actual default worker persisted corpus and recovery',exit_code:0,
-    scope:'trusted internal fixture insertion; six public Document HTTP operations remain frozen',
+    scope:'trusted internal fixture insertion; public HTTP verified separately',
     parser_image:parserImage,backend_image:backendImage,forced_test_lease_expiry:true,actual_worker_sigkill:true,
     proof:Object.fromEntries(Object.entries(proof).filter(([k])=>!k.endsWith('_accepted')))}
   evidence.push(summary)

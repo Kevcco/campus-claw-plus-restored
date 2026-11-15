@@ -1,0 +1,11 @@
+.document-tabs { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; border-bottom: 1px solid var(--color-divider); padding-bottom: 12px; }
+.document-tabs a[aria-current="page"] { font-weight: 700; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.document-metadata { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 16px 0 24px; overflow-wrap: anywhere; }
+.document-status { display: inline-block; width: fit-content; padding: 4px 8px; border: 1px solid currentColor; border-radius: 4px; font-size: 14px; }
+.document-status-ready { color: var(--color-success); }
+.document-status-failed { color: var(--color-error); }
+.document-status-queued, .document-status-processing, .document-status-needs_ocr { color: var(--color-warning); }
+.document-source { padding: 16px 0; border-bottom: 1px solid var(--color-divider); scroll-margin-top: 24px; }
+.document-source:focus { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+.document-body { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.9; }
+.document-body mark { color: var(--color-text); background: var(--color-brand-soft); }

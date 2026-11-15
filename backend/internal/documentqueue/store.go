@@ -206,7 +206,7 @@ func (s *Store) Enqueue(ctx context.Context, u Upload) (out Accepted, err error)
 			Failure  *string `json:"failure_reason"`
 			Created  string  `json:"created_at"`
 			Updated  string  `json:"updated_at"`
-		}{strconv.FormatUint(out.ID, 10), u.Title, u.Format, 1, "queued", len(u.Original), 0, nil, nil, at.UTC().Format(time.RFC3339Nano), at.UTC().Format(time.RFC3339Nano)})
+		}{strconv.FormatUint(out.ID, 10), u.Title, u.Format, 1, "queued", len(u.Original), 0, nil, nil, at.UTC().Format("2006-01-02T15:04:05.000Z"), at.UTC().Format("2006-01-02T15:04:05.000Z")})
 		if e != nil {
 			return ErrUnavailable
 		}

@@ -1,0 +1,4 @@
+=== RUN   TestDIUnicodeLocationsSnapshotAndCorruption
+--- PASS: TestDIUnicodeLocationsSnapshotAndCorruption (0.00s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/documents	0.006s

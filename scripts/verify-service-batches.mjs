@@ -3,6 +3,7 @@ import { mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs'
 import { runSequence } from './gate-runner.mjs'
 import { runtimeSteps, evidencePaths, loadBatchInputs, validateBatch, validateRuntimeEvidence, sha256, retainedImageTags } from './service-batches.mjs'
 import { validateDocumentMigrationEvidence } from './document-migration-evidence.mjs'
+import { validateDocumentHTTP } from './document-http-evidence.mjs'
 import { validateDocumentRuntimeEvidence } from './document-runtime-evidence.mjs'
 
 const directory = 'output/service-batches'
@@ -17,7 +18,7 @@ const controller = new AbortController()
 const cancel = () => controller.abort()
 process.on('SIGINT', cancel)
 process.on('SIGTERM', cancel)
-let output = { time: new Date(started).toISOString(), exit_code: 1, scope: 'DO-SC-11..13 five-service batch with private document worker; assignment executor unbound, six Document HTTP operations frozen; no independent reviewer or full10B/C claim' }
+let output = { time: new Date(started).toISOString(), exit_code: 1, scope: 'DO-SC-11..13 five-service batch with private document worker; assignment executor unbound, six authorized Document HTTP operations current; no independent reviewer or full10B/C claim' }
 try {
   const before = source()
   output.source = before
@@ -33,6 +34,7 @@ try {
   output.images = validateRuntimeEvidence(reports, started, Date.now(), inventory)
   output.document_migration6 = validateDocumentMigrationEvidence(reports['output/identity/results.json'])
   output.document_worker = validateDocumentRuntimeEvidence(reports['output/identity-wiring/results.json'],output.images)
+  output.document_http = validateDocumentHTTP(reports['output/identity-wiring/results.json'])
   output.evidence = evidencePaths.map(path => ({ path, sha256: sha256(bytes[path]) }))
   // DI-SC-14: retain all production validation, including the exact fifth
   // service artifact, and separately repeat standalone component/scan tests.

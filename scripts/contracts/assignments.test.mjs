@@ -18,7 +18,7 @@ function rejects(mutate){const bad=copy(api);mutate(bad);assert.throws(()=>valid
 
 test('AT-SC-01 nine operations retain their migration5 prefix with exact appended DI migration6',()=>{
  validateOperationBoundary(api,register)
- assert.equal(register.operations.filter(o=>o.status==='current').length,22)
+ assert.equal(register.operations.filter(o=>o.status==='current').length,28)
  const phase=JSON.parse(readFileSync('docs/contracts/identity-phase.json','utf8'))
  assert.deepEqual(phase.migrations.map(m=>m.number),['000001','000002','000003','000004','000005','000006'])
  assert.equal(phase.migrations[4].owner,'05')

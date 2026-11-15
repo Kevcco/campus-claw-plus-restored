@@ -12,12 +12,12 @@ const upload=a=>a.paths['/api/v1/documents'].post
 const search=a=>a.paths['/api/v1/document-search'].get
 function rejects(mutate){const a=copy(api);mutate(a);assert.throws(()=>validateOperationBoundary(a,register))}
 
-test('DI-SC-01/25 six frozen candidates never activate PDF/OCR/vector runtime or change 22 current',()=>{
+test('DI-SC-01/25 exactly six approved Document operations activate28 current without OCR/vector runtime',()=>{
  validateOperationBoundary(api,register)
- assert.equal(register.operations.filter(x=>x.status==='current').length,22)
- assert.equal(register.operations.filter(x=>x.owner==='04E'&&x.status==='frozen').length,6)
- for(const mutate of [a=>upload(a)['x-contract-status']='current',a=>upload(a)['x-owner-change']='04',a=>delete a.paths['/api/v1/document-search'],a=>a.paths['/api/v1/documents'].delete=copy(upload(a)),a=>a.paths['/api/v1/ocr']={post:copy(upload(a))}])rejects(mutate)
- for(const mutate of [r=>r.operations.find(x=>x.owner==='04E').status='current',r=>r.operations.find(x=>x.owner==='04E').introduced_by='openspec/changes/unknown']){const r=copy(register);mutate(r);assert.throws(()=>validateOperationBoundary(api,r))}
+ assert.equal(register.operations.filter(x=>x.status==='current').length,28)
+ assert.equal(register.operations.filter(x=>x.owner==='04E'&&x.status==='current').length,6)
+ for(const mutate of [a=>upload(a)['x-contract-status']='frozen',a=>upload(a)['x-owner-change']='04',a=>delete a.paths['/api/v1/document-search'],a=>a.paths['/api/v1/documents'].delete=copy(upload(a)),a=>a.paths['/api/v1/ocr']={post:copy(upload(a))}])rejects(mutate)
+ for(const mutate of [r=>r.operations.find(x=>x.owner==='04E').status='frozen',r=>r.operations.find(x=>x.owner==='04E').introduced_by='openspec/changes/unknown']){const r=copy(register);mutate(r);assert.throws(()=>validateOperationBoundary(api,r))}
 })
 test('DI-SC-02/11 authorization, private downloads and strict input declarations cannot weaken',()=>{
  for(const mutate of [a=>upload(a).security=[],a=>upload(a)['x-authorization'].roles.push('student'),a=>search(a)['x-authorization'].class_scope='client_header',a=>search(a)['x-authorization'].student_visibility='all',a=>search(a)['x-authorization'].cross_class=403,a=>search(a)['x-authorization'].order.reverse(),a=>search(a).parameters.push({name:'class_id',in:'query',required:false,schema:{type:'string'}}),a=>a.paths['/api/v1/documents/{id}'].get.parameters[0].schema={type:'number'},a=>search(a)['x-request-rules'].unknown_query='ignore',a=>a.paths['/api/v1/documents/{id}/download'].get.responses['200'].headers['Content-Disposition'].schema.pattern='^inline;',a=>a.paths['/api/v1/documents/{id}/download'].get.responses['200'].headers['Cache-Control'].schema.const='public',a=>a.paths['/api/v1/documents/{id}/download'].get.responses['200'].headers['X-Content-Type-Options'].schema.const='none'])rejects(mutate)
