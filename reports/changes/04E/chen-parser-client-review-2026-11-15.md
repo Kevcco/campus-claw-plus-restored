@@ -15,3 +15,5 @@
 本提交新增测试后必须重跑最终head CI，再实际批准/按保护正常合入并核验精确main；上述来件绿灯不替代本提交最终CI。#53队列、#54迁移6和#55生产接线已提交，仍须逐项审查，#55尤其等待三个组件获审合入。当前生产仍22 current、Target5、13 active空值键和四服务；A1.2b/A1.3b/A2父任务及04E整个A/B/C、真实Document页面未验收。
 
 文本日志按仓库LF保存，两个下载ZIP保持原字节；目录摘要按实际入库文件重算。
+
+2026-11-15实际主干复验：#52精确main2ece150完整CI43669560990成功，artifact14144156151原ZIP与GitHub摘要一致；四段/真实40文件195位置/鉴权/断连/原运行/SQL/清理全部独立核验，解包秘密扫描0。[实际批准与集成](chen-document-queue-review/main52-acceptance.json) / [精确main原ZIP](chen-document-queue-review/main52-evidence.zip)。前文“本提交时运行”为先前快照，现已收口。#53本次只补主干原件，队列代码/回归输入逐字不变，补证head自身CI和实际批准另核。

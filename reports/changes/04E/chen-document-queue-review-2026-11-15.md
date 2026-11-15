@@ -13,3 +13,5 @@
 已实际收口#52组件：本人APPROVED5908725476绑定最终20191c4157be936c948fc0faa58aaa3ec853836d；[最终CI43668637038](https://github.com/zwh9616/campus-claw-plus/actions/runs/43668637038)成功，artifact14143274631原ZIP SHA256=ff83d6a82086bbed74049846e444a3864fe1fe60394446af0ed4859937bf2bf0，与GitHub一致，11实际输入/两轮Go→Python各40文件195位置/鉴权/真实服务消失及全部原运行/SQL/清理已核验。[最终原ZIP](chen-document-queue-review/final52-evidence.zip)。正常合入main2ece150b39d794acc849fe8812624bf5ed1ecb86，本提交时精确main CI43669560990仍运行，未预填通过。main显示protected=true；普通写账号读取保护管理端点HTTP404，未声称已枚举全部保护参数，合并通过正常API并绑定最终SHA，不使用管理员绕过。
 
 本轮在原#53同步该已获审主干，逐列合并共享表/tasks，保留小张队列、客户端和小陈审查所有历史与原件；只新增reviewer_test.go及本轮证据，原4个队列实现/测试文件、SQL和脚本逐字保留。新增测试提交的最终CI、实际批准/正常合入与main复验仍待实际执行。当前仍22 current/Target5/13 active空键/四服务；#54迁移6、#55生产接线、授权Document HTTP/页面及A/B/C未获本次批准，不勾父项。
+
+2026-11-15实际主干复验：#52精确main2ece150完整CI43669560990成功，artifact14144156151原ZIP与GitHub摘要一致；四段/真实40文件195位置/鉴权/断连/原运行/SQL/清理全部独立核验，解包秘密扫描0。[实际批准与集成](chen-document-queue-review/main52-acceptance.json) / [精确main原ZIP](chen-document-queue-review/main52-evidence.zip)。前文“本提交时运行”为先前快照，现已收口。#53本次只补主干原件，队列代码/回归输入逐字不变，补证head自身CI和实际批准另核。
