@@ -127,3 +127,6 @@ A1.2b组件补证#51：9aa2f86原check0、7组HTTP/40实际文件/慢头慢体�
 
 
 2026-11-15晚小张在真实默认HTTPS环境补#57重试实测：上传202后真实SIGKILL私有解析器（不改SQL），失败1→键盘Enter只发一次retry202/正确Location→真实ready2及逐字原件SHA通过；另份资料两次显式retry202/实际GET轮询至失败3，按钮隐藏/耗尽提示通过。耗尽页矛盾文案已真实浏览器红→绿修复，并重建frontend sha256:40eae59a240f6f9b148a4e829641be6b0faa264b5d8a71dc03ecc24a9600bd19复跑成功2/耗尽3/扫描needs_ocr/加密失败，实际Enter只一次写、GET轮询、202 Location、原件SHA均通过；本机类型/33前端/构建/strict11退出0。证据见reports/changes/04E/document-http/retry-browser/manifest.json。原生200%新窗口仍实测DPR1.5/innerWidth1281（Windows150%，页面100%），viewport=null/CSSzoom1，不冒称200%通过。9a327ac完整CI43698110827已独立核验18原件/跟踪指纹/三HTTPS/五SQL/五镜像及清理0，verify402973ms；本提交最终CI/200%/实际复审/合并仍待。
+
+
+2026-11-15晚补证：64ea99a代码最终完整CI43714084399成功，预演095d282与head整树一致；artifact14162150910原ZIP SHA256 fe3ea94890179a9c4d3d3576a12c1398a634883982d1feca17a0921ff91860de、18原件和全部跟踪指纹独立核验，四段0、verify508019ms、五镜像零HIGH/CRITICAL、三公开HTTPS/五真实SQL/九worker/迁移恢复/原回归及全部清理通过，解包秘密扫描0。本机64ea99a完整check/audit/secret-scan亦全部0；429源码/30浏览器原件与Git blob一致。Location行内线程已由小张凭实证解决，Kevcco仍CHANGES_REQUESTED、未获新批准。新原生Nightly窗口多次实测仍DPR1.5/innerWidth1281/viewport=null/CSSzoom1（页面100%），尚未收到新窗口调整完成回复，200%未验证。保持#57草稿，不请求最终复审或合并；本提交仅补证与进度，新的文档head CI另核。代码原件见document-http/retry-final-ci/及retry-final-local/，200%通过后再请求实际复审、满足门禁后正常合并/main复验。
