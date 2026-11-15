@@ -48,3 +48,5 @@
 本次A1后半由小张提交[接线冻结候选](../../openspec/changes/2026-11-13-materials-document-intelligence/integration-contract.md)：准确私有RPC/配置/DDL及恢复规则先获真实审查、正常合入并复验，再做A1.2b/A1.3b及持久HTTP。原G2/G3、04E统一负责人和六个公开frozen边界保留；本批独立SQL探针不授权运行迁移6或生产接线，不复用05 Task执行器。
 
 组长明确A优先PDF/Word，B OCR、C语义/混合检索，全部小张负责，覆盖04E历史暂缓但不恢复07教学生成/08成绩。依赖01/02/04/06既有验收及G2/G3；05只保留现有Task，不承载资料解析作业。A规约/六个frozen机器合同获真实批准、正常合入/集成复验后apply；A真实验收后进入B，B验收后进入C，各自先冻结模型/配置/迁移/接口再接线。[具体任务](../../openspec/changes/2026-11-13-materials-document-intelligence/tasks.md) · [验收标准](../../openspec/changes/2026-11-13-materials-document-intelligence/acceptance.md)。规约/实现/测试/收口两列均小张，按[本次角色例外](../standards/collaboration.md)执行；远端真实批准不豁免。
+
+2026-11-15公开Document接线准入：#45/#48合同已批准合入；#52/#53/#54/#55分别由Kevcco实际批准、正常合入，精确main d874b66完整CI43675360843及原件核验通过。本批按已批准六操作原子转current（总28），用户明确授权沿用#49方向继续实际页面。全部04E仍小张负责；原生200%与完整门禁/最终CI/真实批准、正常合入/main复验尚须本批证据，不以上述前置复验代替。

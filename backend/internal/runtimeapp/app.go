@@ -1,6 +1,6 @@
 // Package runtimeapp assembles the default identity/TXT/task HTTP application
-// with an independent private document worker. It never performs DDL or opens
-// the six still-frozen Document HTTP operations.
+// with six authorized document operations and an independent private worker.
+// It never performs DDL; parsing stays outside public HTTP/SQL transactions.
 package runtimeapp
 
 import (
@@ -13,7 +13,10 @@ import (
 	"github.com/zwh9616/campus-claw-plus/backend/internal/config"
 	"github.com/zwh9616/campus-claw-plus/backend/internal/documentparser"
 	"github.com/zwh9616/campus-claw-plus/backend/internal/documentqueue"
+	"github.com/zwh9616/campus-claw-plus/backend/internal/documents"
+	"github.com/zwh9616/campus-claw-plus/backend/internal/httpserver"
 	"github.com/zwh9616/campus-claw-plus/backend/internal/identityapp"
+	"github.com/zwh9616/campus-claw-plus/backend/internal/materials"
 )
 
 func New(ctx context.Context, lookup func(string) (string, bool), logger *slog.Logger) (http.Handler, func() error, error) {
@@ -25,11 +28,14 @@ func New(ctx context.Context, lookup func(string) (string, bool), logger *slog.L
 	if e != nil {
 		return nil, nil, e
 	}
-	handler, repo, e := identityapp.NewWithStore(ctx, lookup, logger)
+	limiter := materials.NewLimiter(nil)
+	handler, repo, auth, e := identityapp.Assemble(ctx, lookup, logger, limiter)
 	if e != nil {
 		client.Close()
 		return nil, nil, e
 	}
+	origin, _ := lookup("AUTH_TRUSTED_ORIGIN")
+	handler = httpserver.DocumentsHandler(logger, auth, &documents.Service{Repo: repo, Healthy: client.Healthy}, origin, limiter, handler)
 	workerCtx, cancel := context.WithCancel(ctx)
 	done := make(chan struct{})
 	queue := &documentqueue.Store{DB: repo.DB}

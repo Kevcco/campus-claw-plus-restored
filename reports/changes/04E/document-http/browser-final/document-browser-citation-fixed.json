@@ -1,0 +1,14 @@
+{
+  "expectedCodepoints": 2000,
+  "top": 28.866668701171875,
+  "bottom": 49.53334045410156,
+  "view": 900,
+  "focused": true,
+  "exactScroll": true,
+  "narrow": {
+    "top": 28.866668701171875,
+    "view": 900,
+    "overflow": false
+  },
+  "url": "https://campus.test:32768/app/materials/documents/6"
+}

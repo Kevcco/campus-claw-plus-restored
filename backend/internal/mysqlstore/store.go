@@ -11,6 +11,8 @@ import (
 
 type Store struct {
 	DB *sql.DB
+	// Nil in production; interrupts public document transactions in real SQL tests.
+	DocumentHook func(stage string) error
 	// MaterialHook injects transaction failures in tests; production leaves it nil.
 	MaterialHook func(stage string, step int) error
 	// Assignment hooks are nil in production; deterministic SQL/transaction

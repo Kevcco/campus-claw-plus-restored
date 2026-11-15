@@ -1,0 +1,6 @@
+=== RUN   TestDIUnicodeLocationsSnapshotAndCorruption
+    documents_test.go:54: wrong quote
+--- FAIL: TestDIUnicodeLocationsSnapshotAndCorruption (0.00s)
+FAIL
+FAIL	github.com/zwh9616/campus-claw-plus/backend/internal/documents	0.007s
+FAIL

@@ -22,7 +22,7 @@ import (
 
 // DI-SC-03..07/10/14: only trusted fixture insertion is used here. The actual
 // default server worker, private Python image and TLS database produce results;
-// this is deliberately not evidence for the still-frozen authorized HTTP API.
+// authorized public HTTP is verified separately by TestDocumentHTTPProduction.
 func TestDocumentProductionWorker(t *testing.T) {
 	raw, err := os.ReadFile("/fixtures/backend.env")
 	if err != nil {

@@ -1,10 +1,12 @@
 # 安全开发规范
-每次修改必读。当前运行已激活身份与MySQL；公开/health每次Ping，其余仅允许已登记current的六个身份、六个授权资料及九个作业/提交/任务操作，共22个current操作。00获G1后仅落实合同/规则；G2及各change批准后才实现业务。合同见[入口](../contracts/README.md)，未来约束不代表本轮已实现。
+
+2026-11-15本批04E公开接线：前置#52/#53/#54/#55已获Kevcco实际批准并正常合入，精确main d874b66完整CI43675360843及原件已核验。本候选将已批准#45的六个Document操作原子转current（共28），提供真实PDF/Word列表、上传、解析状态、关键词出处、原文及原件下载；沿用#49样板方向，用户本轮明确授权继续真实页面。持久异步解析保持Target6/15空active/五服务，持有人库未自动升级，生产进程不执行DDL。OCR与语义检索仍列后续任务。本批最终门禁、浏览器、远端批准和main复验以共享表为准；下面较早日期的候选状态属于历史记录。
+每次修改必读。当前运行已激活身份与MySQL；公开/health每次Ping，其余仅允许已登记current的六个身份、六个TXT资料、六个Document资料及九个作业/提交/任务操作，共28个current操作。00获G1后仅落实合同/规则；G2及各change批准后才实现业务。合同见[入口](../contracts/README.md)，未来约束不代表本轮已实现。
 | 条目 | 规则/示例 | 检查与违规处置 |
 | --- | --- | --- |
 | 默认拒绝 | 只显式开放已登记接口；未来角色/班级来自可信会话，不采信query/body/header声明 | 新业务路由未登记则不得放行；授权遗漏阻断 |
 | 逐资源授权 | 读取资源后校验归属；跨班与不存在一致404，观测标识可不同 | 双班师生互换资源ID，响应无存在性差异 |
-| 附件 | 必须挂钩授权业务对象，禁止通用文件ID下载和公开附件静态目录 | 匿名/跨班读取拒绝；当前无附件接口 |
+| 附件 | 必须挂钩授权业务对象，禁止通用文件ID下载和公开附件静态目录 | 匿名/跨班读取拒绝；TXT和Document原件仅经各自授权接口下载 |
 | 机密 | .env被忽略；.env.example只含config-register.active的空值键，当前active键以登记表为准；不进Git/镜像/前端/日志 | 基础检查验证登记/空值/重复/缺项+待提交审查+全历史gitleaks；命中立即轮换 |
 | 输入输出 | 类型/长度/范围/枚举白名单；查询参数绑定；React转义；不用dangerouslySetInnerHTML | 注入引号/标签/路径穿越不得执行；非法筛选不能变全量 |
 | 令牌 | 未来访问令牌仅内存，刷新令牌HttpOnly/Secure/SameSite=Strict Cookie并轮换；登出/改密立即失效 | 不在URL/本地存储/日志出现；旧令牌失效测试 |
@@ -64,7 +66,7 @@ config-register.json中仅登记http://mcp:8090/mcp，enabled=false。须03/07C�
 依据已批准#48的I3，本候选逐字追加000006，server/admin共享精确Target6，000001..000005字节不改。available只表示嵌入代码，持有人库未升级；仍须停写/一致备份、离线migrate，dirty/摘要/完整结构漂移阻断，仅显式前向repair6。五新增表全部空且明确可丢弃集成库才允许测试down；方法仅integration构建存在，无生产CLI或force/down入口。当前22 current、13 active与两frozen键、四默认生产服务和MySQL健康保持，解析服务未生产装配。实际五DDL/备份恢复与完整门禁结果见共享表，未验不记通过。
 
 
-## 04E私有生产接线候选（2026-11-14，本分支优先）
+## 历史：04E私有生产接线候选（2026-11-14，现状见本文开头）
 
 本分支组合待审#52客户端、#53队列、#54迁移6，默认server在精确Target6/TLS/DML连接检查后启动独立资料worker；不自动DDL，不绑定05批改执行器。仅新增DOCUMENT_PARSER_URL和DOCUMENT_PARSER_TOKEN两active键（共15，样例全部空值），固定origin http://document-parser:8091，32随机字节canonical base64url令牌，非法/缺失启动非零且不回显。原身份12键及HTTP_PORT不变；两个新值在根本机.env，Compose只给backend两个键、parser仅TOKEN，admin/MySQL/frontend不取得它们。旧backend.env和admin.env仍严格分离。
 
@@ -73,3 +75,5 @@ config-register.json中仅登记http://mcp:8090/mcp，enabled=false。须03/07C�
 四生产制品的原门禁原样保留并扩为精确五制品扫描/同ID运行；原内核/RPC互通及离线扫描另保留。新增队列入库验收只使用可信测试夹具，不声称六个公开Document HTTP或UI已实现：这六个操作仍frozen、当前公开22个，后续授权上传/预检/重放/搜索/下载另交。原TXT资料功能保持。OCR与语义/模型配置未启用，MCP出站例外仍disabled。迁移/停写备份/隔离恢复5仍按#54规则，持有人库未升级。
 
 本节替代下方历史04E段落中“生产未接线/13 active/四默认服务/Target5”的本分支现状描述；main实际状态、验证/待审及最终依赖以共享表和[本批报告](../../reports/changes/04E/document-runtime-2026-11-14.md)为准。候选实施不表示已获审或可绕过#52/#53/#54真实批准。
+
+04E公开边界：六操作复用fresh session/可信班级，教师写及全状态、学生只读ready，跨班/不存在404。未知/重复参数拒绝；PDF扩展与%PDF-、DOCX扩展与ZIP签名匹配；文件10MiB、multipart总10551296字节、整体5秒含读取/鉴权/事务。TXT/Document上传和重试共享每用户Unix分钟12次额度；原202重放先鉴权查快照，新上传500ms私有预检后才事务入队，私有35秒解析不占公共事务。原件固定附件名/no-store/nosniff，读出复算SHA；搜索仅本班ready、二进制字面匹配、RR快照回查同版本持久正文与Unicode码点位置，损坏503而非空成功。无用户URL或解析器凭据进入前端。

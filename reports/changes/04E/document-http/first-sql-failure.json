@@ -1,0 +1,66 @@
+{
+  "time": "2026-11-15T05:23:58.319Z",
+  "mysqlImage": "campus-idf-71d2c1cee4d8-mysql:verification",
+  "results": [
+    {
+      "label": "build reviewed MySQL runtime without mysqlsh and with current Go gosu",
+      "exit_code": 0,
+      "output": "#0 building with \"desktop-linux\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 1.37kB done\n#1 DONE 0.0s\n\n#2 [internal] load metadata for docker.io/library/golang@sha256:d200d2dd76b03a99b52651fd1325aff7dcd35422c35c01bac56571b0507f3deb\n#2 ...\n\n#3 [internal] load metadata for docker.io/library/mysql@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902\n#3 DONE 1.7s\n\n#2 [internal] load metadata for docker.io/library/golang@sha256:d200d2dd76b03a99b52651fd1325aff7dcd35422c35c01bac56571b0507f3deb\n#2 DONE 2.9s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [gosu 3/4] ADD --checksum=sha256:cd9719b775dbfedae53923c9b0dc792b66d42c51e0b36652ed6f747fbadc0164 https://codeload.github.com/tianon/gosu/tar.gz/refs/tags/1.19 /tmp/gosu.tar.gz\n#5 DONE 0.0s\n\n#6 [gosu 1/4] FROM docker.io/library/golang@sha256:d200d2dd76b03a99b52651fd1325aff7dcd35422c35c01bac56571b0507f3deb\n#6 resolve docker.io/library/golang@sha256:d200d2dd76b03a99b52651fd1325aff7dcd35422c35c01bac56571b0507f3deb 0.0s done\n#6 DONE 0.0s\n\n#7 [stage-1 1/5] FROM docker.io/library/mysql@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902\n#7 resolve docker.io/library/mysql@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902 0.0s done\n#7 DONE 0.0s\n\n#8 [stage-1 3/5] COPY --from=gosu /out/gosu /usr/local/bin/gosu\n#8 CACHED\n\n#9 [stage-1 2/5] RUN microdnf remove -y mysql-shell     && microdnf clean all     && rm -rf -- /usr/lib/mysqlsh     && ! command -v mysqlsh     && test ! -d /usr/lib/mysqlsh     && mysqld --version | grep '8.4.13'     && mysql --version\n#9 CACHED\n\n#10 [gosu 2/4] WORKDIR /src\n#10 CACHED\n\n#11 [stage-1 4/5] COPY --from=gosu /src/LICENSE /usr/share/licenses/campus-gosu/LICENSE\n#11 CACHED\n\n#12 [gosu 3/4] ADD --checksum=sha256:cd9719b775dbfedae53923c9b0dc792b66d42c51e0b36652ed6f747fbadc0164 https://codeload.github.com/tianon/gosu/tar.gz/refs/tags/1.19 /tmp/gosu.tar.gz\n#12 CACHED\n\n#13 [gosu 4/4] RUN tar -xzf /tmp/gosu.tar.gz --strip-components=1 -C /src     && GOTOOLCHAIN=local CGO_ENABLED=0 go build -trimpath -buildvcs=false -o /out/gosu .\n#13 CACHED\n\n#14 [stage-1 5/5] RUN gosu --version     && test \"$(gosu mysql id -u)\" = 999     && test \"$(gosu mysql id -g)\" = 999\n#14 CACHED\n\n#15 exporting to image\n#15 exporting layers done\n#15 exporting manifest sha256:4db834b4664e2357852c082d45a6ce3444a577699a7780717ee488f6269d4d65 done\n#15 exporting config sha256:7c78ee84f62628b32e619dfd9155a93333c22fa7c16819252f992c8ba4ce7777\n#15 exporting config sha256:7c78ee84f62628b32e619dfd9155a93333c22fa7c16819252f992c8ba4ce7777 done\n#15 exporting attestation manifest sha256:adce06ded37118a8694c86945ddfabb0dab30f08d7cab8379fc1650d77ed53b6 0.0s done\n#15 exporting manifest list sha256:46aba8021c3a013692b72aa255c06c9ef3b0574e3144ef15777d847bd70a99bc done\n#15 naming to docker.io/library/campus-idf-71d2c1cee4d8-mysql:verification done\n#15 unpacking to docker.io/library/campus-idf-71d2c1cee4d8-mysql:verification 0.0s done\n#15 DONE 0.1s\n\nView build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/8lirn8e0cbq0fmtytjhtoq1dk\n"
+    },
+    {
+      "label": "test fixtures",
+      "exit_code": 0,
+      "output": "Disposable credentials and CA generated; values omitted\n"
+    },
+    {
+      "label": "build actual accepted pre-04 artifacts",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "label": "AT-SC-20 build actual accepted schema4 artifacts",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "label": "DI-SC-15 build actual accepted schema5 artifacts",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "label": "DI-SC-15 record actual accepted5 and candidate6 artifact IDs",
+      "exit_code": 0,
+      "output": "55704b6ad8564f01cbd704460c446e81576435947be0959d55a87e5890206d59  /fixtures/pre06-server\n07605b774b31eb62a8ac7ad5855969632315dfe1e9d1c354ec6dca500cfc36d9  /fixtures/pre06-admin\n990388cd086349354b42835e352e8f26989aecf68baeabe38d06935076d7e3e9  /fixtures/server\nc23cdbcff1b4e85bbe01532a32b6066fc76615888f882e7b73615bb36037bf62  /fixtures/identity-admin\n"
+    },
+    {
+      "label": "isolated network",
+      "exit_code": 0,
+      "output": "ba5592c23c2286610dca433504385d1144b779d894cb17de7960d743d010f6b8\n"
+    },
+    {
+      "label": "isolated MySQL",
+      "exit_code": 0,
+      "output": "6e4ec1ef25205eb3ff01e2ca252437c381ab12902bf9faa4ad212045caa69122\n"
+    },
+    {
+      "label": "real MySQL identity scenarios",
+      "exit_code": 1,
+      "output": "=== RUN   TestDHPublicAuthorizationOriginalsAndCitations\n    document_http_test.go:120: public POST /api/v1/documents status503 want202\n--- FAIL: TestDHPublicAuthorizationOriginalsAndCitations (9.09s)\n=== RUN   TestDHConcurrentIdempotencySharedQuotaAndRollback\n    document_http_test.go:242: concurrent status503\n    document_http_test.go:242: concurrent status503\n    document_http_test.go:242: concurrent status503\n    document_http_test.go:242: concurrent status503\n    document_http_test.go:242: concurrent status503\n    document_http_test.go:242: concurrent status503\n    document_http_test.go:242: concurrent status503\n    document_http_test.go:242: concurrent status503\n    document_http_test.go:242: concurrent status503\n    document_http_test.go:242: concurrent status503\n    document_http_test.go:242: concurrent status503\n    document_http_test.go:242: concurrent status503\n    document_http_test.go:248: 20 contenders must preserve shared12/minute quota and one transaction\n--- FAIL: TestDHConcurrentIdempotencySharedQuotaAndRollback (1.15s)\n=== RUN   TestDHSnapshotConsistencyAndStrictInput\n    document_http_test.go:120: public POST /api/v1/documents status503 want202\n--- FAIL: TestDHSnapshotConsistencyAndStrictInput (1.04s)\n=== RUN   TestDHSlowBodyUsesWholeFiveSecondBudget\n--- PASS: TestDHSlowBodyUsesWholeFiveSecondBudget (5.98s)\nFAIL\nFAIL\tgithub.com/zwh9616/campus-claw-plus/backend/internal/integration\t17.268s\nFAIL\n"
+    },
+    {
+      "label": "remove test container and its anonymous volume",
+      "exit_code": 0,
+      "output": "campus-idf-71d2c1cee4d8\n"
+    },
+    {
+      "label": "remove test network",
+      "exit_code": 0,
+      "output": "campus-idf-71d2c1cee4d8\n"
+    },
+    {
+      "label": "remove only own MySQL image tag",
+      "exit_code": 0,
+      "output": "Untagged: campus-idf-71d2c1cee4d8-mysql:verification\nDeleted: sha256:46aba8021c3a013692b72aa255c06c9ef3b0574e3144ef15777d847bd70a99bc\n"
+    }
+  ]
+}

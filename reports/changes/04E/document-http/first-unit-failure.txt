@@ -1,0 +1,26 @@
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/integration	0.010s [no tests to run]
+?   	github.com/zwh9616/campus-claw-plus/backend/cmd/identity-admin	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/cmd/server	[no test files]
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/assignments	0.012s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/config	0.012s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/documentparser	0.623s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/documentqueue	0.015s
+-test.shuffle 1794720104578673068
+--- FAIL: TestDIUnicodeLocationsSnapshotAndCorruption (0.00s)
+    documents_test.go:70: original202
+FAIL
+FAIL	github.com/zwh9616/campus-claw-plus/backend/internal/documents	0.031s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/httpserver	0.027s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/identity	0.120s
+?   	github.com/zwh9616/campus-claw-plus/backend/internal/identityapp	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/internal/integration/fixture	[no test files]
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/integration/wiring	0.027s
+?   	github.com/zwh9616/campus-claw-plus/backend/internal/integration/wiringfixture	[no test files]
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/materials	0.027s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/migrations	0.027s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/mysqlstore	0.027s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/observability	0.027s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/probe	3.019s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/runtimeapp	0.026s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/strictjson	0.024s
+FAIL

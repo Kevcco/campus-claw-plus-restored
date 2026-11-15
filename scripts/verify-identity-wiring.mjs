@@ -34,6 +34,17 @@ const composeArgs = ['compose', '--project-name', id, '--env-file', resolve(dire
 const compose = (label, args, options = {}) => run(label, [...composeArgs,
   ...(useAuditedImages && args[0] === 'up' ? ['up', '--no-build', '--pull', 'never', ...args.slice(1)] : args)],
   { ...options, environment: { ...process.env, ...env, ...options.overrides } })
+const documentHTTPClient = phase => {
+  const path=resolve(directory,'document-http-proof.json')
+  if(!existsSync(path))writeFileSync(path,'{}',{flag:'wx',mode:0o600})
+  // Separate real test-client source from the original ten-login/IP regression.
+  // No forged forwarding headers and no rate-limit reset or relaxed threshold.
+  const parts=env.IDENTITY_PROXY_IP.split('.');parts[3]=String(Number(parts[3])-1)
+  run('DI public HTTPS '+phase,[...goArgs,'--network',id,'--ip',parts.join('.'),'-e','DOCUMENT_HTTP_STAGE='+phase,
+    '--mount',`type=bind,source=${directory},target=/fixtures`,
+    '--mount',`type=bind,source=${resolve('document-parser/testdata/acceptance-v1')},target=/corpus,readonly`,
+    goImage,'go','test','-count=1','-tags=integration,documenthttp','-run=^TestDocumentHTTPProduction$','-timeout=100s','-v','./internal/integration/wiring'])
+}
 const client = (phase, label) => {
   run(label, [...goArgs, '--network', phase==='lookup'?id+'_data':id, '-e', `WIRING_EXPECT=${phase}`, '--mount', `type=bind,source=${directory},target=/fixtures`, goImage, 'go', 'test', '-count=1', '-tags=integration', '-timeout=60s', '-v', './internal/integration/wiring'])
   const proof = resolve(directory, 'credential-proof')
@@ -49,12 +60,21 @@ try {
   const secondPassword = randomBytes(24).toString('hex')
   secrets.push(password, secondPassword)
   const seed = { classes: [{ key: 'wiring-a', name: 'Wiring A' }, { key: 'wiring-b', name: 'Wiring B' }], users: [{ username: 'wiring-teacher', password, role: 'teacher', class_keys: ['wiring-a', 'wiring-b'] }, ...[['wiring-student-a','student',['wiring-a']],['wiring-student-a2','student',['wiring-a']],['wiring-student-b','student',['wiring-b']],['wiring-teacher-b','teacher',['wiring-b']]].map(([username,role,class_keys])=>{const password=randomBytes(24).toString('hex');secrets.push(password);return {username,password,role,class_keys}})] }
+  seed.classes.push({key:'document-a',name:'Document A'},{key:'document-b',name:'Document B'})
+  for(const [username,role,class_keys] of [
+    ['document-teacher','teacher',['document-a','document-b']],['document-teacher-b','teacher',['document-b']],
+    ['document-student-a','student',['document-a']],['document-student-a2','student',['document-a']],['document-student-b','student',['document-b']]]) {
+    const password=randomBytes(24).toString('hex');secrets.push(password);seed.users.push({username,role,class_keys,password})
+  }
+  const documentSeed={classes:seed.classes.splice(2),users:seed.users.splice(5)}
+  writeFileSync(resolve(directory,'document-seed.json'),JSON.stringify(documentSeed),{mode:0o600})
   writeFileSync(resolve(directory, 'seed.json'), JSON.stringify(seed), { mode: 0o600 })
-  run('dedicated internal proxy network', ['network', 'create', '--internal', id]); createdNetwork = true
-  const ipam = JSON.parse(run('discover allocated proxy address', ['network', 'inspect', '--format', '{{json .IPAM.Config}}', id]))[0]
-  // Docker allows a static endpoint only on a user-configured subnet. Discover
-  // a free range first, then explicitly create it; a race fails closed.
-  run('release automatically allocated proxy network', ['network', 'rm', id]); createdNetwork = false
+  // Choose an explicit free subnet even when Docker's automatic pools are full.
+  // Inventory only; never remove unrelated networks. A concurrent allocation fails closed.
+  const proxyIds=run('inventory existing networks for own proxy',['network','ls','-q']).trim().split(/\s+/)
+  const proxyRanges=run('inspect allocated prefixes for own proxy',['network','inspect','--format','{{range .IPAM.Config}}{{.Subnet}} {{end}}',...proxyIds])
+  const proxySubnet=verificationSubnets([...proxyRanges.matchAll(/(\d+\.\d+\.\d+\.\d+)\/(\d+)/g)].map(m=>m[0]),1)[0]
+  const ipam={Subnet:proxySubnet,Gateway:proxySubnet.replace('.0/24','.1')}
   run('create explicit isolated proxy subnet', ['network', 'create', '--internal', '--subnet', ipam.Subnet, '--gateway', ipam.Gateway, id]); createdNetwork = true
   // Reserve the last usable address. Docker allocates dynamic peers from the
   // start, including preview created before gateway by depends_on.
@@ -127,6 +147,7 @@ try {
   compose('offline initialize via stdin', ['run', '--rm', '-T', 'admin', 'initialize'], { input: JSON.stringify(seed) })
   seed.users[0].password = secrets.at(-1)
   compose('repeat initialize does not replace existing password', ['run', '--rm', '-T', 'admin', 'initialize'], { input: JSON.stringify(seed) })
+  compose('initialize separate public Document actors', ['run','--rm','-T','admin','initialize'], {input:readFileSync(resolve(directory,'document-seed.json'),'utf8')})
   client('lookup', 'trusted fixture class lookup on database-only network')
   compose('start isolated Go and HTTPS frontend', [ 'up', '-d', '--wait', '--wait-timeout', '90', 'backend', 'frontend','document-parser'])
   const frontend = compose('resolve only this project HTTPS frontend', ['ps', '-q', 'frontend']).trim()
@@ -200,7 +221,7 @@ try {
   assert.ok(parsedLogs.some(row=>row.message==='server started' && row.request_id===null))
   assert.ok(!logs.includes('untrusted-client-value') && !logs.includes('verification-private'))
   if (secrets.some(secret => logs.includes(secret))) throw new Error('secret appeared in application log')
-  const verifyWorkerAfterDatabaseRecovery = await verifyDocumentRuntime({ id, directory, compose, run, client, goArgs, goImage, evidence })
+  const verifyWorkerAfterDatabaseRecovery = await verifyDocumentRuntime({ id, directory, compose, run, client, documentHTTPClient, goArgs, goImage, evidence })
   compose('stop database only', ['stop', '--timeout', '15', 'mysql'])
   client('down', 'real database-down health 503 and login 503 without credentials')
   const downProbeStarted = performance.now()
@@ -231,6 +252,7 @@ try {
   const recreatedHost = await verifyHostIngress(Number(recreatedPorts['443/tcp'][0].HostPort), directory)
   evidence.push({ label: 'IDF-SC-18 recreated host HTTPS remains reachable', exit_code: 0, ...recreatedHost })
   client('persist', 'same account and original password after full container recreation')
+  documentHTTPClient('persist')
   const allLogs = compose('check combined logs contain no generated passwords', [ 'logs', '--no-color', '--no-log-prefix'])
   if (secrets.some(secret => allLogs.includes(secret))) throw new Error('secret appeared in service log')
 } catch (error) { failed = true; errors.push(redact(error.message)); console.error(redact(error.message)) }
