@@ -1,0 +1,19 @@
+=== RUN   TestDI14ReviewerRejectsNullCoordinatesOverHTTP
+=== RUN   TestDI14ReviewerRejectsNullCoordinatesOverHTTP/pdf/unit
+=== RUN   TestDI14ReviewerRejectsNullCoordinatesOverHTTP/pdf/char_start
+    client_test.go:254: null coordinate escaped validation: {Status:ready Body:x Locations:[{Kind:pdf_page Unit:1 Start:0 End:1}] SourcePages:0x2e53733824e8 FailureReason:}
+=== RUN   TestDI14ReviewerRejectsNullCoordinatesOverHTTP/pdf/char_end
+=== RUN   TestDI14ReviewerRejectsNullCoordinatesOverHTTP/docx/unit
+=== RUN   TestDI14ReviewerRejectsNullCoordinatesOverHTTP/docx/char_start
+    client_test.go:254: null coordinate escaped validation: {Status:ready Body:x Locations:[{Kind:docx_paragraph Unit:1 Start:0 End:1}] SourcePages:<nil> FailureReason:}
+=== RUN   TestDI14ReviewerRejectsNullCoordinatesOverHTTP/docx/char_end
+--- FAIL: TestDI14ReviewerRejectsNullCoordinatesOverHTTP (0.01s)
+    --- PASS: TestDI14ReviewerRejectsNullCoordinatesOverHTTP/pdf/unit (0.00s)
+    --- FAIL: TestDI14ReviewerRejectsNullCoordinatesOverHTTP/pdf/char_start (0.00s)
+    --- PASS: TestDI14ReviewerRejectsNullCoordinatesOverHTTP/pdf/char_end (0.00s)
+    --- PASS: TestDI14ReviewerRejectsNullCoordinatesOverHTTP/docx/unit (0.00s)
+    --- FAIL: TestDI14ReviewerRejectsNullCoordinatesOverHTTP/docx/char_start (0.00s)
+    --- PASS: TestDI14ReviewerRejectsNullCoordinatesOverHTTP/docx/char_end (0.00s)
+FAIL
+FAIL	github.com/zwh9616/campus-claw-plus/backend/internal/documentparser	1.567s
+FAIL

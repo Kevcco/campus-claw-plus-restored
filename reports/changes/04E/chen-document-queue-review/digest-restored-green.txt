@@ -1,0 +1,36 @@
+=== RUN   TestResultBoundaries
+--- PASS: TestResultBoundaries (0.00s)
+=== RUN   TestReviewerUploadBoundaries
+=== RUN   TestReviewerUploadBoundaries/empty_user
+=== RUN   TestReviewerUploadBoundaries/unsigned_class_overflow
+=== RUN   TestReviewerUploadBoundaries/short_key
+=== RUN   TestReviewerUploadBoundaries/long_key
+=== RUN   TestReviewerUploadBoundaries/Unicode_key
+=== RUN   TestReviewerUploadBoundaries/path_key
+=== RUN   TestReviewerUploadBoundaries/blank_title
+=== RUN   TestReviewerUploadBoundaries/padded_title
+=== RUN   TestReviewerUploadBoundaries/invalid_UTF8_title
+=== RUN   TestReviewerUploadBoundaries/control_title
+=== RUN   TestReviewerUploadBoundaries/too_many_title_codepoints
+=== RUN   TestReviewerUploadBoundaries/empty_source
+=== RUN   TestReviewerUploadBoundaries/oversize_source
+=== RUN   TestReviewerUploadBoundaries/open_format
+--- PASS: TestReviewerUploadBoundaries (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/empty_user (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/unsigned_class_overflow (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/short_key (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/long_key (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/Unicode_key (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/path_key (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/blank_title (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/padded_title (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/invalid_UTF8_title (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/control_title (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/too_many_title_codepoints (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/empty_source (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/oversize_source (0.00s)
+    --- PASS: TestReviewerUploadBoundaries/open_format (0.00s)
+=== RUN   TestReviewerDigestPreservesBoundaries
+--- PASS: TestReviewerDigestPreservesBoundaries (0.00s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/documentqueue	0.517s

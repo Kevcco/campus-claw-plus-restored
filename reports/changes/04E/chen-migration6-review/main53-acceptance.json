@@ -1,0 +1,27 @@
+{
+  "reviewer": "小陈 / Kevcco (AI辅助)",
+  "checked_at": "2026-11-15T03:25:04.687Z",
+  "pr": 53,
+  "head": "ce0fd30830105292fe78d1f3e8866f3d271b6d6c",
+  "approval": {
+    "id": 5908798357,
+    "user": "Kevcco",
+    "head": "ce0fd30830105292fe78d1f3e8866f3d271b6d6c",
+    "url": "https://github.com/zwh9616/campus-claw-plus/pull/53#pullrequestreview-5908798357"
+  },
+  "merge": "2bdb907fb11ad78a0cf40bb25bb49c4d8e8b8652",
+  "main_protected": true,
+  "tree": "93b81967284388603b2f8adcfb6f5cff933cdd29",
+  "ci": {
+    "id": 43671233011,
+    "url": "https://github.com/zwh9616/campus-claw-plus/actions/runs/43671233011",
+    "head": "2bdb907fb11ad78a0cf40bb25bb49c4d8e8b8652",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "id": 14144835938,
+    "digest": "sha256:e7421c2f2e33b08d29aa1a69290f5edd8f9c657966b5b3183e663b0cc1478b0c"
+  },
+  "scope": "Persistent queue component only; no production activation, Target6, authorized HTTP or whole A/B/C acceptance"
+}

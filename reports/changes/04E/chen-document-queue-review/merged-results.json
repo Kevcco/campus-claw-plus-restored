@@ -1,0 +1,7 @@
+{
+  "check_exit": 1,
+  "audit_exit": 0,
+  "local_mysql": "not run",
+  "main": "2ece150b39d794acc849fe8812624bf5ed1ecb86",
+  "local_verify": "not run"
+}

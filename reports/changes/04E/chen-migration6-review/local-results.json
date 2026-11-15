@@ -1,0 +1,5 @@
+{
+  "source": "c242a5176b1f51d98ddabf20333e5e2e9a0a3f0f",
+  "exit_code": 0,
+  "scope": "Reviewer extracted exact candidate migration package unit tests only; no MySQL migration/backup/restore execution"
+}
