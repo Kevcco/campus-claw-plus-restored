@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { FormEvent, ReactNode } from 'react'
 import { AuthError, createAuthClient } from '../auth/client'
 import type { Principal } from '../auth/client'
@@ -43,7 +43,7 @@ export function DocumentsList({ client, principal, openCitation }: { client: Cli
     if (!q || [...q].length > 2000 || /[\p{Cc}\uD800-\uDFFF]/u.test(q)) { setError(new AuthError(400, '请输入 1–2000 个有效字符的关键词。')); return }
     void load(1, q).then(() => heading.current?.focus())
   }
-  return <div className="materials-page"><MaterialTypes documents />
+  return <div className="materials-page" onFocusCapture={event => event.target.scrollIntoView({ block: 'nearest' })}><MaterialTypes documents />
     <div className="material-title-row"><div><h1>PDF与Word资料</h1><p className="muted">查找本班已解析资料，核对页码或逻辑块出处。</p></div>{principal.role === 'teacher' && <Link className="material-upload-link" to="/app/materials/documents/upload">上传资料</Link>}</div>
     <form className="material-search" onSubmit={search} noValidate><div className="material-search-field"><label htmlFor="document-query">关键词</label><input id="document-query" value={query} onChange={e => setQuery(e.target.value)} placeholder="按正文关键词搜索" /></div><div className="material-actions"><button disabled={wait > 0}>搜索</button><button type="button" disabled={wait > 0} onClick={() => { setQuery(''); void load(1, '') }}>清除</button></div></form>
     <ErrorSummary id="document-list-error" error={error} wait={wait} />
@@ -65,19 +65,19 @@ export function DocumentView({ client, principal, id, citation }: { client: Clie
     alive.current = true; let timer = 0; const controller = new AbortController(); requests.current.add(controller); setData(undefined); setError(undefined); setBusy(true)
     async function load() {
       try { const d = await client.detail(id, controller.signal); if (citation) checkCitation(d, citation); if (!alive.current || controller.signal.aborted) return; setData(d); setBusy(false)
-        if (citation) requestAnimationFrame(() => {
-          if (!alive.current || controller.signal.aborted) return
-          const source = document.getElementById('source-' + citation.location.unit)
-          const target = source?.querySelector('mark') ?? source
-          target?.focus({ preventScroll: true })
-          target?.scrollIntoView({ block: 'start' })
-        })
         if (d.document.status === 'queued' || d.document.status === 'processing') timer = window.setTimeout(() => { void load() }, 2000)
       } catch (e) { if (alive.current && !controller.signal.aborted) { setError(failure(e)); setBusy(false) } }
     }
     void load()
     return () => { alive.current = false; window.clearTimeout(timer); requests.current.forEach(c => c.abort()); requests.current.clear(); urls.current.forEach(u => URL.revokeObjectURL(u)); urls.current.clear(); lock.current = false }
   }, [client, id, citation, revision])
+  useLayoutEffect(() => {
+    if (busy || !data || data.document.id !== id || !citation) return
+    const source = document.getElementById('source-' + citation.location.unit)
+    const target = source?.querySelector('mark') ?? source
+    target?.focus({ preventScroll: true })
+    target?.scrollIntoView({ block: 'start' })
+  }, [busy, data, id, citation])
   async function perform(kind: 'download' | 'retry') {
     if (!data || lock.current || wait) return; lock.current = true; setAction(kind); setActionError(undefined)
     const controller = new AbortController(); requests.current.add(controller)

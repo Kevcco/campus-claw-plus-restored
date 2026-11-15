@@ -55,3 +55,6 @@
 
 
 2026-11-15晚补证：64ea99a代码最终完整CI43714084399成功，预演095d282与head整树一致；artifact14162150910原ZIP SHA256 fe3ea94890179a9c4d3d3576a12c1398a634883982d1feca17a0921ff91860de、18原件和全部跟踪指纹独立核验，四段0、verify508019ms、五镜像零HIGH/CRITICAL、三公开HTTPS/五真实SQL/九worker/迁移恢复/原回归及全部清理通过，解包秘密扫描0。本机64ea99a完整check/audit/secret-scan亦全部0；429源码/30浏览器原件与Git blob一致。Location行内线程已由小张凭实证解决，Kevcco仍CHANGES_REQUESTED、未获新批准。新原生Nightly窗口多次实测仍DPR1.5/innerWidth1281/viewport=null/CSSzoom1（页面100%），尚未收到新窗口调整完成回复，200%未验证。保持#57草稿，不请求最终复审或合并；本提交仅补证与进度，新的文档head CI另核。代码原件见document-http/retry-final-ci/及retry-final-local/，200%通过后再请求实际复审、满足门禁后正常合并/main复验。
+
+
+2026-11-15晚#57原生200%已实际补齐：隔离Firefox经Mozilla tabs.setZoom设置原生2倍，只读站点zoom记录=2，DPR1.5→3、宽1281→641，viewport=null/CSSzoom1/visualViewport.scale1；随后重启移除临时扩展和调试器，最终真实页面继续保持200%。修复长出处在正文DOM提交前定位的时序竞态（useLayoutEffect按busy/data/citation提交后定位）及列表Tab焦点未完整入视口；受控恢复旧逻辑红1、恢复修复绿0。最终14页面态/14个完整可见Tab停靠点/200字符标题/5280码点正文末尾/12次长出处/6份下载SHA、原生200%真实Enter重试15→ready2与16→耗尽3/实际轮询全部通过，另100%下1440/360出处复验0；真实隔离资源清理0。最终类型/33前端/audit0，完整check与本提交最终CI/实际复审/正常合并及main复验待。本次证据见reports/changes/04E/document-http/native200-final/manifest.json，04E仍全部小张负责，不提前勾A父项/B/C或持有人部署。

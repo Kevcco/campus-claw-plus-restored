@@ -1,0 +1,33 @@
+{
+  "time": "2026-11-15T14:26:20.729Z",
+  "scenario": "DI-SC-13",
+  "mutation": "temporarily restore reviewed pre-fix requestAnimationFrame focus logic",
+  "source_sha256": "12e3927016df1e244cfc068fa95b019d90540380fc5bea0aa4ede2389250d775",
+  "results": [
+    {
+      "label": "native-controlled-old-build",
+      "exit_code": 0
+    },
+    {
+      "label": "native-controlled-old-refresh",
+      "exit_code": 0
+    },
+    {
+      "label": "native-controlled-red",
+      "exit_code": 1
+    },
+    {
+      "label": "native-controlled-restored-build",
+      "exit_code": 0
+    },
+    {
+      "label": "native-controlled-restored-refresh",
+      "exit_code": 0
+    },
+    {
+      "label": "native-controlled-green",
+      "exit_code": 0
+    }
+  ],
+  "restored": true
+}

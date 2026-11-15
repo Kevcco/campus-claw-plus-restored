@@ -1,0 +1,16 @@
+async page=>{
+ const id=page.url().split('/').at(-1),detail=page.url().replace('/app/materials/documents/','/api/v1/documents/'),events=[],results=[]
+ const track=req=>{if(req.url()===detail||req.url()===detail+'/retry')events.push({method:req.method(),path:new URL(req.url()).pathname,time:Date.now()})};page.on('request',track)
+ for(const attempt of [2,3]){
+  const accepted=page.waitForResponse(r=>r.url()===detail+'/retry'&&r.request().method()==='POST');await page.getByRole('button',{name:'重试解析',exact:true}).focus();await page.keyboard.press('Enter');const response=await accepted,d=await response.json();if(response.status()!==202||d.id!==id||d.status!=='queued'||d.attempts!==attempt-1||response.headers()['location']!=='/api/v1/documents/'+id)throw Error('retry202 contract')
+  await page.getByText('重试请求已受理，请查看最新解析状态。',{exact:true}).waitFor();await page.getByText('已尝试 '+attempt+' / 3 次',{exact:true}).waitFor({timeout:45000});await page.getByRole('heading',{name:'解析失败',exact:true}).waitFor({timeout:45000});await page.getByText(attempt===3?'解析服务中断。':'解析服务中断。教师可以重试。',{exact:true}).waitFor()
+  if(attempt===3&&(await page.locator('body').innerText()).includes('教师可以重试'))throw Error('Exhausted document still suggests retry')
+  const button=await page.getByRole('button',{name:'重试解析',exact:true}).count();if(button!==(attempt===3?0:1))throw Error('retry availability bound')
+  await page.screenshot({path:'C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/output/document-browser/screenshots/retry-failed-attempt-'+attempt+'.png',fullPage:true})
+  results.push({accepted:202,location:response.headers()['location'],queued_attempts:d.attempts,final_attempts:attempt,retry_button:button===1})
+ }
+ await page.getByText('已达到重试上限，请核对原件后发起新上传。',{exact:true}).waitFor();page.off('request',track)
+ if(events.filter(e=>e.method==='POST').length!==2||events.filter(e=>e.method==='GET').length<2)throw Error('unexpected writes or no actual detail polling')
+ const requestsBefore=events.length;await page.keyboard.press('Tab');await page.keyboard.press('Tab')
+ return{document_id:id,results,events,exhausted_notice:true,retry_hidden:true,actual_parser_stopped:true,no_SQL_mutations:true,url:page.url(),native:await page.evaluate(()=>({dpr:devicePixelRatio,width:innerWidth,cssZoom:getComputedStyle(document.documentElement).zoom}))}
+}

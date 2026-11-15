@@ -1,0 +1,1 @@
+{"url":"https://campus.test:32773/app/materials/documents","assets":["https://campus.test:32773/assets/index-BOfjBc0s.js"],"native":{"dpr":3,"width":641,"cssZoom":"1"},"browser_cache_disabled_by_routing":true,"all_requests_continue_to_real_server":true}

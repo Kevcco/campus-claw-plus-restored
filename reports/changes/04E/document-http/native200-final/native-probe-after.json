@@ -1,0 +1,11 @@
+{
+  "url": "https://campus.test:32773/app/materials/documents",
+  "native": {
+    "dpr": 3,
+    "width": 641,
+    "outer": 648,
+    "height": 416,
+    "scale": 1,
+    "cssZoom": "1"
+  }
+}
