@@ -1,0 +1,11 @@
+=== RUN   TestReviewerDocumentAcceptanceLocation
+=== RUN   TestReviewerDocumentAcceptanceLocation//api/v1/documents
+    reviewer_location_probe_test.go:33: 202 Location="" want /api/v1/documents/7
+=== RUN   TestReviewerDocumentAcceptanceLocation//api/v1/documents/7/retry
+    reviewer_location_probe_test.go:33: 202 Location="" want /api/v1/documents/7
+--- FAIL: TestReviewerDocumentAcceptanceLocation (0.01s)
+    --- FAIL: TestReviewerDocumentAcceptanceLocation//api/v1/documents (0.01s)
+    --- FAIL: TestReviewerDocumentAcceptanceLocation//api/v1/documents/7/retry (0.00s)
+FAIL
+FAIL	github.com/zwh9616/campus-claw-plus/backend/internal/httpserver	1.713s
+FAIL

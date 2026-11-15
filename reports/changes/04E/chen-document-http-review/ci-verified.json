@@ -1,0 +1,192 @@
+{
+  "observer": "小陈 / Kevcco（AI辅助）",
+  "head": "5cac6dbd314ac0c253d7bbe9de02f6b590f3e4b5",
+  "run": 43693601789,
+  "artifact_id": 14153148265,
+  "artifact_digest": "sha256:8693942463a1aa4c4051291b5cd95cbaca59ac3a0b5e62e416251d3f8f0a45bf",
+  "artifact_digest_verified": true,
+  "tracked_files": 2154,
+  "tracked_fingerprint": "4c1890b01f9bc5d23fb685a90eb618a6f9272b08f3c19109207020f1a8176fb0",
+  "git_blob_match": true,
+  "gate": [
+    {
+      "name": "check",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 254182
+    },
+    {
+      "name": "audit",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 927
+    },
+    {
+      "name": "secret-scan",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 2233
+    },
+    {
+      "name": "verify",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 508258
+    }
+  ],
+  "images": [
+    {
+      "service": "mysql",
+      "image_id": "sha256:9859c703277ae47a78696cb95e9a08a8e6af9bd41d8adecdb3bcf4eeb63fcdb8",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "admin",
+      "image_id": "sha256:efba3bfe4d2fd987a5588e0ee3e95633c97cea1614a97b6ed75a8178514cacb9",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "backend",
+      "image_id": "sha256:9338fe06a57c8ce2e63888e982268417b696e2588d8e20451e8265db74016c26",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "frontend",
+      "image_id": "sha256:eda9f26160d4abaf5ac804785220a3667fc38ac5b6d45d414a467a90c72a53f9",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "document-parser",
+      "image_id": "sha256:d043f6302710adecf6f4ab472440b628efcab4df92b0159532efafa2961cbf2a",
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  ],
+  "cleanup": 5,
+  "migration": {
+    "target": 6,
+    "restored_target": 5,
+    "tests": [
+      "TestDIMigration6FreshUpgradeAndHistory",
+      "TestDIFiveDDLInterruptionAndForwardRepair",
+      "TestDIExactStructureDrift",
+      "TestDIEmptyDisposableDownOnly"
+    ],
+    "interrupted_ddl_steps": 5,
+    "accepted5_commit": "c1ac4213580df1fcc03520b8dddcfbece2a3344d",
+    "binaries": {
+      "pre06-server": "55704b6ad8564f01cbd704460c446e81576435947be0959d55a87e5890206d59",
+      "pre06-admin": "07605b774b31eb62a8ac7ad5855969632315dfe1e9d1c354ec6dca500cfc36d9",
+      "server": "33859b0fb1e966a6bc02c3fcf56fd056975a232930fcf3033dba9f5674473b5e",
+      "identity-admin": "26bcdb984064e62fde5e189f3780299e5d5ad1595ec66e53cb298c1c94822886"
+    },
+    "dump_sha256": "216732f5411b8d1290759803c573b7299ae9048ebf100fb898bd0f1ad55c51f5",
+    "backup_utc": "2026-11-15T08:25:14.273Z",
+    "observed_rto_upper_bound_ms": 2092,
+    "separate_preserved_source": "idf_test_63",
+    "isolated_restore": "idf_test_64"
+  },
+  "worker": {
+    "stages": [
+      "corpus",
+      "outage-enqueue",
+      "outage-retry",
+      "restart-enqueue",
+      "restart-verify",
+      "kill-enqueue",
+      "kill-expire",
+      "kill-verify",
+      "database-verify"
+    ],
+    "documents": 40,
+    "locations": 195,
+    "chunks": 196,
+    "actual_worker_sigkill": true,
+    "forced_test_lease_expiry": true,
+    "actual_database_recovery": true,
+    "public_document_http": "separate-required-proof",
+    "parser_image": "sha256:d043f6302710adecf6f4ab472440b628efcab4df92b0159532efafa2961cbf2a",
+    "backend_image": "sha256:9338fe06a57c8ce2e63888e982268417b696e2588d8e20451e8265db74016c26"
+  },
+  "public_http": {
+    "stages": [
+      "main",
+      "outage",
+      "persist"
+    ],
+    "database_tests": [
+      "TestDHExplicitRetryStopsAtThreeAndPreservesOriginal202",
+      "TestDHPublicAuthorizationOriginalsAndCitations",
+      "TestDHConcurrentIdempotencySharedQuotaAndRollback",
+      "TestDHSnapshotConsistencyAndStrictInput",
+      "TestDHSlowBodyUsesWholeFiveSecondBudget"
+    ],
+    "real_formats": 2,
+    "actors": 5,
+    "default_https": true,
+    "real_parser": true,
+    "exact_originals": true,
+    "persistent_quotes": true,
+    "actual_parser_outage": true,
+    "container_recreation": true
+  },
+  "queue": {
+    "groups": [
+      "TestMySQLAcceptanceRollbackAndMixedPayload",
+      "TestMySQLAtomicPublicationAndSource",
+      "TestMySQLClaimAndRetryRollback",
+      "TestMySQLConcurrentAcceptance",
+      "TestMySQLLeaseCASAndExhaustion",
+      "TestMySQLLeaseExpiryDuringPublication",
+      "TestMySQLLongChunksAndRetry",
+      "TestMySQLProcessCrashRecovery",
+      "TestMySQLStorageDeadline",
+      "TestMySQLWorkerSingleFlightAndCancellation"
+    ],
+    "log_sha256": "759e7f60280cf9735705816e52f92b0162ce2b1f440637806c331ef01d2b7262",
+    "source_files": {
+      "mysql_test.go": "0ba9253ce5c152f321b05c440646d15197add4d9b0c517ca094751ac0f21b456",
+      "result_test.go": "8e163dccfd43edcfac61df5c23921da70cae7887c3701625358e217f87d80663",
+      "reviewer_test.go": "5a85e2e9953270ce51c549a847afc9189316a9911cc44fe50657575f377e400a",
+      "store.go": "d81dccc98d3a4950bdd2b26274ded6f73e076d177911b32af7014c89bc821444",
+      "worker.go": "7780d64666c8e64cd87efafb5db2ddea9bd24ddccfde9183ec0e48df9e6a46cf"
+    }
+  },
+  "parser": [
+    {
+      "mode": "check",
+      "documents": 40,
+      "negatives": 25,
+      "locations": 195,
+      "rpc_groups": 7,
+      "private_health_groups": 3,
+      "actual_client_outage": true
+    },
+    {
+      "mode": "scan",
+      "documents": 40,
+      "negatives": 25,
+      "locations": 195,
+      "rpc_groups": 7,
+      "private_health_groups": 3,
+      "actual_client_outage": true
+    }
+  ],
+  "browser": {
+    "source_records": 367,
+    "source_mismatches": [],
+    "hashed_files": 42,
+    "native_200_percent": "NOT VERIFIED: CUA unsupported Windows browser URL policy; no CSS/device emulation substitution",
+    "explicit_retry_browser": "not independently exercised; actual SQL three-attempt bounds and default worker tests separately covered"
+  },
+  "scope": "Downloaded exact CI evidence and source review; no reviewer local Docker/database/browser rerun or holder deployment claim",
+  "exit_code": 0
+}
