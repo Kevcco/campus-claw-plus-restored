@@ -1,0 +1,22 @@
+=== RUN   TestReviewerDocumentAcceptanceLocation
+=== RUN   TestReviewerDocumentAcceptanceLocation//api/v1/documents
+=== RUN   TestReviewerDocumentAcceptanceLocation//api/v1/documents/7/retry
+--- PASS: TestReviewerDocumentAcceptanceLocation (0.00s)
+    --- PASS: TestReviewerDocumentAcceptanceLocation//api/v1/documents (0.00s)
+    --- PASS: TestReviewerDocumentAcceptanceLocation//api/v1/documents/7/retry (0.00s)
+=== RUN   TestHealthNormalAndLog
+--- PASS: TestHealthNormalAndLog (0.00s)
+=== RUN   TestHTTPFailureRoutes
+=== RUN   TestHTTPFailureRoutes/missing
+=== RUN   TestHTTPFailureRoutes/method
+--- PASS: TestHTTPFailureRoutes (0.00s)
+    --- PASS: TestHTTPFailureRoutes/missing (0.00s)
+    --- PASS: TestHTTPFailureRoutes/method (0.00s)
+=== RUN   TestIdentityHealthChecksEveryRequestAndFailsClosed
+--- PASS: TestIdentityHealthChecksEveryRequestAndFailsClosed (0.00s)
+=== RUN   TestMRMultipartStrictFieldsAndTotalBoundary
+--- PASS: TestMRMultipartStrictFieldsAndTotalBoundary (0.00s)
+=== RUN   TestGracefulShutdownDrainsRequest
+--- PASS: TestGracefulShutdownDrainsRequest (0.01s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/httpserver	0.020s

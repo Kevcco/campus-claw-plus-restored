@@ -232,6 +232,12 @@ func DocumentsHandler(logger *slog.Logger, auth materialAuthenticator, service *
 				fail(e)
 				return
 			}
+			var accepted documents.Document
+			if json.Unmarshal(out, &accepted) != nil || !materials.ValidID(accepted.ID) {
+				fail(identity.ErrUnavailable)
+				return
+			}
+			w.Header().Set("Location", "/api/v1/documents/"+accepted.ID)
 			w.WriteHeader(202)
 			w.Write(out)
 		case "detail", "download", "retry":
@@ -256,6 +262,7 @@ func DocumentsHandler(logger *slog.Logger, auth materialAuthenticator, service *
 					fail(e)
 					return
 				}
+				w.Header().Set("Location", "/api/v1/documents/"+id)
 				w.WriteHeader(202)
 				json.NewEncoder(w).Encode(out)
 				return

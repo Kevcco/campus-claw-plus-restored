@@ -66,6 +66,12 @@ func TestDocumentHTTPProduction(t *testing.T) {
 		if len(res.Header.Get("X-Request-ID")) != 32 || res.Header.Get("Cache-Control") != "no-store" {
 			t.Fatal("response correlation/cache contract")
 		}
+		if method == "POST" && want == 202 && strings.HasPrefix(path, "/api/v1/documents") {
+			var accepted documents.Document
+			if json.Unmarshal(raw, &accepted) != nil || res.Header.Get("Location") != "/api/v1/documents/"+accepted.ID {
+				t.Fatal("DI-SC-07/10 default HTTPS accepted resource Location")
+			}
+		}
 		if strings.HasSuffix(path, "/download") && want == 200 {
 			if res.Header.Get("X-Content-Type-Options") != "nosniff" || !strings.HasPrefix(res.Header.Get("Content-Disposition"), "attachment; filename=\"document-") {
 				t.Fatal("binary attachment contract")

@@ -105,6 +105,12 @@ func (f *dhFixture) call(method, path, actor, ctype, key string, body []byte) ([
 	if res.Header.Get("Cache-Control") != "no-store" || len(res.Header.Get("X-Request-ID")) != 32 {
 		f.t.Fatal("public cache/request-id")
 	}
+	if method == "POST" && res.StatusCode == 202 && strings.HasPrefix(path, "/api/v1/documents") {
+		var accepted documents.Document
+		if json.Unmarshal(raw, &accepted) != nil || res.Header.Get("Location") != "/api/v1/documents/"+accepted.ID {
+			f.t.Fatal("DI-SC-07/10 actual upload, original replay and retry Location")
+		}
+	}
 	return raw, res.Header, res.StatusCode
 }
 func (f *dhFixture) want(method, path, actor, ctype, key string, body []byte, want int) []byte {
