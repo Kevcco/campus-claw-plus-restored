@@ -121,3 +121,6 @@ A1.2b组件补证#51：9aa2f86原check0、7组HTTP/40实际文件/慢头慢体�
 
 
 2026-11-15小张承接#57的Kevcco实际CHANGES_REQUESTED（a05d258）：已在原分支补上传/原202重放和retry的Location，先用原真实handler探针复现红1，修复后httpserver全包绿0；在真实TLS/MySQL和默认HTTPS调用器增加所有Document 202头断言。原生200%与显式重试浏览器实测正在同版本补齐；最终完整门禁/真实批准/main复验待，不先标完成。
+
+
+2026-11-15小张续验261d94e：Location缺陷已修复并推送，真实handler红1→全包绿0；修复版默认可信HTTPS main（含实际上传/原202重放Location断言）通过，完整CI跟进中。隔离Firefox真实登录/资料页已打开；Computer Use再次明确返回“Computer Use has been stopped for this turn because browser URL policy enforcement is not yet supported for the current Windows browser”，已停止电脑输入。原生200%仍未验，显式重试按钮实测尚未执行；需要人工在该隔离浏览器调到200%后继续实际指标/截图/交互验收，不用CSS或设备模拟替代，不冒用旧CI或旧批准。维持#57草稿与CHANGES_REQUESTED，不请求最终复审/不合并。

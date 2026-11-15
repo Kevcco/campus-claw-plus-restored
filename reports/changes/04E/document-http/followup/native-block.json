@@ -1,0 +1,11 @@
+{
+  "time": "2026-11-15T09:12:07.978Z",
+  "code_commit": "261d94e138d5d7504e2fcf6e3d9962a613cd7579",
+  "browser": "isolated Firefox1573 Nightly",
+  "native200_verified": false,
+  "retry_browser_verified": false,
+  "tool": "mcp__cua_repl.getApp",
+  "result": "Computer Use has been stopped for this turn because browser URL policy enforcement is not yet supported for the current Windows browser",
+  "input_stopped": true,
+  "required_next": "Human changes native page zoom to200%; then measure native scale and exercise real page retry in resumed task"
+}
