@@ -1,0 +1,57 @@
+{
+  "observer": "小陈 / Kevcco (AI辅助)",
+  "run": 43597345884,
+  "head": "808b02e09c82bdca76645ffe92b099a88e9104a8",
+  "artifact_id": 14114993742,
+  "artifact_digest": "sha256:ef62dc85fccd0bf7d91e65a7961c78cbf852ab34ccaacbfb8a84fa22e85f6a4b",
+  "scope": "Downloaded real Go/Python CI evidence only; not a local Docker rerun, production activation, migration or queue acceptance",
+  "results": [
+    {
+      "mode": "check",
+      "source": {
+        "commit": "b301fe49c80a6e31740b600f392f332ea5f9cdb0",
+        "dirty": false,
+        "fingerprint": "bc2b01b41d969c589bea2ea7926b934052ec4519f0d8fcd97685f6a1a3804a3d"
+      },
+      "image_id": "sha256:de761253c74b80b9c3f72536da27ebcf88d82630bf1831cd0a7799b716023df3",
+      "probe_sha256": "fc8592f869415b76e28cdc073039c9f26d39b6a0063ce52a0221eb3beca54c96",
+      "documents": 40,
+      "locations": 195,
+      "wrong_auth_rejected": true,
+      "actual_outage": {
+        "health": false,
+        "reason": "worker_interrupted",
+        "unavailable": true
+      },
+      "internal": true,
+      "no_host_ports": true,
+      "safe_logs": true,
+      "secret_file_removed": true,
+      "cleanup": 4
+    },
+    {
+      "mode": "scan",
+      "source": {
+        "commit": "b301fe49c80a6e31740b600f392f332ea5f9cdb0",
+        "dirty": false,
+        "fingerprint": "bc2b01b41d969c589bea2ea7926b934052ec4519f0d8fcd97685f6a1a3804a3d"
+      },
+      "image_id": "sha256:de761253c74b80b9c3f72536da27ebcf88d82630bf1831cd0a7799b716023df3",
+      "probe_sha256": "e81f942bcc10cbe5d6c17a5d953d8f1f9360b14de6dfb0a4dd946c31c65bae04",
+      "documents": 40,
+      "locations": 195,
+      "wrong_auth_rejected": true,
+      "actual_outage": {
+        "health": false,
+        "reason": "worker_interrupted",
+        "unavailable": true
+      },
+      "internal": true,
+      "no_host_ports": true,
+      "safe_logs": true,
+      "secret_file_removed": true,
+      "cleanup": 4
+    }
+  ],
+  "exit_code": 0
+}

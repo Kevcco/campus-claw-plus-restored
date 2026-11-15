@@ -1,0 +1,8 @@
+{
+  "scenario": "DI-SC-14 required coordinates reject JSON null before zero-value decoding",
+  "red_exit": 1,
+  "green_exit": 0,
+  "source_restored_exact": true,
+  "source_sha256": "37b99b388be1ab0d03af1ae4277933c996a7456b2478b70ba4771955102ade53",
+  "scope": "Reviewer local Go HTTP/semantic regression; no container extraction claim"
+}
