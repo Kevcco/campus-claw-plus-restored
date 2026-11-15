@@ -1,0 +1,47 @@
+{
+  "observer": "小陈 / Kevcco (AI辅助)",
+  "run": 43611861247,
+  "head": "4a7fc662153fa6bf1ec5dbe350797a3904d0f6f1",
+  "artifact_id": 14120669029,
+  "artifact_digest": "sha256:129fe4e7f2dd0eecac656bca2d5077e670756c9e813b8cc6ad2d6bcf0e6bcdbd",
+  "source_validator_sha256": "39d122b6bb99f3fe32bce6496ddae25fc527ecb6913a74cae717ee2bf5032588",
+  "target": 6,
+  "restored_target": 5,
+  "tests": [
+    "TestDIMigration6FreshUpgradeAndHistory",
+    "TestDIFiveDDLInterruptionAndForwardRepair",
+    "TestDIExactStructureDrift",
+    "TestDIEmptyDisposableDownOnly"
+  ],
+  "interrupted_ddl_steps": 5,
+  "accepted5_commit": "c1ac4213580df1fcc03520b8dddcfbece2a3344d",
+  "binaries": {
+    "pre06-server": "55704b6ad8564f01cbd704460c446e81576435947be0959d55a87e5890206d59",
+    "pre06-admin": "07605b774b31eb62a8ac7ad5855969632315dfe1e9d1c354ec6dca500cfc36d9",
+    "server": "9c9566e0ce1ce7f42dc74787312c6c7eca5c5b245096ddfe65ee3d8efd3bea4c",
+    "identity-admin": "e64a04c8f047b79942867b9ea3cdbd48487fd80cf50b47598c5b517f053bb38b"
+  },
+  "dump_sha256": "c6cde49585f6d63c1dce756da38c33f9cb0776efa20dc1839e1aceacd85a306c",
+  "backup_utc": "2026-11-14T15:54:32.720Z",
+  "observed_rto_upper_bound_ms": 1924,
+  "separate_preserved_source": "idf_test_63",
+  "isolated_restore": "idf_test_64",
+  "drift_subtests": [
+    "column",
+    "default",
+    "collation",
+    "index-order",
+    "index-prefix",
+    "index-descending",
+    "index-invisible",
+    "table-collation",
+    "check-expression",
+    "check-enforcement",
+    "engine",
+    "binary-key",
+    "lease-predicate"
+  ],
+  "cleanup": 3,
+  "exit_code": 0,
+  "scope": "Downloaded exact CI MySQL migration/repair/backup/isolated restore evidence; no reviewer local MySQL or holder database upgrade claim"
+}

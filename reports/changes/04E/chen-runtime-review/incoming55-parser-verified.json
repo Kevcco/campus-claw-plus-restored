@@ -1,0 +1,77 @@
+{
+  "run_id": 43611861247,
+  "run_url": "https://github.com/zwh9616/campus-claw-plus/actions/runs/43611861247",
+  "event": "pull_request",
+  "head_sha": "4a7fc662153fa6bf1ec5dbe350797a3904d0f6f1",
+  "status": "completed",
+  "conclusion": "success",
+  "artifact_id": 14120669029,
+  "artifact_name": "runtime-image-scans-39014b0eb0d0fe9329e78a8e3a6deb15e785874d",
+  "artifact_digest": "sha256:129fe4e7f2dd0eecac656bca2d5077e670756c9e813b8cc6ad2d6bcf0e6bcdbd",
+  "actor": "zwh9616",
+  "zip_sha256": "129fe4e7f2dd0eecac656bca2d5077e670756c9e813b8cc6ad2d6bcf0e6bcdbd",
+  "verified_against_head": "4a7fc662153fa6bf1ec5dbe350797a3904d0f6f1",
+  "parser_fingerprint": "7d88718c5f27e7c5622d87d13d67bfebf4012cf27ee339a5633d43de6a2d97c8",
+  "records": [
+    {
+      "mode": "check",
+      "private_health": {
+        "exit_code": 0,
+        "groups": 3,
+        "safe_logs": true,
+        "scope": "actual fixed loopback probe, busy liveness, total timeout and bad startup processes"
+      },
+      "source": {
+        "commit": "39014b0eb0d0fe9329e78a8e3a6deb15e785874d",
+        "dirty": false,
+        "fingerprint": "7d88718c5f27e7c5622d87d13d67bfebf4012cf27ee339a5633d43de6a2d97c8"
+      },
+      "image_id": "sha256:e547d739aef77e3530b6e02534d8eb1121b8bc689dbf2603dedc13f28b5884dd",
+      "tests_sha256": "960cc602b0a645b8a48649c7eaf875b11268a534bfcdea259a793f8a4b639918",
+      "documents": 40,
+      "locations": 195,
+      "critical_phrases": 45,
+      "negatives": 25,
+      "groups": 8,
+      "max_cer": 0,
+      "max_document_ms": 974,
+      "cleanup": 2
+    },
+    {
+      "mode": "scan",
+      "private_health": {
+        "exit_code": 0,
+        "groups": 3,
+        "safe_logs": true,
+        "scope": "actual fixed loopback probe, busy liveness, total timeout and bad startup processes"
+      },
+      "source": {
+        "commit": "39014b0eb0d0fe9329e78a8e3a6deb15e785874d",
+        "dirty": false,
+        "fingerprint": "7d88718c5f27e7c5622d87d13d67bfebf4012cf27ee339a5633d43de6a2d97c8"
+      },
+      "image_id": "sha256:e547d739aef77e3530b6e02534d8eb1121b8bc689dbf2603dedc13f28b5884dd",
+      "tests_sha256": "1dcd83dc06d74c6355adc4fda497964e38464b6ee7e2ab2b57008b3d71b402ff",
+      "documents": 40,
+      "locations": 195,
+      "critical_phrases": 45,
+      "negatives": 25,
+      "groups": 8,
+      "max_cer": 0,
+      "max_document_ms": 989,
+      "cleanup": 2,
+      "raw_sha256": "db60a1048a88d9163bfb89d5254bad1010e7c3e4dbcfd79fd2a6da5ba78eede8",
+      "findings": {
+        "HIGH": 0,
+        "CRITICAL": 0
+      },
+      "database": {
+        "Version": 2,
+        "NextUpdate": "2026-11-15T13:05:54.014761543Z",
+        "UpdatedAt": "2026-11-14T13:05:54.014761714Z",
+        "DownloadedAt": "2026-11-14T15:49:14.539080766Z"
+      }
+    }
+  ],
+  "exit_code": 0
+}

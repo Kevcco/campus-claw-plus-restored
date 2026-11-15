@@ -1,0 +1,166 @@
+[
+  {
+    "path": "final54-assignment-verified.json",
+    "sha256": "001c69317cd7ab75a5c6b5d98b3b539914b86dc6b8c08a32dddfa5fb34aad19a"
+  },
+  {
+    "path": "final54-client-verified.json",
+    "sha256": "e158ba69045493702baffbee7db450b7a590d8dff5616da70daea2f01917c524"
+  },
+  {
+    "path": "final54-evidence.zip",
+    "sha256": "88cdca56d0978b334b70c79556f13da8a572dcdf36aca66b2019cd7a16097783"
+  },
+  {
+    "path": "final54-facts.json",
+    "sha256": "2fb235c0b9ca3f716d4c0734a1e757d96702d804a1d7bb4d84eed7c91f1c39e4"
+  },
+  {
+    "path": "final54-http-verified.json",
+    "sha256": "69e7c44997de2106dc61a8529fd725d472e9361ceb5ff9129427f67065114f4b"
+  },
+  {
+    "path": "final54-migration-verified.json",
+    "sha256": "083a4b5bcb1fc450e93d8fb70fa221ec959b767e080a86dd3c02dcf8239e7369"
+  },
+  {
+    "path": "final54-parser-verified.json",
+    "sha256": "29ad8140d1d3648b0dfdd9f111b57fe70f1408c9331e0f4bbfd54dae5d049c88"
+  },
+  {
+    "path": "final54-queue-verified.json",
+    "sha256": "d7c708b48f3511c3210caaaf5a66edf2ce5f05c8e7f9f889ffbea5a798eb6076"
+  },
+  {
+    "path": "final54-storage-verified.json",
+    "sha256": "344a1673d09970fc6fb2d474cab7c9bf212ec61dcd7665eedee28f518177f960"
+  },
+  {
+    "path": "final54-tracked-fingerprint-verified.json",
+    "sha256": "52f022c6a4863255a7ae08a6be15ea544e5a3a04e10ace4e42e6a9dc149b4f37"
+  },
+  {
+    "path": "final54-verified-facts.json",
+    "sha256": "a191c2f4c50085bc4f808282521e584ba5827e04977dd131fc2675d2525d6fb6"
+  },
+  {
+    "path": "incoming-artifact-secrets.txt",
+    "sha256": "54437b3bd36ef0e8ece770ff69823fd0ea81283f0ed1df5d60377ac43ff38ddc"
+  },
+  {
+    "path": "incoming55-assignment-verified.json",
+    "sha256": "e12b2c2a2e9b2d4a1e22c28c309f3481b8f0b11e7651daae9ef5085cb4596b1f"
+  },
+  {
+    "path": "incoming55-client-verified.json",
+    "sha256": "24f2c2b60da7820f0affa143a16d5e7832651ef466e0399eda89ae79ff81c9a7"
+  },
+  {
+    "path": "incoming55-evidence.zip",
+    "sha256": "129fe4e7f2dd0eecac656bca2d5077e670756c9e813b8cc6ad2d6bcf0e6bcdbd"
+  },
+  {
+    "path": "incoming55-facts.json",
+    "sha256": "da48e3f98894e91faef54acb7d01f32a97eeda76cd7df37d7a91c6739f5daedf"
+  },
+  {
+    "path": "incoming55-http-verified.json",
+    "sha256": "9182d41ce61377c8659a41edd01aea8339666e11982ee1f2ca29dcb4fe59cbfb"
+  },
+  {
+    "path": "incoming55-migration-verified.json",
+    "sha256": "3f1c9bdebf59b78de0a968544c259cfac1b1b1e11db193ce427917066d70aff4"
+  },
+  {
+    "path": "incoming55-parser-verified.json",
+    "sha256": "f501c846ec4d6ae42c621e747b9243421902e34efbf2a3fdbe55bdfd62aa6a45"
+  },
+  {
+    "path": "incoming55-runtime-verified.json",
+    "sha256": "ac0d1b97f127fbfd78fcdaf6f9b36001dbc768a1065477e6772edac35be49808"
+  },
+  {
+    "path": "incoming55-storage-verified.json",
+    "sha256": "77f4df84175737bc79f4d6b5fcf1ae5f28948e53bb5605ea6e7a0293d6006b22"
+  },
+  {
+    "path": "incoming55-tracked-fingerprint-verified.json",
+    "sha256": "c50f4cdd3057781a8992552c916f811e94a7672c08953d386faf0811340b3d0a"
+  },
+  {
+    "path": "incoming55-verified-facts.json",
+    "sha256": "0788069b36f1e51178eefb3415518f6b9bb486797032404cb6ccbda71fc5a267"
+  },
+  {
+    "path": "local-audit.txt",
+    "sha256": "6f37586567164dbaf4a19d2e9608fad2caf2cf5a6afe27bd0cb6b5d741352c1a"
+  },
+  {
+    "path": "local-check.txt",
+    "sha256": "0d464de419ded584723f8e922eaff3718a498e1c4125bd68ecd018a52f4f8b94"
+  },
+  {
+    "path": "local-private-probe.txt",
+    "sha256": "28f82d38904792ccc345a66fdf2039327ad254b33950be7c7ed7ff657fd123d8"
+  },
+  {
+    "path": "local-results.json",
+    "sha256": "cad49d364616f76ce9766d0572f671d1102da2d674af61dabd314d1bfc8c0bc4"
+  },
+  {
+    "path": "local-secrets.txt",
+    "sha256": "e15e01b53cfe52647a08a70f8211827f165f4248e7b7695234c8e429f45be40e"
+  },
+  {
+    "path": "main54-acceptance.json",
+    "sha256": "613a1192d720eb2504809080037e519930a9311edb286c9986fa55e20037416f"
+  },
+  {
+    "path": "main54-assignment-verified.json",
+    "sha256": "a408630ffddbc187d7c8d4a1681e0c97fe090c273ce75f64eb2903aad60991fe"
+  },
+  {
+    "path": "main54-client-verified.json",
+    "sha256": "ce452605d8d1ad678613a513976e91ce2a9d559d2bd93adbd0f95dc1febbc364"
+  },
+  {
+    "path": "main54-evidence.zip",
+    "sha256": "14cc26a030075d141c000f86f5d95555226b86840e95ada8c905e2374a1a4bd0"
+  },
+  {
+    "path": "main54-facts.json",
+    "sha256": "f00174480e12fb96efa7c5016df94f3235d6576d29486e9a48e75fc7ac6e7b63"
+  },
+  {
+    "path": "main54-http-verified.json",
+    "sha256": "969851c25b99f96c3362f638b8f7bd1a97b3c1e2ba66fcb2762d1e28c4f750c1"
+  },
+  {
+    "path": "main54-migration-verified.json",
+    "sha256": "b817fed5f67b5a3c3d5617c3b722cf9e83c82e63ea0fec5b5dfb42fa180fe276"
+  },
+  {
+    "path": "main54-parser-verified.json",
+    "sha256": "03110f13349c87c85cae65b3c8e2c84cce9fb4e3c77d79b45a0e34cc8f6adf2c"
+  },
+  {
+    "path": "main54-queue-verified.json",
+    "sha256": "24a875ac9eef34dbfb77968290a2a93cd39ce998d1959e8a336183ded82bca70"
+  },
+  {
+    "path": "main54-storage-verified.json",
+    "sha256": "f666af4147c1522ffe9386eafc74179be9d19f09b83e073016231c83bb8f87ec"
+  },
+  {
+    "path": "main54-tracked-fingerprint-verified.json",
+    "sha256": "430c2787e97c105a3c963e3ae353e9c1775a3e863a91b8f2178151c14a6e55a4"
+  },
+  {
+    "path": "main54-verified-facts.json",
+    "sha256": "db9d1e9a36abfc08e8cd79e8062f016aa9c86bdda59751ffe0d82a8949a9a8f4"
+  },
+  {
+    "path": "manifest-scan-first.txt",
+    "sha256": "8979a207a0bcc5267d54c21c39665287851e63d4022cecd1610fe777ad3dacc0"
+  }
+]

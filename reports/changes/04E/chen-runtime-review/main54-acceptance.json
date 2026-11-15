@@ -1,0 +1,27 @@
+{
+  "reviewer": "小陈 / Kevcco (AI辅助)",
+  "checked_at": "2026-11-15T03:49:07.860Z",
+  "pr": 54,
+  "head": "4ac423a0ad00e175fa5c2fbcd0cdde473029ec10",
+  "approval": {
+    "id": 5908869691,
+    "user": "Kevcco",
+    "head": "4ac423a0ad00e175fa5c2fbcd0cdde473029ec10",
+    "url": "https://github.com/zwh9616/campus-claw-plus/pull/54#pullrequestreview-5908869691"
+  },
+  "merge": "ae18872c0f29b2c021b73ba6e4c3be548b161094",
+  "main_protected": true,
+  "tree": "b3a021560ca21cbf1d2a22d53e481af1ad751cbf",
+  "ci": {
+    "id": 43673282647,
+    "url": "https://github.com/zwh9616/campus-claw-plus/actions/runs/43673282647",
+    "head": "ae18872c0f29b2c021b73ba6e4c3be548b161094",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "id": 14145621037,
+    "digest": "sha256:14cc26a030075d141c000f86f5d95555226b86840e95ada8c905e2374a1a4bd0"
+  },
+  "scope": "Exact migration6 component only; no holder DB upgrade, parser production activation, authorized Document HTTP or whole A/B/C acceptance"
+}
