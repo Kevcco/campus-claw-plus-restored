@@ -1,0 +1,6 @@
+
+> @campus-claw-plus/frontend@0.0.1 typecheck
+> tsc --noEmit
+
+
+exit=0

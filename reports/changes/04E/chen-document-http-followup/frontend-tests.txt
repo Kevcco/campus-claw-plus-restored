@@ -1,0 +1,43 @@
+✔ FEF-SC-03 login bounds, unchanged input, duplicate clicks and private credentials (54.072ms)
+✔ FEF-SC-03/09 uniform 401, Retry-After and malformed CSRF are fail closed (1.8746ms)
+✔ FEF-SC-04/05 recover order, one refresh and one replay, no logout after contention (1.6669ms)
+✔ FEF-SC-06 switch role and int64 boundaries, retain original class only after verification (1.6121ms)
+✔ FEF-SC-07 late old class response is discarded and writes are serialized (0.7149ms)
+✔ FEF-SC-07/08 uncertain writes never replay; 204 and 401 clear identity (2.903ms)
+✔ FEF-SC-09 malformed response cannot install identity or leak the response body (0.2608ms)
+✔ DI-SC-02/05 Document states, UTF codepoints, exact milliseconds and nullable fields are closed (10.576ms)
+✔ DI-SC-02 binary selection validates extension/signature, size and title without decoding PDF as text (5.494ms)
+✔ DI-SC-11/12 six fixed operations preserve bearer isolation, literal search and binary headers (40.0181ms)
+✔ DI-SC-07/11 writes never auto-replay, explicit same-key retry remains possible and binary failures are rejected (2.2715ms)
+✔ DI-SC-11 invalid routes/parameters and student writes fail before business requests; context reset rejects late data (3.2783ms)
+✔ MF-SC-01/02/07 invalid routes/IDs/queries fail before network, ID stays a string (54.3921ms)
+✔ MF-SC-02 fixed pagination/keyword request and no exposed credentials (2.1961ms)
+✔ MF-SC-06/09 malformed material/page/citation/body are rejected (1.4774ms)
+✔ MF-SC-03 upload validates Go whitespace/UTF-8/control/byte/codepoint boundaries and preserves file (2.6097ms)
+✔ MF-SC-03/04 multipart boundary/browser bytes and duplicate write/manual same-key confirmation (1.7732ms)
+✔ MF-SC-07/09 GET 401 recovers one time then replays, second 401 clears identity (2.9013ms)
+✔ MF-SC-07/09 recovery into a different class never replays material request (0.818ms)
+✔ MF-SC-09 upload/download 401 recover credentials but never automatically replay (1.2648ms)
+✔ MF-SC-08 context reset discards a response even when fetch ignores cancellation (0.5011ms)
+✔ MF-SC-08 external notification aborts immediately during material 401 recovery (3.5231ms)
+✔ MF-SC-07 student writes fail locally; 403 rechecks identity (0.8332ms)
+✔ MF-SC-09 404/409/413/429/503/504 give safe errors, Retry-After survives (2.3936ms)
+✔ MF-SC-09 deadline is 10000ms and bounds a fetch which ignores AbortSignal (19.3512ms)
+✔ MF-SC-06 download returns original bytes with no URL token (1.256ms)
+✔ MF-SC-04/08 same-identity background refresh keeps the material form context authenticated (0.5805ms)
+✔ MF-SC-08/09 delayed old-token 401 reuses recovered credentials while another read is in flight (1.1519ms)
+✔ MF-SC-08/09 delayed download 401 does not refresh again or replay the download (0.8004ms)
+✔ FEF-SC-07/08 reviewer: late successful identity cannot resurrect a logged-out session (53.4967ms)
+✔ FEF-SC-04/08 reviewer: revoked access and refresh hide identity without retrying or logging out another session (2.0224ms)
+✔ FEF-SC-07 reviewer: another tab changing context invalidates an already pending old identity response (1.1857ms)
+✔ FEF-SC-05/08 reviewer: logout obtains CSRF for the current shared cookie after another tab refreshes (0.6135ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 368.1138
+
+exit=0

@@ -23,3 +23,13 @@
 入库文本日志仅规范LF和行尾空白，结果与退出码不变；原ZIP字节及GitHub摘要保持。
 
 本次只新增真实审查记录和同步共享表/任务，不修改实现、配置、合同、旧断言或已验收历史。远端本次最终head检查与实际批准另核；持有人数据库未部署升级，OCR/语义、整个A/B/C和10-B全量/C仍未放行。
+
+## 修订复核：两项已解决，原生200%仍待验
+
+2026-11-15小陈复核#57修订64ea99a/补证dfc50c0：上传/原202重放/retry的Location实现与真实HTTP/HTTPS断言已补齐，本人httpserver全包0、33前端/类型0。独立下载完整CI43714084399原artifact14162150910，ZIP SHA256 fe3ea94890179a9c4d3d3576a12c1398a634883982d1feca17a0921ff91860de与GitHub及入库原件一致，2215 Git blob/四段/五镜像/五真实SQL/三HTTPS/九worker/迁移恢复/清理核验通过；dfc50c0完整CI43715317819成功。新增429源码/30浏览器原件摘要匹配，实际Enter只一次retry202/正确Location/ready2、耗尽3隐藏、扫描/加密不重试及耗尽文案修复可接受；这些为作者实测证据的独立复核，不冒称本人新数据库或浏览器会话。原生200%仍未验证，当前无可接续测试窗口，维持draft与原CHANGES_REQUESTED，不批准/合并；只待小张补同版本真实200%/键盘/长内容证据后复核。
+
+[本轮独立核验](chen-document-http-followup/followup-verified.json)、[完整CI原件核验](chen-document-http-followup/ci-verified.json)与[本机结果](chen-document-http-followup/local-results.json)。首次测试入口路径误写退出1，以及两次日志目录未就绪导致未执行的命令均如实保留；改用package.json登记的四套前端测试和类型命令后实际退出0，没有用外层PowerShell的0掩盖未执行。此次仅复跑受修订影响的HTTP包、33前端和类型；本机Docker/SQL/verify未运行。
+
+旧browser-final清单中的四个源码差异恰为本次两个修复涉及的四文件，已由新增retry-browser的429源码摘要逐一核对当前代码；旧清单的未验重试标记不再代表本轮新证据。原生200%的passed仍为false（页面100%/DPR1.5/CSSzoom1），不以小视口或截图变大推定已验。已查看最新耗尽页截图，提示与三次上限一致。
+
+本次审查补证提交自身CI另核；不勾A3/整个A，不转派04E实施，不代批准#56。main仍d874b663991730474e2360944ba1587a1e7c1d65，持有人部署、OCR/语义与10-B全量/C状态不变。
