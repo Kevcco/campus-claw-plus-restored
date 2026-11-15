@@ -1,0 +1,41 @@
+{
+  "observer": "小陈 / Kevcco (AI辅助)",
+  "head": "4a7fc662153fa6bf1ec5dbe350797a3904d0f6f1",
+  "run": 43611861247,
+  "artifact_id": 14120669029,
+  "artifact_digest": "sha256:129fe4e7f2dd0eecac656bca2d5077e670756c9e813b8cc6ad2d6bcf0e6bcdbd",
+  "source_files": {
+    "scripts/document-runtime-evidence.mjs": "c3fe0a975522c361237d42955af25c4b6a090e681fc55a117bbd0ac40556ac74",
+    "scripts/document-runtime.mjs": "72d39642a4a4589cd996fc0c729a58f72d28674ea9b6cf4b5bc6a45abde202b2",
+    "backend/internal/runtimeapp/app.go": "3e41eb9d378d161c9f4c057c75c6aa24a45b1a45132bbaa2987ee2e938d5d9e7",
+    "backend/internal/integration/wiring/document_worker_test.go": "8ee8761e75d0caddfb4d91365d11fb446ae3efac4880468d99cd8c4159cacdae",
+    "document-parser/health.py": "794056e79690f9fd8a9ee7f72cc5d95e4b076e7b5cbcf4541e5be792769ca157",
+    "document-parser/test_health.py": "c33a58244a5435013d0b3d379e7f22c6d853ddcc6387b4b50568762058796457"
+  },
+  "stages": [
+    "corpus",
+    "outage-enqueue",
+    "outage-retry",
+    "restart-enqueue",
+    "restart-verify",
+    "kill-enqueue",
+    "kill-expire",
+    "kill-verify",
+    "database-verify"
+  ],
+  "documents": 40,
+  "locations": 195,
+  "chunks": 196,
+  "actual_worker_sigkill": true,
+  "forced_test_lease_expiry": true,
+  "actual_database_recovery": true,
+  "public_document_http": "frozen",
+  "parser_image": "sha256:e547d739aef77e3530b6e02534d8eb1121b8bc689dbf2603dedc13f28b5884dd",
+  "backend_image": "sha256:fa4e514c257e565c5274e7e9df111bb326e762a62ffcb57b646282ddc13078a9",
+  "actual_private_health_groups_per_round": 3,
+  "production_images": 5,
+  "actual_https_regression_phases": 4,
+  "cleanup": 5,
+  "exit_code": 0,
+  "scope": "Downloaded exact CI production worker and isolated Docker evidence. Trusted fixture enqueue, forced test lease expiry; public Document HTTP/UI and holder database deployment unverified. No reviewer local Docker rerun."
+}

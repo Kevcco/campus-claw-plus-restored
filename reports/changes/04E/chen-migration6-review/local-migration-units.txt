@@ -1,0 +1,4 @@
+=== RUN   TestDocumentDefinitionComparison
+--- PASS: TestDocumentDefinitionComparison (0.00s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/migrations	0.715s

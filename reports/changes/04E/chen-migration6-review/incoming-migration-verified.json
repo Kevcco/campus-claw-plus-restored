@@ -1,0 +1,25 @@
+{
+  "observer": "小陈 / Kevcco (AI辅助)",
+  "scope": "Independently checked downloaded CI raw migration and recovery evidence, not local MySQL execution",
+  "target": 6,
+  "restored_target": 5,
+  "tests": [
+    "TestDIMigration6FreshUpgradeAndHistory",
+    "TestDIFiveDDLInterruptionAndForwardRepair",
+    "TestDIExactStructureDrift",
+    "TestDIEmptyDisposableDownOnly"
+  ],
+  "interrupted_ddl_steps": 5,
+  "accepted5_commit": "c1ac4213580df1fcc03520b8dddcfbece2a3344d",
+  "binaries": {
+    "pre06-server": "55704b6ad8564f01cbd704460c446e81576435947be0959d55a87e5890206d59",
+    "pre06-admin": "07605b774b31eb62a8ac7ad5855969632315dfe1e9d1c354ec6dca500cfc36d9",
+    "server": "f3f7512890c401f25f0c8a582cbc298d48f63bcfc2fdb338440d41b8e4d9a595",
+    "identity-admin": "e64a04c8f047b79942867b9ea3cdbd48487fd80cf50b47598c5b517f053bb38b"
+  },
+  "dump_sha256": "d792c30984c888acaba36ee6db3e3c54de2715e06a63c5c93a79ca1f998a4472",
+  "backup_utc": "2026-11-14T14:57:30.931Z",
+  "observed_rto_upper_bound_ms": 1390,
+  "separate_preserved_source": "idf_test_63",
+  "isolated_restore": "idf_test_64"
+}

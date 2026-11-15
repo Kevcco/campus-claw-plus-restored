@@ -1,0 +1,84 @@
+{
+  "run": 43611861247,
+  "head": "4a7fc662153fa6bf1ec5dbe350797a3904d0f6f1",
+  "source": {
+    "commit": "39014b0eb0d0fe9329e78a8e3a6deb15e785874d",
+    "dirty": false,
+    "fingerprint": "44aadb39455330f893c8472b13225230428974351286fb3eaa746a76e5f80397"
+  },
+  "zip_digest": "sha256:129fe4e7f2dd0eecac656bca2d5077e670756c9e813b8cc6ad2d6bcf0e6bcdbd",
+  "artifact_id": 14120669029,
+  "batch": "identity-materials-assignment-tasks-private-document-worker",
+  "gate": {
+    "exit_code": 0,
+    "results": [
+      {
+        "name": "check",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 215252
+      },
+      {
+        "name": "audit",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 704
+      },
+      {
+        "name": "secret-scan",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 2044
+      },
+      {
+        "name": "verify",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 461477
+      }
+    ],
+    "notRun": []
+  },
+  "assignment_real_suite_count": 18,
+  "assignment_recovery_steps": 5,
+  "https_persistence_phases": 3,
+  "images": [
+    {
+      "service": "mysql",
+      "image_id": "sha256:47fc739d423b9fa90ca50cf62377037c91bceb224a36073588ae7e59f6bf9a27",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "admin",
+      "image_id": "sha256:88fbef2735256933e3a4903dc2476612e1bcad95abce4ce9fea17591e672cabe",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "backend",
+      "image_id": "sha256:fa4e514c257e565c5274e7e9df111bb326e762a62ffcb57b646282ddc13078a9",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "frontend",
+      "image_id": "sha256:9d7c08b900236c177c97a9007cdb01fe36e8b10a2db47313551506bfdd63fbd4",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "document-parser",
+      "image_id": "sha256:e547d739aef77e3530b6e02534d8eb1121b8bc689dbf2603dedc13f28b5884dd",
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  ],
+  "cleanup_count": 5,
+  "production_executor_unbound": true,
+  "scope": "Self CI real Docker evidence; local Docker was unavailable; Ge independent review not implied"
+}

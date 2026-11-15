@@ -1,0 +1,7 @@
+{
+  "setup_exit": 0,
+  "npm_ci_exit": 0,
+  "secret_scan_exit": 0,
+  "audit_exit": 0,
+  "check_exit": 1
+}

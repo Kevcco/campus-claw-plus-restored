@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/base64"
 	"encoding/json"
+	"fmt"
 	"io"
 	"net"
 	"net/http"
@@ -226,4 +227,67 @@ func TestDI14InputAndOutputBounds(t *testing.T) {
 	if c.Parse(context.Background(), "pdf", []byte("x")).FailureReason != "internal_failure" {
 		t.Fatal("oversize output")
 	}
+}
+
+// DI-SC-14: required integers must not acquire Go zero values from JSON null.
+// Exercise Parse over HTTP as well as the original semantic decoder cases.
+func TestDI14ReviewerRejectsNullCoordinatesOverHTTP(t *testing.T) {
+	for _, format := range []string{"pdf", "docx"} {
+		for _, field := range []string{"unit", "char_start", "char_end"} {
+			t.Run(format+"/"+field, func(t *testing.T) {
+				raw := `{"status":"ready","body":"x","locations":[{"kind":"pdf_page","unit":1,"char_start":0,"char_end":1}],"source_page_count":1}`
+				if format == "docx" {
+					raw = strings.ReplaceAll(raw, "pdf_page", "docx_paragraph")
+					raw = strings.ReplaceAll(raw, `"source_page_count":1`, `"source_page_count":null`)
+				}
+				value := "1"
+				if field == "char_start" {
+					value = "0"
+				}
+				raw = strings.Replace(raw, `"`+field+`":`+value, `"`+field+`":null`, 1)
+				c := clientFor(t, func(w http.ResponseWriter, _ *http.Request) {
+					w.Header().Set("Content-Type", "application/json")
+					io.WriteString(w, raw)
+				})
+				result := c.Parse(context.Background(), format, []byte("original"))
+				if result.Status != "failed" || result.FailureReason != "internal_failure" || result.Body != "" || len(result.Locations) != 0 {
+					t.Fatalf("null coordinate escaped validation: %+v", result)
+				}
+			})
+		}
+	}
+}
+
+func TestDI14ReviewerResponseTruncationAndBodyDeadline(t *testing.T) {
+	t.Run("truncated body", func(t *testing.T) {
+		c := clientFor(t, func(w http.ResponseWriter, _ *http.Request) {
+			w.Header().Set("Content-Type", "application/json")
+			w.Header().Set("Content-Length", fmt.Sprint(len(readyPDF)+10))
+			io.WriteString(w, readyPDF)
+		})
+		if result := c.Parse(context.Background(), "pdf", []byte("original")); result.FailureReason != "worker_interrupted" || result.Body != "" {
+			t.Fatalf("incomplete transport accepted or misclassified: %+v", result)
+		}
+	})
+	t.Run("deadline after response headers", func(t *testing.T) {
+		c := clientFor(t, func(w http.ResponseWriter, r *http.Request) {
+			io.Copy(io.Discard, r.Body)
+			w.Header().Set("Content-Type", "application/json")
+			w.WriteHeader(http.StatusOK)
+			w.(http.Flusher).Flush()
+			select {
+			case <-r.Context().Done():
+			case <-time.After(time.Second):
+			}
+		})
+		ctx, cancel := context.WithTimeout(context.Background(), 50*time.Millisecond)
+		defer cancel()
+		start := time.Now()
+		if result := c.Parse(ctx, "pdf", []byte("original")); result.FailureReason != "parse_timeout" || result.Body != "" {
+			t.Fatalf("body deadline not enforced: %+v", result)
+		}
+		if elapsed := time.Since(start); elapsed > time.Second {
+			t.Fatalf("body exceeded caller budget: %s", elapsed)
+		}
+	})
 }

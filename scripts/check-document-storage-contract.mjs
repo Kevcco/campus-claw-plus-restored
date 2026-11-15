@@ -27,8 +27,7 @@ assert.equal(runtimeTarget, contract.migration.current_target)
 const results = []
 const report = { run_id: runId, time: new Date().toISOString(), exit_code: 1,
   source: { commit: git(['rev-parse', 'HEAD']), dirty: git(['status', '--porcelain']) !== '' },
-  candidate_sql: sources, scope: 'isolated reviewed SQL constraints and actual Go queue with Target6 registered; migration/repair/backup are separate identity suite; no holder database or RPC activation claim' }
-
+  candidate_sql: sources, scope: 'isolated reviewed SQL constraints and actual Go document queue with runtime Target6 registered; actual migration/repair/backup evidence is separate identity suite; no holder database or RPC activation' }
 
 function docker(args, input, timeout = 30000) {
   return spawnSync('docker', args, { input, encoding: 'utf8', timeout, maxBuffer: 4 * 1024 * 1024,

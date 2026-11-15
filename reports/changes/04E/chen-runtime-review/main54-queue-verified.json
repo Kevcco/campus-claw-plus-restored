@@ -1,0 +1,34 @@
+{
+  "observer": "小陈 / Kevcco (AI辅助)",
+  "run": 43673282647,
+  "head": "ae18872c0f29b2c021b73ba6e4c3be548b161094",
+  "artifact_id": 14145621037,
+  "artifact_digest": "sha256:14cc26a030075d141c000f86f5d95555226b86840e95ada8c905e2374a1a4bd0",
+  "source": {
+    "commit": "ae18872c0f29b2c021b73ba6e4c3be548b161094",
+    "dirty": false
+  },
+  "source_files": {
+    "mysql_test.go": "0ba9253ce5c152f321b05c440646d15197add4d9b0c517ca094751ac0f21b456",
+    "result_test.go": "8e163dccfd43edcfac61df5c23921da70cae7887c3701625358e217f87d80663",
+    "reviewer_test.go": "5a85e2e9953270ce51c549a847afc9189316a9911cc44fe50657575f377e400a",
+    "store.go": "263478076f3281fbb45066c4fe93a36614212a988fefa59d33e625cad8335995",
+    "worker.go": "627c2377ba53e79010ffcf38dfd213da34c11d7b3c572756e3ad0e5f0f157160"
+  },
+  "log_sha256": "f483d6b5cee1ecb236e2f007f227578354b6610b15b2b05fd6f056aac610fbd5",
+  "mysql_version": "8.4.13",
+  "groups": [
+    "TestMySQLAcceptanceRollbackAndMixedPayload",
+    "TestMySQLAtomicPublicationAndSource",
+    "TestMySQLClaimAndRetryRollback",
+    "TestMySQLConcurrentAcceptance",
+    "TestMySQLLeaseCASAndExhaustion",
+    "TestMySQLLeaseExpiryDuringPublication",
+    "TestMySQLLongChunksAndRetry",
+    "TestMySQLProcessCrashRecovery",
+    "TestMySQLStorageDeadline",
+    "TestMySQLWorkerSingleFlightAndCancellation"
+  ],
+  "exit_code": 0,
+  "scope": "Downloaded actual MySQL queue CI and byte-bound sources/logs; not a reviewer local database rerun, parser extraction callback, migration6, HTTP authorization or production activation"
+}
