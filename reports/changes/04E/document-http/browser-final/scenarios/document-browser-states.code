@@ -1,0 +1,17 @@
+async page=>{
+ const base='C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/output/document-browser/',checks=[],screens=[]
+ const mark=(n,v)=>{if(!v)throw new Error(n);checks.push(n)}
+ async function shot(name){for(const width of [1440,360]){await page.setViewportSize({width,height:900});mark(name+'-'+width+'无横向溢出',await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth));await page.screenshot({path:base+'screenshots/'+name+'-'+width+'.png',fullPage:true});screens.push(name+'-'+width+'.png')}}
+ async function list(){await page.getByRole('link',{name:'← 返回PDF与Word资料',exact:true}).click();await page.getByRole('heading',{name:'本班资料',exact:true}).waitFor()}
+ if(await page.getByRole('link',{name:'← 返回PDF与Word资料',exact:true}).count())await list();await page.getByLabel('关键词',{exact:true}).fill('本班不存在的关键词z1729');await page.getByRole('button',{name:'搜索',exact:true}).click();await page.getByText('没有找到匹配资料',{exact:true}).waitFor();await shot('teacher-empty-search')
+ await page.getByRole('button',{name:'清除',exact:true}).click();await page.getByRole('heading',{name:'本班资料',exact:true}).waitFor()
+ let unblock;const held=new Promise(resolve=>unblock=resolve)
+ await page.route('**/api/v1/documents?*',async route=>{await held;await route.continue()})
+ await page.getByRole('link',{name:'文本资料',exact:true}).click();await page.getByRole('link',{name:'PDF与Word资料',exact:true}).click();await page.getByText('正在加载资料…',{exact:true}).waitFor();await shot('teacher-loading');unblock();await page.getByRole('link',{name:'公开资料 clear-01.pdf',exact:true}).waitFor();await page.unroute('**/api/v1/documents?*');mark('仅延迟真实请求，恢复后显示真实资料',true)
+ await page.route('**/api/v1/documents?*',route=>route.abort('failed'))
+ await page.getByRole('link',{name:'文本资料',exact:true}).click();await page.getByRole('link',{name:'PDF与Word资料',exact:true}).click();await page.getByRole('alert').waitFor();await shot('teacher-network-error');await page.unroute('**/api/v1/documents?*');await page.getByRole('button',{name:'重试加载',exact:true}).click();await page.getByRole('link',{name:'公开资料 clear-01.pdf',exact:true}).waitFor();mark('网络中断错误可手动恢复',true)
+ for(const [file,title,heading]of [['scan.pdf','真实扫描件','待文字识别'],['encrypted.pdf','真实加密PDF','解析失败']]){
+  await page.getByRole('link',{name:'上传资料',exact:true}).click();await page.locator('#document-title').fill(title);await page.locator('#document-file').setInputFiles(base+file);await page.getByRole('button',{name:'上传资料',exact:true}).click();await page.getByRole('heading',{name:title,exact:true}).waitFor();await page.getByRole('heading',{name:heading,exact:true}).waitFor({timeout:40000});mark(title+'终态真实',true);mark(title+'不提供错误重试',await page.getByRole('button',{name:'重试解析',exact:true}).count()===0);await shot(file==='scan.pdf'?'teacher-needs-ocr':'teacher-encrypted-failed');await list()
+ }
+ return {checks,screens,loading:'held request then continued through actual browser TLS stack',error:'explicit browser network-abort injection; no fake backend data',terminal:'real parser scan/encryption states',url:page.url()}
+}

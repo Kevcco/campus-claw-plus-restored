@@ -29,17 +29,24 @@ func New(ctx context.Context, lookup func(string) (string, bool), logger *slog.L
 // It preserves the identity-only constructor used by component tests; neither
 // path reads offline migration credentials or performs DDL.
 func NewWithStore(ctx context.Context, lookup func(string) (string, bool), logger *slog.Logger) (http.Handler, *mysqlstore.Store, error) {
+	handler, repo, _, e := Assemble(ctx, lookup, logger, materials.NewLimiter(nil))
+	return handler, repo, e
+}
+
+// Assemble permits the default Document boundary to share the same verified
+// authenticator, DML pool and per-user TXT/document write quota.
+func Assemble(ctx context.Context, lookup func(string) (string, bool), logger *slog.Logger, limiter *materials.Limiter) (http.Handler, *mysqlstore.Store, *identity.Service, error) {
 	cfg, e := config.ReadIdentity(lookup)
 	if e != nil {
-		return nil, nil, e
+		return nil, nil, nil, e
 	}
 	db, e := mysqlstore.OpenEnvironment(lookup, false)
 	if e != nil {
-		return nil, nil, e
+		return nil, nil, nil, e
 	}
-	fail := func() (http.Handler, *mysqlstore.Store, error) {
+	fail := func() (http.Handler, *mysqlstore.Store, *identity.Service, error) {
 		db.Close()
-		return nil, nil, errors.New("identity database startup check failed")
+		return nil, nil, nil, errors.New("identity database startup check failed")
 	}
 	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 	defer cancel()
@@ -56,7 +63,7 @@ func NewWithStore(ctx context.Context, lookup func(string) (string, bool), logge
 		return fail()
 	}
 	base := httpserver.IdentityHandler(logger, service, repo, cfg, identity.NewLimiter(nil))
-	base = httpserver.MaterialsHandler(logger, service, &materials.Service{Repo: repo}, cfg.Origin, materials.NewLimiter(nil), base)
+	base = httpserver.MaterialsHandler(logger, service, &materials.Service{Repo: repo}, cfg.Origin, limiter, base)
 	logger.Info("task executor is not bound; accepted tasks remain pending", "module", "assignments", "request_id", nil)
-	return httpserver.AssignmentsHandler(logger, service, &assignments.Service{Repo: repo, Limiter: assignments.NewLimiter(nil)}, cfg.Origin, base), repo, nil
+	return httpserver.AssignmentsHandler(logger, service, &assignments.Service{Repo: repo, Limiter: assignments.NewLimiter(nil)}, cfg.Origin, base), repo, service, nil
 }

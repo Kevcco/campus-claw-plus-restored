@@ -1,0 +1,20 @@
+async page=>{
+ const checks=[],screens=[];const base='C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/output/document-browser/'
+ const mark=(x,ok)=>{if(!ok)throw new Error(x);checks.push(x)}
+ async function shot(name,width){await page.setViewportSize({width,height:900});mark(name+'无横向溢出',await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth));await page.screenshot({path:base+'screenshots/'+name+'.png',fullPage:true});screens.push(name+'.png')}
+ for(const width of [1440,768,767,360])await shot('teacher-list-'+width,width)
+ await page.getByLabel('关键词',{exact:true}).fill('跨班资料不可访问');await page.getByRole('button',{name:'搜索',exact:true}).click();await page.getByRole('heading',{name:'检索结果',exact:true}).waitFor();await page.locator('.material-citations li').first().waitFor();mark('搜索真实引用不为空',await page.locator('.material-citations li').count()>0)
+ await shot('teacher-search-360',360);await shot('teacher-search-1440',1440)
+ await page.getByRole('link',{name:'公开资料 clear-01.docx',exact:true}).first().click();await page.getByRole('heading',{name:'原文与出处',exact:true}).waitFor();mark('Word显示逻辑块',await page.locator('.document-source h3').first().innerText().then(t=>t.includes('逻辑块')));mark('出处高亮逐字原文',await page.locator('mark').count()===1);mark('出处获得焦点',await page.locator('mark').evaluate(el=>el===document.activeElement))
+ await shot('teacher-word-source-1440',1440);await shot('teacher-word-source-360',360)
+ const received=page.waitForEvent('download');await page.getByRole('button',{name:'下载原件',exact:true}).click();const download=await received;await download.saveAs(base+'download.docx');mark('Word下载安全文件名',/^document-[1-9][0-9]*\.docx$/.test(download.suggestedFilename()))
+ await page.getByRole('link',{name:'← 返回PDF与Word资料',exact:true}).click();await page.getByRole('link',{name:'公开资料 clear-01.pdf',exact:true}).click();await page.getByRole('heading',{name:'原文与出处',exact:true}).waitFor();mark('PDF显示原页码',await page.getByRole('heading',{name:'第 1 页',exact:true}).count()===1)
+ await shot('teacher-pdf-source-1440',1440);await shot('teacher-pdf-source-360',360)
+ const pdf=page.waitForEvent('download');await page.getByRole('button',{name:'下载原件',exact:true}).click();const receivedPDF=await pdf;await receivedPDF.saveAs(base+'download.pdf');mark('PDF下载安全文件名',/^document-[1-9][0-9]*\.pdf$/.test(receivedPDF.suggestedFilename()))
+ await page.getByRole('link',{name:'← 返回PDF与Word资料',exact:true}).click();await page.getByRole('link',{name:'上传资料',exact:true}).click();await page.getByRole('heading',{name:'上传PDF与Word资料',exact:true}).waitFor();await shot('teacher-upload-1440',1440);await shot('teacher-upload-360',360)
+ await page.getByRole('button',{name:'上传资料',exact:true}).click();await page.getByRole('alert').waitFor();mark('空表单提示真实字段错误',await page.getByRole('alert').innerText().then(t=>t.includes('文件')))
+ await page.locator('#document-title').fill('无效签名');await page.locator('#document-file').setInputFiles({name:'fake.pdf',mimeType:'application/pdf',buffer:Buffer.from('not-a-pdf')});await page.getByRole('button',{name:'上传资料',exact:true}).click();await page.getByRole('alert').getByText('文件扩展名与内容不符，请选择有效 PDF 或 .docx 文件。',{exact:true}).waitFor();mark('伪PDF在前端被拒绝',true);await shot('teacher-upload-invalid-360',360)
+ await page.locator('#document-title').focus();await page.keyboard.press('Tab');mark('键盘可达文件控件',await page.locator('#document-file').evaluate(el=>el===document.activeElement));await page.keyboard.press('Tab');mark('键盘可达上传按钮',await page.getByRole('button',{name:'上传资料',exact:true}).evaluate(el=>el===document.activeElement))
+ const wrong=await page.context().newPage();let rejected=false;try{await wrong.goto(__ORIGIN__.replace('campus.test','127.0.0.1'))}catch{rejected=true}await wrong.close();mark('普通证书校验拒绝错误SAN',rejected)
+ return {checks,screens,url:page.url(),mode:'actual HTTPS API/Python/MySQL; isolated Firefox NSS trust; no mock responses'}
+}

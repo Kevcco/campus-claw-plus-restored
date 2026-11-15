@@ -1,0 +1,431 @@
+{
+  "source": "b55265e",
+  "frontend_source": [
+    {
+      "path": "frontend/.dockerignore",
+      "sha256": "a98486a0709b7b7ae3901e4639f9888919e4dde8ecd7401a81843d0f6ae40a21"
+    },
+    {
+      "path": "frontend/Dockerfile",
+      "sha256": "1ab71112b10a18955e12a43fc72262192562633d163af9bbde5ee8a9d61fda79"
+    },
+    {
+      "path": "frontend/index.html",
+      "sha256": "ca7614470bcc9e215aa14229384d625f4d45f283f7381780f0cf7e8e0a2666d1"
+    },
+    {
+      "path": "frontend/nginx.conf",
+      "sha256": "1c04226abe1405b1ff61d560f69a0f05c21191c72b31a3234dc29702876be52f"
+    },
+    {
+      "path": "frontend/package-lock.json",
+      "sha256": "ca3730fcf5b23af46bdd1183563455bf17e04f96643fcb253a7c53aedaba0a35"
+    },
+    {
+      "path": "frontend/package.json",
+      "sha256": "19688349d655aa682bd6dd66c04c33b1a3ba9af28deb91d4577c316c7d8cb015"
+    },
+    {
+      "path": "frontend/public/favicon.svg",
+      "sha256": "ebc815c7f0958ab665be6c3c5f01bb5ceff8188ad5679238f41ab8a734053975"
+    },
+    {
+      "path": "frontend/samples.html",
+      "sha256": "fe78fc69617efc8c6cfce3155a6f8cb2b119e0eb75f708c08611c3d4831aa63a"
+    },
+    {
+      "path": "frontend/src/app.css",
+      "sha256": "0f7ced8a542c2a4ebdb4dd43adc60d6959bd488d7533c808ebea21003e45a57c"
+    },
+    {
+      "path": "frontend/src/auth/client.ts",
+      "sha256": "9026f9fff7ec6a6ced6501be9666141b3f35b5bdb0295b54e3bf36e5d21bc24a"
+    },
+    {
+      "path": "frontend/src/components/IdentitySamples.tsx",
+      "sha256": "2dd28d9dc695bc1be22429eb461cc9603eb1be68413fd3c9d1fdf9ff643f6f09"
+    },
+    {
+      "path": "frontend/src/components/ui.tsx",
+      "sha256": "968cd32b2ce5010d688a22ab2be0de250289e9bc7190b7277c24c64e664885c5"
+    },
+    {
+      "path": "frontend/src/documents/Pages.tsx",
+      "sha256": "568cf25510d660bbecda3af56ab5f45f710f5f18799f4e2a84ee9224d29c5f8f"
+    },
+    {
+      "path": "frontend/src/documents/contracts.ts",
+      "sha256": "107de66996fe58239bbf84035953dca272f4d8e784231af0cad84d804575eebb"
+    },
+    {
+      "path": "frontend/src/documents/documents.css",
+      "sha256": "e038f1938d9a7553b041cb75c647beef32dcef2943eaa01fec56a63c810a3695"
+    },
+    {
+      "path": "frontend/src/main.tsx",
+      "sha256": "d5b5d535fa1f9e27721635b108f59a73848d3cc8d6bf02c579fada8baac756b5"
+    },
+    {
+      "path": "frontend/src/materials/Pages.tsx",
+      "sha256": "50d3737f0e90de557cd80627a21ef85158facdd3ffffa74d642ca346e6ea27dd"
+    },
+    {
+      "path": "frontend/src/materials/contracts.ts",
+      "sha256": "a44ac6e7697ebc150bc4cc0f7bb4a8c72e15e3ec15062015556f2c588fa0691e"
+    },
+    {
+      "path": "frontend/src/materials/materials.css",
+      "sha256": "717a4ef5605cace3398b38108cdb68a9ffa6eb0818394214f0e5210d21072ea6"
+    },
+    {
+      "path": "frontend/src/pages/App.tsx",
+      "sha256": "f3d74eb2f190625f95e66680aa1724d5702d3e358089761c0058e09c580618a5"
+    },
+    {
+      "path": "frontend/src/pages/HomePage.tsx",
+      "sha256": "5473bc71f09b49113399eb822698929c6323ba096d1ce6b5a26cc72ca873bc60"
+    },
+    {
+      "path": "frontend/src/sample-theme.css",
+      "sha256": "b3545fa6304c5004954620e5e843975bed91b71abe933bc77a7066e7a6b16c7d"
+    },
+    {
+      "path": "frontend/src/samples/DocumentSamples.tsx",
+      "sha256": "b2fbde41a340131ddcef3f9baf8b751dbd4c0792d3c01174b36e16ecb6aa67a6"
+    },
+    {
+      "path": "frontend/src/samples/MaterialSamples.tsx",
+      "sha256": "d78d853f952d5a36346c0a9c3e456b7a7eb70d3abf5267c9ae889914e5e2983e"
+    },
+    {
+      "path": "frontend/src/samples/document-samples.css",
+      "sha256": "888ef1c2a395da398cfda8fe8605efdc0539e287574a49db69016aa9ef49b042"
+    },
+    {
+      "path": "frontend/src/samples/main.tsx",
+      "sha256": "4b5cb8e3aea9589a70f19427a26f4e7eb00229aec292c85d4b149e793bb41b12"
+    },
+    {
+      "path": "frontend/src/samples/material-samples.css",
+      "sha256": "bbd17fa94af71e835fbac883789b2728c9878258e12a139ab06629b75284b1e0"
+    },
+    {
+      "path": "frontend/src/shared/values.ts",
+      "sha256": "6aec7483f46215c5ddd3b0843e323fee468da638f27b52c42c5a238cfe50eb71"
+    },
+    {
+      "path": "frontend/src/styles.css",
+      "sha256": "b9a1b425e9e60bdb33c8474f1479203d82bc297cac5b06c04e2d42d9e8cf99db"
+    },
+    {
+      "path": "frontend/tests/auth-browser.mjs",
+      "sha256": "ab23efd1d899fa62ee2569b9f4839152fc0c07130fa3045bc4a1956d7bfce99f"
+    },
+    {
+      "path": "frontend/tests/auth.test.mjs",
+      "sha256": "68d139f59dfdb4362506475814e211535eaa245cfd78f166e5052bb449aa85ba"
+    },
+    {
+      "path": "frontend/tests/documents.test.mjs",
+      "sha256": "2189acedf10a42d639aa055b86e788591be360bacf626b1cc0b424f00911e43d"
+    },
+    {
+      "path": "frontend/tests/import-profile-ca.py",
+      "sha256": "fcde066261fdd7c11ed654f6762922b6b47be2b8254ec64ab330f89d5c1e5149"
+    },
+    {
+      "path": "frontend/tests/materials-browser.mjs",
+      "sha256": "5820c06ad39387618c6075a4574d643f4753368c8436ae58179f80e94ec0da1f"
+    },
+    {
+      "path": "frontend/tests/materials-real-browser.mjs",
+      "sha256": "77d5a9eff9758fd0767c2a770d83866eea934b5a1d87299f85f673bd5004fc52"
+    },
+    {
+      "path": "frontend/tests/materials.test.mjs",
+      "sha256": "c1e029cac15e394c81d4df412a13f614151f1f4f227d2c6095ecb051aca44571"
+    },
+    {
+      "path": "frontend/tests/reviewer-auth.test.mjs",
+      "sha256": "4565b0413a5904978908b917bf12591ae808eb1e3d72574e48a56a05d73a8691"
+    },
+    {
+      "path": "frontend/tsconfig.json",
+      "sha256": "fb70192dca6feb9f1add4af9195e1b697a02fb9138179e1c55f2a4ec6ffa9511"
+    },
+    {
+      "path": "frontend/vite.config.ts",
+      "sha256": "1731c59f53e9c64649f9c332523f5a625df2bb56fa05f0c85e0b2903ec9c05db"
+    }
+  ],
+  "results": [
+    {
+      "checks": [
+        "teacher-list-1440无横向溢出",
+        "teacher-list-768无横向溢出",
+        "teacher-list-767无横向溢出",
+        "teacher-list-360无横向溢出",
+        "搜索真实引用不为空",
+        "teacher-search-360无横向溢出",
+        "teacher-search-1440无横向溢出",
+        "Word显示逻辑块",
+        "出处高亮逐字原文",
+        "出处获得焦点",
+        "teacher-word-source-1440无横向溢出",
+        "teacher-word-source-360无横向溢出",
+        "Word下载安全文件名",
+        "PDF显示原页码",
+        "teacher-pdf-source-1440无横向溢出",
+        "teacher-pdf-source-360无横向溢出",
+        "PDF下载安全文件名",
+        "teacher-upload-1440无横向溢出",
+        "teacher-upload-360无横向溢出",
+        "空表单提示真实字段错误",
+        "伪PDF在前端被拒绝",
+        "teacher-upload-invalid-360无横向溢出",
+        "键盘可达文件控件",
+        "键盘可达上传按钮",
+        "普通证书校验拒绝错误SAN"
+      ],
+      "screens": [
+        "teacher-list-1440.png",
+        "teacher-list-768.png",
+        "teacher-list-767.png",
+        "teacher-list-360.png",
+        "teacher-search-360.png",
+        "teacher-search-1440.png",
+        "teacher-word-source-1440.png",
+        "teacher-word-source-360.png",
+        "teacher-pdf-source-1440.png",
+        "teacher-pdf-source-360.png",
+        "teacher-upload-1440.png",
+        "teacher-upload-360.png",
+        "teacher-upload-invalid-360.png"
+      ],
+      "url": "https://campus.test:32771/app/materials/documents/upload",
+      "mode": "actual HTTPS API/Python/MySQL; isolated Firefox NSS trust; no mock responses"
+    },
+    {
+      "status": 202,
+      "initialStatus": "等待解析",
+      "observedQueued": true,
+      "titleCodepoints": 200,
+      "bodyCodepoints": 5280,
+      "escaped": true,
+      "overflow": false,
+      "url": "https://campus.test:32771/app/materials/documents/3"
+    },
+    {
+      "checks": [
+        "teacher-empty-search-1440无横向溢出",
+        "teacher-empty-search-360无横向溢出",
+        "teacher-loading-1440无横向溢出",
+        "teacher-loading-360无横向溢出",
+        "仅延迟真实响应，恢复后显示真实资料",
+        "teacher-network-error-1440无横向溢出",
+        "teacher-network-error-360无横向溢出",
+        "网络中断错误可手动恢复",
+        "真实扫描件终态真实",
+        "真实扫描件不提供错误重试",
+        "teacher-needs-ocr-1440无横向溢出",
+        "teacher-needs-ocr-360无横向溢出",
+        "真实加密PDF终态真实",
+        "真实加密PDF不提供错误重试",
+        "teacher-encrypted-failed-1440无横向溢出",
+        "teacher-encrypted-failed-360无横向溢出"
+      ],
+      "screens": [
+        "teacher-empty-search-1440.png",
+        "teacher-empty-search-360.png",
+        "teacher-loading-1440.png",
+        "teacher-loading-360.png",
+        "teacher-network-error-1440.png",
+        "teacher-network-error-360.png",
+        "teacher-needs-ocr-1440.png",
+        "teacher-needs-ocr-360.png",
+        "teacher-encrypted-failed-1440.png",
+        "teacher-encrypted-failed-360.png"
+      ],
+      "loading": "held real response",
+      "error": "explicit browser network-abort injection; no fake backend data",
+      "terminal": "real parser scan/encryption states",
+      "url": "https://campus.test:32771/app/materials/documents"
+    },
+    {
+      "checks": [
+        "学生无上传入口",
+        "学生不见扫描或失败资料",
+        "student-list-1440无横向溢出",
+        "student-list-360无横向溢出",
+        "学生可见真实原文无重试",
+        "student-word-1440无横向溢出",
+        "student-word-360无横向溢出",
+        "学生直接上传地址被阻止",
+        "other-class-empty-1440无横向溢出",
+        "other-class-empty-360无横向溢出",
+        "跨班学生不见前班资料",
+        "跨班原文显示拒绝错误",
+        "other-class-detail-denied-1440无横向溢出",
+        "other-class-detail-denied-360无横向溢出",
+        "离页后标题文件已清空"
+      ],
+      "screens": [
+        "student-list-1440.png",
+        "student-list-360.png",
+        "student-word-1440.png",
+        "student-word-360.png",
+        "other-class-empty-1440.png",
+        "other-class-empty-360.png",
+        "other-class-detail-denied-1440.png",
+        "other-class-detail-denied-360.png"
+      ],
+      "mode": "actual student/class authorization and page unmount; no fake responses",
+      "url": "https://campus.test:32771/app/materials/documents/upload"
+    }
+  ],
+  "images": [
+    {
+      "name": "long-citation-scroll.png",
+      "sha256": "6b6ab318374b7e4406b69203a9ae8c91cc6f92bd1542667842d790c6ed33576b"
+    },
+    {
+      "name": "other-class-detail-denied-1440.png",
+      "sha256": "55355ae65834769e83639cf2e07af980605b1e50d907a37e6615b797542d3e80"
+    },
+    {
+      "name": "other-class-detail-denied-360.png",
+      "sha256": "5b3faeeb23e095db1fd772f634a375e039f5250ee82ac4c256d50f93b668ebe9"
+    },
+    {
+      "name": "other-class-empty-1440.png",
+      "sha256": "a62abcb72678f4a6a08bba9efd24a0984cf75347afbd87ea23428e86504e3bbc"
+    },
+    {
+      "name": "other-class-empty-360.png",
+      "sha256": "5156261b0371b03ac94582db6268fda38f6c425e6a3c8cacbc676093144e14b8"
+    },
+    {
+      "name": "student-list-1440.png",
+      "sha256": "63e56e803b72074c70d29338d4803603a5e988a29a15f598e55b46028667bf5c"
+    },
+    {
+      "name": "student-list-360.png",
+      "sha256": "7d11a1a0639476d3a65a0cf8217f0286c742f4b1ecad43b6dbf3a3d47f198062"
+    },
+    {
+      "name": "student-word-1440.png",
+      "sha256": "d6d6a29275dae294516d0628c1a3f140d390e562f7b658372144866d6fb9fd50"
+    },
+    {
+      "name": "student-word-360.png",
+      "sha256": "07aab63393ed52a34dff1b25d871ca4cbec05f83cdb54cbe573859422b6dd3d6"
+    },
+    {
+      "name": "teacher-empty-search-1440.png",
+      "sha256": "0f2badb650f7b8dcd54fdabad796f00c72af4aee6320141226a2ea4221ad6085"
+    },
+    {
+      "name": "teacher-empty-search-360.png",
+      "sha256": "aeb37f2ace67a16acd718639b6b26c36c1e9e5cdca1fbb33385ef475affcd4c5"
+    },
+    {
+      "name": "teacher-encrypted-failed-1440.png",
+      "sha256": "008e84265bf704218c36b43252172e357d4d172a8d87942579eb6516935a9a7f"
+    },
+    {
+      "name": "teacher-encrypted-failed-360.png",
+      "sha256": "e8f9a12d62f9d312a5c9bb6e3aef0714a5293832a5451a24d61285bf22bf56ea"
+    },
+    {
+      "name": "teacher-list-1440.png",
+      "sha256": "c8fc93df5b99dc9d13ca910ff296e6e18c613579d38db61cfd7255809e31ad84"
+    },
+    {
+      "name": "teacher-list-360.png",
+      "sha256": "764caba3861f6bb77289f4ed7c2dcaec66de0763b1baec014beb3b8c98b8acb1"
+    },
+    {
+      "name": "teacher-list-767.png",
+      "sha256": "34ad7d461840e9242630f5fdeed46d4307fc2534a9e180a9256b276b0e869ef1"
+    },
+    {
+      "name": "teacher-list-768.png",
+      "sha256": "da1bcdd93b8ac34a0d44d87a3e255b41fbc559da49ccc5f4c8786846d71438d0"
+    },
+    {
+      "name": "teacher-loading-1440.png",
+      "sha256": "3f49cfe07040eef3285d45642c236130690a252976f7eec050bc2621cc0a0afd"
+    },
+    {
+      "name": "teacher-loading-360.png",
+      "sha256": "407fefbfb48800d57d92e872f2d55264bc9029b1c87a93ff2590ff7e0ae56d08"
+    },
+    {
+      "name": "teacher-long-word-1440.png",
+      "sha256": "97dd3159242ae108dada6bb35110003a6a87a739052de507eb6409f087c68f28"
+    },
+    {
+      "name": "teacher-long-word-360.png",
+      "sha256": "3947902cdb6c18d5e7bc17e0a3f180645f43f23de41dbc4e19e56ecfba13fe88"
+    },
+    {
+      "name": "teacher-needs-ocr-1440.png",
+      "sha256": "bd35d8499e86f7fd1ef5c5ab36c663fc9804fba36e6af03bae33e976cb743f53"
+    },
+    {
+      "name": "teacher-needs-ocr-360.png",
+      "sha256": "314ea0295e54c6faecd88beb1818a85917dfd0cf22524844880eddb625f091d5"
+    },
+    {
+      "name": "teacher-network-error-1440.png",
+      "sha256": "1c6b0b192b5a4f7385f39ab74b83a778ba9bbf43a4ad56aba95729f1c5a0b4af"
+    },
+    {
+      "name": "teacher-network-error-360.png",
+      "sha256": "1b0daca24d40cba7c5888a28760e8e126fb051f8e93dba65e469b186071c6913"
+    },
+    {
+      "name": "teacher-pdf-source-1440.png",
+      "sha256": "9e0c6d803a644b0c111406e978bdd96a14d5d300c6f6d1a408fcc1f75daf0b2f"
+    },
+    {
+      "name": "teacher-pdf-source-360.png",
+      "sha256": "4545389b346464811e5fb716734cc7d841e37418f2036f76fb90e476690151b9"
+    },
+    {
+      "name": "teacher-queued-360.png",
+      "sha256": "f103e598307f66c0e2c980f888c9670afed54971dee88f4896d5f14d5ebde2e4"
+    },
+    {
+      "name": "teacher-search-1440.png",
+      "sha256": "0f9c72025691da6821a4c6ebcb2ea1a4f2ca4af99c3c13f97e0088b409a8301f"
+    },
+    {
+      "name": "teacher-search-360.png",
+      "sha256": "91153d35ac124b27cd7422215386f55b52b4b4498fbb3ab2ca4b8378d6a88e2e"
+    },
+    {
+      "name": "teacher-upload-1440.png",
+      "sha256": "e83034156fe19dd1fa1e86ca2a36850636e22224b2b2058313d7a1627b040bb5"
+    },
+    {
+      "name": "teacher-upload-360.png",
+      "sha256": "29a196d009778deff66d69d235e274e2196e97c5d103cf227d45999825f6cd67"
+    },
+    {
+      "name": "teacher-upload-invalid-360.png",
+      "sha256": "175b95506d95f923ec2b95d600ed12684f9ee73f6c3984fb86b3c1f5fbc207e4"
+    },
+    {
+      "name": "teacher-word-source-1440.png",
+      "sha256": "ea2fbd4fa500beb9ac26e65c9c87d80faa5ca6ec61dc7ff1bbd27138f83a4adc"
+    },
+    {
+      "name": "teacher-word-source-360.png",
+      "sha256": "89c9fa7b5fb76f6bd475adc799f82619b16c22255aa350953b934f57e5341500"
+    }
+  ],
+  "native200": false,
+  "native_reason": "Playwright key did not change DPR/innerWidth; Windows Firefox Computer Use stopped because URL policy enforcement unsupported",
+  "known_defect": "second citation in a long logical block starts below viewport; queued for repair"
+}

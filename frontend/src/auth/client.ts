@@ -1,6 +1,7 @@
 import { bounded, shape, validId } from '../shared/values.ts'
 import { parseDetail, parseMaterial, parsePage, parseSearch, trimSpace, validateUpload } from '../materials/contracts.ts'
-import type { Material, UploadPayload } from '../materials/contracts.ts'
+import type { UploadPayload } from '../materials/contracts.ts'
+import { parseDocument, parseDetail as parseDocumentDetail, parsePage as parseDocumentPage, parseSearch as parseDocumentSearch, validateUpload as validateDocumentUpload } from '../documents/contracts.ts'
 export { validId } from '../shared/values.ts'
 export type Principal = {
   user_id: string; class_id: string; role: 'student' | 'teacher'
@@ -88,7 +89,7 @@ export function createAuthClient(fetcher: typeof fetch = (...args) => fetch(...a
   let controller = new AbortController()
   let write: Promise<void> | undefined
   let lastRead: Promise<void> | undefined
-  let materialWrite: { key: string; payload?: UploadPayload; promise: Promise<Material> } | undefined
+  let materialWrite: { key: string; payload?: UploadPayload; promise: Promise<unknown> } | undefined
   const listeners = new Set<() => void>()
   const publish = (next: View) => { view = next; listeners.forEach(fn => fn()) }
   const reset = (next: View) => {
@@ -304,14 +305,14 @@ export function createAuthClient(fetcher: typeof fetch = (...args) => fetch(...a
     download: [400, 401, 404, 503, 504], upload: [400, 401, 403, 409, 413, 429, 503, 504],
     retry: [400, 401, 403, 404, 429, 503, 504],
   }
-  async function materialRequest(op: MaterialOperation, path: string, caller?: AbortSignal, body?: FormData, key?: string): Promise<unknown> {
+  async function materialRequest(op: MaterialOperation, path: string, caller?: AbortSignal, body?: FormData, key?: string, documentOperation = false): Promise<unknown> {
     const active = materialIdentity(), id = epoch
     if ((op === 'upload' || op === 'retry') && active.principal.role !== 'teacher') throw new AuthError(403, '只有当前班级教师可以操作资料。')
     const once = async (token: string) => {
       current(id)
       const timeout = AbortSignal.timeout(10000)
       const signal = AbortSignal.any([controller.signal, timeout, ...(caller ? [caller] : [])])
-      const headers: Record<string, string> = { Accept: op === 'download' ? 'text/plain' : 'application/json', Authorization: 'Bearer ' + token }
+      const headers: Record<string, string> = { Accept: op === 'download' ? (documentOperation ? 'application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document' : 'text/plain') : 'application/json', Authorization: 'Bearer ' + token }
       if (key) headers['Idempotency-Key'] = key
       let rejectAbort: () => void = () => {}
       const aborted = new Promise<never>((_, reject) => { rejectAbort = () => reject(new AuthError(0, timeout.aborted ? '请求超时，请检查网络后重试。' : '请求已取消。')) })
@@ -322,8 +323,23 @@ export function createAuthClient(fetcher: typeof fetch = (...args) => fetch(...a
           const response = await fetcher(path, { method: op === 'upload' || op === 'retry' ? 'POST' : 'GET', headers,
             body, credentials: 'same-origin', cache: 'no-store', redirect: 'error', signal })
           current(id); signal.throwIfAborted()
-          const success = response.status === 200 || (op === 'upload' && response.status === 201)
+          const success = documentOperation ? response.status === (op === 'upload' || op === 'retry' ? 202 : 200) : response.status === 200 || (op === 'upload' && response.status === 201)
+          const boundedBytes = async (maximum: number) => {
+            if (!response.body) throw formatError()
+            const reader=response.body.getReader(), chunks: Uint8Array[]=[]; let length=0
+            try { while (true) {const next=await reader.read();current(id);signal.throwIfAborted();if(next.done)break;length+=next.value.byteLength;if(length>maximum)throw formatError();chunks.push(next.value)} }
+            catch (e) {await reader.cancel().catch(()=>{});throw e}
+            finally {reader.releaseLock()}
+            const bytes=new Uint8Array(length);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.byteLength}return bytes
+          }
           if (success && op === 'download') {
+            if(documentOperation){
+              const type=response.headers.get('Content-Type'), disposition=response.headers.get('Content-Disposition')
+              const match=/^attachment; filename="document-([1-9][0-9]{0,18})\.(pdf|docx)"$/.exec(disposition??'')
+              const expected=type==='application/pdf'?'pdf':type==='application/vnd.openxmlformats-officedocument.wordprocessingml.document'?'docx':''
+              if(!match||match[1]!==path.split('/').at(-2)||match[2]!==expected||response.headers.get('X-Content-Type-Options')!=='nosniff'||response.headers.get('Cache-Control')!=='no-store')throw formatError()
+              const bytes=await boundedBytes(10485760);if(!bytes.length)throw formatError();return new Blob([bytes],{type:type!})
+            }
             if (!/^text\/plain\s*(?:;|$)/i.test(response.headers.get('Content-Type') ?? '') || response.headers.get('X-Content-Type-Options') !== 'nosniff') throw formatError()
             const blob = await response.blob()
             current(id); signal.throwIfAborted()
@@ -331,9 +347,9 @@ export function createAuthClient(fetcher: typeof fetch = (...args) => fetch(...a
             return blob
           }
           if (!/^application\/json\s*(?:;|$)/i.test(response.headers.get('Content-Type') ?? '')) throw formatError()
-          const value: unknown = await response.json()
+          const value: unknown = documentOperation ? JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(await boundedBytes(8388608))) : await response.json()
           current(id); signal.throwIfAborted()
-          if (!success) throw errorFor('me', response.status, value, response.headers, allowedErrors[op])
+          if (!success) throw errorFor('me', response.status, value, response.headers, documentOperation ? [...allowedErrors[op],403,...(op==='retry'?[409]:[])] : allowedErrors[op])
           return value
         })()])
       } catch (error) {
@@ -367,9 +383,9 @@ export function createAuthClient(fetcher: typeof fetch = (...args) => fetch(...a
     try { return parse(value) } catch { throw formatError() }
   }
   const requireId = (id: string) => { if (!validId(id)) throw new AuthError(400, '资料ID无效。') }
-  function materialMutation(key: string, payload: UploadPayload | undefined, run: () => Promise<Material>): Promise<Material> {
+  function materialMutation<T>(key: string, payload: UploadPayload | undefined, run: () => Promise<T>): Promise<T> {
     if (materialWrite) {
-      if (materialWrite.key === key && materialWrite.payload?.title === payload?.title && materialWrite.payload?.file === payload?.file) return materialWrite.promise
+      if (materialWrite.key === key && materialWrite.payload?.title === payload?.title && materialWrite.payload?.file === payload?.file) return materialWrite.promise as Promise<T>
       return Promise.reject(new AuthError(409, '已有资料操作正在提交，请等待结果。'))
     }
     const pending = Promise.resolve().then(run).finally(() => { if (materialWrite?.promise === pending) materialWrite = undefined })
@@ -407,7 +423,16 @@ export function createAuthClient(fetcher: typeof fetch = (...args) => fetch(...a
       }))
     },
   }
+  const documents = {
+    list(page=1,signal?:AbortSignal){if(!Number.isInteger(page)||page<1||page>2147483647)return Promise.reject(new AuthError(400,'页码无效。'));return decode(materialRequest('list',`/api/v1/documents?page=${page}&page_size=20`,signal,undefined,undefined,true),v=>parseDocumentPage(v,page))},
+    search(query:string,signal?:AbortSignal){const q=trimSpace(query);if(!bounded(q,1,2000)||/[\p{Cc}\uD800-\uDFFF]/u.test(q))return Promise.reject(new AuthError(400,'请输入 1–2000 个有效字符的关键词。'));return decode(materialRequest('search','/api/v1/document-search?'+new URLSearchParams({q,mode:'keyword',top_k:'4'}),signal,undefined,undefined,true),parseDocumentSearch)},
+    detail(id:string,signal?:AbortSignal){requireId(id);return decode(materialRequest('detail',`/api/v1/documents/${id}`,signal,undefined,undefined,true),v=>parseDocumentDetail(v,id))},
+    download(id:string,signal?:AbortSignal){requireId(id);return materialRequest('download',`/api/v1/documents/${id}/download`,signal,undefined,undefined,true) as Promise<Blob>},
+    upload(payload:UploadPayload,key:string,signal?:AbortSignal){const id=epoch;if(!/^[A-Za-z0-9_-]{16,64}$/.test(key))return Promise.reject(new AuthError(400,'上传标识无效。'));return materialMutation('document-upload:'+key,payload,async()=>{const p=await validateDocumentUpload(payload);current(id);const form=new FormData();form.set('title',p.title);form.set('file',p.file);return decode(materialRequest('upload','/api/v1/documents',signal,form,key,true),parseDocument)})},
+    retry(id:string,signal?:AbortSignal){requireId(id);return materialMutation('document-retry:'+id,undefined,()=>decode(materialRequest('retry',`/api/v1/documents/${id}/retry`,signal,undefined,undefined,true),v=>{const d=parseDocument(v);if(d.id!==id)throw formatError();return d}))},
+  }
   return {
+    documents,
     materials,
     refreshMaterialIdentity: () => { const active = materialIdentity(); return recoverMaterial(active, epoch) },
     snapshot: () => view,

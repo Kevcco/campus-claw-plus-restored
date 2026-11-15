@@ -30,6 +30,6 @@ export function validateDocumentRuntimeEvidence(report,images) {
   const down=one('stop database only'),restore=one('restore database')
   assert.ok(report.results.indexOf(down)<report.results.indexOf(restore))
   assert.ok(report.results.indexOf(restore)<report.results.indexOf(one('DI worker database-verify')))
-  assert.ok(summary.scope.includes('six public Document HTTP operations remain frozen'))
-  return {stages:documentWorkerStages,documents:40,locations:195,chunks:p.corpus.chunks,actual_worker_sigkill:true,forced_test_lease_expiry:true,actual_database_recovery:true,public_document_http:'frozen',parser_image:summary.parser_image,backend_image:summary.backend_image}
+  assert.ok(summary.scope.includes('public HTTP verified separately'))
+  return {stages:documentWorkerStages,documents:40,locations:195,chunks:p.corpus.chunks,actual_worker_sigkill:true,forced_test_lease_expiry:true,actual_database_recovery:true,public_document_http:'separate-required-proof',parser_image:summary.parser_image,backend_image:summary.backend_image}
 }

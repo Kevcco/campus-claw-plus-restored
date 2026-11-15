@@ -8,6 +8,18 @@ const json = p => JSON.parse(readFileSync(p, 'utf8'))
 const contract = () => json('docs/contracts/document-integration.json')
 const register = () => json('docs/contracts/config-register.json')
 
+test('DI-SC-01/11 public activation cannot read unknown files or rehash away auth and original operations', () => {
+  const unknown=contract();unknown.public_http.files.push({path:'.env',sha256:'0'.repeat(64)})
+  const reads=[];assert.throws(()=>validateIntegrationProfile(unknown,register(),p=>{reads.push(p);return readFileSync(p)}));assert.ok(!reads.includes('.env'))
+  for(const [path,mutate]of [
+    ['docs/contracts/endpoint-register.json',v=>{v.operations.find(o=>o.owner!=='04E').status='planned'}],
+    ['docs/contracts/openapi.yaml',v=>{v.paths['/api/v1/documents'].post.security=[]}],
+  ]){
+    const v=json(path);mutate(v);const bytes=Buffer.from(JSON.stringify(v,null,2)+'\n');const c=contract();c.public_http.files.find(f=>f.path===path).sha256=createHash('sha256').update(bytes).digest('hex')
+    assert.throws(()=>validateIntegrationProfile(c,register(),p=>p===path?bytes:readFileSync(p)))
+  }
+})
+
 test('DI-SC-14 canonical exact internal URL and random token examples; no runtime config reads', () => {
   const good = { DOCUMENT_PARSER_URL: 'http://document-parser:8091', DOCUMENT_PARSER_TOKEN: randomBytes(32).toString('base64url') }
   validatePrivateConfigExample(good)
@@ -52,7 +64,7 @@ test('DI-SC-15 candidate exact DDL/hash and composite owner/location FKs remain 
 })
 
 test('DI-SC-14 private activation binds all four LF inputs, original thirteen keys and exact unapproved dependencies',()=>{
-  for(const mutate of [c=>c.activation.scope='public',c=>c.activation.public_document_operations='current',
+  for(const mutate of [c=>c.activation.scope='public',c=>c.activation.public_document_operations='frozen',
     c=>c.activation.required_pull_requests.pop(),c=>c.activation.files['.env']='0'.repeat(64),
     c=>c.activation.active_config_digest='0'.repeat(64)]) {
     const c=contract();mutate(c);assert.throws(()=>validateIntegrationProfile(c,register()))

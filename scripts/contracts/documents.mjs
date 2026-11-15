@@ -15,7 +15,7 @@ const trim=value=>value.replace(/^\p{White_Space}+|\p{White_Space}+$/gu,'')
 export function validateDocumentOperationProfiles(api){
  for(const [method,path,success,errors,schema] of documentOperations){
   const op=api.paths[path]?.[method.toLowerCase()];assert.ok(op)
-  assert.equal(op['x-contract-status'],'frozen','DI-SC-01: no runtime activation in the contract PR')
+  assert.equal(op['x-contract-status'],'current','DI-SC-01: exactly the six reviewed Document operations are active')
   assert.equal(op['x-owner-change'],'04E');assert.equal(op['x-spec-change'],documentChange)
   assert.deepEqual(op.security,[{BearerAuth:[]}]);assert.equal(op['x-budget-ms'],5000)
   assert.deepEqual(op['x-authorization'],{roles:method==='POST'?['teacher']:['teacher','student'],class_scope:'server_session',student_visibility:'ready',cross_class:404,order:['authentication','action','resource','business'],rejected_business_side_effects:false})

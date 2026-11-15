@@ -1,0 +1,25 @@
+{
+  "time": "2026-11-15T05:34:59.302Z",
+  "scope": "default production Compose and real cmd/server with disposable test credentials/CA; no native browser or operator deployment claim",
+  "results": [
+    {
+      "label": "generate disposable wiring credentials/certificates",
+      "exit_code": 0,
+      "expected": 0,
+      "duration_ms": 790,
+      "output": "Disposable credentials and CA generated; values omitted\n"
+    },
+    {
+      "label": "dedicated internal proxy network",
+      "exit_code": 1,
+      "expected": 0,
+      "duration_ms": 115,
+      "output": "Error response from daemon: all predefined address pools have been fully subnetted\n"
+    }
+  ],
+  "errors": [
+    "dedicated internal proxy network: unexpected exit status; sanitized evidence saved",
+    "Wiring preparation failed"
+  ],
+  "exit_code": 1
+}
