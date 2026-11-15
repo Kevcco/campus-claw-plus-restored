@@ -1,0 +1,1 @@
+async page=>{const text=await page.locator('body').innerText();if(text.includes('已达到重试上限')&&text.includes('教师可以重试'))throw Error('Exhausted document still suggests retry');return{consistent:true,url:page.url()}}

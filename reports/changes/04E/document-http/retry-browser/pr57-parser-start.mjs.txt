@@ -1,0 +1,9 @@
+import{readFileSync,writeFileSync}from'node:fs'
+import{spawnSync}from'node:child_process'
+import assert from'node:assert/strict'
+const r=JSON.parse(readFileSync('output/document-browser/ready.json')),name=r.id+'-document-parser-1'
+const run=args=>{const c=spawnSync('docker',args,{encoding:'utf8',timeout:30000});assert.equal(c.status,0);return c.stdout}
+const c=JSON.parse(run(['inspect',name]))[0];assert.equal(c.Config.Labels['com.docker.compose.project'],r.id)
+run(['start',name]);let healthy=false
+for(let i=0;i<60;i++){const state=JSON.parse(run(['inspect','--format','{{json .State}}',name]));if(state.Health?.Status==='healthy'){healthy=true;break}await new Promise(r=>setTimeout(r,500))}
+assert.ok(healthy);writeFileSync('output/document-browser/parser-restored-'+process.argv[2]+'.json',JSON.stringify({project:r.id,healthy,time:new Date().toISOString(),exit_code:0})+'\n');console.log('Owned real parser restarted and healthy')

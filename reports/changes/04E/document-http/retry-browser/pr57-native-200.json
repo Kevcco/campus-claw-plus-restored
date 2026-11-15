@@ -1,0 +1,12 @@
+{
+  "passed": false,
+  "reason": "Awaiting real native 200% at baseline Windows DPI 150%",
+  "native": {
+    "dpr": 1.5,
+    "width": 1281,
+    "outer": 1295,
+    "height": 832,
+    "scale": 1,
+    "cssZoom": "1"
+  }
+}

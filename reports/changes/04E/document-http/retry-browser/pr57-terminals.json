@@ -1,0 +1,23 @@
+{
+  "cases": [
+    {
+      "file": "scan.pdf",
+      "id": "5",
+      "status": "待文字识别",
+      "retry_hidden": true
+    },
+    {
+      "file": "encrypted.pdf",
+      "id": "6",
+      "status": "解析失败",
+      "retry_hidden": true
+    }
+  ],
+  "actual_parser_results": true,
+  "url": "https://campus.test:32772/app/materials/documents",
+  "native": {
+    "dpr": 1.5,
+    "width": 1281,
+    "cssZoom": "1"
+  }
+}

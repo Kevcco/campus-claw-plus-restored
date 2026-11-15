@@ -124,3 +124,6 @@ A1.2b组件补证#51：9aa2f86原check0、7组HTTP/40实际文件/慢头慢体�
 
 
 2026-11-15小张续验261d94e：Location缺陷已修复并推送，真实handler红1→全包绿0；修复版默认可信HTTPS main（含实际上传/原202重放Location断言）通过，完整CI跟进中。隔离Firefox真实登录/资料页已打开；Computer Use再次明确返回“Computer Use has been stopped for this turn because browser URL policy enforcement is not yet supported for the current Windows browser”，已停止电脑输入。原生200%仍未验，显式重试按钮实测尚未执行；需要人工在该隔离浏览器调到200%后继续实际指标/截图/交互验收，不用CSS或设备模拟替代，不冒用旧CI或旧批准。维持#57草稿与CHANGES_REQUESTED，不请求最终复审/不合并。
+
+
+2026-11-15晚小张在真实默认HTTPS环境补#57重试实测：上传202后真实SIGKILL私有解析器（不改SQL），失败1→键盘Enter只发一次retry202/正确Location→真实ready2及逐字原件SHA通过；另份资料两次显式retry202/实际GET轮询至失败3，按钮隐藏/耗尽提示通过。耗尽页矛盾文案已真实浏览器红→绿修复，并重建frontend sha256:40eae59a240f6f9b148a4e829641be6b0faa264b5d8a71dc03ecc24a9600bd19复跑成功2/耗尽3/扫描needs_ocr/加密失败，实际Enter只一次写、GET轮询、202 Location、原件SHA均通过；本机类型/33前端/构建/strict11退出0。证据见reports/changes/04E/document-http/retry-browser/manifest.json。原生200%新窗口仍实测DPR1.5/innerWidth1281（Windows150%，页面100%），viewport=null/CSSzoom1，不冒称200%通过。9a327ac完整CI43698110827已独立核验18原件/跟踪指纹/三HTTPS/五SQL/五镜像及清理0，verify402973ms；本提交最终CI/200%/实际复审/合并仍待。
