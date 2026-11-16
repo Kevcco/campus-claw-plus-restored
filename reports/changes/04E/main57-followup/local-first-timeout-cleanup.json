@@ -1,0 +1,31 @@
+{
+  "time": "2026-11-16T04:50:10.182Z",
+  "scope": "Only five exact retained tags captured from the interrupted first main57 verification reports",
+  "rows": [
+    {
+      "tag": "campus-mysql-audit-7f08007a3500:verification",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "tag": "campus-app-audit-0bb7a9db37e3-backend:verification",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "tag": "campus-app-audit-0bb7a9db37e3-admin:verification",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "tag": "campus-app-audit-0bb7a9db37e3-frontend:verification",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "tag": "campus-app-audit-0bb7a9db37e3-document-parser:verification",
+      "exit_code": 0,
+      "ok": true
+    }
+  ]
+}

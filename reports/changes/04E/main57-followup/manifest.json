@@ -1,0 +1,68 @@
+{
+  "time": "2026-11-16T05:01:46.559Z",
+  "verified_main": "a40b83b3166e3ee2d1d2e753c3b8db40825a6899",
+  "ci_run": 43804539643,
+  "local_complete_gate_passed": false,
+  "files": [
+    {
+      "path": "ci-originals.zip",
+      "sha256": "3a1f23052037ddaed327b9fab5309018d082971552b22682263154e29ce030b6"
+    },
+    {
+      "path": "ci-proof.json",
+      "sha256": "65bccce708526f80a6ca47799ab290ab694a6cd330b650cc259b79822f40ae1a"
+    },
+    {
+      "path": "ci-metadata.json",
+      "sha256": "d4c70c6c4a8c1040a8f3955a7e72702ed85020a367c78192a3e3a60144d2757c"
+    },
+    {
+      "path": "ci-secret-scan.txt",
+      "sha256": "638ff34eb30f5095705c23c446b430f61794d9119b658a65ed82a30c9b114cb2"
+    },
+    {
+      "path": "local-first-timeout.txt",
+      "sha256": "a70070d2802a35482ed9aad33c0a8420b4eedbed5d866b5aadc12e4795f11aac"
+    },
+    {
+      "path": "local-first-timeout.json",
+      "sha256": "4a0521bded91a5d302bafd72843719ec0d8d4911db8a8e7576ff7090d5c22875"
+    },
+    {
+      "path": "local-first-timeout-cleanup.json",
+      "sha256": "992cc5c65e09af4bce74841acebf6c8963c0281d29026534137d96cd717360fc"
+    },
+    {
+      "path": "local-second-failure.txt",
+      "sha256": "25c37137c0f08e4821a4a1881fa8e632932345d7f34b1a3ac91abcea8f20cc3f"
+    },
+    {
+      "path": "local-second-failure.json",
+      "sha256": "2bec3fc8cec40b4d748f9601953e6e797019d271694d7d16426b7a6250cccee0"
+    },
+    {
+      "path": "local-second-parser-failure.json",
+      "sha256": "1bec4a4dc812e68b6f2e40096d0f87f38c0644ee0159f9f27029bd2d9ade68e6"
+    },
+    {
+      "path": "local-second-batches.json",
+      "sha256": "cb00970a6b5dbde31278f465e90968584928d4e1577c212972eef57d80065d73"
+    },
+    {
+      "path": "rpc-red.txt",
+      "sha256": "4c5ba80c7c5c79e93506766bc014bd4b4e2d139208eb3fbd0fca7730292fe604"
+    },
+    {
+      "path": "rpc-green.txt",
+      "sha256": "5e85e74cef0c40ec6a323dfef887ee03fbddf4bc8bacf32ee4a9d33f05f972ad"
+    },
+    {
+      "path": "browser-source-proof.json",
+      "sha256": "8d979aee2741763ce3d9bd7579926f06d5ec5702c5f57c51c18ec79cf91e300e"
+    },
+    {
+      "path": "approval.json",
+      "sha256": "a633c936fa6508e7e6a48e9a6b6ea058d724ea365327509a4a191faefbff2f9d"
+    }
+  ]
+}

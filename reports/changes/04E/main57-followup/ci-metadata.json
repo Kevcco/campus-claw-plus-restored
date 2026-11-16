@@ -1,0 +1,8 @@
+{
+  "run_id": 43804539643,
+  "head_sha": "a40b83b3166e3ee2d1d2e753c3b8db40825a6899",
+  "conclusion": "success",
+  "artifact_id": 14198002496,
+  "zip_sha256": "3a1f23052037ddaed327b9fab5309018d082971552b22682263154e29ce030b6",
+  "artifact_name": "runtime-image-scans-a40b83b3166e3ee2d1d2e753c3b8db40825a6899"
+}
