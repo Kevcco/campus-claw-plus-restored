@@ -1,0 +1,10 @@
+{
+  "scenario": "DI-SC-16/17",
+  "module": "ocr-corpus",
+  "red": 1,
+  "green": 0,
+  "bytes_restored": true,
+  "node": "v24.22.1",
+  "observer": "Kevcco / 小陈（AI辅助）",
+  "checked_at": "2026-11-16T08:34:16.554Z"
+}

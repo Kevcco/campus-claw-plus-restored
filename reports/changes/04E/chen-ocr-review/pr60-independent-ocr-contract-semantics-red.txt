@@ -1,0 +1,34 @@
+✔ DI-SC-16/17 private draft single-source 2020-12 and OpenAPI paths accept only closed bounded data (2.6828ms)
+✖ DI-SC-17 semantic pixel/range/quote/order/bbox guards reject structurally valid false citations (3.9256ms)
+✔ DI-SC-18 review requires explicit acknowledgement, bounded content and server authority/CAS (1.1831ms)
+✔ DI-SC-25 candidate is explicitly draft and cannot activate current endpoints/config/migration (1.4083ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 334.7733
+
+✖ failing tests:
+
+test at scripts\ocr-draft-contract.test.mjs:22:1
+✖ DI-SC-17 semantic pixel/range/quote/order/bbox guards reject structurally valid false citations (3.9256ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/long/2/grade5/Internet-Software/group_project/output/pr60-review/scripts/ocr-draft-contract.test.mjs:23:273)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+exit=1
