@@ -1,0 +1,6 @@
+{
+  "scope": "isolated same-source mutation, active files unchanged",
+  "mutation": "disable PNG/JPEG pre-native pixel-size guard",
+  "red": 1,
+  "restored_green": 0
+}

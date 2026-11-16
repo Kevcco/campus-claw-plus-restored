@@ -81,3 +81,25 @@ func TestOCRClientCancelAndRejectRedirect(t *testing.T) {
 		t.Fatal(reason)
 	}
 }
+
+func TestOCRClientImageSignaturesAndMedia(t *testing.T) {
+	for _, row := range []struct{ body, media string }{{"\x89PNG\r\n\x1a\nsynthetic", "image/png"}, {"\xff\xd8\xffsynthetic", "image/jpeg"}} {
+		calls := 0
+		c := client(t, func(w http.ResponseWriter, r *http.Request) {
+			calls++
+			if r.Header.Get("Content-Type") != row.media {
+				t.Error("media mismatch")
+			}
+			w.Header().Set("Content-Type", "application/json")
+			w.Write([]byte(source))
+		})
+		if _, reason := c.Recognize(context.Background(), []byte(row.body)); reason != "" || calls != 1 {
+			t.Fatal(reason, calls)
+		}
+		for _, bad := range []string{"GIF89a", "http://untrusted/input.png", "\x89PNG", "\xff\xd8"} {
+			if _, reason := c.Recognize(context.Background(), []byte(bad)); reason != "unsupported_content" || calls != 1 {
+				t.Fatal("invalid bytes sent", reason)
+			}
+		}
+	}
+}

@@ -15,13 +15,16 @@ class OCRHTTP(unittest.TestCase):
         with OCRServer(('127.0.0.1', 0), token, recognize) as server:
             thread = threading.Thread(target=server.serve_forever, daemon=True)
             thread.start()
-            def request(path, auth=True, body=None):
+            def request(path, auth=True, body=None, media='application/pdf'):
                 client = http.client.HTTPConnection(*server.server_address, timeout=2)
                 headers = {'Authorization': 'Bearer '+token} if auth else {}
                 if body is not None:
-                    headers['Content-Type'] = 'application/pdf'
+                    headers['Content-Type'] = media
                 client.request('POST' if body is not None else 'GET', path, body=body, headers=headers)
                 response = client.getresponse()
+                self.assertEqual(response.getheader('Cache-Control'), 'no-store')
+                self.assertRegex(response.getheader('X-Request-ID'), r'^[a-f0-9]{32}$')
+                self.assertEqual(response.getheader('Content-Type'), 'application/json')
                 status, data = response.status, response.read()
                 client.close()
                 return status, data
@@ -37,6 +40,15 @@ class OCRHTTP(unittest.TestCase):
                     server.parsing.release()
                 self.assertEqual(request('/internal/ocr', body=b'%PDF-test')[0], 422)
                 self.assertEqual(calls, [b'%PDF-test'])
+                for media, signature in [('image/png', b'\x89PNG\r\n\x1a\n'), ('image/jpeg', b'\xff\xd8\xff')]:
+                    self.assertEqual(request('/internal/ocr', body=signature + b'test', media=media)[0], 422)
+                    self.assertEqual(calls[-1], signature + b'test')
+                    count = len(calls)
+                    self.assertEqual(request('/internal/ocr', body=b'%PDF-wrong-media', media=media)[0], 422)
+                    self.assertEqual(len(calls), count)
+                self.assertEqual(request('/internal/ocr', body=b'GIF89a', media='image/gif')[0], 400)
+                server.recognize = lambda *_: dict(status='needs_review', body='x' * 8_388_609)
+                self.assertEqual(request('/internal/ocr', body=b'%PDF-test'), (422, b'{"status":"failed","reason":"resource_limit"}'))
             finally:
                 server.shutdown()
                 thread.join()

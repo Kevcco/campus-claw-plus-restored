@@ -43,20 +43,27 @@ def render_page(path, index, destination):
 
 
 def one_page(path, index):
-    started = time.monotonic()
     with tempfile.TemporaryDirectory(prefix='ocr-page-') as temporary:
         image = Path(temporary) / 'page.ppm'
         width, height = render_page(path, index, image)
+        return recognize_raster(image, width, height, index)
+
+
+def recognize_raster(image, width, height, index):
+    started = time.monotonic()
+    with tempfile.TemporaryDirectory(prefix='ocr-text-') as temporary:
         prefix = Path(temporary) / 'result'
         child = subprocess.run(['tesseract', str(image), str(prefix), '--oem', '1',
                                 '--psm', '1', '-l', 'chi_sim+eng', '--dpi', '200', 'txt', 'tsv'],
                                capture_output=True, timeout=15)
+        if child.returncode == -9:
+            raise ValueError('resource_limit')
         if child.returncode != 0:
             raise ValueError('ocr_engine_failure')
+        if prefix.with_suffix('.txt').stat().st_size > 2_097_152 or prefix.with_suffix('.tsv').stat().st_size > 8_388_608:
+            raise ValueError('output_limit')
         text = prefix.with_suffix('.txt').read_text(encoding='utf8')
         tsv = prefix.with_suffix('.tsv').read_text(encoding='utf8')
-        if len(text.encode()) > 2_097_152 or len(tsv.encode()) > 8_388_608:
-            raise ValueError('output_limit')
         return dict(page=index + 1, width=width, height=height, text=text, tsv=tsv,
                     elapsed_ms=round((time.monotonic() - started) * 1000),
                     peak_bytes=int(Path('/sys/fs/cgroup/memory.peak').read_text()))

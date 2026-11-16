@@ -1,0 +1,32 @@
+{
+  "scope": "actual component source/response binding; not blind/formal B acceptance or production deployment",
+  "full_check": 0,
+  "audit_final": 0,
+  "local_verify": "not rerun this batch; previous same production scope check documented separately",
+  "real_input_count": 14,
+  "positive_cer": {
+    "errors": 25,
+    "denominator": 1618,
+    "cer": 0.015451174289245983,
+    "pages": 4
+  },
+  "by_language": {
+    "zh": {
+      "errors": 23,
+      "denominator": 395,
+      "cer": 0.05822784810126582,
+      "pages": 2
+    },
+    "en": {
+      "errors": 2,
+      "denominator": 1223,
+      "cer": 0.001635322976287817,
+      "pages": 2
+    }
+  },
+  "negative_diagnostics": 10,
+  "metadata_invariance": 2,
+  "actual_rejections": 3,
+  "all_source_hashes_match": true,
+  "all_cleanup_ok": true
+}

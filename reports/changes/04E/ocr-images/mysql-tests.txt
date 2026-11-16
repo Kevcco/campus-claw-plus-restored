@@ -1,0 +1,41 @@
+-test.shuffle 1794830845327798704
+=== RUN   TestContentCodepointsAndBounds
+--- PASS: TestContentCodepointsAndBounds (0.00s)
+=== RUN   TestMySQLReviewPublishedKeywordIsolation
+--- PASS: TestMySQLReviewPublishedKeywordIsolation (0.02s)
+=== RUN   TestMySQLOCRKilledWorkerTakeover
+--- PASS: TestMySQLOCRKilledWorkerTakeover (0.07s)
+=== RUN   TestMySQLOCRWorkerCancelAndLostLease
+--- PASS: TestMySQLOCRWorkerCancelAndLostLease (0.05s)
+=== RUN   TestMySQLOCRSourceRollbackAndFinalLeaseExpiry
+--- PASS: TestMySQLOCRSourceRollbackAndFinalLeaseExpiry (0.23s)
+=== RUN   TestMySQLReviewBoundaryKeywords
+=== RUN   TestMySQLReviewBoundaryKeywords/0
+=== RUN   TestMySQLReviewBoundaryKeywords/1
+=== RUN   TestMySQLReviewBoundaryKeywords/2
+--- PASS: TestMySQLReviewBoundaryKeywords (0.03s)
+    --- PASS: TestMySQLReviewBoundaryKeywords/0 (0.01s)
+    --- PASS: TestMySQLReviewBoundaryKeywords/1 (0.01s)
+    --- PASS: TestMySQLReviewBoundaryKeywords/2 (0.01s)
+=== RUN   TestMySQLReviewCASRaceAndAuthorization
+--- PASS: TestMySQLReviewCASRaceAndAuthorization (0.01s)
+=== RUN   TestMySQLReviewIdempotentRaceAndOldSource
+--- PASS: TestMySQLReviewIdempotentRaceAndOldSource (0.04s)
+=== RUN   TestMySQLReviewRollbackAndPageCount
+--- PASS: TestMySQLReviewRollbackAndPageCount (0.01s)
+=== RUN   TestMySQLOCRRealSourceAndReview
+--- PASS: TestMySQLOCRRealSourceAndReview (0.11s)
+=== RUN   TestMySQLReviewDocumentScopedIdempotency
+--- PASS: TestMySQLReviewDocumentScopedIdempotency (0.02s)
+=== RUN   TestMySQLReviewForeignClassAndRevisionBounds
+--- PASS: TestMySQLReviewForeignClassAndRevisionBounds (0.00s)
+=== RUN   TestMySQLOCRTakeoverAndExhaustion
+--- PASS: TestMySQLOCRTakeoverAndExhaustion (0.05s)
+=== RUN   TestSourceStrictCodepointsAndBounds
+--- PASS: TestSourceStrictCodepointsAndBounds (0.00s)
+=== RUN   TestOCRClaimHelper
+--- PASS: TestOCRClaimHelper (0.00s)
+=== RUN   TestMySQLOCRWorkerFailureAndExplicitRetry
+--- PASS: TestMySQLOCRWorkerFailureAndExplicitRetry (0.04s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/ocrreview	0.698s

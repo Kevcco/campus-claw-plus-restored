@@ -39,3 +39,9 @@
 ## 迁移7真实嵌入式执行和恢复已验证
 
 六表SQL已按SHA加入migrations目录，执行器显式Up(7)/Check(7)/Repair(7)和测试专用空库down可用；生产Target6和identity-admin默认目标保持，不会启动自动DDL。固定结构快照仅从已知SHA候选SQL首次生成并提交，校验器不从待检查库学习。旧合同登记12个当前SQL+2个prepared SQL，准确SHA/快照路径白名单仍强校验。实际6→7/六DDL中断/严格结构/真实dump恢复6和7全部通过，原件见ocr-migration7报告。公开接口与服务消费者/Target7的原子正式激活待下一批。
+
+## PNG/JPEG组件和私有OpenAPI已具体实测
+
+2026-11-16图片OCR推进：新增PNG/JPEG单帧、签名/CRC/尺寸/20MP及元数据隔离准入，复用原Tesseract而不加解码依赖。实际14开发图片经Go/私有HTTP重新识别，4正例25/1618错误、CER1.55%，10低质负例全部低质或失败；2个元数据变体结果逐字不变，超像素/损坏PNG/JPEG三种真实拒绝正确。旧4页PDF/worker/校对检索/取消及13组MySQL保持通过。识别容器7代码文件、无gold/盲测，全部专属资源清理；私有OpenAPI准确补齐，公开草案移除旧私有path。像素守卫隔离红1→绿0、默认Python增至10组/私有合同2组，最终完整check0；audit两次TLS网络失败后原命令两树0。默认地址池并发耗尽的失败原件保留，改用已有显式空闲internal子网分配器后复验0。前序d540bdc完整CI43861270879成功；本批最终CI/本机完整verify未重跑，公开图片上传/版本API/校对页/混合页/native安全闭包和正式盲测仍待，不勾B整体。
+
+当前private-openapi.json是准确私有组件HTTP合同，private-rpc.json为机器资源profile；public openapi.json只保留校对候选，不再包含旧私有path。两者仍未激活生产/公开路由；后续需完成公开版本读取、图片原件兼容投影、配置消费者与Target7准确冻结，再原子生产接线。

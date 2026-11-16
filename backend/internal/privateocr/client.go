@@ -41,7 +41,7 @@ func (c *Client) call(ctx context.Context, method, path string, input []byte) (i
 	}
 	req.Header.Set("Authorization", "Bearer "+c.token)
 	if method == http.MethodPost {
-		req.Header.Set("Content-Type", "application/pdf")
+		req.Header.Set("Content-Type", inputMedia(input))
 	}
 	resp, e := c.http.Do(req)
 	if e != nil {
@@ -74,7 +74,7 @@ func (c *Client) Healthy(ctx context.Context) bool {
 	return strictjson.Decode(raw, &p) == nil && p.Status == "ok"
 }
 func (c *Client) Recognize(ctx context.Context, input []byte) ([]byte, string) {
-	if len(input) == 0 || len(input) > 10485760 || !bytes.HasPrefix(input, []byte("%PDF-")) {
+	if len(input) == 0 || len(input) > 10485760 || inputMedia(input) == "" {
 		return nil, "unsupported_content"
 	}
 	code, raw, e := c.call(ctx, "POST", "/internal/ocr", input)
@@ -109,4 +109,20 @@ func (c *Client) Recognize(ctx context.Context, input []byte) ([]byte, string) {
 		return nil, failed.Reason
 	}
 	return nil, "internal_failure"
+}
+
+func inputMedia(input []byte) string {
+	for _, candidate := range []struct {
+		signature []byte
+		media     string
+	}{
+		{[]byte("%PDF-"), "application/pdf"},
+		{[]byte("\x89PNG\r\n\x1a\n"), "image/png"},
+		{[]byte{255, 216, 255}, "image/jpeg"},
+	} {
+		if bytes.HasPrefix(input, candidate.signature) {
+			return candidate.media
+		}
+	}
+	return ""
 }

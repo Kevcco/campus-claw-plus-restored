@@ -14,6 +14,8 @@ import time
 import uuid
 from server import ParserServer, Handler, InvalidRequest
 
+MEDIA = {'application/pdf': b'%PDF-', 'image/png': b'\x89PNG\r\n\x1a\n', 'image/jpeg': b'\xff\xd8\xff'}
+
 FAILURES = {'corrupt': 422, 'encrypted': 422, 'unsupported_content': 422,
             'resource_limit': 422, 'ocr_timeout': 504, 'worker_interrupted': 503,
             'language_missing': 503, 'internal_failure': 503}
@@ -83,7 +85,8 @@ class OCRHandler(Handler):
             self.reject_buffered_extra()
             return 200, dict(status='ok')
         size = headers.get('content-length', '')
-        if not re.fullmatch(r'[1-9][0-9]{0,7}', size) or int(size) > 10_485_760 or headers.get('content-type') != 'application/pdf':
+        media = headers.get('content-type')
+        if not re.fullmatch(r'[1-9][0-9]{0,7}', size) or int(size) > 10_485_760 or media not in MEDIA:
             raise InvalidRequest()
         if not self.server.parsing.acquire(blocking=False):
             return 503, failed('internal_failure')
@@ -92,10 +95,10 @@ class OCRHandler(Handler):
             while len(data) < int(size):
                 data.extend(self.recv(min(65536, int(size) - len(data)), deadline))
             self.reject_buffered_extra()
-            if not data.startswith(b'%PDF-'):
+            if not data.startswith(MEDIA[media]):
                 return 422, failed('corrupt')
             with tempfile.TemporaryDirectory(prefix='ocr-rpc-') as directory:
-                path = Path(directory) / 'source.pdf'
+                path = Path(directory) / 'source'
                 path.write_bytes(data)
                 result = self.server.recognize(path, self.request, min(180, max(.001, started + 185 - time.monotonic())))
             if result.get('status') == 'needs_review':
@@ -116,7 +119,7 @@ class OCRHandler(Handler):
                 status, payload = 503, failed('internal_failure')
             body = json.dumps(payload, ensure_ascii=False, separators=(',', ':')).encode()
             if len(body) > 8_388_608:
-                status, body = 503, b'{"status":"failed","reason":"resource_limit"}'
+                status, body = 422, b'{"status":"failed","reason":"resource_limit"}'
             self.request.settimeout(2)
             self.request.sendall((f'HTTP/1.1 {status} Response\r\nContent-Type: application/json\r\nContent-Length: {len(body)}\r\nConnection: close\r\nCache-Control: no-store\r\nX-Request-ID: {request_id}\r\n\r\n').encode() + body)
         except OSError:

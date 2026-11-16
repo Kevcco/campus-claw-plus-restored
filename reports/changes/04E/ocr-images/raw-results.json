@@ -1,0 +1,234 @@
+{
+  "exit_code": 0,
+  "scope": "Isolated candidate revision DDL and actual Go transactions; production Target6 unchanged",
+  "run_id": "campus-ocr-revisions-13839a8733f2",
+  "real_ocr_fixture": {
+    "engine_output_sha256": "e0737982ca3e10b910e40ae7f59ae859c7d5e1da75071e906e50eba895e5da71",
+    "source_sha256": "e23ba3b7ffbf2ea74e6993f0340b007a647cf1501aab3a91d027af36a82ae0ed",
+    "original_sha256": "bfb8a3728453b52a80a254e872b6d417fe0ee4314310e28045b5f81a079e2135",
+    "pages": 4,
+    "words": 437
+  },
+  "image_id": "sha256:9e2c176c931a78e1329f96c2b223307140845dbdf00696c95842fd882d4d5634",
+  "network_subnet": "10.240.0.0/24",
+  "mysql_version": "8.4.13",
+  "candidate_sql_sha256": "2364d2594851940aaeb00a6893bc763a1487243f35dcd87a0fe47c7d93c74849",
+  "groups": [
+    "TestMySQLReviewPublishedKeywordIsolation",
+    "TestMySQLOCRKilledWorkerTakeover",
+    "TestMySQLOCRWorkerCancelAndLostLease",
+    "TestMySQLOCRSourceRollbackAndFinalLeaseExpiry",
+    "TestMySQLReviewBoundaryKeywords",
+    "TestMySQLReviewCASRaceAndAuthorization",
+    "TestMySQLReviewIdempotentRaceAndOldSource",
+    "TestMySQLReviewRollbackAndPageCount",
+    "TestMySQLOCRRealSourceAndReview",
+    "TestMySQLReviewDocumentScopedIdempotency",
+    "TestMySQLReviewForeignClassAndRevisionBounds",
+    "TestMySQLOCRTakeoverAndExhaustion",
+    "TestMySQLOCRWorkerFailureAndExplicitRetry"
+  ],
+  "real_images": {
+    "inputs": 14,
+    "positive": 4,
+    "negative": 10,
+    "positive_micro": {
+      "errors": 25,
+      "denominator": 1618,
+      "cer": 0.015451174289245983,
+      "pages": 4
+    },
+    "negative_attention": 10,
+    "response_schema": true,
+    "blind_inputs": 0,
+    "responses_sha256": "8d0c973eb0298c8c04c18fcadb388a1daaaceb880f7ebd3606b9b5463bc1cc82",
+    "metadata_invariance": 2,
+    "bounded_rejections": 3,
+    "scope": "real PNG/JPEG private RPC, not public image upload or database activation"
+  },
+  "real_rpc": {
+    "exit_code": 0,
+    "image_id": "sha256:543c3ae8067ff6d1f3ba32a80a502dc1b2ca13b8a8c6656b1dc4605bf5b8f381",
+    "duration_ms": 40048,
+    "engine_mount_files": [
+      "ocr_image.py",
+      "ocr_pdf.py",
+      "ocr_process.py",
+      "ocr_result.py",
+      "ocr_server.py",
+      "runner.py",
+      "server.py"
+    ],
+    "gold_available": false,
+    "blind_available": false,
+    "response_schema": true,
+    "response_sha256": "6e89ddb87aac3b4fb7ddc273abef046cf7f90b9d6b43afa72e10402c91b084bf",
+    "response_development_cer": {
+      "errors": 35,
+      "denominator": 1618,
+      "cer": 0.021631644004944377,
+      "pages": 4
+    },
+    "source_files": {
+      "document-parser/ocr_server.py": "2887410c0f79135d05a0116c9be59b66b0d885570e2553036bae87063730513f",
+      "document-parser/ocr_process.py": "0bb0052a74a29057530211f2405764fb2c2f086614b86906e3f2df1e9183149c",
+      "document-parser/ocr_pdf.py": "de0f333f4d611f1cbe36b7043d0f7cfa5545b4eb0c564da0b200894a7769dbef",
+      "document-parser/ocr_image.py": "70c48d31b85145b949ae6381f83d44756469e0457def7e37918aa7d77578a21b",
+      "document-parser/ocr_result.py": "e24753c081ad5b33fbf6fa8172f26654e3f633313c699721cee450795726bb95",
+      "backend/internal/integration/ocrpipeline/pipeline_test.go": "df980fe90623f6742e08f23a7138ae1ccb14fd11978f006f1ea2a5fa4ec8eaf2",
+      "backend/internal/integration/ocrpipeline/images_test.go": "fbf1bf3eb21e287f160b26a230f97125ba75856582e21d22105cfd1daf63b9f7",
+      "backend/internal/privateocr/client.go": "53d00811e583e509e05b899affa2bf1ff3338e8d5192cc58195278344006467b",
+      "backend/internal/privateocr/client_test.go": "9b0774c9d965d9c1f392acecfb2bf5dc764a93693b3ee3ee272400f52c6a5590"
+    },
+    "scope": "new real PDF -> private HTTP -> Tesseract -> Go worker -> MySQL source -> teacher review -> student keyword search; no production activation"
+  },
+  "source_files": {
+    "backend/internal/ocrreview/jobs.go": "e6c1107458da03e31935e67abe2b0ab799d9d8060f9e6e2fba3824df5e456720",
+    "backend/internal/ocrreview/mysql_test.go": "07a9ef7a266bff8da12bcfcd485deb7ecee06c26ceb688584d55d1505bf99f21",
+    "backend/internal/ocrreview/review_feedback_mysql_test.go": "9887c825e8ea350980d2950d402114bdc429f48b92f1e0a3aea013a1cc1cac5b",
+    "backend/internal/ocrreview/source.go": "9ed54bcd2d0e225fd8fc5a1c167a74d72d7de3bfaab1fc82ae7b581ab820a596",
+    "backend/internal/ocrreview/source_mysql_test.go": "32a0076bd5b26d1e35f906c34abbde4e9ddbe5e2b699f71560ada9740d537b4e",
+    "backend/internal/ocrreview/source_test.go": "09eb85c0d5fd62aedf04997e40de7f2bf208e8f64f24684f4a91c1ca66190131",
+    "backend/internal/ocrreview/store.go": "dc50bf06ce0c1c48a1ef90ad8890f43b8902c0ba1dcf5426620071de62da4a31",
+    "backend/internal/ocrreview/store_test.go": "8f626c8793d3d35599536bf289aab7b407e69af17e51cd88e62a1532fff479ae",
+    "backend/internal/ocrreview/worker.go": "34d3e314ce7a996ec8e3d2c3dfaf61ed511844a0e69f6a7091aae761db2326a7",
+    "backend/internal/ocrreview/worker_mysql_test.go": "1252ce899fcc996aff6b4b6f9b86bccb680aaed5e9b7e191cf9fc45dde9683f7"
+  },
+  "cleanup": [
+    {
+      "resource": "campus-ocr-revisions-13839a8733f2-ocr",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-revisions-13839a8733f2",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-revisions-13839a8733f2:probe",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-revisions-13839a8733f2-net",
+      "ok": true
+    }
+  ],
+  "secret_file_removed": true,
+  "results": [
+    {
+      "label": "build pinned MySQL probe",
+      "exit_code": 0
+    },
+    {
+      "label": "immutable MySQL image",
+      "exit_code": 0
+    },
+    {
+      "label": "inspect current network IDs",
+      "exit_code": 0
+    },
+    {
+      "label": "inspect allocated network prefixes",
+      "exit_code": 0
+    },
+    {
+      "label": "create exclusive internal OCR pipeline network",
+      "exit_code": 0
+    },
+    {
+      "label": "actual isolated network",
+      "exit_code": 0
+    },
+    {
+      "label": "start owned isolated MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "database version",
+      "exit_code": 0
+    },
+    {
+      "label": "create isolated schema",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000001_identity_users_classes.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000002_identity_sessions.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000003_identity_auth_audit.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000004_materials_retrieval.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000005_assignment_tasks.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000006_documents.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "identity fixtures",
+      "exit_code": 0
+    },
+    {
+      "label": "candidate append-only revision DDL",
+      "exit_code": 0
+    },
+    {
+      "label": "record candidate structure document_ocr_revisions",
+      "exit_code": 0
+    },
+    {
+      "label": "record candidate structure document_ocr_heads",
+      "exit_code": 0
+    },
+    {
+      "label": "record candidate structure document_ocr_review_keys",
+      "exit_code": 0
+    },
+    {
+      "label": "record candidate structure document_ocr_chunks",
+      "exit_code": 0
+    },
+    {
+      "label": "record candidate structure document_ocr_sources",
+      "exit_code": 0
+    },
+    {
+      "label": "record candidate structure document_ocr_jobs",
+      "exit_code": 0
+    },
+    {
+      "label": "start immutable real OCR service",
+      "exit_code": 0
+    },
+    {
+      "label": "actual OCR filesystem excludes corpus/gold/blind/fixtures",
+      "exit_code": 0
+    },
+    {
+      "label": "collect actual safe OCR logs",
+      "exit_code": 0
+    },
+    {
+      "label": "remove owned candidate rows",
+      "exit_code": 0
+    },
+    {
+      "label": "candidate reverse DDL",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline tables preserved",
+      "exit_code": 0
+    }
+  ]
+}

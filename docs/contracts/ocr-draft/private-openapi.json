@@ -1,0 +1,682 @@
+{
+  "openapi": "3.1.0",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "info": {
+    "title": "Explicit candidate private OCR component",
+    "version": "0.2.0"
+  },
+  "x-contract-status": "candidate-component",
+  "x-runtime-activation": false,
+  "servers": [
+    {
+      "url": "http://document-ocr:8092"
+    }
+  ],
+  "security": [
+    {
+      "OCRBearer": []
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "candidateOCRHealth",
+        "responses": {
+          "200": {
+            "description": "Authenticated readiness",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "const": "ok"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed bounded request",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "./OCRResult.schema.json"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "const": "failed"
+                        },
+                        "reason": {
+                          "enum": [
+                            "corrupt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "reason"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid canonical bearer",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "./OCRResult.schema.json"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "const": "failed"
+                        },
+                        "reason": {
+                          "enum": [
+                            "internal_failure"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "reason"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown route",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "./OCRResult.schema.json"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "const": "failed"
+                        },
+                        "reason": {
+                          "enum": [
+                            "unsupported_content"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "reason"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Wrong method",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "./OCRResult.schema.json"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "const": "failed"
+                        },
+                        "reason": {
+                          "enum": [
+                            "unsupported_content"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "reason"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Unavailable, occupied or interrupted",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "./OCRResult.schema.json"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "const": "failed"
+                        },
+                        "reason": {
+                          "enum": [
+                            "internal_failure",
+                            "worker_interrupted",
+                            "language_missing"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "reason"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/ocr": {
+      "post": {
+        "operationId": "candidateRecognizeOCR",
+        "description": "Binary encoded bytes only; no URL, identity, class, gold or caller-selected engine. PNG/JPEG one encoded raster; EXIF/ICC/XMP metadata does not alter coordinates. 10MiB/20MP; page15s/task180s, bounded by the private profile.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/pdf": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              },
+              "x-max-bytes": 10485760
+            },
+            "image/png": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              },
+              "x-max-bytes": 10485760
+            },
+            "image/jpeg": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              },
+              "x-max-bytes": 10485760
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Validated draft, never published without teacher review",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "./OCRResult.schema.json"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "const": "needs_review"
+                        }
+                      },
+                      "required": [
+                        "status"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed bounded request",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "./OCRResult.schema.json"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "const": "failed"
+                        },
+                        "reason": {
+                          "enum": [
+                            "corrupt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "reason"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid canonical bearer",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "./OCRResult.schema.json"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "const": "failed"
+                        },
+                        "reason": {
+                          "enum": [
+                            "internal_failure"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "reason"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown route",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "./OCRResult.schema.json"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "const": "failed"
+                        },
+                        "reason": {
+                          "enum": [
+                            "unsupported_content"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "reason"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Wrong method",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "./OCRResult.schema.json"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "const": "failed"
+                        },
+                        "reason": {
+                          "enum": [
+                            "unsupported_content"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "reason"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Recognition input or resource rejection",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "./OCRResult.schema.json"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "const": "failed"
+                        },
+                        "reason": {
+                          "enum": [
+                            "corrupt",
+                            "encrypted",
+                            "unsupported_content",
+                            "resource_limit"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "reason"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Unavailable, occupied or interrupted",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "./OCRResult.schema.json"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "const": "failed"
+                        },
+                        "reason": {
+                          "enum": [
+                            "internal_failure",
+                            "worker_interrupted",
+                            "language_missing"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "reason"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Recognition budget expired",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "const": "no-store"
+                }
+              },
+              "X-Request-ID": {
+                "schema": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{32}$"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "./OCRResult.schema.json"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "const": "failed"
+                        },
+                        "reason": {
+                          "enum": [
+                            "ocr_timeout"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "status",
+                        "reason"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "OCRBearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "canonical unpadded base64url of32 random bytes"
+      }
+    },
+    "schemas": {
+      "OCRResult": {
+        "$ref": "./OCRResult.schema.json"
+      }
+    }
+  }
+}
