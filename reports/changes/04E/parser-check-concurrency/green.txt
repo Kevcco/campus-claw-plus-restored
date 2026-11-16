@@ -1,0 +1,11 @@
+✔ DI-SC-14 all isolated checks start before any completes; all results required (3.2013ms)
+✔ DI-SC-14 real child failure does not return before siblings finish and propagates (392.0059ms)
+✔ DI-SC-14 synchronous failure, timeout and missing executable never turn into success (118.9273ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 635.6027

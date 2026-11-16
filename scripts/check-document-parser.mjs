@@ -3,6 +3,7 @@ import { spawnSync } from 'node:child_process'
 import { createHash, randomBytes } from 'node:crypto'
 import { mkdirSync, readFileSync, realpathSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { independentChecks, checkedProcess } from './independent-checks.mjs'
 import { databaseArgs, scanner } from './verify-image-audits.mjs'
 
 // DI-SC-02..06/14: offline core + private HTTP component, no default service/config/SQL activation.
@@ -16,7 +17,7 @@ mkdirSync(directory, { recursive: true })
 const sha = value => createHash('sha256').update(value).digest('hex')
 const git = args => spawnSync('git', args, { encoding: 'utf8' }).stdout.trim()
 const inputs = ['core.py', 'worker.py', 'runner.py', 'server.py', 'health.py', 'test_rpc.py', 'test_health.py', 'requirements.lock', 'Dockerfile', '.dockerignore']
-const clientInputs = ['backend/internal/documentparser/client.go', 'backend/internal/documentparser/client_test.go', 'scripts/check-document-parser-client.mjs']
+const clientInputs = ['backend/internal/documentparser/client.go', 'backend/internal/documentparser/client_test.go', 'scripts/check-document-parser-client.mjs', 'scripts/check-document-parser.mjs', 'scripts/independent-checks.mjs']
 const fingerprint = () => sha([...inputs.map(p => 'document-parser/' + p), ...clientInputs].map(p => p + ':' + sha(readFileSync(p))).join('\n'))
 const source = { commit: git(['rev-parse', 'HEAD']), dirty: git(['status', '--porcelain']) !== '', fingerprint: fingerprint() }
 const toolchain = JSON.parse(readFileSync('scripts/toolchain.json'))
@@ -26,17 +27,17 @@ assert.equal(readFileSync('document-parser/requirements.lock', 'utf8').trim(),
   `pypdf==${toolchain.documentPypdfVersion} --hash=sha256:${toolchain.documentPypdfWheelSha256}`)
 const results = []
 let report = { time: new Date().toISOString(), run_id: id, scope: '04E core/private HTTP/client/probe component tests; five-service production wiring is validated separately', source, exit_code: 1 }
-function run(label, args, timeout = 180000) {
-  const child = spawnSync('docker', args, { encoding: 'utf8', timeout, maxBuffer: 16 * 1024 * 1024 })
-  results.push({ label, exit_code: child.status, error: child.error?.message,
+async function run(label, args, timeout = 180000) {
+  const child = await checkedProcess('docker', args, timeout)
+  results.push({ label, duration_ms: child.duration_ms, exit_code: child.status, error: child.error?.message,
     stdout: child.stdout ?? '', stderr: child.stderr ?? '' })
   console.log(`Document parser ${label}: exit ${child.status}`)
   if (child.status !== 0) throw new Error(`${label} failed; see output/document-parser/${scan ? 'scan' : 'check'}/results.json`)
   return child.stdout
 }
 try {
-  run('build pinned candidate', ['build', '-t', tag, 'document-parser'])
-  const imageId = run('record immutable image', ['image', 'inspect', '--format', '{{.Id}}', tag]).trim()
+  await run('build pinned candidate', ['build', '-t', tag, 'document-parser'])
+  const imageId = (await run('record immutable image', ['image', 'inspect', '--format', '{{.Id}}', tag])).trim()
   assert.match(imageId, /^sha256:[a-f0-9]{64}$/)
   report.image_id = imageId
   // In scan mode test the exact same immutable image before exporting it;
@@ -46,7 +47,9 @@ try {
     for (const [file, hash] of Object.entries(corpus.sha256)) {
       assert.equal(sha(readFileSync('document-parser/testdata/acceptance-v1/' + file)), hash, 'Frozen corpus drift: ' + file)
     }
-    const raw = run('actual bounded acceptance', ['run', '--rm', '--name', container,
+    const componentStarted = performance.now()
+    await independentChecks([async () => {
+    const raw = await run('actual bounded acceptance', ['run', '--rm', '--name', container + '-core',
       '--network', 'none', '--read-only', '--cap-drop', 'ALL', '--security-opt', 'no-new-privileges',
       '--memory', '512m', '--memory-swap', '512m', '--cpus', '1', '--pids-limit', '32',
       '--tmpfs', '/tmp:rw,noexec,nosuid,size=64m',
@@ -63,7 +66,8 @@ try {
       max_cer: Math.max(...tests.acceptance.map(c => c.cer)),
       max_document_ms: Math.max(...tests.acceptance.map(c => c.ms)), raw_sha256: sha(raw) }
     report.isolation = tests.isolation
-    const rpcRaw = run('private HTTP adapter real corpus and boundary tests', ['run', '--rm', '--name', container,
+    }, async () => {
+    const rpcRaw = await run('private HTTP adapter real corpus and boundary tests', ['run', '--rm', '--name', container + '-http',
       '--network', 'none', '--read-only', '--cap-drop', 'ALL', '--security-opt', 'no-new-privileges',
       '--memory', '512m', '--memory-swap', '512m', '--cpus', '1', '--pids-limit', '32',
       '--tmpfs', '/tmp:rw,noexec,nosuid,size=64m',
@@ -75,28 +79,30 @@ try {
     assert.equal(rpc.safe_logs, true)
     assert.equal(rpc.documents.length, 40)
     report.private_http = rpc
-    const healthRaw = run('actual authenticated health and startup process tests', ['run', '--rm', '--name', container,
+    const healthRaw = await run('actual authenticated health and startup process tests', ['run', '--rm', '--name', container + '-health',
       '--network', 'none', '--read-only', '--cap-drop', 'ALL', '--security-opt', 'no-new-privileges',
       '--memory', '512m', '--memory-swap', '512m', '--cpus', '1', '--pids-limit', '32',
       '--tmpfs', '/tmp:rw,noexec,nosuid,size=64m', '--mount', `type=bind,source=${resolve('document-parser')},target=/tests,readonly`,
       '--entrypoint', 'python', imageId, '-B', '-I', '/tests/test_health.py'], 30000)
     report.private_health = JSON.parse(healthRaw)
     assert.equal(report.private_health.exit_code,0); assert.equal(report.private_health.groups,3); assert.equal(report.private_health.safe_logs,true)
-    const client = spawnSync(process.execPath, ['scripts/check-document-parser-client.mjs', '--image', imageId],
-      { encoding: 'utf8', timeout: 240000, maxBuffer: 16 * 1024 * 1024 })
+    }, async () => {
+    const client = await checkedProcess(process.execPath, ['scripts/check-document-parser-client.mjs', '--image', imageId], 240000)
     assert.equal(client.status, 0, 'Real Go/private HTTP interoperability failed: ' + (client.stdout ?? '') + (client.stderr ?? ''))
     report.private_client = JSON.parse(client.stdout)
     assert.equal(report.private_client.actual.documents.length, 40)
     assert.equal(report.private_client.secret_file_removed, true)
+    }])
+    report.component_schedule = { isolated_groups: 3, all_settled_before_cleanup: true, duration_ms: Math.round(performance.now() - componentStarted) }
   }
   if (scan) {
     const workspace = realpathSync('.')
     const workspaceId = sha(process.platform === 'win32' ? workspace.toLowerCase() : workspace).slice(0, 16)
     const cache = `campus-trivy-db-${workspaceId}`
-    run('export candidate without scanner socket', ['image', 'save', '-o', resolve(directory, 'image.tar'), imageId])
+    await run('export candidate without scanner socket', ['image', 'save', '-o', resolve(directory, 'image.tar'), imageId])
     report.image_export_sha256 = sha(readFileSync(resolve(directory, 'image.tar')))
     try {
-      run('Trivy candidate HIGH/CRITICAL', ['run', '--rm', '--name', container,
+      await run('Trivy candidate HIGH/CRITICAL', ['run', '--rm', '--name', container,
         '--mount', `type=bind,source=${directory},target=/reports`, '-v', `${cache}:/root/.cache/trivy`, scanner,
         'image', '--input', '/reports/image.tar', ...databaseArgs, '--cache-backend', 'memory',
         '--scanners', 'vuln', '--severity', 'HIGH,CRITICAL', '--exit-code', '1', '--list-all-pkgs',
@@ -110,7 +116,7 @@ try {
     assert.equal(raw.Results.flatMap(r => r.Vulnerabilities ?? []).length, 0, 'High/critical finding blocks candidate')
     report.scanner = scanner
     report.findings = { HIGH: 0, CRITICAL: 0 }
-    report.database = JSON.parse(run('record actual vulnerability database', ['run', '--rm', '--name', container,
+    report.database = JSON.parse(await run('record actual vulnerability database', ['run', '--rm', '--name', container,
       '--network', 'none', '-v', `${cache}:/root/.cache/trivy`, '--entrypoint', 'cat', scanner,
       '/root/.cache/trivy/db/metadata.json']))
   }
@@ -118,10 +124,11 @@ try {
   report.exit_code = 0
 } catch (error) {
   report.error = error.message
+  if (error instanceof AggregateError) report.component_errors = error.errors.map(e => e.message)
   console.error(error.message)
 } finally {
   report.cleanup = []
-  for (const [args, absent] of [[['rm', '-f', container], 'No such container'], [['image', 'rm', tag], 'No such image']]) {
+  for (const [args, absent] of [...[container, container + '-core', container + '-http', container + '-health'].map(name => [['rm', '-f', name], 'No such container']), [['image', 'rm', tag], 'No such image']]) {
     const child = spawnSync('docker', args, { encoding: 'utf8', timeout: 30000 })
     const ok = child.status === 0 || (child.stderr ?? '').includes(absent)
     report.cleanup.push({ resource: args.at(-1), exit_code: child.status, ok })
