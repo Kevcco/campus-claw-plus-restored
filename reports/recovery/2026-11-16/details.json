@@ -1,0 +1,101 @@
+{
+  "combined_unique_commits": 429,
+  "peer_head_only_files": 59,
+  "local_head_only_files": 27,
+  "common_paths_with_different_content": 22,
+  "peer_new_code_paths": [
+    "backend/internal/httpserver/ocr.go",
+    "backend/internal/httpserver/ocr_test.go",
+    "backend/internal/httpserver/request.go",
+    "backend/internal/integration/ocrpublic/http_test.go",
+    "backend/internal/ocrreview/status.go",
+    "scripts/check-ocr-image-storage.mjs",
+    "scripts/check-ocr-public.mjs",
+    "scripts/ocr-public-contract.mjs",
+    "scripts/ocr-public-contract.test.mjs",
+    "scripts/runtime-batch-runner.mjs",
+    "scripts/runtime-batch-runner.test.mjs"
+  ],
+  "peer_new_contract_paths": [
+    "docs/contracts/ocr-image-originals/000008_image_originals.up.sql",
+    "docs/contracts/ocr-image-originals/README.md",
+    "docs/contracts/ocr-image-originals/profile.json",
+    "docs/contracts/ocr-public/OCRPublic.schema.json",
+    "docs/contracts/ocr-public/README.md",
+    "docs/contracts/ocr-public/contract-lock.json",
+    "docs/contracts/ocr-public/openapi.json",
+    "docs/contracts/ocr-public/profile.json"
+  ],
+  "our_fixed_parser_paths_missing_from_peer": [
+    "document-parser/ocr_image.py",
+    "document-parser/ocr_pdf.py",
+    "document-parser/test_ocr_image.py",
+    "document-parser/test_ocr_pdf.py"
+  ],
+  "production_registers_equal": {
+    "compose.yaml": true,
+    ".env.example": true,
+    "docs/contracts/endpoint-register.json": true,
+    "docs/contracts/config-register.json": true
+  },
+  "peer_uncommitted_patch_applies": true,
+  "peer_tracked_snapshot_matches_patch": [
+    {
+      "path": "AGENTS.md",
+      "patch_matches_snapshot_after_lf": true
+    },
+    {
+      "path": "docs/contracts/ocr-image-originals/README.md",
+      "patch_matches_snapshot_after_lf": true
+    },
+    {
+      "path": "docs/project-status.md",
+      "patch_matches_snapshot_after_lf": true
+    },
+    {
+      "path": "openspec/changes/2026-11-13-materials-document-intelligence/tasks.md",
+      "patch_matches_snapshot_after_lf": true
+    },
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/README.md",
+      "patch_matches_snapshot_after_lf": true
+    }
+  ],
+  "peer_untracked_snapshot_files": 7,
+  "peer_final_gate_record": {
+    "time": "2026-11-16T13:52:34.960Z",
+    "node": "v25.2.1",
+    "exitCode": 0,
+    "results": [
+      {
+        "name": "check",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 263502
+      },
+      {
+        "name": "audit",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 6491
+      },
+      {
+        "name": "secret-scan",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 10523
+      },
+      {
+        "name": "verify",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 421138
+      }
+    ],
+    "notRun": []
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "created_at_utc": "2026-11-16T15:14:02.953175+00:00",
+  "package_files_verified": 20,
+  "package_hashes_all_pass": true,
+  "bundle_verify_exit": 0,
+  "git_fsck_exit": 0,
+  "known_main_equal": true,
+  "known_main": "909eefd7e296d72cedeabde7b80547a66d893516",
+  "local_head": "1c7992b9258ce0ca4346989db8ee7d8199b632c0",
+  "peer_head": "345071b200bc263e8a0477b2a7d4cfebe90a155d",
+  "merge_base": "78214a4f9a19cf55548e6dda2f71a3b3c191c476",
+  "peer_head_contains_local_head": false,
+  "local_head_contains_peer_head": false,
+  "peer_commits_all_refs": 422,
+  "local_commits_all_refs": 412,
+  "shared_commits": 405,
+  "peer_unique_commits": [
+    "058e272 2026-11-13T12:05:21+00:00 Merge ed1c18f453b6b8832803d29a5bcfc085b2fcec21 into 9263d21de054909856a9b4b3b7d17d54c90addb9",
+    "1a80bb6 2026-11-13T12:40:23+08:00 untracked files on codex/05-main-integration-2026-11-13: d06198d Merge pull request #41 from zwh9616/codex/05-worker-2026-11-12",
+    "1d68d73 2026-11-16T21:19:33+08:00 feat(04E): add OCR revision HTTP and bound keep-alive bodies (DI-SC-17/18/19)",
+    "345071b 2026-11-16T21:40:50+08:00 fix(04E): overlap isolated HTTPS and SQL verification without relaxing gates (DI-SC-14/25)",
+    "36e3d94 2026-11-14T15:29:04+00:00 Merge 8d3d8210822ec981605e5a65bba92a78d5b90041 into c1ac4213580df1fcc03520b8dddcfbece2a3344d",
+    "39014b0 2026-11-14T15:45:13+00:00 Merge 4a7fc662153fa6bf1ec5dbe350797a3904d0f6f1 into c1ac4213580df1fcc03520b8dddcfbece2a3344d",
+    "3df6f43 2026-11-15T16:14:55+08:00 Merge 5cac6dbd314ac0c253d7bbe9de02f6b590f3e4b5 into d874b663991730474e2360944ba1587a1e7c1d65",
+    "4054282 2026-11-14T05:54:58+00:00 Merge 4acd495b40ef44e7affe023fe9921f2fdd532c49 into 39018c1b8d2555cfebe8fd75fb4a761558edad68",
+    "6460438 2026-11-13T12:40:23+08:00 index on codex/05-main-integration-2026-11-13: d06198d Merge pull request #41 from zwh9616/codex/05-worker-2026-11-12",
+    "77f1486 2026-11-16T21:28:47+08:00 feat(04E): freeze image original constraints and prove SQL compatibility (DI-SC-07/17/25)",
+    "86a72ec 2026-11-14T14:52:05+00:00 Merge c242a5176b1f51d98ddabf20333e5e2e9a0a3f0f into c1ac4213580df1fcc03520b8dddcfbece2a3344d",
+    "8b8c1bc 2026-11-13T12:40:23+08:00 On codex/05-main-integration-2026-11-13: codex: superseded 05 archive draft retained after switching to PR42 (2026-11-13)",
+    "a4c0b31 2026-11-13T12:19:12+00:00 Merge 944bfdfbf2853012c7bc9a37808cb38e79377940 into 9263d21de054909856a9b4b3b7d17d54c90addb9",
+    "aae5d91 2026-11-16T20:26:47+08:00 docs(04E): record PR62 and remote access failure (DI-SC-25)",
+    "adc3f8e 2026-11-14T15:41:57+08:00 Merge 9aa2f8622fa7ad2e36566cdb9cb1b07457cdf9c7 into 670ac0c9ae587359bdba2c0d107be54b3ca1f0a9",
+    "dff1078 2026-11-14T09:09:52+00:00 Merge 79adef5618cfc7e79c159c70071a035de32e1049 into 97f25b9d4624cd811020b564423704239f7a5e0a",
+    "e54fca8 2026-11-15T08:30:19+00:00 Merge 74ecfe3bdef74ca4fecf731db4dffb5f9abaee25 into d874b663991730474e2360944ba1587a1e7c1d65"
+  ],
+  "local_unique_commits": [
+    "134b2b9 2026-11-16T22:12:56+08:00 fix(04E): retain full page timing and validate PNG chunk order (DI-SC-16/19/25)",
+    "1c7992b 2026-11-16T23:01:31+08:00 docs(04E): record independent OCR and complete Docker gate (DI-SC-16/19/25)",
+    "322c759 2026-11-11T14:42:02+08:00 fix(04): 修复资料合同交付镜像高危依赖 (MR-SC-01..10/IDF-SC-17)",
+    "82687fc 2026-10-28T23:50:12+08:00 Revert \"test: verify SC-19 isolated frontend change\"",
+    "b329d06 2026-10-28T23:45:44+08:00 test: verify SC-19 isolated frontend change",
+    "f377ad6 2026-11-16T21:51:09+08:00 docs(04E): align remaining contract entry with reviewed scope (DI-SC-18/19/25)",
+    "f89966f 2026-11-16T20:30:09+08:00 docs(04E): sync merged OCR candidate and exact review evidence (DI-SC-18/19/25)"
+  ],
+  "peer_local_branch_count": 55,
+  "local_local_branch_count": 42,
+  "peer_origin_tracking_count": 76,
+  "local_origin_tracking_count": 73,
+  "peer_branch_names_not_saved_locally": [
+    "codex/00-main-integration",
+    "codex/05-main-integration-2026-11-13",
+    "codex/review-18-2026-11-08",
+    "codex/review-identity-contract-freeze",
+    "codex/verified-main-2026-11-08"
+  ],
+  "local_branch_names_not_in_peer": [
+    "codex/sc19-independent-20261028",
+    "master"
+  ],
+  "peer_head_files": 2899,
+  "local_head_files": 2867,
+  "head_changed_files": 104,
+  "peer_snapshot": [
+    {
+      "path": "AGENTS.md",
+      "untracked_in_peer": false,
+      "present_in_local_head": true,
+      "same_as_local_head": false,
+      "bytes": 14370
+    },
+    {
+      "path": "docs/contracts/ocr-image-originals/README.md",
+      "untracked_in_peer": false,
+      "present_in_local_head": false,
+      "same_as_local_head": false,
+      "bytes": 4317
+    },
+    {
+      "path": "docs/project-status.md",
+      "untracked_in_peer": false,
+      "present_in_local_head": true,
+      "same_as_local_head": false,
+      "bytes": 197617
+    },
+    {
+      "path": "openspec/changes/2026-11-13-materials-document-intelligence/tasks.md",
+      "untracked_in_peer": false,
+      "present_in_local_head": true,
+      "same_as_local_head": false,
+      "bytes": 52248
+    },
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/README.md",
+      "untracked_in_peer": false,
+      "present_in_local_head": false,
+      "same_as_local_head": false,
+      "bytes": 2834
+    },
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/README.md",
+      "untracked_in_peer": true,
+      "present_in_local_head": false,
+      "same_as_local_head": false,
+      "bytes": 1633
+    },
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/inventory.py",
+      "untracked_in_peer": true,
+      "present_in_local_head": false,
+      "same_as_local_head": false,
+      "bytes": 1030
+    },
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/manifest.json",
+      "untracked_in_peer": true,
+      "present_in_local_head": false,
+      "same_as_local_head": false,
+      "bytes": 844
+    },
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/runtime.json",
+      "untracked_in_peer": true,
+      "present_in_local_head": false,
+      "same_as_local_head": false,
+      "bytes": 10291
+    },
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/wheel-files.json",
+      "untracked_in_peer": true,
+      "present_in_local_head": false,
+      "same_as_local_head": false,
+      "bytes": 5727
+    },
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/after-gate.json",
+      "untracked_in_peer": true,
+      "present_in_local_head": false,
+      "same_as_local_head": false,
+      "bytes": 646
+    },
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/after-proof.json",
+      "untracked_in_peer": true,
+      "present_in_local_head": false,
+      "same_as_local_head": false,
+      "bytes": 528156
+    }
+  ]
+}
