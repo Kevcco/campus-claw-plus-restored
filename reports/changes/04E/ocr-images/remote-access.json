@@ -1,0 +1,15 @@
+{
+  "candidate_head": "78214a4f9a19cf55548e6dda2f71a3b3c191c476",
+  "pr": 62,
+  "url": "https://github.com/zwh9616/campus-claw-plus/pull/62",
+  "last_confirmed": "created successfully by GitHub connector",
+  "subsequent_connector_status": 403,
+  "subsequent_connector_message": "Sorry. Your account was suspended",
+  "public_read_status": 404,
+  "public_read_message": "Not Found",
+  "main61": "909eefd7e296d72cedeabde7b80547a66d893516",
+  "main_run": 43865539691,
+  "last_confirmed_main_run_status": "in_progress",
+  "latest_ci_review_status": "unable to observe; not treated as terminal or success",
+  "control_changes": false
+}

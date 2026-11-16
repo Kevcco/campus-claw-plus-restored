@@ -2,7 +2,7 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "fa8584a88ab88fa9345f04f38e5690487076f32f627aee972ab66785d0d42214"
+      "sha256": "23c42e32fa83993cd9e0c7b9aded73cbc94bdb27c874bc56dbea6eb6c152f6c6"
     },
     {
       "path": "audit-final.txt",
@@ -79,6 +79,10 @@
     {
       "path": "red.txt",
       "sha256": "6bf41b0fd3f210b8a703826df17289fb98c3547e91ebd3c6d64a134807d129c7"
+    },
+    {
+      "path": "remote-access.json",
+      "sha256": "d478329ace499f265a9504a1ecd1dd7aafa46c2175d541811e6c51e54f5f8fd1"
     },
     {
       "path": "secret-scan.txt",
