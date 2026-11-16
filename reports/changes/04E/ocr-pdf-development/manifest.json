@@ -1,0 +1,97 @@
+{
+  "image_id": "sha256:543c3ae8067ff6d1f3ba32a80a502dc1b2ca13b8a8c6656b1dc4605bf5b8f381",
+  "base_image_id": "sha256:c8588931337197969ade98805f5ec2a1e8d12b445a9dd6fa8670316866dd930c",
+  "inputs": [
+    {
+      "path": "document-parser/ocr_pdf.py",
+      "sha256": "e19f2b38d5db6384d1ab5365a802495b12a4acb6bd43f5386d36045196b487d6"
+    },
+    {
+      "path": "document-parser/test_ocr_pdf.py",
+      "sha256": "4d6e982c23e915dcf87e0e69088fdbcf2f92cc63184cce768e2347eb0e5e25f4"
+    },
+    {
+      "path": "document-parser/test_ocr_pdf_native.py",
+      "sha256": "a6b060f312e9e2e64a712f6d978624428471141da3196262bc7d002ef8d8b0a1"
+    },
+    {
+      "path": "scripts/benchmark-ocr-pdf.mjs",
+      "sha256": "a868f8466ac66688c6f524590d46f68d90b4ce4ec903c1d6385f542bc6e32db1"
+    },
+    {
+      "path": "scripts/check-ocr-raster.mjs",
+      "sha256": "7f03d4249bdc5f39abdfd58df3122c420af21b2bb0471a9d47f2e31b998b1dc8"
+    }
+  ],
+  "originals": [
+    {
+      "path": "summary.json",
+      "sha256": "78e2bab0005e4b555d9c6146eb9dda36a790fc4ef3f7faa4d8d3fe8a6631fa45",
+      "repository_sha256": "78e2bab0005e4b555d9c6146eb9dda36a790fc4ef3f7faa4d8d3fe8a6631fa45"
+    },
+    {
+      "path": "negative-raw.json",
+      "sha256": "164af677dab55ac9bf160dd25a6b14884d3a343500ef5aff39208529de2b8992",
+      "repository_sha256": "164af677dab55ac9bf160dd25a6b14884d3a343500ef5aff39208529de2b8992"
+    },
+    {
+      "path": "positive-raw.json",
+      "sha256": "e0737982ca3e10b910e40ae7f59ae859c7d5e1da75071e906e50eba895e5da71",
+      "repository_sha256": "e0737982ca3e10b910e40ae7f59ae859c7d5e1da75071e906e50eba895e5da71"
+    },
+    {
+      "path": "negative-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "positive-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "native-negatives.txt",
+      "sha256": "3e31a037187f2870f1ddb7b43aeb4a63046240f6e2f251aaab75e06140dd4687",
+      "repository_sha256": "e84af6fb3183f2e6c929d3188feaa38c20151c825192a5117c1911fec8992ee5"
+    },
+    {
+      "path": "candidate.Dockerfile",
+      "sha256": "8cb7753bc5f1bc6b3b79c11c741f8af308726d6ee1492a31986b8366eeb418df",
+      "repository_sha256": "8cb7753bc5f1bc6b3b79c11c741f8af308726d6ee1492a31986b8366eeb418df"
+    },
+    {
+      "path": "dependency.json",
+      "sha256": "cad8c357149b2d62bdd33c6ba7afe35b96f3e1adbbdc0e913e565098cbc08572",
+      "repository_sha256": "cad8c357149b2d62bdd33c6ba7afe35b96f3e1adbbdc0e913e565098cbc08572"
+    },
+    {
+      "path": "build.txt",
+      "sha256": "6e9b708757d2fb365cee704923bb1a59da651e1d3784f0fd56f5ad2fba54ded2",
+      "repository_sha256": "0b7a5b4d3522a3c99d77689b95a382c96d0cc023de6f8547ae1e78ee6cad9447"
+    },
+    {
+      "path": "scan-summary.json",
+      "sha256": "9e4d81271b3a501247a39b00e3c1c5a8511ff4e82c1e8fd8bcb7ead398df59c1",
+      "repository_sha256": "9e4d81271b3a501247a39b00e3c1c5a8511ff4e82c1e8fd8bcb7ead398df59c1"
+    },
+    {
+      "path": "scan-raw.json",
+      "sha256": "b5e7bfd3d53a4f1c3f51a40989ebffece76ec733e4f88b4d8650b46d5c353891",
+      "repository_sha256": "b5e7bfd3d53a4f1c3f51a40989ebffece76ec733e4f88b4d8650b46d5c353891"
+    },
+    {
+      "path": "first-failure.txt",
+      "sha256": "bbfee013779b4107164f32359b9e5beca5238e9f4e8fd589ca41c52b477631f7",
+      "repository_sha256": "1415951b10c7c54b6eead72b74eb5816e9a8660601be2427e5dc17bbed466be4"
+    },
+    {
+      "path": "first-failure-stderr.txt",
+      "sha256": "fdd5db8b42b5a010b9b97677bc2bcad87c87cf4132f0ee7a1a88a21f0815be5d",
+      "repository_sha256": "fdd5db8b42b5a010b9b97677bc2bcad87c87cf4132f0ee7a1a88a21f0815be5d"
+    }
+  ],
+  "red": 1,
+  "green": 0,
+  "originals_zip_sha256": "f259c1d82d999babda7dc21c2a2e05b4d3fcf024e2185126d97ddb730c0b66db",
+  "originals_zip_note": "Original raw bytes preserved; displayed files use repository LF/trailing-space rules."
+}

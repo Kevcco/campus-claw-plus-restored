@@ -1,0 +1,15 @@
+{
+  "name": "pypdfium2",
+  "version": "5.15.2",
+  "filename": "pypdfium2-5.15.2-py3-none-musllinux_1_2_x86_64.whl",
+  "url": "https://files.pythonhosted.org/packages/53/54/2936bc6b2887fd8bba6bfc641448d3820e56469e4a47e3aee8ef212bfc96/pypdfium2-5.15.2-py3-none-musllinux_1_2_x86_64.whl",
+  "sha256": "ef452a7178744196d4ff97029f46b56a13817346fc7ee0473c75643512276b3a",
+  "license": "BSD-3-Clause, Apache-2.0, dependency licenses",
+  "source": {
+    "Changelog": "https://pypdfium2.readthedocs.io/en/stable/changelog.html",
+    "Documentation": "https://pypdfium2.readthedocs.io",
+    "Homepage": "https://github.com/pypdfium2-team/pypdfium2",
+    "Source": "https://github.com/pypdfium2-team/pypdfium2",
+    "Tracker": "https://github.com/pypdfium2-team/pypdfium2/issues"
+  }
+}
