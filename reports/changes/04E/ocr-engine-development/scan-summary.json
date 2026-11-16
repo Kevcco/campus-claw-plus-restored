@@ -1,0 +1,28 @@
+{
+  "image_id": "sha256:c8588931337197969ade98805f5ec2a1e8d12b445a9dd6fa8670316866dd930c",
+  "source_built_tesseract_scan_coverage": false,
+  "exit_code": 0,
+  "findings": [],
+  "os_packages": 40,
+  "cleanup": true,
+  "results": [
+    {
+      "label": "export exact candidate",
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "scan OS/runtime packages",
+      "exit": 0,
+      "stdout": "",
+      "stderr": "2026-11-16T08:11:02Z\tINFO\t[vuln] Vulnerability scanning is enabled\n2026-11-16T08:11:06Z\tWARN\tThird-party SBOM may lead to inaccurate vulnerability detection\n2026-11-16T08:11:06Z\tWARN\tRecommend using Trivy to generate SBOMs\n2026-11-16T08:11:06Z\tINFO\tDetected OS\tfamily=\"alpine\" version=\"3.24.4\"\n2026-11-16T08:11:06Z\tINFO\t[alpine] Detecting vulnerabilities...\tos_version=\"3.24\" repository=\"3.24\" pkg_num=40\n2026-11-16T08:11:06Z\tINFO\tNumber of language-specific files\tnum=0\n2026-11-16T08:11:06Z\tWARN\tUsing severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.76/guide/scanner/vulnerability#severity-selection for details.\n"
+    },
+    {
+      "label": "remove own scanner",
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

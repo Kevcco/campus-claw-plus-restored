@@ -1,0 +1,43 @@
+✔ DI-SC-14 all isolated checks start before any completes; all results required (3.0618ms)
+✖ DI-SC-14 real child failure does not return before siblings finish and propagates (259.6219ms)
+✖ DI-SC-14 synchronous failure, timeout and missing executable never turn into success (0.8318ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 1
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 325.0621
+
+✖ failing tests:
+
+test at scripts\independent-checks.test.mjs:15:1
+✖ DI-SC-14 real child failure does not return before siblings finish and propagates (259.6219ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (AggregateError).
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///D:/long/2/grade5/Internet-Software/group_project/output/pr60-review/scripts/independent-checks.test.mjs:21:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at scripts\independent-checks.test.mjs:25:1
+✖ DI-SC-14 synchronous failure, timeout and missing executable never turn into success (0.8318ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (AggregateError).
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///D:/long/2/grade5/Internet-Software/group_project/output/pr60-review/scripts/independent-checks.test.mjs:26:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+exit=1

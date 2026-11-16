@@ -1,0 +1,20 @@
+
+> campus-claw-plus@0.0.1 check:document-parser
+> node --test scripts/independent-checks.test.mjs && node scripts/check-document-parser.mjs
+
+✔ DI-SC-14 all isolated checks start before any completes; all results required (3.1371ms)
+✔ DI-SC-14 real child failure does not return before siblings finish and propagates (383.8918ms)
+✔ DI-SC-14 synchronous failure, timeout and missing executable never turn into success (122.0492ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 633.1477
+Document parser build pinned candidate: exit 0
+Document parser record immutable image: exit 0
+Document parser private HTTP adapter real corpus and boundary tests: exit 0
+Document parser actual authenticated health and startup process tests: exit 0
+Document parser actual bounded acceptance: exit 0

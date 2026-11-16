@@ -1,6 +1,6 @@
 # 00 公共合同 business-contracts/v1
 
-2026-11-16当前状态：#57真实PDF/Word页面及#58夹具修复均已获Kevcco实际批准并正常合入main659393b，精确main完整CI43810841732成功。28 current、Target6、15个空值active键保持；持有人环境未自动部署。本机完整gate前三段0、verify超600秒退出124，A4.3仍待验收。当前准备OCR64页输入/100框/金标准与评分工具，B服务/机器合同/迁移及C语义尚未实施；下一步完成开发集选型和准确B合同。[本轮复验](../../reports/changes/04E/main58-followup/README.md)。下文较早日期段落为历史快照。
+2026-11-16当前状态：#57真实PDF/Word页面与#58夹具修复已获批合入main659393b，精确main完整CI通过。#59完整CI通过、Kevcco实际审查待。超时优化候选fd67834本机原完整gate四段0（verify590105ms/600秒），获审合入后的精确main复验仍待，A4.3不勾。真实OCR14页开发实验完成（4正例合并CER1.55%、10负例暂定诊断10/10），独立接口草案4组检查通过；50盲测/100框/PDF栅格、准确B合同/迁移和生产接线仍待。28 current、Target6、15空active键与生产服务保持，持有人环境未自动部署。 [本轮实测](../../reports/changes/04E/ocr-engine-development/README.md) · [未冻结合同草案](ocr-draft/README.md)。下文较早日期为历史快照。
 
 执行依据：`2026-11-04-business-contracts` 的D1—D9、BC-01—06；规约head `221be733194830daa9b35f810c37f035679e51bb` 已获[小张授权的复审批准](https://github.com/zwh9616/campus-claw-plus/pull/3#pullrequestreview-5765025797)。00实现已获小葛对75cadbf终审批准，合入main 4cfd61d并通过main CI和本机check/verify；G2已成立，证据见[集成记录](../../reports/changes/00/main-integration-2026-11-05.md)。10 A经小葛终审、正常合入main 55f0e83并完整复验，小陈复核共同登记，G3已成立，见[验收记录](../../reports/changes/10/A/main-integration-2026-11-07.md)。下游仍须自身批准与实际依赖。
 

@@ -1,0 +1,22 @@
+{
+  "status": "draft",
+  "runtime_activation": false,
+  "input_bytes": 10485760,
+  "pdf_pages": 100,
+  "page_pixels": 20000000,
+  "page_ms": 15000,
+  "task_ms": 180000,
+  "body_utf8_bytes": 2097152,
+  "response_bytes": 8388608,
+  "total_words": 100000,
+  "concurrency": 1,
+  "memory_bytes": 536870912,
+  "cpus": 1,
+  "review_write_ms": 5000,
+  "shared_user_writes_per_minute": 12,
+  "coordinate_frame": "original input raster; top-left normalized xyxy",
+  "engine_candidate": "tesseract-5.5.4-fast-8741641",
+  "quality_thresholds_frozen": false,
+  "migration_frozen": false,
+  "public_activation": false
+}
