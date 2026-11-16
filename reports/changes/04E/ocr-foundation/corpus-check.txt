@@ -1,0 +1,1 @@
+DI-SC-16/17 frozen inputs: {"pages":64,"blind":50,"negative":10,"development_positive":4,"boxes":100,"pdfs":3,"quality_measured":false}

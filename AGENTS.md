@@ -1,6 +1,6 @@
 # CampusClawPlus 工程约定
 
-2026-11-15本分支公开接线候选：前置#52–#55已批准合入main d874b663；当前main为Target6/15空active/五服务和22 current。本分支[PR #57](https://github.com/zwh9616/campus-claw-plus/pull/57)按用户明确授权实现六Document真实HTTP及PDF/Word页面，候选原子登记28 current；合同和页面使用范围以本分支登记为准。真实功能及代码CI通过，原生200%/实际批准/合入待，未部署持有人环境；OCR/语义与A父项不提前放行。下列旧阶段记录保留历史含义，最新进展见共享表。
+2026-11-16当前状态：#57真实PDF/Word页面及#58夹具修复均已获Kevcco实际批准并正常合入main659393b，精确main完整CI43810841732成功。28 current、Target6、15个空值active键保持；持有人环境未自动部署。本机完整gate前三段0、verify超600秒退出124，A4.3仍待验收。当前准备OCR64页输入/100框/金标准与评分工具，B服务/机器合同/迁移及C语义尚未实施；下一步完成开发集选型和准确B合同。新公共合同仍须获审合入才apply，不因输入准备放行B运行；下列旧阶段记录保留历史含义，最新进展见共享表。
 本分支默认运行已接入01身份与MySQL阶段，实际合入/验收状态见共享表。第7课骨架为历史基线，历史主规约见[spec](openspec/specs/project-bootstrap/spec.md)，归档依据见[历史变更](openspec/changes/archive/2026-10-28-project-bootstrap/)。本轮执行[00规约](openspec/changes/2026-11-04-business-contracts/proposal.md)、[design](openspec/changes/2026-11-04-business-contracts/design.md)、[spec](openspec/changes/2026-11-04-business-contracts/specs/business-contracts/spec.md)及[tasks](openspec/changes/2026-11-04-business-contracts/tasks.md)；00只负责公共合同。当前01/02/04已验收，06真实资料页面已随#30合入，测试修复#31及主干完整CI43186361938通过；2026-11-12组长恢复05规约工作，其他暂停项未恢复。PB/SC保留历史含义，新需求使用BC及后续change自己的前缀。
 
 2026-11-13实际状态：05迁移#38、HTTP#40和worker#41已分别由小陈终审并正常合入；实现验收main d06198d完整CI43362518043成功，22 current、精确目标5。生产不绑定批改执行器/结果适配器，任务真实pending；05主规约及完整归档已随#42获小张批准并正常合入main c0f24f3；精确main完整CI43368065979复验通过，原件已核验。06资料归档#37已合入并复验；10-B全量/C、AI、成绩和作业页面仍未验收。

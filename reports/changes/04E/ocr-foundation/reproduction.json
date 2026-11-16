@@ -1,0 +1,13 @@
+{
+  "authoring": "Pillow13.0.0/ReportLab4.4.9, same pinned NotoSansSC",
+  "two_distinct_output_directories_identical": true,
+  "same_input_files": 68,
+  "same_rasters": 64,
+  "same_pdfs": 3,
+  "raster_bytes_unchanged_from_initial_qa": true,
+  "generator_sha256": "4cb1372c8ab4b5dbf428680882c12d2a70191442023959b17d5bff5751ad4f44",
+  "manifest_sha256": "ac75dcf41ed40834a108ac488601a0df7b3145da84d6318a97682ec66592514b",
+  "line_endings": "explicit LF on all authoring platforms",
+  "pdf_image_object_identity": "content-derived; no output-path dependency",
+  "ocr_executed": false
+}
