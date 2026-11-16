@@ -1,0 +1,38 @@
+{
+  "code": "73cdd35db20c6dc5b298a59e58e483271adfd4ba",
+  "ci_run": 43807691548,
+  "files": [
+    {
+      "path": "ci-originals.zip",
+      "sha256": "e089ae42f4d1cea4f0e75a4a82c2c2bf3e5e5ffd96973b095fe08696366a6041"
+    },
+    {
+      "path": "ci-proof.json",
+      "sha256": "23322224ba072f3ef882251c402aac9c03e8320f337b95ed8727b63d05485387"
+    },
+    {
+      "path": "ci-metadata.json",
+      "sha256": "a42f9739835ea406523f32481be0a1abd55c64067acc1e0647507a01f39771a3"
+    },
+    {
+      "path": "ci-secret-scan.txt",
+      "sha256": "8f3d88bf455cba6c1caea95091e11ec3e616bc0d74415f32627b91a325dd50c5"
+    },
+    {
+      "path": "local-originals.zip",
+      "sha256": "d7e07da476a0cc2540fa30f93e6b9d45c0ddab1a32edcc237a7e8d41749a611d"
+    },
+    {
+      "path": "local-proof.json",
+      "sha256": "b5ee7a1b2661a9c6890b049c548e379593909df48ed063d4d16c9853854e59b7"
+    },
+    {
+      "path": "local-secret-scan.txt",
+      "sha256": "288bca96fab449c955905c5341d13b3f2f7cb05b649c8d0a00ddb7f26b7f6cc5"
+    },
+    {
+      "path": "local-gate.txt",
+      "sha256": "868fbee492fedf43a214944743f08cb816332b17b8d582f7478a69e3db792ca0"
+    }
+  ]
+}

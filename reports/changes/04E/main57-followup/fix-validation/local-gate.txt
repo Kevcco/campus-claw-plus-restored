@@ -1,0 +1,550 @@
+
+> campus-claw-plus@0.0.1 gate
+> node scripts/gate.mjs
+
+
+Gate: check
+
+> campus-claw-plus@0.0.1 check
+> npm run check:foundation && npm run check:gate && npm run check:contracts && npm run check:service-batches && npm run check:identity-wiring && npm run check:frontend-auth && npm run typecheck && npm run build && npm run check:sample-isolation && npm run check:backend && npm run check:spec && npm run check:document-parser && npm run check:document-storage-contract
+
+
+> campus-claw-plus@0.0.1 check:foundation
+> node scripts/check-foundation.mjs
+
+Foundation: rule/skill entry points exist, sample keys are empty, .env is ignored, Nginx runtime digest matches its register.
+This check is separate from real authorization review and full-history secret scanning.
+
+> campus-claw-plus@0.0.1 check:gate
+> node --test scripts/gate.test.mjs
+
+✔ DO-SC-03 serial success executes all stages in order (338.7181ms)
+✔ DO-SC-04 check failure preserves exit code and prevents subsequent execution (88.6864ms)
+✔ DO-SC-04 audit failure preserves exit code and prevents subsequent execution (166.985ms)
+✔ DO-SC-04 secret-scan failure preserves exit code and prevents subsequent execution (241.0893ms)
+✔ DO-SC-04 verify failure preserves exit code and prevents subsequent execution (323.773ms)
+✔ DO-SC-05 missing executable is failure, not a skipped pass (18.8854ms)
+✔ DO-SC-05 signalled child cannot pass (82.5898ms)
+✔ DO-SC-05 timeout terminates stage and fails closed (416.4009ms)
+✔ DO-SC-05 cancellation before and during a stage prevents later commands (283.21ms)
+✔ DO-SC-05 concurrent calls in one checkout fail without stealing its lock (5.7316ms)
+✔ DO-SC-05 different runs isolate images and atomically assigned ports; keep contract/probes (1.4543ms)
+✔ DO-SC-03/06 Make remains a thin npm wrapper, stable CI delegates complete gate (0.7805ms)
+✔ DO-SC-05 Make installation failure stops setup; -j does not run targets concurrently (18.3516ms)
+ℹ GNU Make unavailable: real Make execution unverified here; use npm gate. CI and Docker test environment must execute this case.
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2107.4755
+
+> campus-claw-plus@0.0.1 check:contracts
+> node scripts/check-contracts.mjs && node --test scripts/contracts/validate.test.mjs scripts/contracts/identity-phase.test.mjs scripts/contracts/materials.test.mjs scripts/contracts/assignments.test.mjs scripts/contracts/documents.test.mjs scripts/contracts/document-integration.test.mjs scripts/contracts/document-integration-preflight.test.mjs
+
+Contracts: 49 schemas; 225 positive/negative fixtures, 6 semantic inputs and 43 generated boundary cases agree in both paths; 198 operation examples;28 current identity/health/material/assignment/document operations. OCR/vector/hybrid runtime operations remain absent.
+DI-SC-02..06/14/15: 31 private dual-path cases; exact private parser/worker and six public Document operations, embedded migration6;28 current.
+✔ AT-SC-01 nine operations retain their migration5 prefix with exact appended DI migration6 (32.4472ms)
+✔ AT-SC-02/03/08 actions, owner chain and original class precede all business conditions (27.8034ms)
+✔ AT-SC-04 input framing, exact parameters, independent quota and error responses stay closed (34.559ms)
+✔ AT-SC-05..08 only committed authorized same-payload records replay the original 202 before new conditions (29.2707ms)
+✔ AT-SC-06 canonical payload bytes and digest match five independently generated Go vectors (8.1829ms)
+✔ AT-SC-04 request byte cap is distinct from codepoint cap; deadline equality fails (4.2469ms)
+✔ AT-SC-02/03 consistent pages sort created time before exact string ID tie-breaks (0.6088ms)
+✔ AT-SC-09..19 task mechanism declarations forbid fake production execution, stale CAS and cancellation revival (45.8293ms)
+✔ AT-SC-09/13..18 Task snapshots preserve safe errors, counts, version and cancellation flags (1.5703ms)
+✔ AT-SC-13/14/15 pending cannot requeue an exhausted third claim (0.4009ms)
+✔ DI-SC-14/15 candidate preflight failure creates no temporary credential file (213.1878ms)
+DI-SC-02..06/14/15: 31 private dual-path cases; exact private parser/worker and six public Document operations, embedded migration6;28 current.
+✔ DI-SC-01/11 public activation cannot read unknown files or rehash away auth and original operations (26.1203ms)
+✔ DI-SC-14 canonical exact internal URL and random token examples; no runtime config reads (1.1876ms)
+✔ DI-SC-01/14 exact private activation, replay ordering and bounded RPC cannot drift (67.8685ms)
+✔ DI-SC-15 candidate exact DDL/hash and composite owner/location FKs remain guarded (83.212ms)
+✔ DI-SC-14 private activation binds all four LF inputs, original thirteen keys and exact unapproved dependencies (13.3362ms)
+✔ DI-SC-02..06/14 private Schema/OpenAPI dual paths and semantic failures (359.831ms)
+✔ DI-SC-15 exact6 runtime metadata cannot weaken old SQL, entry-point target or restore boundary by rehashing (26.5907ms)
+✔ DI-SC-15 migration runtime SHA binds portable LF bytes even when CRLF is rehashed locally (16.7157ms)
+✔ DI-SC-14 contract references cannot fetch URLs or escape local Schema files (24.231ms)
+✔ DI-SC-01/25 exactly six approved Document operations activate28 current without OCR/vector runtime (21.0605ms)
+✔ DI-SC-02/11 authorization, private downloads and strict input declarations cannot weaken (42.324ms)
+✔ DI-SC-02/06/14 upload and expanded parser resource declarations stay bounded (35.8731ms)
+✔ DI-SC-07/10 original 202, atomic job, shared quota and CAS retry declarations are exact (37.2952ms)
+✔ DI-SC-12 keyword only, snapshot and dependency errors cannot silently change (27.9661ms)
+✔ DI-SC-12 actual normalized q and page schemas reject type, bounds and default drift (18.3484ms)
+✔ DI-SC-02 binary envelope examples test byte/title limits; no real parsing claim (12.8768ms)
+✔ DI-SC-03/04/05 page/block boundaries and exact Unicode quote require persisted source (2.5796ms)
+✔ ICF-SC-01/02 active identity health is unique and anonymous; no skeleton fallback (59.8216ms)
+✔ ICF-SC-03/04 activation preserves required, process-separated secret metadata (52.8214ms)
+✔ ICF-SC-05/06 available SQL rejects duplicates, forward dependencies and false deployment claims (37.27ms)
+✔ MR-SC-01/02 six implemented contracts preserve activation and identity/class/role declarations (44.5498ms)
+✔ MR-SC-03/04/05/06 wire declarations reject unknown inputs, missing quotas, wrong replay and download headers (51.0073ms)
+✔ MR-SC-07/08/10 dependency failures must remain 503/504, not a successful empty search (9.648ms)
+✔ MR-SC-04 Unicode examples enforce original UTF-8 bytes, normalized whitespace and title codepoints (6.9086ms)
+✔ MR-SC-01/03 material examples preserve original byte size, canonical detail and unique pagination (1.34ms)
+✔ MR-SC-03/09 optional query defaults remain 1/20 and keyword/4 in sole-source schemas (0.8617ms)
+✔ MR-SC-09/10 citation examples bind codepoint range, exact quote, source/version, URL and literal query (1.1982ms)
+✔ BC-SC-06 accepts trusted rubric, rejects incorrect grading, stale and missing context (3.2798ms)
+✔ BC-SC-05 nonempty Citation codepoint range (0.2283ms)
+✔ BC-SC-08/14 terminal sequence, cancellation and disconnected persistence (0.8036ms)
+✔ BC-SC-10 MCP exception remains exact, disabled and subject to both future reviews (1.2359ms)
+✔ BC-SC-09 registered empty keys only; no weakening historical HTTP_PORT requirement (39.6864ms)
+✔ DI-SC-14 exact parser outbound exception cannot widen origin, approvals, redirect or network constraints (0.9734ms)
+✔ BC-SC-18 planned operations and anonymous auth bypass cannot enter OpenAPI (146.2095ms)
+ℹ tests 45
+ℹ suites 0
+ℹ pass 45
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1389.2147
+
+> campus-claw-plus@0.0.1 check:service-batches
+> node scripts/check-service-batches.mjs && node --test scripts/service-batches.test.mjs scripts/document-migration-evidence.test.mjs scripts/document-runtime-evidence.test.mjs scripts/document-http-evidence.test.mjs
+
+DO-SC-11/13: identity-materials-assignment-tasks-private-document-worker, 5 registered services; pinned image sources and <=3s probes. Runtime and Ge review remain separate.
+✔ DI-SC-11..14 public HTTP needs all real ordered stages and production test result (6.7988ms)
+✔ DI-SC-07..12 skipped missing duplicate nested or failed public SQL tests block (2.4676ms)
+✔ DI-SC-15 exact real migration groups and every stopped5/interrupted6/restored5 phase required (4.6669ms)
+✔ DI-SC-15 missing/nested/duplicate PASS, skips and omitted DDL interruption block verification (0.6945ms)
+✔ DI-SC-15 binary/dump identity, real RTO and separate database data boundary cannot be omitted (4.7741ms)
+✔ DI-SC-14 actual persisted corpus and all recovery stages require full evidence (1.7139ms)
+✔ DI-SC-07/10 skip/fail/duplicate/out-of-order phases and success text cannot substitute for real worker execution (8.7214ms)
+✔ DI-SC-03/14 wrong corpus, image, isolation or recovery attempt cannot pass (1.6781ms)
+✔ DO-SC-11/13 current batch covers only real approved services/configuration and pinned sources (22.2503ms)
+✔ DO-SC-11 unregistered services, wrong build target/network and inactive keys block check (50.2846ms)
+✔ DO-SC-12 exactly3s probes pass while4s/image drift and unpinned base fail (26.2956ms)
+✔ DI-SC-14 private parser cannot gain ports, DB secrets, public network, extra resources or startup dependency (50.3929ms)
+✔ DO-SC-11/12 current real reports produce four immutable artifact IDs; fixtures are structural tests only (8.7811ms)
+✔ DO-SC-11/13 stale/missing/failed evidence, source mismatch and high vulnerabilities block (56.9855ms)
+✔ DO-SC-11/12 every real05 SQL/worker suite and recovery step is mandatory; zero exit without tests is insufficient (457.0305ms)
+✔ DO-SC-12 each real HTTPS phase must prove05 pending persistence, without failed/skipped/nested substitute tests (79.8122ms)
+✔ DO-SC-12 backup success text and duplicate HTTPS phases cannot substitute for real complete evidence (10.702ms)
+✔ DO-SC-11/12 repeated required top-level PASS records cannot satisfy unique real05 execution evidence (114.9211ms)
+✔ DO-SC-03/11 npm verify retains the original three real programs and CI retains the new summary (0.8784ms)
+✔ DO-SC-11 exact audited IDs are selected with no pulls; incomplete/unsafe scans cannot start runtime (41.5945ms)
+✔ DO-SC-11 verification cleanup excludes old reports and unrelated image references (6.1015ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1332.1285
+
+> campus-claw-plus@0.0.1 check:identity-wiring
+> node --test scripts/identity-wiring.test.mjs scripts/application-image-report.test.mjs
+
+✔ IDF-SC-17 complete application coverage accepts a clean actual runtime report (1.1737ms)
+✔ IDF-SC-17 a vulnerability or absent binary coverage cannot become a scan pass (1.4133ms)
+✔ IDF-SC-18 required input, hostname and exact proxy boundaries (14.9153ms)
+✔ IDF-SC-17/18 isolated wiring keeps secrets, ports and current phase separated (18.2823ms)
+✔ IDF-SC-18 verification reserves distinct data/ingress subnets without consuming exhausted default pools (0.7136ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 381.0899
+
+> campus-claw-plus@0.0.1 check:frontend-auth
+> node --experimental-strip-types --test frontend/tests/auth.test.mjs frontend/tests/reviewer-auth.test.mjs frontend/tests/materials.test.mjs frontend/tests/documents.test.mjs
+
+✔ FEF-SC-03 login bounds, unchanged input, duplicate clicks and private credentials (23.6539ms)
+✔ FEF-SC-03/09 uniform 401, Retry-After and malformed CSRF are fail closed (1.8808ms)
+✔ FEF-SC-04/05 recover order, one refresh and one replay, no logout after contention (1.9055ms)
+✔ FEF-SC-06 switch role and int64 boundaries, retain original class only after verification (1.5834ms)
+✔ FEF-SC-07 late old class response is discarded and writes are serialized (0.8572ms)
+✔ FEF-SC-07/08 uncertain writes never replay; 204 and 401 clear identity (3.0931ms)
+✔ FEF-SC-09 malformed response cannot install identity or leak the response body (0.2686ms)
+✔ DI-SC-02/05 Document states, UTF codepoints, exact milliseconds and nullable fields are closed (3.7978ms)
+✔ DI-SC-02 binary selection validates extension/signature, size and title without decoding PDF as text (4.1911ms)
+✔ DI-SC-11/12 six fixed operations preserve bearer isolation, literal search and binary headers (22.8019ms)
+✔ DI-SC-07/11 writes never auto-replay, explicit same-key retry remains possible and binary failures are rejected (2.3246ms)
+✔ DI-SC-11 invalid routes/parameters and student writes fail before business requests; context reset rejects late data (2.21ms)
+✔ MF-SC-01/02/07 invalid routes/IDs/queries fail before network, ID stays a string (20.8988ms)
+✔ MF-SC-02 fixed pagination/keyword request and no exposed credentials (2.3682ms)
+✔ MF-SC-06/09 malformed material/page/citation/body are rejected (1.4834ms)
+✔ MF-SC-03 upload validates Go whitespace/UTF-8/control/byte/codepoint boundaries and preserves file (2.7924ms)
+✔ MF-SC-03/04 multipart boundary/browser bytes and duplicate write/manual same-key confirmation (1.8622ms)
+✔ MF-SC-07/09 GET 401 recovers one time then replays, second 401 clears identity (2.9787ms)
+✔ MF-SC-07/09 recovery into a different class never replays material request (0.8917ms)
+✔ MF-SC-09 upload/download 401 recover credentials but never automatically replay (1.2266ms)
+✔ MF-SC-08 context reset discards a response even when fetch ignores cancellation (0.5411ms)
+✔ MF-SC-08 external notification aborts immediately during material 401 recovery (3.8232ms)
+✔ MF-SC-07 student writes fail locally; 403 rechecks identity (1.1459ms)
+✔ MF-SC-09 404/409/413/429/503/504 give safe errors, Retry-After survives (3.2167ms)
+✔ MF-SC-09 deadline is 10000ms and bounds a fetch which ignores AbortSignal (27.1154ms)
+✔ MF-SC-06 download returns original bytes with no URL token (1.1582ms)
+✔ MF-SC-04/08 same-identity background refresh keeps the material form context authenticated (0.6582ms)
+✔ MF-SC-08/09 delayed old-token 401 reuses recovered credentials while another read is in flight (1.1563ms)
+✔ MF-SC-08/09 delayed download 401 does not refresh again or replay the download (0.8616ms)
+✔ FEF-SC-07/08 reviewer: late successful identity cannot resurrect a logged-out session (20.5325ms)
+✔ FEF-SC-04/08 reviewer: revoked access and refresh hide identity without retrying or logging out another session (2.4703ms)
+✔ FEF-SC-07 reviewer: another tab changing context invalidates an already pending old identity response (1.2135ms)
+✔ FEF-SC-05/08 reviewer: logout obtains CSRF for the current shared cookie after another tab refreshes (0.654ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 395.185
+
+> campus-claw-plus@0.0.1 typecheck
+> npm run typecheck --prefix frontend
+
+
+> @campus-claw-plus/frontend@0.0.1 typecheck
+> tsc --noEmit
+
+
+> campus-claw-plus@0.0.1 build
+> npm run build --prefix frontend
+
+
+> @campus-claw-plus/frontend@0.0.1 build
+> tsc --noEmit && vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 25 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.61 kB │ gzip:  0.41 kB
+dist/assets/index-D3gklIM4.css   10.24 kB │ gzip:  2.40 kB
+dist/assets/index-By0u-PF6.js   203.56 kB │ gzip: 62.86 kB
+
+✓ built in 140ms
+
+> campus-claw-plus@0.0.1 check:sample-isolation
+> node scripts/check-sample-isolation.mjs
+
+FEF-SC-13: production excludes samples; normal dev rejects test entry; explicit samples mode serves it.
+
+> campus-claw-plus@0.0.1 check:backend
+> node scripts/check-backend.mjs
+
+?   	github.com/zwh9616/campus-claw-plus/backend/cmd/identity-admin	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/cmd/server	[no test files]
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/assignments	0.014s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/config	0.014s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/documentparser	0.620s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/documentqueue	0.014s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/documents	0.019s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/httpserver	0.024s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/identity	0.118s
+?   	github.com/zwh9616/campus-claw-plus/backend/internal/identityapp	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/internal/integration/fixture	[no test files]
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/integration/wiring	0.011s
+?   	github.com/zwh9616/campus-claw-plus/backend/internal/integration/wiringfixture	[no test files]
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/materials	0.011s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/migrations	0.010s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/mysqlstore	0.011s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/observability	0.010s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/probe	3.020s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/runtimeapp	0.006s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/strictjson	0.006s
+?   	github.com/zwh9616/campus-claw-plus/backend/output/campus-parser-client-0d75dc0fd6f8	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/output/campus-parser-client-69a665eaa180	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/output/campus-parser-client-77f15cd04142	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/output/campus-parser-client-a943f5b4df5b	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/output/campus-parser-client-aa3a623d87f3	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/output/campus-parser-client-ab65c14cc048	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/output/campus-parser-client-b1e93853c443	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/output/campus-parser-client-ca7c4fcec0f8	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/output/campus-parser-client-d735d8c3fd15	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/output/campus-parser-client-e98205a0e78f	[no test files]
+
+> campus-claw-plus@0.0.1 check:spec
+> openspec validate --all --strict
+
+- Validating...
+✓ change/2026-11-04-business-contracts
+✓ change/2026-11-05-delivery-observability
+✓ change/2026-11-05-reviewer-fix-workflow
+✓ change/2026-11-06-identity-public-contracts
+✓ change/2026-11-13-materials-document-intelligence
+✓ spec/assignment-tasks
+✓ spec/frontend-foundation
+✓ spec/identity-foundation
+✓ spec/materials-frontend
+✓ spec/materials-retrieval
+✓ spec/project-bootstrap
+Totals: 11 passed, 0 failed (11 items)
+
+> campus-claw-plus@0.0.1 check:document-parser
+> node scripts/check-document-parser.mjs
+
+Document parser build pinned candidate: exit 0
+Document parser record immutable image: exit 0
+Document parser actual bounded acceptance: exit 0
+Document parser private HTTP adapter real corpus and boundary tests: exit 0
+Document parser actual authenticated health and startup process tests: exit 0
+
+> campus-claw-plus@0.0.1 check:document-storage-contract
+> node scripts/check-document-storage-contract.mjs
+
+Document DDL actual database version: passed
+Document DDL fresh isolated schema only: passed
+Document DDL published table baseline 000001_identity_users_classes.up.sql: passed
+Document DDL published table baseline 000002_identity_sessions.up.sql: passed
+Document DDL published table baseline 000003_identity_auth_audit.up.sql: passed
+Document DDL published table baseline 000004_materials_retrieval.up.sql: passed
+Document DDL published table baseline 000005_assignment_tasks.up.sql: passed
+Document DDL inspect isolated table count: passed
+Document DDL exact five candidate DDL: passed
+Document DDL inspect isolated table count: passed
+Document DDL inspect six candidate FK constraints: passed
+Document DDL inspect eleven enforced candidate CHECK constraints: passed
+Document DDL synthetic identity keys only: passed
+Document DDL queued documents for two distinct classes: passed
+Document DDL Unicode codepoint body and valid ready state: passed
+Document DDL non-BMP page positions and chunk: passed
+Document DDL actual MySQL counts emoji as one codepoint: passed
+Document DDL ready PDF cannot omit page count: expected reject
+Document DDL ready cannot omit body: expected reject
+Document DDL fourth parse attempt: expected reject
+Document DDL original byte count mismatch: expected reject
+Document DDL Word cannot use PDF page count: expected reject
+Document DDL location cross-class composite FK: expected reject
+Document DDL location cross-version composite FK: expected reject
+Document DDL PDF logical unit exceeds page bound: expected reject
+Document DDL empty source range: expected reject
+Document DDL chunk cross-class FK: expected reject
+Document DDL chunk Unicode range mismatch: expected reject
+Document DDL valid leased owner epoch: passed
+Document DDL leased owner cannot be null: expected reject
+Document DDL leased epoch cannot be zero: expected reject
+Document DDL binary idempotency key case remains distinct: passed
+Document DDL same scoped key cannot duplicate: expected reject
+Document DDL snapshot cannot bind another creator: expected reject
+Document DDL closed original response must be JSON: expected reject
+Document DDL same-length wrong quote requires application recheck (rolled back): passed
+Document DDL original quote survived rollback: passed
+Document DDL remove only synthetic candidate rows: passed
+Document DDL candidate reverse DDL only after all five are empty: passed
+Document DDL inspect isolated table count: passed
+
+Gate: audit
+
+> campus-claw-plus@0.0.1 audit
+> npm audit --audit-level=high && npm audit --prefix frontend --audit-level=high
+
+found 0 vulnerabilities
+found 0 vulnerabilities
+
+Gate: secret-scan
+
+> campus-claw-plus@0.0.1 secret-scan
+> node scripts/check-secrets.mjs
+
+1:05PM INF 246 commits scanned.
+1:05PM INF scanned ~9918355 bytes (9.92 MB) in 8.3s
+1:05PM INF no leaks found
+1:05PM INF scanned ~0 bytes (0) in 103ms
+1:05PM INF no leaks found
+Full-history and staged-content secret scans passed.
+
+Gate: verify
+
+> campus-claw-plus@0.0.1 verify
+> node scripts/verify-service-batches.mjs
+
+Batch verify: scripts/verify-image-audits.mjs
+prepare Trivy vulnerability database
+verify-mysql-image.mjs
+build fixed MySQL 8.4.13 runtime: exit 0
+record immutable built artifact: exit 0
+MySQL version, mysqlsh removal, real gosu UID/GID drop: exit 0
+export artifact for scanner without Docker socket: exit 0
+Trivy HIGH/CRITICAL audit of fixed artifact: exit 0
+record actual vulnerability database metadata: exit 0
+MySQL image audit: HIGH=0 CRITICAL=0; gosu Go1.27.3; no ignore flags
+verify-application-images.mjs
+build production backend: exit 0
+record immutable backend artifact: exit 0
+export backend without scanner Docker socket: exit 0
+Trivy HIGH/CRITICAL backend: exit 0
+build production admin: exit 0
+record immutable admin artifact: exit 0
+export admin without scanner Docker socket: exit 0
+Trivy HIGH/CRITICAL admin: exit 0
+build production frontend: exit 0
+record immutable frontend artifact: exit 0
+export frontend without scanner Docker socket: exit 0
+Trivy HIGH/CRITICAL frontend: exit 0
+build production document-parser: exit 0
+record immutable document-parser artifact: exit 0
+export document-parser without scanner Docker socket: exit 0
+Trivy HIGH/CRITICAL document-parser: exit 0
+record actual vulnerability database: exit 0
+prepare Trivy vulnerability database: passed, exit=0
+verify-mysql-image.mjs: passed, exit=0
+verify-application-images.mjs: passed, exit=0
+Batch verify: scripts/verify-skeleton.mjs
+generate disposable wiring credentials/certificates: PASS (exit 0)
+inventory existing networks for own proxy: PASS (exit 0)
+inspect allocated prefixes for own proxy: PASS (exit 0)
+create explicit isolated proxy subnet: PASS (exit 0)
+validate explicit candidate compose: PASS (exit 0)
+SC-09 missing HTTP_PORT is rejected before startup: PASS (exit 1)
+missing HTTPS key is rejected before startup: PASS (exit 1)
+DI-SC-14 missing DOCUMENT_PARSER_URL rejects Compose: PASS (exit 1)
+DI-SC-14 missing DOCUMENT_PARSER_TOKEN rejects Compose: PASS (exit 1)
+build pinned MySQL, offline admin and production applications: PASS (exit 0)
+start fresh persistent MySQL: PASS (exit 0)
+offline migrations: PASS (exit 0)
+offline manifest/schema check: PASS (exit 0)
+database CA file missing is rejected: PASS (exit 2)
+valid but wrong database trust certificate is rejected: PASS (exit 1)
+offline initialize via stdin: PASS (exit 0)
+repeat initialize does not replace existing password: PASS (exit 0)
+initialize separate public Document actors: PASS (exit 0)
+trusted fixture class lookup on database-only network: PASS (exit 0)
+start isolated Go and HTTPS frontend: PASS (exit 0)
+resolve only this project HTTPS frontend: PASS (exit 0)
+inspect only published HTTPS binding: PASS (exit 0)
+Actual host published HTTPS and CA/SAN rejection: PASS
+resolve production backend image: PASS (exit 0)
+resolve own mysql for image validation: PASS (exit 0)
+DO-SC-13 record actual mysql image: PASS (exit 0)
+DO-SC-13 inspect mysql image configuration: PASS (exit 0)
+DO-SC-13 inspect mysql image history: PASS (exit 0)
+resolve own backend for image validation: PASS (exit 0)
+DO-SC-13 record actual backend image: PASS (exit 0)
+DO-SC-13 inspect backend image configuration: PASS (exit 0)
+DO-SC-13 inspect backend image history: PASS (exit 0)
+resolve own frontend for image validation: PASS (exit 0)
+DO-SC-13 record actual frontend image: PASS (exit 0)
+DO-SC-13 inspect frontend image configuration: PASS (exit 0)
+DO-SC-13 inspect frontend image history: PASS (exit 0)
+resolve own document-parser for image validation: PASS (exit 0)
+DO-SC-13 record actual document-parser image: PASS (exit 0)
+DO-SC-13 inspect document-parser image configuration: PASS (exit 0)
+DO-SC-13 inspect document-parser image history: PASS (exit 0)
+SC-04/05 production process missing: PASS (exit 2)
+SC-04/05 production process empty: PASS (exit 2)
+SC-04/05 production process whitespace: PASS (exit 2)
+SC-04/05 production process letters: PASS (exit 2)
+SC-04/05 production process zero: PASS (exit 2)
+SC-04/05 production process negative: PASS (exit 2)
+SC-04/05 production process aboveMaximum: PASS (exit 2)
+DI-SC-14 actual backend invalid DOCUMENT_PARSER_URL rejects before listen: PASS (exit 2)
+DI-SC-14 actual backend invalid DOCUMENT_PARSER_URL rejects before listen: PASS (exit 2)
+DI-SC-14 actual backend invalid DOCUMENT_PARSER_TOKEN rejects before listen: PASS (exit 2)
+DI-SC-14 actual backend invalid DOCUMENT_PARSER_TOKEN rejects before listen: PASS (exit 2)
+SC-07 occupied port rejects second real server: PASS (exit 1)
+SC-06 start real server with trimmed valid port: PASS (exit 0)
+SC-06 inspect own trimmed-port instance: PASS (exit 0)
+SC-06 inspect own trimmed-port instance: PASS (exit 0)
+SC-06 inspect own trimmed-port instance: PASS (exit 0)
+SC-06 inspect own trimmed-port instance: PASS (exit 0)
+SC-06 inspect own trimmed-port instance: PASS (exit 0)
+SC-06 inspect own trimmed-port instance: PASS (exit 0)
+SC-06 inspect own trimmed-port instance: PASS (exit 0)
+SC-06 inspect own trimmed-port instance: PASS (exit 0)
+SC-06 inspect own trimmed-port instance: PASS (exit 0)
+SC-06 active strict probe succeeds: PASS (exit 0)
+remove only trimmed-port test instance: PASS (exit 0)
+SC-01/02/03 real same-origin HTTPS, unique health, TLS rejection, login and revoked access: PASS (exit 0)
+capture sanitized Go request logs: PASS (exit 0)
+DI resolve own document-parser: PASS (exit 0)
+DI inspect own document-parser: PASS (exit 0)
+DI resolve own backend: PASS (exit 0)
+DI inspect own backend: PASS (exit 0)
+DI inspect actual parser-only network: PASS (exit 0)
+DI parser cannot route to public network: PASS (exit 0)
+DI worker corpus: PASS (exit 0)
+DI public HTTPS main: PASS (exit 0)
+DI stop actual parser only: PASS (exit 0)
+DI-SC-14 parser outage preserves original HTTPS health TXT and pending tasks: PASS (exit 0)
+DI public HTTPS outage: PASS (exit 0)
+DI recreate backend without parser dependency: PASS (exit 0)
+DI resolve own backend: PASS (exit 0)
+DI inspect own backend: PASS (exit 0)
+DI worker outage-enqueue: PASS (exit 0)
+DI restore actual private parser: PASS (exit 0)
+DI resolve own document-parser: PASS (exit 0)
+DI inspect own document-parser: PASS (exit 0)
+DI worker outage-retry: PASS (exit 0)
+DI stop real worker before durable enqueue: PASS (exit 0)
+DI worker restart-enqueue: PASS (exit 0)
+DI recreate actual worker on retained database: PASS (exit 0)
+DI resolve own backend: PASS (exit 0)
+DI inspect own backend: PASS (exit 0)
+DI worker restart-verify: PASS (exit 0)
+DI resolve own document-parser: PASS (exit 0)
+DI inspect own document-parser: PASS (exit 0)
+DI pause own parser during actual claim: PASS (exit 0)
+DI worker kill-enqueue: PASS (exit 0)
+DI resolve own backend: PASS (exit 0)
+DI inspect own backend: PASS (exit 0)
+DI SIGKILL actual leased worker: PASS (exit 0)
+DI resolve own backend: PASS (exit 0)
+DI inspect own backend: PASS (exit 0)
+DI worker kill-expire: PASS (exit 0)
+DI unpause own parser: PASS (exit 0)
+DI restart private parser after killed request: PASS (exit 0)
+DI wait for restarted private probe: PASS (exit 0)
+DI recover worker with retained durable lease: PASS (exit 0)
+DI worker kill-verify: PASS (exit 0)
+DI resolve own backend: PASS (exit 0)
+DI inspect own backend: PASS (exit 0)
+DI resolve own document-parser: PASS (exit 0)
+DI inspect own document-parser: PASS (exit 0)
+DI parser temporary request files reclaimed: PASS (exit 0)
+stop database only: PASS (exit 0)
+real database-down health 503 and login 503 without credentials: PASS (exit 0)
+DO-SC-12 production probe rejects real database outage: PASS (exit 1)
+restore database: PASS (exit 0)
+account and class persist after database restart: PASS (exit 0)
+DI worker database-verify: PASS (exit 0)
+remove candidate containers while retaining named data volume: PASS (exit 0)
+SC-10 stopped production HTTP and HTTPS are unreachable: PASS (exit 0)
+recreate MySQL on retained volume: PASS (exit 0)
+recreated database migration state unchanged: PASS (exit 0)
+recreate isolated HTTPS path: PASS (exit 0)
+resolve recreated HTTPS frontend: PASS (exit 0)
+inspect recreated host binding: PASS (exit 0)
+same account and original password after full container recreation: PASS (exit 0)
+DI public HTTPS persist: PASS (exit 0)
+check combined logs contain no generated passwords: PASS (exit 0)
+remove only this disposable project and test data volume: PASS (exit 0)
+remove dedicated proxy network: PASS (exit 0)
+Batch verify: scripts/verify-identity.mjs
+build reviewed MySQL runtime without mysqlsh and with current Go gosu: PASS
+test fixtures: PASS
+build actual accepted pre-04 artifacts: PASS
+AT-SC-20 build actual accepted schema4 artifacts: PASS
+DI-SC-15 build actual accepted schema5 artifacts: PASS
+DI-SC-15 record actual accepted5 and candidate6 artifact IDs: PASS
+isolated network: PASS
+isolated MySQL: PASS
+real MySQL identity scenarios: PASS
+prepare real pre-upgrade v3 backup: PASS
+actual old artifact rejection and restored identities: PASS
+AT-SC-20 prepare real pre-upgrade4 backup: PASS
+AT-SC-20 actual schema4/5 artifacts and restored identity/material bytes: PASS
+DI-SC-15 prepare5 data and stop actual accepted5 writer: PASS
+DI-SC-15 actual migration6 interruption preserves dirty source: PASS
+DI-SC-15 actual5/6 recovery saved session TXT pending replay and forward repair: PASS
+Document parser build pinned candidate: exit 0
+Document parser record immutable image: exit 0
+Document parser actual bounded acceptance: exit 0
+Document parser private HTTP adapter real corpus and boundary tests: exit 0
+Document parser actual authenticated health and startup process tests: exit 0
+Document parser export candidate without scanner socket: exit 0
+Document parser Trivy candidate HIGH/CRITICAL: exit 0
+Document parser record actual vulnerability database: exit 0
+DO-SC-11..13: current-batch real images, default HTTPS, database failure/recovery and isolation evidence passed; Ge review pending.
+Gate check: passed, exit=0
+Gate audit: passed, exit=0
+Gate secret-scan: passed, exit=0
+Gate verify: passed, exit=0

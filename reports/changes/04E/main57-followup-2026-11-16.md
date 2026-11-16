@@ -21,3 +21,7 @@
 在原7组真实HTTP测试中增加确定性回归：真实 loopback 请求/响应不替换，只向客户端 shutdown 注入 ENOTCONN，仍要求精确400和 `invalid_request`；EIO/ECONNRESET必须传播失败。新增回归在原 helper 上真实红1，修复后同一固定镜像、network none/read-only/512MiB/1CPU环境7组和40文档绿0，日志安全检查通过。`rpc-red.txt` / `rpc-green.txt` 保留原结果；扫描命令仍要求原7组全部通过。
 
 本修复提交完整门禁与实际远端审查，后续结果由本PR实时checks及交接记录补充；旧#57批准不作为这次修复的批准。A4.3保持未完成，待修复获审、正常合并和精确主干复验后收口。B/OCR、C/语义、持有人部署及整项04E归档均未完成；下一步先处理本修复的验收。
+
+## 修复代码完整复验补证
+
+代码73cdd35干净本机原完整gate四段0，verify 579267ms；完整CI43807691548成功，verify 408540ms，CI源码fb8c3da26b7634397f21792e245a06f724e1c7e7与代码head整树一致。两环境各18原件已核验。CI全部Git blob逐字一致；本机原始源码指纹由全部实际文件重算一致，仅8份历史报告为CRLF，逐文件Git/工作树SHA与换行差异见local-proof.json的source_binding；所有运行与测试源码逐字一致，未将规范化后的摘要冒充原始摘要。五镜像零高危/严重及其实际运行ID、三HTTPS/五SQL/九worker/迁移恢复/原回归及清理独立核验。check/scan的真实HTTP各7组/40文档均通过。见[固定代码验收原件](main57-followup/fix-validation/manifest.json)。前文失败保留历史含义，本补证提交不改运行或测试源码；最终head CI、实际批准和合入后主干复验仍按#58核对，A阶段暂不勾完成。
