@@ -1,0 +1,242 @@
+{
+  "time": "2026-11-16T04:49:13.176Z",
+  "exit_code": 1,
+  "scope": "DO-SC-11..13 five-service batch with private document worker; assignment executor unbound, six authorized Document HTTP operations current; no independent reviewer or full10B/C claim",
+  "source": {
+    "commit": "a40b83b3166e3ee2d1d2e753c3b8db40825a6899",
+    "dirty": false,
+    "fingerprint": "9856c3eef61f0e770d2b3da39b1bf360507008da5dcc701a18555ccd3953b499"
+  },
+  "inventory": {
+    "batch": "identity-materials-assignment-tasks-private-document-worker",
+    "review_status": "pending_ge_review",
+    "sources": [
+      {
+        "service": "mysql",
+        "dockerfile": "deploy/identity/mysql/Dockerfile",
+        "dockerfile_sha256": "055eb6378eb40d305b7a28ea9d4a735bfd5e0137a806e330799965074e999c5a",
+        "target": null,
+        "from": [
+          "golang@sha256:d200d2dd76b03a99b52651fd1325aff7dcd35422c35c01bac56571b0507f3deb",
+          "mysql@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902"
+        ]
+      },
+      {
+        "service": "admin",
+        "dockerfile": "backend/Dockerfile.identity",
+        "dockerfile_sha256": "a78bf59efa36cd4ae91cefcbd1406a569b04f0930948604b4c547fdc993c2c82",
+        "target": "admin",
+        "from": [
+          "golang@sha256:d200d2dd76b03a99b52651fd1325aff7dcd35422c35c01bac56571b0507f3deb",
+          "scratch",
+          "scratch"
+        ]
+      },
+      {
+        "service": "backend",
+        "dockerfile": "backend/Dockerfile",
+        "dockerfile_sha256": "d2acdc74c62d5b4ac69116513207e76091c8deab136ce234567577ff4c760fd2",
+        "target": null,
+        "from": [
+          "golang@sha256:d200d2dd76b03a99b52651fd1325aff7dcd35422c35c01bac56571b0507f3deb",
+          "scratch"
+        ]
+      },
+      {
+        "service": "frontend",
+        "dockerfile": "frontend/Dockerfile",
+        "dockerfile_sha256": "1ab71112b10a18955e12a43fc72262192562633d163af9bbde5ee8a9d61fda79",
+        "target": null,
+        "from": [
+          "node@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914",
+          "nginx@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311"
+        ]
+      },
+      {
+        "service": "document-parser",
+        "dockerfile": "document-parser/Dockerfile",
+        "dockerfile_sha256": "120e8a3448ca78465a2c1ed224726e36b0445410c4b1dc44b65c751ed52e19fa",
+        "target": null,
+        "from": [
+          "python@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67",
+          "python@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67"
+        ]
+      }
+    ],
+    "probe_timeout_ms": 3000,
+    "deployment_wait_ms": 120000
+  },
+  "stages": {
+    "exitCode": 0,
+    "results": [
+      {
+        "name": "scripts/verify-image-audits.mjs",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 78346
+      },
+      {
+        "name": "scripts/verify-skeleton.mjs",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 259894
+      },
+      {
+        "name": "scripts/verify-identity.mjs",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 123169
+      }
+    ],
+    "notRun": []
+  },
+  "images": [
+    {
+      "service": "mysql",
+      "image_id": "sha256:b2f95579e6e3ecc64a1cc922c6e83fa4802ba2b60838efcf981c61d67ed2a22f",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "admin",
+      "image_id": "sha256:0ac6813ce830515b89f3d5389c9ddfbc67df47ed15e0a6504942ab920912a679",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "backend",
+      "image_id": "sha256:adf1df342efc2c710a17d4a9ea4987cc19164b42e38f915ce7cf0100c38956c4",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "frontend",
+      "image_id": "sha256:f3b7451a8d3d0a1f331c5aee55c15bd4bbc56b6f0d24685a33987215cf81e845",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "document-parser",
+      "image_id": "sha256:d0fb33247d57454f92cb43773e73886b1ef4f4ab6134837d00464534b58df185",
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  ],
+  "document_migration6": {
+    "target": 6,
+    "restored_target": 5,
+    "tests": [
+      "TestDIMigration6FreshUpgradeAndHistory",
+      "TestDIFiveDDLInterruptionAndForwardRepair",
+      "TestDIExactStructureDrift",
+      "TestDIEmptyDisposableDownOnly"
+    ],
+    "interrupted_ddl_steps": 5,
+    "accepted5_commit": "c1ac4213580df1fcc03520b8dddcfbece2a3344d",
+    "binaries": {
+      "pre06-server": "55704b6ad8564f01cbd704460c446e81576435947be0959d55a87e5890206d59",
+      "pre06-admin": "07605b774b31eb62a8ac7ad5855969632315dfe1e9d1c354ec6dca500cfc36d9",
+      "server": "225a5b630c8672c34b6d6f0a3290629526b5d048925651b71725e8a9eee18a29",
+      "identity-admin": "26bcdb984064e62fde5e189f3780299e5d5ad1595ec66e53cb298c1c94822886"
+    },
+    "dump_sha256": "f8ecf01f750d53fe5314013700f4304830e7abe76d587a98a996eec4a0bcfd6e",
+    "backup_utc": "2026-11-16T04:56:47.712Z",
+    "observed_rto_upper_bound_ms": 4743,
+    "separate_preserved_source": "idf_test_63",
+    "isolated_restore": "idf_test_64"
+  },
+  "document_worker": {
+    "stages": [
+      "corpus",
+      "outage-enqueue",
+      "outage-retry",
+      "restart-enqueue",
+      "restart-verify",
+      "kill-enqueue",
+      "kill-expire",
+      "kill-verify",
+      "database-verify"
+    ],
+    "documents": 40,
+    "locations": 195,
+    "chunks": 196,
+    "actual_worker_sigkill": true,
+    "forced_test_lease_expiry": true,
+    "actual_database_recovery": true,
+    "public_document_http": "separate-required-proof",
+    "parser_image": "sha256:d0fb33247d57454f92cb43773e73886b1ef4f4ab6134837d00464534b58df185",
+    "backend_image": "sha256:adf1df342efc2c710a17d4a9ea4987cc19164b42e38f915ce7cf0100c38956c4"
+  },
+  "document_http": {
+    "stages": [
+      "main",
+      "outage",
+      "persist"
+    ],
+    "database_tests": [
+      "TestDHExplicitRetryStopsAtThreeAndPreservesOriginal202",
+      "TestDHPublicAuthorizationOriginalsAndCitations",
+      "TestDHConcurrentIdempotencySharedQuotaAndRollback",
+      "TestDHSnapshotConsistencyAndStrictInput",
+      "TestDHSlowBodyUsesWholeFiveSecondBudget"
+    ],
+    "real_formats": 2,
+    "actors": 5,
+    "default_https": true,
+    "real_parser": true,
+    "exact_originals": true,
+    "persistent_quotes": true,
+    "actual_parser_outage": true,
+    "container_recreation": true
+  },
+  "evidence": [
+    {
+      "path": "output/mysql-image-verify/results.json",
+      "sha256": "4912314ec3e11ce7ea8d3c0a39da51f1882c24070fa1b83a1918a049fe86d276"
+    },
+    {
+      "path": "output/application-image-verify/results.json",
+      "sha256": "e6f7bfb3683587217d85846bc627dafd1ced23bc491d623307c75c3959f3b78e"
+    },
+    {
+      "path": "output/identity-wiring/results.json",
+      "sha256": "8b986730e4f30765fb42199b42b5c493ec0488064eef98b36034975adaff075f"
+    },
+    {
+      "path": "output/identity/results.json",
+      "sha256": "21be2578a15321fe319cf4166b76eb69e50f44dca3c2bf2360fd335679251b5d"
+    }
+  ],
+  "error": "Offline parser candidate scan failed after current-service validation",
+  "cleanup": [
+    {
+      "tag": "campus-mysql-audit-ab5d57fe34c7:verification",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "tag": "campus-app-audit-6fe5b798c8c0-backend:verification",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "tag": "campus-app-audit-6fe5b798c8c0-admin:verification",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "tag": "campus-app-audit-6fe5b798c8c0-frontend:verification",
+      "exit_code": 0,
+      "ok": true
+    },
+    {
+      "tag": "campus-app-audit-6fe5b798c8c0-document-parser:verification",
+      "exit_code": 0,
+      "ok": true
+    }
+  ],
+  "finished_at": "2026-11-16T04:58:29.980Z"
+}

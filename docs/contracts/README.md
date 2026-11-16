@@ -1,6 +1,6 @@
 # 00 公共合同 business-contracts/v1
 
-2026-11-15本批04E公开接线：前置#52/#53/#54/#55已获Kevcco实际批准并正常合入，精确main d874b66完整CI43675360843及原件已核验。本候选将已批准#45的六个Document操作原子转current（共28），提供真实PDF/Word列表、上传、解析状态、关键词出处、原文及原件下载；沿用#49样板方向，用户本轮明确授权继续真实页面。持久异步解析保持Target6/15空active/五服务，持有人库未自动升级，生产进程不执行DDL。OCR与语义检索仍列后续任务。本批最终门禁、浏览器、远端批准和main复验以共享表为准；下面较早日期的候选状态属于历史记录。
+2026-11-16当前状态：#57已获Kevcco实际批准并正常合入main a40b83b，精确主干CI43804539643完整门禁通过。文本PDF/普通.docx真实上传、异步解析、关键词出处、原文/原件下载与受限重试已在主干接线；28 current、Target6、15个空值active键，四常驻服务及离线admin工具。本机主干复验发现私有HTTP测试客户端shutdown竞态，修复待审，A阶段暂不标完整验收。持有人环境未自动升级/部署；OCR和语义仍待B/C。[本轮复验](../../reports/changes/04E/main57-followup-2026-11-16.md)。下文较早日期段落为历史快照。
 
 执行依据：`2026-11-04-business-contracts` 的D1—D9、BC-01—06；规约head `221be733194830daa9b35f810c37f035679e51bb` 已获[小张授权的复审批准](https://github.com/zwh9616/campus-claw-plus/pull/3#pullrequestreview-5765025797)。00实现已获小葛对75cadbf终审批准，合入main 4cfd61d并通过main CI和本机check/verify；G2已成立，证据见[集成记录](../../reports/changes/00/main-integration-2026-11-05.md)。10 A经小葛终审、正常合入main 55f0e83并完整复验，小陈复核共同登记，G3已成立，见[验收记录](../../reports/changes/10/A/main-integration-2026-11-07.md)。下游仍须自身批准与实际依赖。
 
@@ -19,7 +19,7 @@
 
 ## 当前实现和规划的区别
 
-- **current**：GET /health、六个身份、六个资料和九个05作业/提交/任务操作，共22个。#38/#40/#41已由小陈终审并正常合入，main d06198d完整CI43362518043通过。健康保持真实MySQL Ping；任务生产不绑定执行器而pending，current不等于持有人已部署。
+- **current**：GET /health、六个身份、六个TXT资料、六个Document资料及九个05作业/提交/任务操作，共28个。#57已正常合入main a40b83b；健康保持真实MySQL Ping，05任务生产仍不绑定执行器而pending。current不等于持有人已部署或整个04E已验收。
 - **frozen**：#35曾冻结九个05操作，#40已在实现/登记/检查同提交中转为current；历史冻结记录保留原义。其余能力不得因存在Schema或归档而提前接线。
 - **planned**：成绩、流式会话和审计等其余操作仍只有责任登记，不出现在OpenAPI paths中，也不能接线或生成假入口。Task、Turn、GradeResult、SSE、Audit等候选Schema不表示能力已可调用；向量/混合检索不在04首版合同中。
 - `Page.schema.json`仍是明确的`Page<Audit>`实例；04单独用`MaterialPage`引用`Material`，不改旧Page或使用裸object占位。

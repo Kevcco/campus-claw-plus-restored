@@ -1,0 +1,20 @@
+{
+  "reference": "HEAD",
+  "source": 429,
+  "originals": 113,
+  "all_git_blobs_match": true,
+  "native200": {
+    "site_zoom": 2,
+    "viewport": null,
+    "baselineDPR": 1.5,
+    "finalDPR": 3,
+    "baselineWidth": 1439,
+    "finalWidth": 720,
+    "temporary_addon_removed_before_final_checks": true,
+    "CSS_zoom": 1,
+    "visualViewport_scale": 1
+  },
+  "downloads": 5,
+  "checks": 119,
+  "nativeTabs": 14
+}
