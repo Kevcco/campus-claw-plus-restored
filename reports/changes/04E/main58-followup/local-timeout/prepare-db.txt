@@ -1,0 +1,6 @@
+
+> campus-claw-plus@0.0.1 prepare:scan-db
+> node scripts/verify-image-audits.mjs --prepare-only
+
+prepare Trivy vulnerability database
+prepare Trivy vulnerability database: passed, exit=0

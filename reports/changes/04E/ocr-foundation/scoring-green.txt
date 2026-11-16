@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: DI-SC-16/17 fixed 50 blind, 10 negatives, independent development and 100 boxes
+ok 1 - DI-SC-16/17 fixed 50 blind, 10 negatives, independent development and 100 boxes
+  ---
+  duration_ms: 82.2302
+  type: 'test'
+  ...
+# Subtest: DI-SC-16 sample loss, split leakage, digest changes and relaxed limits are rejected
+ok 2 - DI-SC-16 sample loss, split leakage, digest changes and relaxed limits are rejected
+  ---
+  duration_ms: 85.6161
+  type: 'test'
+  ...
+# Subtest: DI-SC-17 wrong coordinate frame, area, quote and PDF page binding cannot pass
+ok 3 - DI-SC-17 wrong coordinate frame, area, quote and PDF page binding cannot pass
+  ---
+  duration_ms: 10.1079
+  type: 'test'
+  ...
+# Subtest: DI-SC-16 scoring retains case/punctuation and uses codepoints and micro denominators
+ok 4 - DI-SC-16 scoring retains case/punctuation and uses codepoints and micro denominators
+  ---
+  duration_ms: 0.395
+  type: 'test'
+  ...
+# Subtest: DI-SC-17 IoU handles overlap boundaries and rejects malformed boxes
+ok 5 - DI-SC-17 IoU handles overlap boundaries and rejects malformed boxes
+  ---
+  duration_ms: 0.2226
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 301.5366

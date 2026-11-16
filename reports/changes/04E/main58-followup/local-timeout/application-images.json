@@ -1,0 +1,144 @@
+{
+  "time": "2026-11-16T06:06:14.011Z",
+  "scanner": "aquasec/trivy@sha256:8f6bb947dbc528902e11f2f5be52f7b519f6a39d5d148f41166f2040499768fb",
+  "results": [
+    {
+      "label": "build production backend",
+      "exit_code": 0,
+      "output": "#0 building with \"desktop-linux\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 577B done\n#1 DONE 0.0s\n\n#2 [internal] load metadata for docker.io/library/golang@sha256:d200d2dd76b03a99b52651fd1325aff7dcd35422c35c01bac56571b0507f3deb\n#2 DONE 0.0s\n\n#3 [internal] load .dockerignore\n#3 transferring context: 66B done\n#3 DONE 0.0s\n\n#4 [build 1/7] FROM docker.io/library/golang@sha256:d200d2dd76b03a99b52651fd1325aff7dcd35422c35c01bac56571b0507f3deb\n#4 resolve docker.io/library/golang@sha256:d200d2dd76b03a99b52651fd1325aff7dcd35422c35c01bac56571b0507f3deb 0.0s done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 19.69kB 0.0s done\n#5 DONE 0.0s\n\n#6 [build 2/7] WORKDIR /src\n#6 CACHED\n\n#7 [build 7/7] RUN --mount=type=cache,target=/root/.cache/go-build CGO_ENABLED=0 go build -trimpath -buildvcs=false -ldflags=\"-s -w -buildid=\" -o /out/server ./cmd/server\n#7 CACHED\n\n#8 [build 4/7] COPY vendor ./vendor\n#8 CACHED\n\n#9 [build 3/7] COPY go.mod go.sum ./\n#9 CACHED\n\n#10 [build 5/7] COPY cmd ./cmd\n#10 CACHED\n\n#11 [build 6/7] COPY internal ./internal\n#11 CACHED\n\n#12 [stage-1 1/1] COPY --from=build /out/server /server\n#12 CACHED\n\n#13 exporting to image\n#13 exporting layers done\n#13 exporting manifest sha256:e7b4c8251af1421d46c47a2d7028cf3b9a222a81b90901dd16206df2e99e8642 done\n#13 exporting config sha256:de9dba27aff4e052b61b3e646a5f31e48fa23daae9e80fc9c462e9cd1e37c6c5 done\n#13 exporting attestation manifest sha256:ce532f5c53f002604ddfd4959469b3e1c5f086263dd4d08eb4b877e2f576aee7 0.0s done\n#13 exporting manifest list sha256:78aa7c35e1dd4885533b425f09c9122e6b5bd65d48194504b24ad524f76c1c60 done\n#13 naming to docker.io/library/campus-app-audit-e3705af07fb4-backend:verification done\n#13 unpacking to docker.io/library/campus-app-audit-e3705af07fb4-backend:verification done\n#13 DONE 0.1s\n\nView build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/5iq6kalflur4ixy34u8zmzqqg\n"
+    },
+    {
+      "label": "record immutable backend artifact",
+      "exit_code": 0,
+      "output": "sha256:78aa7c35e1dd4885533b425f09c9122e6b5bd65d48194504b24ad524f76c1c60\n"
+    },
+    {
+      "label": "export backend without scanner Docker socket",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "label": "Trivy HIGH/CRITICAL backend",
+      "exit_code": 0,
+      "output": "2026-11-16T06:05:49Z\tINFO\t[vuln] Vulnerability scanning is enabled\n2026-11-16T06:05:49Z\tINFO\tNumber of language-specific files\tnum=1\n2026-11-16T06:05:49Z\tINFO\t[gobinary] Detecting vulnerabilities...\n2026-11-16T06:05:49Z\tWARN\tUsing severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.76/guide/scanner/vulnerability#severity-selection for details.\n"
+    },
+    {
+      "label": "build production admin",
+      "exit_code": 0,
+      "output": "#0 building with \"desktop-linux\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile.identity\n#1 transferring dockerfile: 849B done\n#1 DONE 0.0s\n\n#2 [internal] load metadata for docker.io/library/golang@sha256:d200d2dd76b03a99b52651fd1325aff7dcd35422c35c01bac56571b0507f3deb\n#2 DONE 0.0s\n\n#3 [internal] load .dockerignore\n#3 transferring context: 66B done\n#3 DONE 0.0s\n\n#4 [build 1/8] FROM docker.io/library/golang@sha256:d200d2dd76b03a99b52651fd1325aff7dcd35422c35c01bac56571b0507f3deb\n#4 resolve docker.io/library/golang@sha256:d200d2dd76b03a99b52651fd1325aff7dcd35422c35c01bac56571b0507f3deb 0.0s done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 19.69kB 0.0s done\n#5 DONE 0.0s\n\n#6 [build 7/8] RUN --mount=type=cache,target=/root/.cache/go-build CGO_ENABLED=0 go build -trimpath -buildvcs=false -ldflags=\"-s -w -buildid=\" -o /out/identity-admin ./cmd/identity-admin\n#6 CACHED\n\n#7 [build 2/8] WORKDIR /src\n#7 CACHED\n\n#8 [build 5/8] COPY cmd ./cmd\n#8 CACHED\n\n#9 [build 8/8] RUN --mount=type=cache,target=/root/.cache/go-build CGO_ENABLED=0 go build -trimpath -buildvcs=false -ldflags=\"-s -w -buildid=\" -o /out/wiring-preview ./internal/integration/wiringfixture\n#9 CACHED\n\n#10 [build 3/8] COPY go.mod go.sum ./\n#10 CACHED\n\n#11 [build 4/8] COPY vendor ./vendor\n#11 CACHED\n\n#12 [build 6/8] COPY internal ./internal\n#12 CACHED\n\n#13 [admin 1/1] COPY --from=build /out/identity-admin /identity-admin\n#13 CACHED\n\n#14 exporting to image\n#14 exporting layers done\n#14 exporting manifest sha256:0c56d28716b0f283c4df46a68c1e94a4ad1568dda9b9f3afd77dc932623e5111 done\n#14 exporting config sha256:111e7c413d28237166618c56b9011f766f62b89195305c8c962eef9893daf4ec done\n#14 exporting attestation manifest sha256:e452697710c53156be52ca332ebd6cfb5174592b8d3cdcb0af9df6d5f31e55d0 0.0s done\n#14 exporting manifest list sha256:bcbc0c0514bd16bdc6d1c170ffb6bb3090126ac7f0e50bb5c48f6028a2d5b1c0 done\n#14 naming to docker.io/library/campus-app-audit-e3705af07fb4-admin:verification done\n#14 unpacking to docker.io/library/campus-app-audit-e3705af07fb4-admin:verification done\n#14 DONE 0.1s\n\nView build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/hweho0q7vjnqn9dzf0ugv1hj8\n"
+    },
+    {
+      "label": "record immutable admin artifact",
+      "exit_code": 0,
+      "output": "sha256:bcbc0c0514bd16bdc6d1c170ffb6bb3090126ac7f0e50bb5c48f6028a2d5b1c0\n"
+    },
+    {
+      "label": "export admin without scanner Docker socket",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "label": "Trivy HIGH/CRITICAL admin",
+      "exit_code": 0,
+      "output": "2026-11-16T06:05:52Z\tINFO\t[vuln] Vulnerability scanning is enabled\n2026-11-16T06:05:52Z\tINFO\tNumber of language-specific files\tnum=1\n2026-11-16T06:05:52Z\tINFO\t[gobinary] Detecting vulnerabilities...\n2026-11-16T06:05:53Z\tWARN\tUsing severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.76/guide/scanner/vulnerability#severity-selection for details.\n"
+    },
+    {
+      "label": "build production frontend",
+      "exit_code": 0,
+      "output": "#0 building with \"desktop-linux\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 747B done\n#1 DONE 0.0s\n\n#2 [internal] load metadata for docker.io/library/nginx@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311\n#2 DONE 0.7s\n\n#3 [internal] load metadata for docker.io/library/node@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914\n#3 DONE 0.9s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 78B done\n#4 DONE 0.0s\n\n#5 [stage-1 1/4] FROM docker.io/library/nginx@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311\n#5 resolve docker.io/library/nginx@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311 0.0s done\n#5 DONE 0.0s\n\n#6 [build 1/8] FROM docker.io/library/node@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914\n#6 resolve docker.io/library/node@sha256:fe4f6d74e20370acb04ad889077d14d0f64a9c8ea6a42bc60cddf1e844699914 0.0s done\n#6 DONE 0.0s\n\n#7 [internal] load build context\n#7 transferring context: 1.41kB done\n#7 DONE 0.0s\n\n#8 [stage-1 3/4] COPY nginx.conf /etc/nginx/nginx.conf\n#8 CACHED\n\n#9 [build 6/8] COPY src ./src\n#9 CACHED\n\n#10 [build 4/8] RUN --mount=type=cache,target=/root/.npm npm ci --ignore-scripts --prefer-offline --fetch-retries=5 --fetch-retry-mintimeout=1000 --fetch-retry-maxtimeout=10000 --fetch-timeout=60000\n#10 CACHED\n\n#11 [build 8/8] RUN npm run build\n#11 CACHED\n\n#12 [build 2/8] WORKDIR /src\n#12 CACHED\n\n#13 [build 7/8] COPY public ./public\n#13 CACHED\n\n#14 [build 3/8] COPY package.json package-lock.json ./\n#14 CACHED\n\n#15 [stage-1 2/4] RUN apk add --no-cache --upgrade libxslt=1.1.43-r4\n#15 CACHED\n\n#16 [build 5/8] COPY index.html tsconfig.json vite.config.ts ./\n#16 CACHED\n\n#17 [stage-1 4/4] COPY --from=build /src/dist /usr/share/nginx/html\n#17 CACHED\n\n#18 exporting to image\n#18 exporting layers done\n#18 exporting manifest sha256:f248c37140bba50afd5a2c57a869d451e87a9432f8e6b05812cc1aa66b2a9798 done\n#18 exporting config sha256:abb736f6b17da721f79250426a110a99f0f87f92aa5509f8bd1ccbdbca44b5f7 done\n#18 exporting attestation manifest sha256:86e309fb574c89c4b6f66cc22496065d035e2cf576b81b8da087d47fb9a396f0\n#18 exporting attestation manifest sha256:86e309fb574c89c4b6f66cc22496065d035e2cf576b81b8da087d47fb9a396f0 0.0s done\n#18 exporting manifest list sha256:133370b59a1d3667114d1578a22f27786c066c0db7c1bdd61979cc7f73848421 0.0s done\n#18 naming to docker.io/library/campus-app-audit-e3705af07fb4-frontend:verification done\n#18 unpacking to docker.io/library/campus-app-audit-e3705af07fb4-frontend:verification 0.0s done\n#18 DONE 0.1s\n\nView build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/hdx4byxoxgu8ly7a1q21434po\n"
+    },
+    {
+      "label": "record immutable frontend artifact",
+      "exit_code": 0,
+      "output": "sha256:133370b59a1d3667114d1578a22f27786c066c0db7c1bdd61979cc7f73848421\n"
+    },
+    {
+      "label": "export frontend without scanner Docker socket",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "label": "Trivy HIGH/CRITICAL frontend",
+      "exit_code": 0,
+      "output": "2026-11-16T06:05:58Z\tINFO\t[vuln] Vulnerability scanning is enabled\n2026-11-16T06:06:07Z\tINFO\tDetected OS\tfamily=\"alpine\" version=\"3.24.4\"\n2026-11-16T06:06:07Z\tINFO\t[alpine] Detecting vulnerabilities...\tos_version=\"3.24\" repository=\"3.24\" pkg_num=71\n2026-11-16T06:06:07Z\tINFO\tNumber of language-specific files\tnum=0\n"
+    },
+    {
+      "label": "build production document-parser",
+      "exit_code": 0,
+      "output": "#0 building with \"desktop-linux\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 816B done\n#1 DONE 0.0s\n\n#2 [internal] load metadata for docker.io/library/python@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67\n#2 DONE 0.0s\n\n#3 [internal] load .dockerignore\n#3 transferring context: 126B done\n#3 DONE 0.0s\n\n#4 [internal] load build context\n#4 transferring context: 181B done\n#4 DONE 0.0s\n\n#5 [dependencies 1/4] FROM docker.io/library/python@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67\n#5 resolve docker.io/library/python@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67 0.0s done\n#5 DONE 0.0s\n\n#6 [stage-1 4/5] COPY --from=dependencies /packages /usr/local/lib/python3.14/site-packages\n#6 CACHED\n\n#7 [dependencies 3/4] COPY requirements.lock .\n#7 CACHED\n\n#8 [stage-1 2/5] WORKDIR /app\n#8 CACHED\n\n#9 [dependencies 4/4] RUN python -m pip install --no-cache-dir --require-hashes --no-deps --target=/packages -r requirements.lock\n#9 CACHED\n\n#10 [stage-1 3/5] RUN rm -rf /usr/local/lib/python3.14/ensurepip     /usr/local/lib/python3.14/site-packages/pip     /usr/local/lib/python3.14/site-packages/pip-*.dist-info /usr/local/bin/pip*\n#10 CACHED\n\n#11 [dependencies 2/4] WORKDIR /build\n#11 CACHED\n\n#12 [stage-1 5/5] COPY core.py runner.py worker.py server.py health.py /app/\n#12 CACHED\n\n#13 exporting to image\n#13 exporting layers done\n#13 exporting manifest sha256:20c78fc8bb50465c22be58c3b5e71f3e50a57c2e729a5fddd2abaf1b58bcfc00 done\n#13 exporting config sha256:ab75b7e89359b3c6220342622e5e456e81ebf61b04d00e9a6c0616b30b0ec884 done\n#13 exporting attestation manifest sha256:54a89603fff8b0ed980105cd8efe9d56160d4879d07775ee9754ada375ac2fbc done\n#13 exporting manifest list sha256:ff9c72db50d37e6ec680d9300a674066f432b86c8b4175a97535ab1b3fbb0bfd done\n#13 naming to docker.io/library/campus-app-audit-e3705af07fb4-document-parser:verification\n#13 naming to docker.io/library/campus-app-audit-e3705af07fb4-document-parser:verification done\n#13 unpacking to docker.io/library/campus-app-audit-e3705af07fb4-document-parser:verification done\n#13 DONE 0.1s\n\nView build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/t2qpax9hfee9byd0pgqoq3x97\n"
+    },
+    {
+      "label": "record immutable document-parser artifact",
+      "exit_code": 0,
+      "output": "sha256:ff9c72db50d37e6ec680d9300a674066f432b86c8b4175a97535ab1b3fbb0bfd\n"
+    },
+    {
+      "label": "export document-parser without scanner Docker socket",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "label": "Trivy HIGH/CRITICAL document-parser",
+      "exit_code": 0,
+      "output": "2026-11-16T06:06:10Z\tINFO\t[vuln] Vulnerability scanning is enabled\n2026-11-16T06:06:13Z\tWARN\tThird-party SBOM may lead to inaccurate vulnerability detection\n2026-11-16T06:06:13Z\tWARN\tRecommend using Trivy to generate SBOMs\n2026-11-16T06:06:13Z\tINFO\tDetected OS\tfamily=\"alpine\" version=\"3.24.4\"\n2026-11-16T06:06:13Z\tINFO\t[alpine] Detecting vulnerabilities...\tos_version=\"3.24\" repository=\"3.24\" pkg_num=30\n2026-11-16T06:06:13Z\tINFO\tNumber of language-specific files\tnum=1\n2026-11-16T06:06:13Z\tINFO\t[python-pkg] Detecting vulnerabilities...\n2026-11-16T06:06:13Z\tWARN\tUsing severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.76/guide/scanner/vulnerability#severity-selection for details.\n"
+    },
+    {
+      "label": "record actual vulnerability database",
+      "exit_code": 0,
+      "output": "{\"Version\":2,\"NextUpdate\":\"2026-11-17T01:11:02.624122856Z\",\"UpdatedAt\":\"2026-11-16T01:11:02.624123452Z\",\"DownloadedAt\":\"2026-11-16T04:36:19.467643155Z\"}\n"
+    },
+    {
+      "label": "remove own scanner if timed out",
+      "exit_code": 0
+    }
+  ],
+  "summaries": [
+    {
+      "service": "backend",
+      "image_id": "sha256:78aa7c35e1dd4885533b425f09c9122e6b5bd65d48194504b24ad524f76c1c60",
+      "dockerfile_sha256": "d2acdc74c62d5b4ac69116513207e76091c8deab136ce234567577ff4c760fd2",
+      "raw_sha256": "107663eff1a0e3ac0769d42424a52328e799db159570ca42f906be84eb2b3b71",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "admin",
+      "image_id": "sha256:bcbc0c0514bd16bdc6d1c170ffb6bb3090126ac7f0e50bb5c48f6028a2d5b1c0",
+      "dockerfile_sha256": "a78bf59efa36cd4ae91cefcbd1406a569b04f0930948604b4c547fdc993c2c82",
+      "raw_sha256": "4cbabe21c6ef67ecfbf3125049c3d542b17830451d62af88e01bc2651c4cefca",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "frontend",
+      "image_id": "sha256:133370b59a1d3667114d1578a22f27786c066c0db7c1bdd61979cc7f73848421",
+      "dockerfile_sha256": "1ab71112b10a18955e12a43fc72262192562633d163af9bbde5ee8a9d61fda79",
+      "raw_sha256": "d9153fd6ea6af3b2396c407c09f30124f03870d7a46db10831e63f9b615a0cef",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "document-parser",
+      "image_id": "sha256:ff9c72db50d37e6ec680d9300a674066f432b86c8b4175a97535ab1b3fbb0bfd",
+      "dockerfile_sha256": "120e8a3448ca78465a2c1ed224726e36b0445410c4b1dc44b65c751ed52e19fa",
+      "raw_sha256": "00b648065947d0b4be849b1cec2189eb42a2778705caf6abb9885529adad3b56",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "vulnerability_database": {
+        "Version": 2,
+        "NextUpdate": "2026-11-17T01:11:02.624122856Z",
+        "UpdatedAt": "2026-11-16T01:11:02.624123452Z",
+        "DownloadedAt": "2026-11-16T04:36:19.467643155Z"
+      }
+    }
+  ],
+  "retained_tags": [
+    "campus-app-audit-e3705af07fb4-backend:verification",
+    "campus-app-audit-e3705af07fb4-admin:verification",
+    "campus-app-audit-e3705af07fb4-frontend:verification",
+    "campus-app-audit-e3705af07fb4-document-parser:verification"
+  ],
+  "exit_code": 0
+}
