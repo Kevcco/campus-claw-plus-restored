@@ -1,6 +1,7 @@
 """DI-SC-14 real loopback HTTP and real bounded PDF/DOCX child in isolated image."""
 import base64
 import contextlib
+import errno
 import io
 import json
 import os
@@ -10,7 +11,7 @@ import threading
 import time
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 sys.path.insert(0, '/app')
 import server
@@ -36,7 +37,13 @@ class RpcTests(unittest.TestCase):
     def raw(self, data):
         with socket.create_connection(self.http.server_address, timeout=7) as client:
             client.sendall(data)
-            client.shutdown(socket.SHUT_WR)
+            try:
+                client.shutdown(socket.SHUT_WR)
+            except OSError as error:
+                # Early rejection may already close the peer. Still read and
+                # validate its complete HTTP response below; no success fallback.
+                if error.errno != errno.ENOTCONN:
+                    raise
             out = bytearray()
             while True:
                 try:
@@ -90,6 +97,24 @@ class RpcTests(unittest.TestCase):
             with self.subTest(index=cases.index(fields)):
                 self.assertEqual(self.raw(prefix + fields + b'\r\nx'), (400, {'error': 'invalid_request'}))
         self.assertEqual(self.request(), (200, {'status': 'ok'}), 'Malformed requests must not poison later requests')
+        # DI-SC-14: an early rejection can close the peer before our half-close.
+        # Keep a real request/response while reproducing that client-side race.
+        invalid = prefix + b'Content-Length: 0\r\n\r\nx'
+        with socket.create_connection(self.http.server_address, timeout=7) as client:
+            proxy = Mock(wraps=client)
+            proxy.shutdown.side_effect = OSError(errno.ENOTCONN, 'Socket not connected')
+            with patch.object(socket, 'create_connection') as connect:
+                connect.return_value.__enter__.return_value = proxy
+                self.assertEqual(self.raw(invalid), (400, {'error': 'invalid_request'}))
+        # Other transport failures must still fail instead of being ignored.
+        for code in (errno.EIO, errno.ECONNRESET):
+            with self.subTest(shutdown_errno=code), socket.create_connection(self.http.server_address, timeout=7) as client:
+                proxy = Mock(wraps=client)
+                proxy.shutdown.side_effect = OSError(code, 'transport failure')
+                with patch.object(socket, 'create_connection') as connect, self.assertRaises(OSError) as failure:
+                    connect.return_value.__enter__.return_value = proxy
+                    self.raw(invalid)
+                self.assertEqual(failure.exception.errno, code)
 
     def test_real_corpus_over_http(self):
         for case in json.loads((CORPUS / 'manifest.json').read_text())['cases']:

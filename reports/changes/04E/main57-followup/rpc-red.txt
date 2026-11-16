@@ -1,0 +1,33 @@
+test_absolute_read_budgets_and_extra_body (__main__.RpcTests.test_absolute_read_budgets_and_extra_body) ... ok
+test_busy_is_immediate_health_stays_live (__main__.RpcTests.test_busy_is_immediate_health_stays_live) ... ok
+test_failure_mapping_over_http (__main__.RpcTests.test_failure_mapping_over_http) ... ok
+test_header_and_body_framing (__main__.RpcTests.test_header_and_body_framing) ... ERROR
+test_health_and_auth_before_body (__main__.RpcTests.test_health_and_auth_before_body) ... ok
+test_real_corpus_over_http (__main__.RpcTests.test_real_corpus_over_http) ... ok
+test_token_startup_validation (__main__.RpcTests.test_token_startup_validation) ... ok
+
+======================================================================
+ERROR: test_header_and_body_framing (__main__.RpcTests.test_header_and_body_framing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tests/test_rpc.py", line 102, in test_header_and_body_framing
+    self.assertEqual(self.raw(invalid), (400, {'error': 'invalid_request'}))
+                     ~~~~~~~~^^^^^^^^^
+  File "/tests/test_rpc.py", line 40, in raw
+    client.shutdown(socket.SHUT_WR)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.14/unittest/mock.py", line 1176, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.14/unittest/mock.py", line 1180, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.14/unittest/mock.py", line 1241, in _execute_mock_call
+    raise effect
+OSError: [Errno 107] Socket not connected
+
+----------------------------------------------------------------------
+Ran 7 tests in 29.295s
+
+FAILED (errors=1)
+{"scope": "private adapter component only; no default Compose, DB or queue activation", "documents": [{"file": "clear-01.pdf", "status": 200, "locations": 1}, {"file": "clear-02.pdf", "status": 200, "locations": 1}, {"file": "clear-03.pdf", "status": 200, "locations": 1}, {"file": "clear-04.pdf", "status": 200, "locations": 2}, {"file": "clear-05.pdf", "status": 200, "locations": 1}, {"file": "clear-06.pdf", "status": 200, "locations": 1}, {"file": "clear-07.pdf", "status": 200, "locations": 1}, {"file": "clear-08.pdf", "status": 200, "locations": 2}, {"file": "clear-09.pdf", "status": 200, "locations": 1}, {"file": "clear-10.pdf", "status": 200, "locations": 1}, {"file": "clear-11.pdf", "status": 200, "locations": 1}, {"file": "clear-12.pdf", "status": 200, "locations": 2}, {"file": "clear-13.pdf", "status": 200, "locations": 1}, {"file": "clear-14.pdf", "status": 200, "locations": 1}, {"file": "clear-15.pdf", "status": 200, "locations": 1}, {"file": "clear-16.pdf", "status": 200, "locations": 2}, {"file": "clear-17.pdf", "status": 200, "locations": 1}, {"file": "clear-18.pdf", "status": 200, "locations": 1}, {"file": "clear-19.pdf", "status": 200, "locations": 1}, {"file": "clear-20.pdf", "status": 200, "locations": 2}, {"file": "clear-01.docx", "status": 200, "locations": 3}, {"file": "clear-02.docx", "status": 200, "locations": 3}, {"file": "clear-03.docx", "status": 200, "locations": 4}, {"file": "clear-04.docx", "status": 200, "locations": 3}, {"file": "clear-05.docx", "status": 200, "locations": 8}, {"file": "clear-06.docx", "status": 200, "locations": 4}, {"file": "clear-07.docx", "status": 200, "locations": 4}, {"file": "clear-08.docx", "status": 200, "locations": 3}, {"file": "clear-09.docx", "status": 200, "locations": 4}, {"file": "clear-10.docx", "status": 200, "locations": 8}, {"file": "clear-11.docx", "status": 200, "locations": 4}, {"file": "clear-12.docx", "status": 200, "locations": 4}, {"file": "clear-13.docx", "status": 200, "locations": 3}, {"file": "clear-14.docx", "status": 200, "locations": 3}, {"file": "clear-15.docx", "status": 200, "locations": 9}, {"file": "clear-16.docx", "status": 200, "locations": 3}, {"file": "clear-17.docx", "status": 200, "locations": 83}, {"file": "clear-18.docx", "status": 200, "locations": 4}, {"file": "clear-19.docx", "status": 200, "locations": 5}, {"file": "clear-20.docx", "status": 200, "locations": 8}], "groups": 7, "safe_logs": true, "exit_code": 1}
