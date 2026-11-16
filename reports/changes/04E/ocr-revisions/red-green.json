@@ -1,0 +1,6 @@
+{
+  "scenario": "DI-SC-18 class isolation of published OCR keyword citations",
+  "mutation": "Remove the trusted class filter while preserving prepared SQL parameters",
+  "red": 1,
+  "restored_green": 0
+}

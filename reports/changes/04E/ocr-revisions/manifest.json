@@ -1,0 +1,31 @@
+{
+  "inputs": [
+    {
+      "path": "backend/internal/ocrreview/mysql_test.go",
+      "sha256": "cb0bd4b5cbbf1510c3a27b45346d4f42b7315ea1a3f8016fad73ca83d6fcab24"
+    },
+    {
+      "path": "backend/internal/ocrreview/store.go",
+      "sha256": "41ed1f8b6de4ad2ce0a8c6d7bc2c33b761a0cd9152a7b0ef6d0824373c724979"
+    },
+    {
+      "path": "backend/internal/ocrreview/store_test.go",
+      "sha256": "8f626c8793d3d35599536bf289aab7b407e69af17e51cd88e62a1532fff479ae"
+    },
+    {
+      "path": "docs/contracts/ocr-draft/000007_ocr_revisions.up.sql",
+      "sha256": "8bd387f4fd0959b91beda5793dcaa9a3b7502682964ed425ef91d45b4b7969dc"
+    },
+    {
+      "path": "docs/contracts/ocr-draft/000007_ocr_revisions.down.sql",
+      "sha256": "e1a3cb1032ade5f748027d3130cf297d06893d75b2627a0550232eea663ae5fe"
+    },
+    {
+      "path": "scripts/check-ocr-revisions.mjs",
+      "sha256": "cca0cb57361f314a576b3a1aa15c92f6e8dd520e36a8c887bccbabd0e39c7989"
+    }
+  ],
+  "final_run": "campus-ocr-revisions-dd287c18a1cc",
+  "production_target": 6,
+  "runtime_activation": false
+}

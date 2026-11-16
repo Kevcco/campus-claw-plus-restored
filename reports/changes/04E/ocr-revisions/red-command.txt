@@ -1,0 +1,3 @@
+real revision transactions failed; see mysql-tests.txt
+
+1 !== 0

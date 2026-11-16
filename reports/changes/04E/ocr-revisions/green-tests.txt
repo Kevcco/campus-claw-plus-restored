@@ -1,0 +1,15 @@
+-test.shuffle 1794820550494786819
+=== RUN   TestMySQLReviewRollbackAndPageCount
+--- PASS: TestMySQLReviewRollbackAndPageCount (0.02s)
+=== RUN   TestMySQLReviewIdempotentRaceAndOldSource
+--- PASS: TestMySQLReviewIdempotentRaceAndOldSource (0.07s)
+=== RUN   TestMySQLReviewPublishedKeywordIsolation
+--- PASS: TestMySQLReviewPublishedKeywordIsolation (0.02s)
+=== RUN   TestContentCodepointsAndBounds
+--- PASS: TestContentCodepointsAndBounds (0.00s)
+=== RUN   TestMySQLReviewForeignClassAndRevisionBounds
+--- PASS: TestMySQLReviewForeignClassAndRevisionBounds (0.01s)
+=== RUN   TestMySQLReviewCASRaceAndAuthorization
+--- PASS: TestMySQLReviewCASRaceAndAuthorization (0.02s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/ocrreview	0.147s
