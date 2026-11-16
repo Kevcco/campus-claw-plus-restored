@@ -1,3 +1,5 @@
+2026-11-16集成状态：PR #57最终head `3fb53ed5363122737622cd5c05f1512e67442ed6` 经Kevcco实际批准后正常合入受保护main `a40b83b3166e3ee2d1d2e753c3b8db40825a6899`；精确main完整CI43804539643成功。六个Document HTTP操作及PDF/Word页面进入主干，公开current操作为28；Target6/15、五服务配置保持。独立Docker完整复验在精确PR head上执行`npm ci`、`npm run setup`、`npm run check`、`npm run audit`、`npm run verify`均退出0，audit无漏洞；verify覆盖MySQL/HTTPS、迁移与恢复、PDF/DOCX、持久worker恢复、容器重建及清理。04E A阶段尚未完成，任务表待办以本文件勾选为准；A4.3收口前不交接B、不启动OCR/语义，也不宣称整个A/B/C完成。#55精确主干收口证据见[收口记录](../../../reports/changes/04E/runtime-main-closeout-2026-11-15.md)。
+
 ## 0. 阶段安排与责任（全部小张）
 - [x] 0.1 [小张] 核对组长2026-11-13明确授权、主干7f0f32f、G2/G3及04/06/05边界，登记仅04E统一负责人例外（DI-SC-01/25）。
 - [x] 0.2 [小张] 编写A/B/C任务、8项需求25场景及量化验收；A优先，B/C列出具体依赖与退出条件，更新共享表/依赖（DI-SC-01..25）。
@@ -15,13 +17,13 @@
 - [x] A2.1 [小张] 有界PDF逐页提取、文本层/扫描件区分、密码/损坏/页数/内容流/输出失败（DI-SC-03/05/06）。
 - [x] A2.2 [小张] DOCX ZIP/XML安全读取、正文/表格内段落顺序与逻辑块；拒绝旧doc/docm、实体/外链/炸弹（DI-SC-04..06）。
 - [x] A2.3 [小张] 原件/queued作业/原202同事务幂等，真实20并发、丢回执及回滚（DI-SC-07/09）。
-- [ ] A2.4 [小张] 持久解析worker、owner/epoch/lease、并发1、三次上限、失败重试CAS；真实claim前后kill/重启、OOM/超时（DI-SC-08..10/14）。
+- [x] A2.4 [小张] 持久解析worker、owner/epoch/lease、并发1、三次上限、失败重试CAS；真实claim前后kill/重启、OOM/超时（DI-SC-08..10/14）。
 - [ ] A2.5 [小张] 六个真实HTTP、授权/分页/原件下载/关键词/持久出处回查及原01/04/05回归（DI-SC-02/05/11/12/15）。
 - [ ] A3.1 [小张] 同版本PDF/Word资料列表/上传/详情四态样板，360/1440/键盘/原生200%实际核对（DI-SC-13）。
 - [x] A3.1a [小张] 依据已合入#45的D6制作列表/上传/详情隔离样板候选，PDF页码与Word逻辑块、五种解析状态及教师/学生视图；不调用frozen服务，样板方向仍待确认（DI-SC-13）。
-- [ ] A3.1b [小张] 同版本四态/长内容/360/1440/767/768/键盘/原生200%实际截图与门禁收口，确认样板方向后再接真实服务；初轮浏览器自测不代替用户方向确认（DI-SC-13）。
+- [x] A3.1b [小张] 同版本四态/长内容/360/1440/767/768/键盘/原生200%实际截图验收完成；用户已授权沿用#49方向接真实服务。修复构建全部浏览器证据见breakpoint-final；最终head完整门禁、实际批准及main复验统一由A4.3收口（DI-SC-13）。
 - [ ] A3.2 [小张] 接current真实接口，上传→轮询→本班检索→页/块原文→下载/失败重试，不用mock代联验（DI-SC-11..13）。
-- [ ] A4.1 [小张] 40份核心正文逐份CER<=0.5%、关键句/出处100%，20类负例及固定资源预算真实跑全（DI-SC-02..06/14）。
+- [x] A4.1 [小张] 40份核心正文逐份CER<=0.5%、关键句/出处100%，20类负例及固定资源预算真实跑全（DI-SC-02..06/14）。
 - [ ] A4.2 [小张] 默认可信HTTPS双班师生、迁移/备份恢复/容器重建、原完整gate/五镜像扫描/运行ID/清理，问题修正同提交同步表（DI-SC-07..15）。
 - [ ] A4.3 [小张] 真实远端批准/正常合入/精确main复验后记录A阶段完成，交B（整个change暂不归档）；未到门禁不声称已支持PDF/Word（DI-SC-25）。
 
@@ -105,4 +107,38 @@ A1.2b组件补证#51：9aa2f86原check0、7组HTTP/40实际文件/慢头慢体�
 
 2026-11-15小陈实际收口#54：最终4ac423a获本人APPROVED5908869691后正常合入mainae18872，精确main完整CI43673282647/artifact14145621037原ZIP与全跟踪指纹、实际4组DI/五中断/八阶段备份隔离恢复/原回归及清理全部核验。仅据此勾A1.3b准确迁移与恢复组件；持有人库未升级。原#55合入该main并保留#52/#53新增回归与queue-test.log门禁，来件九阶段真实worker/40文件195位置196片段/实际SIGKILL和DB恢复已核验；本人完整check缺Docker1、探针导入失败未执行、SQL/verify未运行，audit/secret0。本提交最终CI/真实批准/主干复验仍待，A1.2b/A2.4/A2.5/页面与A父项不提前勾完。记录reports/changes/04E/chen-runtime-review-2026-11-15.md。
 
-2026-11-15实际收口：#52客户端、#53队列、#54精确迁移6和#55私有生产接线均由小陈/Kevcco真实批准并正常合入。#55最终6ff53ae获APPROVED5908959859，最终完整CI43674335158成功；精确main d874b663991730474e2360944ba1587a1e7c1d65 的完整CI43675360843成功，artifact14145922538原ZIP sha256:f0bd2ef24a5c74f33a0dba06249594aaa1bf68d0b96474c9c53f1a96f583068a 与GitHub一致，2041跟踪Git blob指纹、四段/五镜像/九worker阶段和所有原件已独立核验。当前代码Target6/15空active/五服务制品，公开仍22 current，六个Document操作frozen；已有5库持有人尚未部署升级，须按停写备份离线迁移交接。授权Document HTTP/真实PDF和Word页面、用户样板方向及剩余A验收仍待小张推进，OCR/语义和整个A/B/C不放行。 据最终和精确main原件，仅新增勾A1.2b/A2.3：私有服务/配置/五镜像与20并发/丢回执重查/回滚已有真实依据；不把内部夹具当公开HTTP授权。A2.4/六HTTP/页面及A父项仍待，见reports/changes/04E/runtime-main-closeout-2026-11-15.md。本提交只同步实际证据，文档PR自身门禁/小张审查另核。
+2026-11-15小张核对#52/#53/#54/#55真实批准/正常合入与精确main d874b66完整CI43675360843原件，通过私有服务/持久队列/40语料/迁移恢复验收；补勾已有证据的子项，不勾整体A或六公开HTTP/页面。用户本轮明确授权实际PDF/Word接口和页面，#49方向直接沿用，A3.1b的实际浏览器仍需本批验收。六HTTP/页面候选44合同、前端5组、业务3组、四组真实SQL/HTTPS通过，首轮nullable误拒失败已修复留证；默认实际Go-Python公开链路、完整gate/浏览器与最终审查待验。
+
+2026-11-15本批公开接线进展：45合同/33前端/3业务和5组真实TLS/MySQL0；默认正式HTTPS main/outage/persist三段及原九worker/40语料/01和04和05/停库恢复/清理全部0，实际两格式经Go-Python入库后逐字出处与原件SHA一致。共享限流/20并发只存一份、显式重试3次、慢速体5秒504均验证；关键持久quote保护受控红1→逐字恢复绿0。三次夹具/网络/登录限流失败留证后修正，未删旧断言或放宽阈值。浏览器工具旧Firefox与新CLI不匹配，正在安装匹配版本；真实页面四态/原生200%、干净完整gate/五制品实扫、最终CI和Kevcco实际审查待完成。
+
+2026-11-15小张继续公开接线：b55265e已有真实浏览器两档/767与768/键盘/双班师生/真实上传及逐字下载SHA、扫描和加密终态、长200字符标题/5280码点Word通过；发现第二长片段点击后高亮首行仍在视口下3372px，正修为聚焦高亮并滚动到片段，待同制品复验。原完整gate在会话中断/引擎关闭后无最终结果，不能算通过，原日志与README未暂存事实保留；正在恢复隔离环境重跑。原生200%尚未完成：模拟按键未改变DPR，Windows Firefox电脑控制因URL策略不支持停止，不将CSS缩放当验收。远端PR/最终CI/实际批准待。
+
+
+2026-11-15小张续验：长2000码点出处已修复，桌面1440/手机360实际点击首行均位于28.9px并聚焦；真实上传、搜索、下载SHA、加载/空/网络失败、扫描待OCR/加密失败、双班师生与离页清空复验通过。早期加载探针延迟DNS异常已废止，以最终浏览器记录为准；临时令牌错误输出已脱敏且真实接口确认401失效。新增五组真实SQL证据缺失/跳过/失败/重复拒绝守卫2组通过。隔离浏览器环境已清理；最终干净完整gate、PR CI和实际批准待。原生200%因Windows浏览器URL策略工具限制仍待验，显式重试按钮另待实浏览器复验；不得标整体A完成或正常合并。
+
+
+2026-11-15公开实现已提交[PR #57](https://github.com/zwh9616/campus-claw-plus/pull/57)草稿（代码5cac6db）。完整CI43693601789通过；与head整树相同的预演3df6f43原artifact14153148265，ZIP SHA256=8693942463a1aa4c4051291b5cd95cbaca59ac3a0b5e62e416251d3f8f0a45bf，18原件/全部跟踪指纹独立核验，四段0、verify508258ms、五镜像零HIGH/CRITICAL、三公开HTTPS阶段、五真实SQL组、九worker/40语料/迁移恢复/原回归/全部清理及秘密扫描0。本机同代码check/audit/secret0，verify最后离线组件重复复验超600秒退出124，保留失败而不放宽时限；已清理本轮被中断的私有服务/网络/测试凭据和五审计标签。桌面/手机真实功能与长出处修复已复验；原生200%与显式重试按钮实浏览器检查、实际批准和合入仍待。保持实现与自测，不把CI等同完整页面验收。当前补证提交仅文档/证据/状态，最终head CI另核。
+
+2026-11-15小陈审查#57代码5cac6db与补证74ecfe3：完整CI43693601789及artifact14153148265原ZIP、2154跟踪Git blob、五镜像/五真实SQL/三公开HTTPS/九worker/迁移恢复/原队列日志与清理已独立核验，解包秘密扫描0；367浏览器源码/42原件摘要一致。本人npm ci/setup0、33前端/19合同守卫及全包Go/strict11通过，完整check缺Docker1，SQL与verify未运行。临时真实handler探针证明上传和retry两个202均缺已公布Location头，退出1并保留原件；原生200%和显式重试实浏览器仍待。保持draft不批准不合并，由小张在原#57修正并补同版本真实证据，最终head完整CI/main另核。 不勾A3/整体A；见reports/changes/04E/chen-document-http-review-2026-11-15.md。
+
+
+2026-11-15小张承接#57的Kevcco实际CHANGES_REQUESTED（a05d258）：已在原分支补上传/原202重放和retry的Location，先用原真实handler探针复现红1，修复后httpserver全包绿0；在真实TLS/MySQL和默认HTTPS调用器增加所有Document 202头断言。原生200%与显式重试浏览器实测正在同版本补齐；最终完整门禁/真实批准/main复验待，不先标完成。
+
+
+2026-11-15小张续验261d94e：Location缺陷已修复并推送，真实handler红1→全包绿0；修复版默认可信HTTPS main（含实际上传/原202重放Location断言）通过，完整CI跟进中。隔离Firefox真实登录/资料页已打开；Computer Use再次明确返回“Computer Use has been stopped for this turn because browser URL policy enforcement is not yet supported for the current Windows browser”，已停止电脑输入。原生200%仍未验，显式重试按钮实测尚未执行；需要人工在该隔离浏览器调到200%后继续实际指标/截图/交互验收，不用CSS或设备模拟替代，不冒用旧CI或旧批准。维持#57草稿与CHANGES_REQUESTED，不请求最终复审/不合并。
+
+
+2026-11-15晚小张在真实默认HTTPS环境补#57重试实测：上传202后真实SIGKILL私有解析器（不改SQL），失败1→键盘Enter只发一次retry202/正确Location→真实ready2及逐字原件SHA通过；另份资料两次显式retry202/实际GET轮询至失败3，按钮隐藏/耗尽提示通过。耗尽页矛盾文案已真实浏览器红→绿修复，并重建frontend sha256:40eae59a240f6f9b148a4e829641be6b0faa264b5d8a71dc03ecc24a9600bd19复跑成功2/耗尽3/扫描needs_ocr/加密失败，实际Enter只一次写、GET轮询、202 Location、原件SHA均通过；本机类型/33前端/构建/strict11退出0。证据见reports/changes/04E/document-http/retry-browser/manifest.json。原生200%新窗口仍实测DPR1.5/innerWidth1281（Windows150%，页面100%），viewport=null/CSSzoom1，不冒称200%通过。9a327ac完整CI43698110827已独立核验18原件/跟踪指纹/三HTTPS/五SQL/五镜像及清理0，verify402973ms；本提交最终CI/200%/实际复审/合并仍待。
+
+
+2026-11-15晚补证：64ea99a代码最终完整CI43714084399成功，预演095d282与head整树一致；artifact14162150910原ZIP SHA256 fe3ea94890179a9c4d3d3576a12c1398a634883982d1feca17a0921ff91860de、18原件和全部跟踪指纹独立核验，四段0、verify508019ms、五镜像零HIGH/CRITICAL、三公开HTTPS/五真实SQL/九worker/迁移恢复/原回归及全部清理通过，解包秘密扫描0。本机64ea99a完整check/audit/secret-scan亦全部0；429源码/30浏览器原件与Git blob一致。Location行内线程已由小张凭实证解决，Kevcco仍CHANGES_REQUESTED、未获新批准。新原生Nightly窗口多次实测仍DPR1.5/innerWidth1281/viewport=null/CSSzoom1（页面100%），尚未收到新窗口调整完成回复，200%未验证。保持#57草稿，不请求最终复审或合并；本提交仅补证与进度，新的文档head CI另核。代码原件见document-http/retry-final-ci/及retry-final-local/，200%通过后再请求实际复审、满足门禁后正常合并/main复验。
+
+2026-11-15小陈复核#57修订64ea99a/补证dfc50c0：上传/原202重放/retry的Location实现与真实HTTP/HTTPS断言已补齐，本人httpserver全包0、33前端/类型0。独立下载完整CI43714084399原artifact14162150910，ZIP SHA256 fe3ea94890179a9c4d3d3576a12c1398a634883982d1feca17a0921ff91860de与GitHub及入库原件一致，2215 Git blob/四段/五镜像/五真实SQL/三HTTPS/九worker/迁移恢复/清理核验通过；dfc50c0完整CI43715317819成功。新增429源码/30浏览器原件摘要匹配，实际Enter只一次retry202/正确Location/ready2、耗尽3隐藏、扫描/加密不重试及耗尽文案修复可接受；这些为作者实测证据的独立复核，不冒称本人新数据库或浏览器会话。原生200%仍未验证，当前无可接续测试窗口，维持draft与原CHANGES_REQUESTED，不批准/合并；只待小张补同版本真实200%/键盘/长内容证据后复核。 不勾A3/整体A；见reports/changes/04E/chen-document-http-review-2026-11-15.md。
+
+
+2026-11-15晚#57原生200%已实际补齐：隔离Firefox经Mozilla tabs.setZoom设置原生2倍，只读站点zoom记录=2，DPR1.5→3、宽1281→641，viewport=null/CSSzoom1/visualViewport.scale1；随后重启移除临时扩展和调试器，最终真实页面继续保持200%。修复长出处在正文DOM提交前定位的时序竞态（useLayoutEffect按busy/data/citation提交后定位）及列表Tab焦点未完整入视口；受控恢复旧逻辑红1、恢复修复绿0。最终14页面态/14个完整可见Tab停靠点/200字符标题/5280码点正文末尾/12次长出处/6份下载SHA、原生200%真实Enter重试15→ready2与16→耗尽3/实际轮询全部通过，另100%下1440/360出处复验0；真实隔离资源清理0。最终类型/33前端/audit0，完整check与本提交最终CI/实际复审/正常合并及main复验待。本次证据见reports/changes/04E/document-http/native200-final/manifest.json，04E仍全部小张负责，不提前勾A父项/B/C或持有人部署。
+
+
+2026-11-15晚#57交审补证：代码ee7e285原生200%/最终键盘及重试实测完成，已转ready并实际请求Kevcco复审。该代码完整CI43725610304成功；预演eec9a608与head整树一致，artifact14166756905原ZIP SHA256 c9670aa6311cf4d0b05fcf0b99f1f383f0fbce784e16687f44922c755dff38a7、18原件及全跟踪Git blob指纹已独立核验，四段0、verify518477ms、五镜像零HIGH/CRITICAL、三公开HTTPS/五真实SQL/九worker/迁移恢复/原回归与清理均通过，解包秘密扫描0。ee7e285本机完整check0、429源码/68浏览器原件均与Git匹配。最新仍无Kevcco实际APPROVED，故未合并；待真实批准并确认最终head门禁后正常合并/main复验。本提交只补证与进度，代码保持ee7e285逐字一致，其自身CI仍按正常门禁跟进；不提前勾A/B/C或持有人部署。证据见reports/changes/04E/document-http/native200-ci/。
+
+2026-11-16小张处理#57最新复审：补767/768实测时实际发现768–1000px状态与文件大小重叠，已修正共享列表选择器排除document-status，真实重叠断言红1→绿0；360/767/768/1440四档52截图、48次Tab、长200码点标题/5280码点正文末尾/逐字出处通过，另1000/1001边界无重叠。修复构建重新完成原生200%（站点zoom2/DPR3/viewport=null，临时扩展移除后验收）、14页面态、14次Tab、12次长出处及真实文档7失败1→Enter一次202→ready2、文档8两次202→耗尽3、扫描/加密不重试，五份下载SHA一致。本机完整check/audit0，实际JS/CSS与同次dist逐字匹配，隔离运行清理0；两处证据末尾空行按意见清理并同步原清单摘要。A3.1b浏览器验收完成，最终head CI/实际批准/main复验仍由A4.3收口，不提前勾A父项或持有人部署。证据见reports/changes/04E/document-http/breakpoint-final/。

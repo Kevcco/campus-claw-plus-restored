@@ -8,7 +8,7 @@ const fixture=()=>{
  results.splice(results.length-1,0,{label:'stop database only',exit_code:0},{label:'restore database',exit_code:0})
  results.push({label:documentOutage,exit_code:0,output:'durable 202 and genuine pending persistence passed'},
   {label:documentIsolation,exit_code:0,...ids,internal:true,nonroot:true,readonly:true,host_ports:false,database_secrets:false,egress:false,network_members:['backend','document-parser'],memory_bytes:536870912,cpus:1,pids:32},
-  {label:documentWorkerSummary,exit_code:0,...ids,scope:'trusted fixture; six public Document HTTP operations remain frozen',forced_test_lease_expiry:true,actual_worker_sigkill:true,proof:{
+  {label:documentWorkerSummary,exit_code:0,...ids,scope:'trusted fixture; public HTTP verified separately',forced_test_lease_expiry:true,actual_worker_sigkill:true,proof:{
    corpus:{documents:40,locations:195,chunks:195,persisted_gold_text:true,exact_quote_codepoints:true,original_202_replay:true},
    ...Object.fromEntries(['outage-enqueue','restart-enqueue','kill-enqueue','kill-expire'].map(x=>[x,true])),
    ...Object.fromEntries([['outage-retry',2],['restart-verify',1],['kill-verify',2],['database-verify',1]].map(([x,attempts])=>[x,{attempts,locations:1,chunks:1,original_202_replay:true}]))}})

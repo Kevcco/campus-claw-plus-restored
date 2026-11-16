@@ -1,0 +1,13 @@
+{
+  "project": "campus-document-browser-09820f7a14fc",
+  "action": "SIGKILL actual private parser after default HTTP upload202",
+  "sql_mutation": false,
+  "time": "2026-11-16T03:40:18.953Z",
+  "exit_code": 0,
+  "trigger": {
+    "method": "POST",
+    "path": "/api/v1/documents",
+    "status": 202
+  },
+  "fired_at": "2026-11-16T03:40:36.959Z"
+}

@@ -1,0 +1,10 @@
+{
+  "native_firefox_site_zoom": [
+    [
+      "campus.test",
+      "browser.content.full-zoom",
+      2
+    ]
+  ],
+  "database_read_only": true
+}

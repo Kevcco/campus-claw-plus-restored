@@ -1,0 +1,34 @@
+[
+  {
+    "path": "ci-verified.json",
+    "sha256": "96be8ec6347ce31a7e355a5c485f4746ec6cb93deeeea1cab1f288ff0118d77e"
+  },
+  {
+    "path": "ci-verifier.mjs.txt",
+    "sha256": "f3343831f45fbdeaa9afe4caef438d8736c1b2c6a11b658922960f96153efc6a"
+  },
+  {
+    "path": "ci-verifier.txt",
+    "sha256": "cdf53c23cb4380a0cdad2f7fa101515edc48778722084e2d352f8b30a6287b53"
+  },
+  {
+    "path": "followup-verified.json",
+    "sha256": "b4be7e37f65d2c9204d31958b01a4c09d87cdc706978e93a17105e49fb7c6716"
+  },
+  {
+    "path": "followup-verifier.mjs.txt",
+    "sha256": "ec04c9e62fb5f69cb588e0c7ee29321f1c374ec9d29e007c4f2df693114d4c2b"
+  },
+  {
+    "path": "frontend-tests.txt",
+    "sha256": "316a6e0cb91c19c102abc04a355cbfe43b7f285b29cc19c61dcf4f0591459528"
+  },
+  {
+    "path": "local-results.json",
+    "sha256": "662c0b576eeb3917d8f0b5b90ee3f538b9526cec9d7c0acf4f63733b91d47943"
+  },
+  {
+    "path": "typecheck.txt",
+    "sha256": "322c11178413e5f57e341322ba53b88fe6899793408e110bc826274daadbe5a7"
+  }
+]

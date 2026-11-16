@@ -1,0 +1,98 @@
+import assert from 'node:assert/strict'
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+import { resolve } from 'node:path'
+import { createHash } from 'node:crypto'
+import { spawnSync } from 'node:child_process'
+import { evidencePaths, validateRuntimeEvidence, loadBatchInputs, validateBatch } from './pr57-worktree/scripts/service-batches.mjs'
+import { validateDocumentMigrationEvidence } from './pr57-worktree/scripts/document-migration-evidence.mjs'
+import { validateDocumentRuntimeEvidence } from './pr57-worktree/scripts/document-runtime-evidence.mjs'
+import { validateDocumentHTTP } from './pr57-worktree/scripts/document-http-evidence.mjs'
+
+const root = process.cwd(), head = '64ea99a0e66748af616c5f08bce10284cd4f430d', run = 43714084399
+const base = resolve(root, 'output/10-b-ci-' + run), out = resolve(root, 'output/review-57-followup')
+mkdirSync(out, { recursive: true })
+process.chdir(resolve(root, 'output/pr57-worktree'))
+const sha = bytes => createHash('sha256').update(bytes).digest('hex')
+const json = path => JSON.parse(readFileSync(path, 'utf8'))
+const report = path => json(base + '/extracted/' + path)
+const git = args => { const r = spawnSync('git', args, { maxBuffer: 160 * 1024 * 1024 }); assert.equal(r.status, 0); return r.stdout }
+const facts = json(base + '/facts.json'), batch = report('service-batches/results.json'), gate = report('verification/gate-results.json')
+assert.equal(facts.head_sha, head); assert.equal(facts.conclusion, 'success'); assert.equal(facts.status, 'completed')
+assert.equal('sha256:' + sha(readFileSync(base + '/evidence.zip')), facts.artifact_digest)
+assert.equal(batch.exit_code, 0); assert.equal(batch.source.dirty, false)
+assert.equal(facts.artifact_name, 'runtime-image-scans-' + batch.source.commit)
+const records = git(['ls-tree', '-rz', '--full-tree', head]).toString().split('\0').filter(Boolean).map(s => {
+  const [header, path] = s.split('\t'); const [, type, oid] = header.split(' '); assert.equal(type, 'blob'); return { path, oid }
+}).sort((a, b) => a.path < b.path ? -1 : a.path > b.path ? 1 : 0)
+const blobs = spawnSync('git', ['cat-file', '--batch'], { input: records.map(x => x.oid).join('\n') + '\n', maxBuffer: 160 * 1024 * 1024 })
+assert.equal(blobs.status, 0)
+let offset = 0; const entries = []
+for (const record of records) {
+  const end = blobs.stdout.indexOf(10, offset), [oid, type, size] = blobs.stdout.subarray(offset, end).toString().split(' ')
+  assert.equal(oid, record.oid); assert.equal(type, 'blob'); offset = end + 1
+  const bytes = blobs.stdout.subarray(offset, offset + Number(size)); offset += Number(size); assert.equal(blobs.stdout[offset++], 10)
+  entries.push(record.path + ':' + sha(bytes))
+}
+assert.equal(offset, blobs.stdout.length)
+assert.equal(sha(entries.join('\n')), batch.source.fingerprint)
+assert.equal(gate.exitCode, 0); assert.deepEqual(gate.notRun, [])
+assert.deepEqual(gate.results.map(x => x.name), ['check', 'audit', 'secret-scan', 'verify'])
+assert.ok(gate.results.every(x => x.exitCode === 0 && x.reason === 'passed'))
+assert.equal(batch.stages.exitCode, 0); assert.deepEqual(batch.stages.notRun, [])
+assert.ok(batch.stages.results.every(x => x.exitCode === 0))
+const reports = Object.fromEntries(evidencePaths.map(path => [path, report(path.slice(7))]))
+for (const item of batch.evidence) assert.equal(sha(readFileSync(base + '/extracted/' + item.path.slice(7))), item.sha256)
+const inventory = validateBatch(loadBatchInputs()); assert.deepEqual(batch.inventory, inventory)
+const images = validateRuntimeEvidence(reports, Date.parse(batch.time), Date.parse(batch.finished_at), inventory)
+assert.deepEqual(images, batch.images); assert.equal(images.length, 5)
+assert.equal(batch.cleanup.length, 5); assert.ok(batch.cleanup.every(x => x.ok && x.exit_code === 0))
+const sql = reports['output/identity/results.json'], wire = reports['output/identity-wiring/results.json']
+const migration = validateDocumentMigrationEvidence(sql); assert.deepEqual(migration, batch.document_migration6)
+const worker = validateDocumentRuntimeEvidence(wire, images); assert.deepEqual(worker, batch.document_worker)
+const publicHTTP = validateDocumentHTTP(wire, sql); assert.deepEqual(publicHTTP, batch.document_http)
+const storage = report('document-storage-contract/results.json'), q = storage.document_queue
+assert.equal(storage.exit_code, 0); assert.equal(storage.source.commit, batch.source.commit); assert.equal(storage.source.dirty, false)
+assert.equal(storage.mysql_version, '8.4.13'); assert.equal(storage.secret_file_removed, true)
+assert.equal(storage.cleanup.length, 2); assert.ok(storage.cleanup.every(x => x.ok && x.exit_code === 0))
+assert.equal(storage.results.filter(x => x.expected_rejection).length, 16)
+assert.ok(storage.results.filter(x => x.expected_rejection).every(x => x.exit_code === 1 && x.error_code === x.actual_error_code))
+assert.ok(storage.results.filter(x => !x.expected_rejection).every(x => x.exit_code === 0))
+const queueLog = readFileSync(base + '/extracted/document-storage-contract/queue-test.log')
+assert.equal(sha(queueLog), q.log_sha256); assert.equal(q.exit_code, 0); assert.equal(q.groups.length, 10)
+for (const [path, digest] of Object.entries(q.source_files)) assert.equal(sha(git(['show', head + ':backend/internal/documentqueue/' + path])), digest)
+const queueGroups = [...queueLog.toString().matchAll(/^--- PASS: (TestMySQL\w+) /gm)].map(x => x[1]).sort()
+assert.deepEqual(queueGroups, [...q.groups].sort()); assert.ok(!/--- (?:SKIP|FAIL):/.test(queueLog.toString()))
+const corpus = json('document-parser/testdata/acceptance-v1/manifest.json'), negatives = json('document-parser/testdata/acceptance-v1/negative-cases.json').cases
+const parser = []
+for (const mode of ['check', 'scan']) {
+  const prefix = 'document-parser/' + mode + '/', r = report(prefix + 'results.json'), tests = report(prefix + 'tests.json')
+  assert.equal(r.exit_code, 0); assert.equal(r.source.dirty, false); assert.equal(r.source.commit, batch.source.commit)
+  assert.equal(sha(readFileSync(base + '/extracted/' + prefix + 'tests.json')), r.tests.raw_sha256)
+  assert.equal(tests.exit_code, 0); assert.equal(tests.groups, 8); assert.deepEqual(tests.unexecuted_negative, [])
+  assert.equal(tests.acceptance.length, 40); assert.equal(tests.negative.length, 25)
+  assert.deepEqual(tests.acceptance.map(x => x.file).sort(), corpus.cases.map(x => x.file).sort())
+  for (const item of tests.acceptance) { assert.ok(item.cer <= .005 && item.ms <= 30000); assert.equal(item.locations, corpus.cases.find(x => x.file === item.file).gold.length) }
+  for (const item of negatives) { const actual = tests.negative.find(x => x.id === item.id); assert.ok(actual); assert.equal(actual.status, item.expected); assert.equal(actual.reason, item.reason) }
+  assert.deepEqual(tests.isolation, { uid: 65532, read_only_root: true, external_connect_denied: true, tmp_sources_after_tests: 0 })
+  assert.equal(r.cleanup.length, 2); assert.ok(r.cleanup.every(x => x.ok && x.exit_code === 0)); assert.ok(r.results.every(x => x.exit_code === 0))
+  const rpc = r.private_http, client = r.private_client
+  assert.equal(rpc.exit_code, 0); assert.equal(rpc.groups, 7); assert.equal(rpc.documents.length, 40); assert.equal(rpc.safe_logs, true)
+  assert.deepEqual(JSON.parse(r.results.find(x => x.label === 'private HTTP adapter real corpus and boundary tests').stdout), rpc)
+  assert.equal(client.exit_code, 0); assert.equal(client.actual.documents.length, 40); assert.equal(client.actual.locations, 195)
+  assert.equal(client.actual.wrong_auth_rejected, true); assert.equal(client.network_internal, true); assert.equal(client.no_host_ports, true)
+  assert.equal(client.secret_file_removed, true); assert.equal(client.safe_logs, true); assert.equal(client.cleanup.length, 4); assert.ok(client.cleanup.every(x => x.ok))
+  assert.deepEqual(client.outage, { health: false, reason: 'worker_interrupted', unavailable: true })
+  assert.deepEqual(JSON.parse(client.results.find(x => x.label === '40 real Go HTTP Python extractions').stdout), client.actual)
+  for (const line of client.results.find(x => x.label === 'read controlled private logs').stdout.trim().split('\n')) assert.deepEqual(Object.keys(JSON.parse(line)).sort(), ['duration_ms', 'path', 'request_id', 'status'])
+  assert.equal(r.private_health.exit_code, 0); assert.equal(r.private_health.groups, 3); assert.equal(r.private_health.safe_logs, true)
+  assert.deepEqual(JSON.parse(r.results.find(x => x.label === 'actual authenticated health and startup process tests').stdout), r.private_health)
+  if (mode === 'scan') { const scan = report(prefix + 'parser.json'); assert.equal(sha(readFileSync(base + '/extracted/' + prefix + 'parser.json')), r.raw_sha256); assert.equal(scan.Metadata.ImageID, r.image_id); assert.deepEqual(r.findings, { HIGH: 0, CRITICAL: 0 }); assert.equal(scan.Results.flatMap(x => x.Vulnerabilities ?? []).length, 0); assert.equal(batch.offline_candidate.sha256, sha(readFileSync(base + '/extracted/' + prefix + 'results.json'))) }
+  parser.push({ mode, documents: 40, negatives: 25, locations: 195, rpc_groups: 7, private_health_groups: 3, actual_client_outage: true })
+}
+const browserDirectory = 'reports/changes/04E/document-http/browser-final', browser = json(browserDirectory + '/manifest.json')
+const sourceMismatches = []
+for (const file of browser.source) { const actual = sha(git(['show', head + ':' + file.path])); if (actual !== file.sha256) sourceMismatches.push(file.path) }
+for (const file of browser.files) assert.equal(sha(readFileSync(browserDirectory + '/' + file.path)), file.sha256)
+const proof = { observer: '小陈 / Kevcco（AI辅助）', head, run, artifact_id: facts.artifact_id, artifact_digest: facts.artifact_digest, artifact_digest_verified: true, tracked_files: records.length, tracked_fingerprint: batch.source.fingerprint, git_blob_match: true, gate: gate.results, images, cleanup: batch.cleanup.length, migration, worker, public_http: publicHTTP, queue: { groups: queueGroups, log_sha256: q.log_sha256, source_files: q.source_files }, parser, browser: { source_records: browser.source.length, source_mismatches: sourceMismatches, hashed_files: browser.files.length, native_200_percent: browser.native_200_percent, explicit_retry_browser: browser.explicit_retry_browser }, scope: 'Downloaded exact CI evidence and source review; no reviewer local Docker/database/browser rerun or holder deployment claim', exit_code: 0 }
+writeFileSync(out + '/ci-verified.json', JSON.stringify(proof, null, 2) + '\n')
+console.log(JSON.stringify(proof))

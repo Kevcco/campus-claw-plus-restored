@@ -1,0 +1,56 @@
+{
+  "results": [
+    {
+      "label": "frontend-tests",
+      "command": [
+        "node",
+        "--experimental-strip-types",
+        "--test",
+        "frontend/tests/auth.test.mjs",
+        "frontend/tests/reviewer-auth.test.mjs",
+        "frontend/tests/materials.test.mjs",
+        "frontend/tests/documents.test.mjs"
+      ],
+      "node": "v24.22.1",
+      "exit_code": 0
+    },
+    {
+      "label": "typecheck",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "node": "v24.22.1",
+      "exit_code": 0
+    }
+  ],
+  "go_httpserver": {
+    "command": "go test ./internal/httpserver",
+    "version": "go1.27.3",
+    "exit_code": 0,
+    "output": "ok github.com/zwh9616/campus-claw-plus/backend/internal/httpserver 1.392s"
+  },
+  "attempts": [
+    {
+      "command": "node --test scripts/frontend.test.mjs",
+      "exit_code": 1,
+      "reason": "No such test entry; no tests executed; corrected to the registered four frontend suites"
+    },
+    {
+      "reason": "Two PowerShell output redirections ran before output directory creation, so neither command executed; shell status0 was disregarded and both actual commands rerun below"
+    }
+  ],
+  "docker_database_verify": "NOT RUN",
+  "native_browser_200": "NOT VERIFIED: no current target test browser window",
+  "review_document_checks": {
+    "foundation": 0,
+    "strict_spec_passed": 11,
+    "strict_spec_failed": 0,
+    "full_history_secret_scan": {
+      "exit_code": 0,
+      "commits": 242
+    },
+    "staged_secret_scan": 0
+  }
+}

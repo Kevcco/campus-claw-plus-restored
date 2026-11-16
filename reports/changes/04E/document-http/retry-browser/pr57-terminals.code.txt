@@ -1,0 +1,10 @@
+async page=>{
+ const base='C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/output/document-browser/',cases=[]
+ if(await page.getByRole('link',{name:'← 返回PDF与Word资料',exact:true}).count())await page.getByRole('link',{name:'← 返回PDF与Word资料',exact:true}).click()
+ for(const [file,title,heading]of [['scan.pdf','复验扫描件','待文字识别'],['encrypted.pdf','复验加密PDF','解析失败']]){
+  await page.getByRole('link',{name:'上传资料',exact:true}).click();await page.locator('#document-title').fill(title);await page.locator('#document-file').setInputFiles(base+file);const response=page.waitForResponse(r=>r.url().endsWith('/api/v1/documents')&&r.request().method()==='POST');await page.getByRole('button',{name:'上传资料',exact:true}).click();const r=await response,d=await r.json();if(r.status()!==202||r.headers()['location']!=='/api/v1/documents/'+d.id)throw Error('terminal upload acceptance')
+  await page.getByRole('heading',{name:heading,exact:true}).waitFor({timeout:40000});if(await page.getByRole('button',{name:'重试解析',exact:true}).count()!==0)throw Error('Permanent failure offers retry')
+  await page.screenshot({path:base+'screenshots/nonretry-'+file+'.png',fullPage:true});cases.push({file,id:d.id,status:await page.locator('.document-status').innerText(),retry_hidden:true});await page.getByRole('link',{name:'← 返回PDF与Word资料',exact:true}).click()
+ }
+ return{cases,actual_parser_results:true,url:page.url(),native:await page.evaluate(()=>({dpr:devicePixelRatio,width:innerWidth,cssZoom:getComputedStyle(document.documentElement).zoom}))}
+}

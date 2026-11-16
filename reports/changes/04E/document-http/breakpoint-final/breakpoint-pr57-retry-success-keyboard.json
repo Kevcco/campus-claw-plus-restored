@@ -1,0 +1,28 @@
+{
+  "document_id": "7",
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/api/v1/documents/7/retry"
+    }
+  ],
+  "accepted": {
+    "status": 202,
+    "location": "/api/v1/documents/7",
+    "body_status": "queued",
+    "attempts": 1
+  },
+  "final": {
+    "status": "ready",
+    "attempts": 2,
+    "retry_hidden": true
+  },
+  "keyboard_activation": "Enter",
+  "url": "https://campus.test:32775/app/materials/documents/7",
+  "native": {
+    "dpr": 3,
+    "width": 720,
+    "cssZoom": "1",
+    "scale": 1
+  }
+}

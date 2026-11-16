@@ -1,0 +1,31 @@
+{
+  "checks": [
+    "学生无上传入口",
+    "学生不见扫描或失败资料",
+    "student-list-1440无横向溢出",
+    "student-list-360无横向溢出",
+    "学生可见真实原文无重试",
+    "student-word-1440无横向溢出",
+    "student-word-360无横向溢出",
+    "学生直接上传地址被阻止",
+    "other-class-empty-1440无横向溢出",
+    "other-class-empty-360无横向溢出",
+    "跨班学生不见前班资料",
+    "跨班原文显示拒绝错误",
+    "other-class-detail-denied-1440无横向溢出",
+    "other-class-detail-denied-360无横向溢出",
+    "离页后标题文件已清空"
+  ],
+  "screens": [
+    "student-list-1440.png",
+    "student-list-360.png",
+    "student-word-1440.png",
+    "student-word-360.png",
+    "other-class-empty-1440.png",
+    "other-class-empty-360.png",
+    "other-class-detail-denied-1440.png",
+    "other-class-detail-denied-360.png"
+  ],
+  "mode": "actual student/class authorization and page unmount; no fake responses",
+  "url": "https://campus.test:32768/app/materials/documents/upload"
+}

@@ -1,0 +1,61 @@
+{
+  "document_id": "16",
+  "results": [
+    {
+      "accepted": 202,
+      "location": "/api/v1/documents/16",
+      "queued_attempts": 1,
+      "final_attempts": 2,
+      "retry_button": true
+    },
+    {
+      "accepted": 202,
+      "location": "/api/v1/documents/16",
+      "queued_attempts": 2,
+      "final_attempts": 3,
+      "retry_button": false
+    }
+  ],
+  "events": [
+    {
+      "method": "POST",
+      "path": "/api/v1/documents/16/retry",
+      "time": 1794753330765
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/documents/16",
+      "time": 1794753330786
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/documents/16",
+      "time": 1794753332797
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/documents/16/retry",
+      "time": 1794753333218
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/documents/16",
+      "time": 1794753333236
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/documents/16",
+      "time": 1794753335248
+    }
+  ],
+  "exhausted_notice": true,
+  "retry_hidden": true,
+  "actual_parser_stopped": true,
+  "no_SQL_mutations": true,
+  "url": "https://campus.test:32773/app/materials/documents/16",
+  "native": {
+    "dpr": 3,
+    "width": 641,
+    "cssZoom": "1"
+  }
+}

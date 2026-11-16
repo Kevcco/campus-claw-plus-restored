@@ -5,7 +5,7 @@ import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import Ajv2020 from 'ajv/dist/2020.js'
 import SwaggerParser from '@apidevtools/swagger-parser'
-import { validateDocumentDetailExample, documentChange } from './documents.mjs'
+import { validateDocumentDetailExample, validateDocumentOperationProfiles, documentChange, documentOperations } from './documents.mjs'
 
 const directory = 'docs/contracts/document-parser'
 const json = path => JSON.parse(readFileSync(path, 'utf8'))
@@ -48,9 +48,9 @@ export function validateIntegrationProfile(contract, register, read = p => readF
     concurrency: 1, clock: 'database_utc', publish_cas: ['owner', 'epoch', 'processing', 'lease_not_expired'], retry_reasons: reasons.slice(4) })
   const activation = contract.activation
   assert.deepEqual(Object.keys(activation).sort(), ['scope','public_document_operations','required_pull_requests','approved_contract_commit','active_config_digest','files'].sort())
-  assert.equal(activation.scope, 'private_parser_worker_only')
-  assert.equal(activation.public_document_operations, 'frozen')
-  assert.deepEqual(activation.required_pull_requests, [52,53,54])
+  assert.equal(activation.scope, 'private_parser_worker_and_public_documents')
+  assert.equal(activation.public_document_operations, 'current')
+  assert.deepEqual(activation.required_pull_requests, [52,53,54,55])
   assert.equal(activation.approved_contract_commit, '39018c1b8d2555cfebe8fd75fb4a761558edad68')
   assert.equal(sha(JSON.stringify(register.active)), activation.active_config_digest)
   assert.deepEqual(Object.keys(activation.files).sort(), ['.env.example','compose.yaml','deploy/service-batches.json','docs/contracts/config-register.json'].sort())
@@ -59,6 +59,21 @@ export function validateIntegrationProfile(contract, register, read = p => readF
     assert.equal(sha(bytes),digest,'Atomic activation drift: '+path)
   }
   assert.equal(sha(JSON.stringify(register.active.slice(0,13))), contract.baseline.active_config_digest, 'Original thirteen active inputs changed')
+  const publicHTTP=contract.public_http
+  assert.deepEqual(Object.keys(publicHTTP).sort(),['status','operations','current_operations','approved_contract_commits','files'].sort())
+  assert.equal(publicHTTP.status,'current');assert.equal(publicHTTP.current_operations,28)
+  assert.deepEqual(publicHTTP.operations,documentOperations.map(([method,path])=>[method,path]))
+  assert.deepEqual(publicHTTP.approved_contract_commits,['25484d542278bd5bf65d2ae02688c0de833e8ccc','39018c1b8d2555cfebe8fd75fb4a761558edad68'])
+  assert.ok(Array.isArray(publicHTTP.files))
+  assert.deepEqual(publicHTTP.files.map(f=>f.path).sort(),['docs/contracts/endpoint-register.json','docs/contracts/openapi.yaml'].sort())
+  for(const file of publicHTTP.files){assert.deepEqual(Object.keys(file).sort(),['path','sha256']);const bytes=read(file.path);assert.ok(!bytes.includes(13),'Public activation inputs require repository LF');assert.equal(sha(bytes),file.sha256,'Public activation drift: '+file.path)}
+  validateDocumentOperationProfiles(JSON.parse(read('docs/contracts/openapi.yaml')))
+  const publicRegistry=JSON.parse(read('docs/contracts/endpoint-register.json'))
+  assert.equal(publicRegistry.operations.filter(o=>o.status==='current').length,28)
+  assert.deepEqual(publicRegistry.operations.filter(o=>o.owner==='04E').map(o=>[o.method,o.path,o.status]),documentOperations.map(([m,p])=>[m,p,'current']))
+  const originalRegistry=structuredClone(publicRegistry)
+  for(const op of originalRegistry.operations.filter(o=>o.owner==='04E'))op.status='frozen'
+  assert.equal(sha(JSON.stringify(originalRegistry,null,2)+'\n'),contract.baseline.protected_files['docs/contracts/endpoint-register.json'],'Original22 operations and all planned declarations must remain byte-equivalent')
   assert.deepEqual(register.frozen, [])
   assert.equal(register.active.length, 15)
   const configs = register.active.filter(c=>keys.includes(c.name))
@@ -76,7 +91,7 @@ export function validateIntegrationProfile(contract, register, read = p => readF
     'backend/internal/migrations/target.go', 'backend/internal/migrations/manifest.json'].sort(), 'Protected file paths must be an exact local allowlist')
   const runtimeFiles = ['backend/internal/migrations/target.go', 'backend/internal/migrations/manifest.json', 'docs/contracts/identity-phase.json']
   for (const [path, digest] of Object.entries(contract.baseline.protected_files)) {
-    if (!runtimeFiles.includes(path) && !(path in activation.files)) assert.equal(sha(read(path)), digest, 'Protected baseline changed: ' + path)
+    if (!runtimeFiles.includes(path) && !(path in activation.files) && !publicHTTP.files.some(f=>f.path===path)) assert.equal(sha(read(path)), digest, 'Protected baseline changed: ' + path)
   }
   const migration = contract.migration
   assert.equal(migration.number, 6); assert.equal(migration.current_target, 6)
@@ -258,5 +273,5 @@ export async function validateDocumentIntegration() {
     const check = new Ajv2020({ strict: true, strictRequired: false }).compile(stripIds(parsed.paths['/health'].get.responses[status].content['application/json'].schema))
     for (const value of ['invalid_request', 'unauthenticated', 'not_found', 'method_not_allowed', 'busy']) assert.equal(check({ error: value }), value === error)
   }
-  console.log(`DI-SC-02..06/14/15: ${fixtures.length} private dual-path cases; exact private parser/worker activation and embedded migration6; six public Document operations remain frozen.`)
+  console.log(`DI-SC-02..06/14/15: ${fixtures.length} private dual-path cases; exact private parser/worker and six public Document operations, embedded migration6;28 current.`)
 }

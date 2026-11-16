@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "native_zoom": 1,
+  "viewport_emulation_only_for_responsive_sizes": true,
+  "checks": [
+    {
+      "top": 28.866668701171875,
+      "view": 900,
+      "width": 1440,
+      "dpr": 1.5,
+      "overflow": false,
+      "focus": true
+    },
+    {
+      "top": 28.866668701171875,
+      "view": 900,
+      "width": 360,
+      "dpr": 1.5,
+      "overflow": false,
+      "focus": true
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+async page=>{
+ await page.getByRole('link',{name:'上传资料',exact:true}).click();await page.getByLabel('资料标题',{exact:false}).fill('真实依赖中断重试 '+Date.now());await page.locator('input[type=file]').setInputFiles('C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/document-parser/testdata/acceptance-v1/clear-01.pdf')
+ const accepted=page.waitForResponse(r=>r.url().endsWith('/api/v1/documents')&&r.request().method()==='POST');await page.getByRole('button',{name:'上传资料',exact:true}).click();const r=await accepted;const d=await r.json();if(r.status()!==202||r.headers()['location']!=='/api/v1/documents/'+d.id)throw Error('actual upload acceptance Location')
+ await page.getByRole('heading',{name:'解析失败',exact:true}).waitFor({timeout:45000});await page.getByRole('button',{name:'重试解析',exact:true}).waitFor()
+ await page.screenshot({path:'C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/output/document-browser/screenshots/retry-real-failure-'+d.id+'.png',fullPage:true})
+ return{document_id:d.id,upload_status:r.status(),location:r.headers()['location'],retry_button_visible:true,actual_parser_dependency_failure:true,url:page.url()}
+}

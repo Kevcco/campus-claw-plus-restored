@@ -1,5 +1,7 @@
 # 00 公共合同 business-contracts/v1
 
+2026-11-15本批04E公开接线：前置#52/#53/#54/#55已获Kevcco实际批准并正常合入，精确main d874b66完整CI43675360843及原件已核验。本候选将已批准#45的六个Document操作原子转current（共28），提供真实PDF/Word列表、上传、解析状态、关键词出处、原文及原件下载；沿用#49样板方向，用户本轮明确授权继续真实页面。持久异步解析保持Target6/15空active/五服务，持有人库未自动升级，生产进程不执行DDL。OCR与语义检索仍列后续任务。本批最终门禁、浏览器、远端批准和main复验以共享表为准；下面较早日期的候选状态属于历史记录。
+
 执行依据：`2026-11-04-business-contracts` 的D1—D9、BC-01—06；规约head `221be733194830daa9b35f810c37f035679e51bb` 已获[小张授权的复审批准](https://github.com/zwh9616/campus-claw-plus/pull/3#pullrequestreview-5765025797)。00实现已获小葛对75cadbf终审批准，合入main 4cfd61d并通过main CI和本机check/verify；G2已成立，证据见[集成记录](../../reports/changes/00/main-integration-2026-11-05.md)。10 A经小葛终审、正常合入main 55f0e83并完整复验，小陈复核共同登记，G3已成立，见[验收记录](../../reports/changes/10/A/main-integration-2026-11-07.md)。下游仍须自身批准与实际依赖。
 
 ## 从这里开始
