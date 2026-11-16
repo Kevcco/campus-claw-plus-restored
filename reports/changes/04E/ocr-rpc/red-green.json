@@ -1,0 +1,6 @@
+{
+  "scenario": "DI-SC-19 private OCR must reject HTTP200 with invalid OCRResult",
+  "scope": "exact source copied into an underscore-prefixed isolated Go package; active workspace source never mutated while complete check runs",
+  "red": 1,
+  "restored_green": 0
+}

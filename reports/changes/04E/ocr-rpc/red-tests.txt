@@ -1,0 +1,8 @@
+--- FAIL: TestOCRClientStrictSuccessAndFailureMapping (0.01s)
+    --- FAIL: TestOCRClientStrictSuccessAndFailureMapping/{"status":"ready"} (0.00s)
+        client_test.go:57:
+    --- FAIL: TestOCRClientStrictSuccessAndFailureMapping/{"status":"failed","reason":"c#01 (0.00s)
+        client_test.go:57:
+FAIL
+FAIL	github.com/zwh9616/campus-claw-plus/backend/_ocr_client_mutant_y0FaPv	1.013s
+FAIL

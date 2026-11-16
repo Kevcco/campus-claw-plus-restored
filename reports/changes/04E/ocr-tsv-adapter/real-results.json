@@ -1,0 +1,109 @@
+{
+  "source": "reports/changes/04E/ocr-engine-development/engine-raw.json",
+  "sha256": "2e1c09516663c53c14655825ae536dee7d9801f0a653ca7204ccf0fd39ccd9cc",
+  "image_id": "sha256:c8588931337197969ade98805f5ec2a1e8d12b445a9dd6fa8670316866dd930c",
+  "rows": [
+    {
+      "file": "page-01.png",
+      "empty_page_rejected": true
+    },
+    {
+      "file": "page-02.jpg",
+      "words": 72,
+      "status": "needs_review",
+      "quality": "low_quality",
+      "width": 1654,
+      "height": 2339,
+      "quote_check": true
+    },
+    {
+      "file": "page-03.png",
+      "empty_page_rejected": true
+    },
+    {
+      "file": "page-04.png",
+      "words": 64,
+      "status": "needs_review",
+      "quality": "low_quality",
+      "width": 1654,
+      "height": 2339,
+      "quote_check": true
+    },
+    {
+      "file": "page-05.png",
+      "empty_page_rejected": true
+    },
+    {
+      "file": "page-06.jpg",
+      "words": 66,
+      "status": "needs_review",
+      "quality": "low_quality",
+      "width": 1654,
+      "height": 2339,
+      "quote_check": true
+    },
+    {
+      "file": "page-07.png",
+      "empty_page_rejected": true
+    },
+    {
+      "file": "page-08.png",
+      "words": 57,
+      "status": "needs_review",
+      "quality": "low_quality",
+      "width": 1654,
+      "height": 2339,
+      "quote_check": true
+    },
+    {
+      "file": "page-09.png",
+      "empty_page_rejected": true
+    },
+    {
+      "file": "page-10.jpg",
+      "words": 68,
+      "status": "needs_review",
+      "quality": "low_quality",
+      "width": 1654,
+      "height": 2339,
+      "quote_check": true
+    },
+    {
+      "file": "page-11.png",
+      "words": 135,
+      "status": "needs_review",
+      "quality": "acceptable_candidate",
+      "width": 1654,
+      "height": 2339,
+      "quote_check": true
+    },
+    {
+      "file": "page-12.jpg",
+      "words": 127,
+      "status": "needs_review",
+      "quality": "acceptable_candidate",
+      "width": 2339,
+      "height": 1654,
+      "quote_check": true
+    },
+    {
+      "file": "page-13.png",
+      "words": 94,
+      "status": "needs_review",
+      "quality": "acceptable_candidate",
+      "width": 1654,
+      "height": 2339,
+      "quote_check": true
+    },
+    {
+      "file": "page-14.png",
+      "words": 85,
+      "status": "needs_review",
+      "quality": "acceptable_candidate",
+      "width": 1654,
+      "height": 2339,
+      "quote_check": true
+    }
+  ],
+  "scope": "Existing real development OCR output; no new OCR or blind/gold bbox evaluation"
+}

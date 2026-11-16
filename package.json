@@ -14,7 +14,7 @@
     "check:foundation": "node scripts/check-foundation.mjs",
     "check:backend": "node scripts/check-backend.mjs",
     "check:spec": "openspec validate --all --strict",
-    "check": "npm run check:foundation && npm run check:ocr-corpus && npm run check:ocr-draft && npm run check:gate && npm run check:contracts && npm run check:service-batches && npm run check:identity-wiring && npm run check:frontend-auth && npm run typecheck && npm run build && npm run check:sample-isolation && npm run check:backend && npm run check:spec && npm run check:document-parser && npm run check:document-storage-contract",
+    "check": "npm run check:foundation && npm run check:ocr-corpus && npm run check:ocr-draft && npm run check:gate && npm run check:contracts && npm run check:service-batches && npm run check:identity-wiring && npm run check:frontend-auth && npm run typecheck && npm run build && npm run check:sample-isolation && npm run check:backend && npm run check:spec && npm run check:document-parser && npm run check:document-storage-contract && npm run check:ocr-revisions && npm run check:ocr-migration",
     "test": "npm run check:backend",
     "audit": "npm audit --audit-level=high && npm audit --prefix frontend --audit-level=high",
     "verify": "node scripts/verify-service-batches.mjs",
@@ -33,7 +33,9 @@
     "check:document-parser": "node --test scripts/independent-checks.test.mjs && node scripts/check-document-parser.mjs",
     "check:document-storage-contract": "node scripts/check-document-storage-contract.mjs",
     "check:ocr-corpus": "node scripts/check-ocr-corpus.mjs && node --test scripts/ocr-corpus.test.mjs",
-    "check:ocr-draft": "node --test scripts/ocr-draft-contract.test.mjs"
+    "check:ocr-draft": "node --test scripts/ocr-draft-contract.test.mjs && node --test scripts/ocr-tsv.test.mjs && node scripts/check-ocr-raster.mjs",
+    "check:ocr-revisions": "node scripts/check-ocr-revisions.mjs",
+    "check:ocr-migration": "node scripts/check-ocr-migration.mjs"
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "13.1.0",

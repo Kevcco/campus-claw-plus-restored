@@ -11,10 +11,15 @@ import (
 var documentTables = []string{"documents", "document_locations", "document_chunks", "document_parse_jobs", "document_idempotency"}
 var documentAutoIncrement = regexp.MustCompile(`(?m)(\) ENGINE=InnoDB) AUTO_INCREMENT=[0-9]+`)
 
+// MySQL8.4 mysqldump writes enum charset explicitly on restore. This exact
+// collation already implies utf8mb4; other charsets/collations remain distinct.
+var explicitEnumCharset = regexp.MustCompile("(?m)^(  `[^`]+` enum\\(.*\\)) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_bin")
+
 // document-structure.json is a committed canonical SHOW CREATE TABLE snapshot
 // captured once from the reviewed, SHA-bound SQL on pinned MySQL 8.4.13. It is
-// never learned from the database under inspection. Only the next generated ID
-// is ignored: column/index/FK order, FK database, defaults, CHECK expressions,
+// never learned from the database under inspection. Next generated ID and the
+// exactly redundant enum charset syntax are ignored; column/index/FK order,
+// FK database, defaults, CHECK expressions,
 // enforcement, collations and table options must match the approved definition.
 func (e Executor) documentStructure(ctx context.Context, table string) error {
 	data, err := files.ReadFile("document-structure.json")
@@ -50,6 +55,7 @@ func (e Executor) documentStructure(ctx context.Context, table string) error {
 
 func canonicalDocumentDefinition(ddl string) string {
 	ddl = documentAutoIncrement.ReplaceAllString(ddl, "${1}")
+	ddl = explicitEnumCharset.ReplaceAllString(ddl, "${1} COLLATE utf8mb4_0900_bin")
 	var columns, rules []string
 	for _, line := range strings.Split(ddl, "\n") {
 		line = strings.TrimSuffix(line, ",")

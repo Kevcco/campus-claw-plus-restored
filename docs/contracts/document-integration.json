@@ -151,8 +151,16 @@
     ],
     "runtime_files": {
       "backend/internal/migrations/target.go": "02058e6fc3b068bcba5ca9b2077c237a5262df24bbd131ea3bc7ab0d735d364b",
-      "backend/internal/migrations/manifest.json": "5d88572a78c7060130aa6077b8aceaf71305404a5b09086bb28fb5fa6877b87b",
+      "backend/internal/migrations/manifest.json": "caeb85583a6060b920e2557de5f64fac3c62db970d52785d97199b05795a6a73",
       "docs/contracts/identity-phase.json": "f03096a9f1397051f6d0f4bcc257cb8f81a82622797dd62d873eab4d395f2ca1"
+    },
+    "prepared_files": {
+      "000007_ocr_revisions.up.sql": "2364d2594851940aaeb00a6893bc763a1487243f35dcd87a0fe47c7d93c74849",
+      "000007_ocr_revisions.down.sql": "3c13e03c8d8b4378db943a1d05ed47d684db105a3634f15601d10b2bdec410bc"
+    },
+    "prepared_structure": {
+      "path": "backend/internal/migrations/ocr-structure.json",
+      "sha256": "53d195d92dddf19a668a57f772eb07cfed628d0df26461dba7dbe45f062f6a3d"
     }
   },
   "baseline": {

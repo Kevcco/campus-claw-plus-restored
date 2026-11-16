@@ -1,0 +1,22 @@
+{"directory":"C:\\Users\\lenovo\\Desktop\\SoftwareDevelopment\\group_project\\output\\04-document-http-pages-2026-11-15\\output\\campus-ocr-pdf-cf27787036ff","image_id":"sha256:543c3ae8067ff6d1f3ba32a80a502dc1b2ca13b8a8c6656b1dc4605bf5b8f381","rows":[],"exit_code":1,"cleanup":true,"blind_ocr_executed":false,"gold_bbox_evaluated":false,"production_acceptance":false}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Raster/OCR subprocess must succeed
+
+1 !== 0
+
+    at file:///C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/scripts/benchmark-ocr-pdf.mjs:18:151
+    at ModuleJob.run (node:internal/modules/esm/module_job:413:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:654:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v25.2.1

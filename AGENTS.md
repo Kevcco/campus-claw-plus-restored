@@ -1,6 +1,8 @@
 # CampusClawPlus 工程约定
 
-2026-11-16当前状态：#57真实PDF/Word页面与#58夹具修复已获批合入main659393b，精确main完整CI通过。#59完整CI通过、Kevcco实际审查待。超时优化候选fd67834本机原完整gate四段0（verify590105ms/600秒），获审合入后的精确main复验仍待，A4.3不勾。真实OCR14页开发实验完成（4正例合并CER1.55%、10负例暂定诊断10/10），独立接口草案4组检查通过；50盲测/100框/PDF栅格、准确B合同/迁移和生产接线仍待。28 current、Target6、15空active键与生产服务保持，持有人环境未自动部署。 新公共合同仍须获审合入才apply；下列旧阶段记录保留历史含义，最新进展见共享表。
+2026-11-16审查范围对齐：依据本次用户明确提供的工程约定，仅04E由小张统一负责规约、合同、实现、测试及收口；其他变更负责人和暂停安排保持。公共合同仍须获审正常合入后才apply，G2/G3及远端真实批准保留，不伪造成员批准或独立复测。本PR只交付隔离候选组件和prepared迁移7，不放行生产OCR、公开接线或其他暂停模块。
+
+2026-11-16当前状态：#59/#60均已实际批准正常合入，最新main8ddd8f4；#61已转main并同步主干，当前连接仍无保护规则管理权限。#61候选已完成扫描PDF开发实测、不可变校对版本/检索、原始OCR词框快照及租约事务，隔离私有OCR RPC/顺序worker/校对检索及取消释放已实测；prepared迁移7、六DDL中断修复、真实dump隔离恢复6/7通过。Kevcco两条行为意见已真实复现并修复，MySQL扩至13组；功能head51464ad完整CI及本机600秒内verify562472ms通过，正常合并仍被远端CHANGES_REQUESTED阻断；新文档head CI/默认生产装配、公开接口与校对页面及完整质量验收仍待。生产仍Target6/28 current/15空active，持有人环境未部署。仅04E统一小张推进，真实远端批准及合同先合入再apply保持；历史段落以共享表为准。
 本分支默认运行已接入01身份与MySQL阶段，实际合入/验收状态见共享表。第7课骨架为历史基线，历史主规约见[spec](openspec/specs/project-bootstrap/spec.md)，归档依据见[历史变更](openspec/changes/archive/2026-10-28-project-bootstrap/)。本轮执行[00规约](openspec/changes/2026-11-04-business-contracts/proposal.md)、[design](openspec/changes/2026-11-04-business-contracts/design.md)、[spec](openspec/changes/2026-11-04-business-contracts/specs/business-contracts/spec.md)及[tasks](openspec/changes/2026-11-04-business-contracts/tasks.md)；00只负责公共合同。当前01/02/04已验收，06真实资料页面已随#30合入，测试修复#31及主干完整CI43186361938通过；2026-11-12组长恢复05规约工作，其他暂停项未恢复。PB/SC保留历史含义，新需求使用BC及后续change自己的前缀。
 
 2026-11-13实际状态：05迁移#38、HTTP#40和worker#41已分别由小陈终审并正常合入；实现验收main d06198d完整CI43362518043成功，22 current、精确目标5。生产不绑定批改执行器/结果适配器，任务真实pending；05主规约及完整归档已随#42获小张批准并正常合入main c0f24f3；精确main完整CI43368065979复验通过，原件已核验。06资料归档#37已合入并复验；10-B全量/C、AI、成绩和作业页面仍未验收。

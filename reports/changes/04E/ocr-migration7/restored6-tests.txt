@@ -1,0 +1,5 @@
+=== RUN   TestOCRBackupFixture
+    migration_test.go:330: BACKUP_STAGE restored6 passed
+--- PASS: TestOCRBackupFixture (0.07s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/integration/ocrmigration	0.080s

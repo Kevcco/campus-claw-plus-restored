@@ -1,0 +1,206 @@
+{
+  "source": {
+    "commit": "0a57792d32d76a089048d32d92cfb3d9effbaa87",
+    "dirty": false,
+    "fingerprint": "01e03912fb376173144337da7be1c753b222377664ce4a8b56f4528eafe77af7"
+  },
+  "tracked_files": 2785,
+  "publicHTTP": {
+    "stages": [
+      "main",
+      "outage",
+      "persist"
+    ],
+    "database_tests": [
+      "TestDHExplicitRetryStopsAtThreeAndPreservesOriginal202",
+      "TestDHPublicAuthorizationOriginalsAndCitations",
+      "TestDHConcurrentIdempotencySharedQuotaAndRollback",
+      "TestDHSnapshotConsistencyAndStrictInput",
+      "TestDHSlowBodyUsesWholeFiveSecondBudget"
+    ],
+    "real_formats": 2,
+    "actors": 5,
+    "default_https": true,
+    "real_parser": true,
+    "exact_originals": true,
+    "persistent_quotes": true,
+    "actual_parser_outage": true,
+    "container_recreation": true
+  },
+  "four_segments_exit0": true,
+  "verify_ms": 366136,
+  "images": [
+    {
+      "service": "mysql",
+      "image_id": "sha256:591327921d0f35bf8ca93a60144da512bd53b589370942542d7f0a191de6399c",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "admin",
+      "image_id": "sha256:d74ddce66027ece86637702faac1e24af8f17db007847834e8c48dcb08116855",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "backend",
+      "image_id": "sha256:ffe9152fc9c4c3918df5e49b40449f42b2548ee070a9ab352e1db6579c0243d3",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "frontend",
+      "image_id": "sha256:b3c43298eaf4418907d7d68dce3456753b1b98005e3d324d1a9d73ff8b0b1e8b",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "document-parser",
+      "image_id": "sha256:8db85c2d3e063f53ab02e2374ca9c00a0e6d65e25b7ff3d0aaf1724573d4df8f",
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  ],
+  "migration": {
+    "target": 6,
+    "restored_target": 5,
+    "tests": [
+      "TestDIMigration6FreshUpgradeAndHistory",
+      "TestDIFiveDDLInterruptionAndForwardRepair",
+      "TestDIExactStructureDrift",
+      "TestDIEmptyDisposableDownOnly"
+    ],
+    "interrupted_ddl_steps": 5,
+    "accepted5_commit": "c1ac4213580df1fcc03520b8dddcfbece2a3344d",
+    "binaries": {
+      "pre06-server": "55704b6ad8564f01cbd704460c446e81576435947be0959d55a87e5890206d59",
+      "pre06-admin": "07605b774b31eb62a8ac7ad5855969632315dfe1e9d1c354ec6dca500cfc36d9",
+      "server": "d26f538af9b4c3091fdb1fbd21a70b0ce6150943fbbff78683393c36356e74c7",
+      "identity-admin": "dd3d90cd26820a8b4da899898972fd7db899c1d73ac9604c498685b4e75ffc52"
+    },
+    "dump_sha256": "0ab8b250af1175ba86cb5d8fdb25fd9b5f8539913b6c5e0767157197062b21de",
+    "backup_utc": "2026-11-16T11:40:45.723Z",
+    "observed_rto_upper_bound_ms": 1417,
+    "separate_preserved_source": "idf_test_63",
+    "isolated_restore": "idf_test_64"
+  },
+  "worker": {
+    "stages": [
+      "corpus",
+      "outage-enqueue",
+      "outage-retry",
+      "restart-enqueue",
+      "restart-verify",
+      "kill-enqueue",
+      "kill-expire",
+      "kill-verify",
+      "database-verify"
+    ],
+    "documents": 40,
+    "locations": 195,
+    "chunks": 196,
+    "actual_worker_sigkill": true,
+    "forced_test_lease_expiry": true,
+    "actual_database_recovery": true,
+    "public_document_http": "separate-required-proof",
+    "parser_image": "sha256:8db85c2d3e063f53ab02e2374ca9c00a0e6d65e25b7ff3d0aaf1724573d4df8f",
+    "backend_image": "sha256:ffe9152fc9c4c3918df5e49b40449f42b2548ee070a9ab352e1db6579c0243d3"
+  },
+  "parser": {
+    "check": {
+      "documents": 40,
+      "locations": 195,
+      "negative_classes": 25,
+      "max_cer": 0,
+      "private_http_groups": 7,
+      "private_probe_groups": 3,
+      "actual_client_outage": true
+    },
+    "scan": {
+      "documents": 40,
+      "locations": 195,
+      "negative_classes": 25,
+      "max_cer": 0,
+      "private_http_groups": 7,
+      "private_probe_groups": 3,
+      "actual_client_outage": true
+    }
+  },
+  "queue_groups": 10,
+  "sql_rejections": 16,
+  "all_cleanup_ok": true,
+  "originals": [
+    {
+      "path": "mysql-image-verify/results.json",
+      "sha256": "affc73f838702ea86a7125a6cae3e0ae074312ca3659bf946571f09fc6993eb3"
+    },
+    {
+      "path": "mysql-image-verify/mysql.json",
+      "sha256": "0206fab87ef85a1896cdece21868823e71e7d63139378335b3cdaeb065b8fe81"
+    },
+    {
+      "path": "application-image-verify/results.json",
+      "sha256": "26a867e2cd4ad0b3ff5b685eeb629f4cdd9698f7b914a4bc66afb51de035fee7"
+    },
+    {
+      "path": "application-image-verify/backend.json",
+      "sha256": "b96021f15178a7c4d122a48c4c485790c5ed29bdcfebcf59e91ced81a1a73c53"
+    },
+    {
+      "path": "application-image-verify/admin.json",
+      "sha256": "ce5b5a82e968053c342a8e8c6af70e962aa0e9bd61b2fa2f5a1ffe64410c07d7"
+    },
+    {
+      "path": "application-image-verify/frontend.json",
+      "sha256": "b2db869bc0297bf7f02a9b63ca784d257b1fe82c6fd58d70ac24f0bc9a7e44c1"
+    },
+    {
+      "path": "application-image-verify/document-parser.json",
+      "sha256": "362207e160dd288e257f1e99087674930d577348ac2ef51f9226e356e6a29630"
+    },
+    {
+      "path": "identity/results.json",
+      "sha256": "8cec9450885029b6f9e3f73c5af840dfa8f3e9996715bd5b67f2fa111765c33e"
+    },
+    {
+      "path": "identity-wiring/results.json",
+      "sha256": "57fff60f438ace6f168f9013f597de95502cbc676bc67a44cc84bb882214d009"
+    },
+    {
+      "path": "verification/gate-results.json",
+      "sha256": "1fc441b475951df9ba41adf719a93a00ce1eaf2365e8971a91312d6ed2ab2db4"
+    },
+    {
+      "path": "service-batches/results.json",
+      "sha256": "433dea89196964ff83a5d19540c3fb00214e2a93ceb17e8b3259a81fae5a5b03"
+    },
+    {
+      "path": "document-parser/check/results.json",
+      "sha256": "c6ff1516387c6de06aaac98b5cb466b5368ba21d3c5f1395cd7c13c54e79d0b1"
+    },
+    {
+      "path": "document-parser/check/tests.json",
+      "sha256": "383d887fe15796869777bc2a2c27c8fa91996618b91f5e0539d50b9085f02751"
+    },
+    {
+      "path": "document-parser/scan/results.json",
+      "sha256": "7335e37712084268c910236f889876c5c78301fb92838344695caf75bbcdcb96"
+    },
+    {
+      "path": "document-parser/scan/tests.json",
+      "sha256": "5adf3697f95342e27b96931d34ddc5d2d2204b87a54bb381e8848c1b3550c7e2"
+    },
+    {
+      "path": "document-parser/scan/parser.json",
+      "sha256": "cac7a9108159f0c3b24183014aeb16acf6f193ceab55096c5da51a056826c0a7"
+    },
+    {
+      "path": "document-storage-contract/results.json",
+      "sha256": "4fc3ea07073145c24340a432973578b9aed9c94e0fcc3228dd7b9c589a810d71"
+    },
+    {
+      "path": "document-storage-contract/queue-test.log",
+      "sha256": "57a04a8f5bc35c301990fcdeaecd597b94e7ae8d9d8fe2fc3dee9b8e7a2d67cc"
+    }
+  ]
+}

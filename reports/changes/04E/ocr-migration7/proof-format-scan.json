@@ -1,0 +1,18 @@
+{
+  "actual_credentials": false,
+  "rule": "generic-api-key",
+  "findings": 114,
+  "locations": [
+    {
+      "path": "local-proof.json",
+      "count": 111
+    },
+    {
+      "path": "evidence-manifest.json",
+      "count": 3
+    }
+  ],
+  "cause": "public source-file SHA values paired with credential-like filenames as JSON keys",
+  "resolution": "retain independently verified aggregate source fingerprint; use separate path and sha256 fields for evidence inventory",
+  "scanner_exemptions_added": false
+}

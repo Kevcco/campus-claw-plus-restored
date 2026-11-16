@@ -1,0 +1,46 @@
+-test.shuffle 1794828194670119572
+=== RUN   TestMySQLReviewIdempotentRaceAndOldSource
+--- PASS: TestMySQLReviewIdempotentRaceAndOldSource (0.06s)
+=== RUN   TestMySQLOCRSourceRollbackAndFinalLeaseExpiry
+--- PASS: TestMySQLOCRSourceRollbackAndFinalLeaseExpiry (0.22s)
+=== RUN   TestMySQLOCRRealSourceAndReview
+--- PASS: TestMySQLOCRRealSourceAndReview (0.14s)
+=== RUN   TestMySQLOCRKilledWorkerTakeover
+--- PASS: TestMySQLOCRKilledWorkerTakeover (0.05s)
+=== RUN   TestMySQLOCRTakeoverAndExhaustion
+--- PASS: TestMySQLOCRTakeoverAndExhaustion (0.05s)
+=== RUN   TestMySQLReviewDocumentScopedIdempotency
+    review_feedback_mysql_test.go:85: document-scoped concurrent write failed 91 CONFLICT
+--- FAIL: TestMySQLReviewDocumentScopedIdempotency (0.01s)
+=== RUN   TestMySQLReviewBoundaryKeywords
+=== RUN   TestMySQLReviewBoundaryKeywords/合同
+    review_feedback_mysql_test.go:31: published boundary keyword missing <nil>
+=== RUN   TestMySQLReviewBoundaryKeywords/😀合�
+    review_feedback_mysql_test.go:31: published boundary keyword missing <nil>
+=== RUN   TestMySQLReviewBoundaryKeywords/界界��
+    review_feedback_mysql_test.go:31: published boundary keyword missing <nil>
+--- FAIL: TestMySQLReviewBoundaryKeywords (0.02s)
+    --- FAIL: TestMySQLReviewBoundaryKeywords/合同 (0.01s)
+    --- FAIL: TestMySQLReviewBoundaryKeywords/😀合� (0.01s)
+    --- FAIL: TestMySQLReviewBoundaryKeywords/界界�� (0.01s)
+=== RUN   TestMySQLReviewPublishedKeywordIsolation
+--- PASS: TestMySQLReviewPublishedKeywordIsolation (0.01s)
+=== RUN   TestOCRClaimHelper
+--- PASS: TestOCRClaimHelper (0.00s)
+=== RUN   TestMySQLOCRWorkerFailureAndExplicitRetry
+--- PASS: TestMySQLOCRWorkerFailureAndExplicitRetry (0.05s)
+=== RUN   TestMySQLReviewCASRaceAndAuthorization
+--- PASS: TestMySQLReviewCASRaceAndAuthorization (0.02s)
+=== RUN   TestMySQLReviewRollbackAndPageCount
+--- PASS: TestMySQLReviewRollbackAndPageCount (0.01s)
+=== RUN   TestMySQLReviewForeignClassAndRevisionBounds
+--- PASS: TestMySQLReviewForeignClassAndRevisionBounds (0.01s)
+=== RUN   TestMySQLOCRWorkerCancelAndLostLease
+--- PASS: TestMySQLOCRWorkerCancelAndLostLease (0.04s)
+=== RUN   TestContentCodepointsAndBounds
+--- PASS: TestContentCodepointsAndBounds (0.00s)
+=== RUN   TestSourceStrictCodepointsAndBounds
+--- PASS: TestSourceStrictCodepointsAndBounds (0.00s)
+FAIL
+FAIL	github.com/zwh9616/campus-claw-plus/backend/internal/ocrreview	0.697s
+FAIL

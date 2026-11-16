@@ -1,0 +1,36 @@
+{
+  "status": "draft",
+  "runtime_activation": false,
+  "lease_seconds": 60,
+  "heartbeat_seconds": 20,
+  "max_attempts": 3,
+  "sql_budget_ms": 5000,
+  "commit_guard": [
+    "document_id",
+    "class_id",
+    "original_digest",
+    "worker_owner",
+    "execution_epoch",
+    "processing",
+    "database_utc_lease_live_at_final_update"
+  ],
+  "source_bytes": 8388608,
+  "body_utf8_bytes": 2097152,
+  "max_words": 100000,
+  "source_visibility": "same-class teacher",
+  "source_immutable": true,
+  "sql": {
+    "docs/contracts/ocr-draft/000007_ocr_revisions.up.sql": "2364d2594851940aaeb00a6893bc763a1487243f35dcd87a0fe47c7d93c74849",
+    "docs/contracts/ocr-draft/000007_ocr_revisions.down.sql": "3c13e03c8d8b4378db943a1d05ed47d684db105a3634f15601d10b2bdec410bc"
+  },
+  "runtime_target": 6,
+  "explicit_retry": true,
+  "retryable_failures": [
+    "ocr_timeout",
+    "worker_interrupted",
+    "internal_failure"
+  ],
+  "migration_prepared": true,
+  "structure_snapshot": "backend/internal/migrations/ocr-structure.json",
+  "structure_sha256": "53d195d92dddf19a668a57f772eb07cfed628d0df26461dba7dbe45f062f6a3d"
+}

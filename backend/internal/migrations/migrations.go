@@ -21,10 +21,10 @@ import (
 	"time"
 )
 
-//go:embed sql/*.sql manifest.json document-structure.json
+//go:embed sql/*.sql manifest.json document-structure.json ocr-structure.json
 var files embed.FS
 var ErrState = errors.New("migration state requires inspection; no automatic repair")
-var names = []string{"identity_users_classes", "identity_sessions", "identity_auth_audit", "materials_retrieval", "assignment_tasks", "documents"}
+var names = []string{"identity_users_classes", "identity_sessions", "identity_auth_audit", "materials_retrieval", "assignment_tasks", "documents", "ocr_revisions"}
 
 type Executor struct {
 	DB       *sql.DB

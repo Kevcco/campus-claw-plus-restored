@@ -1,0 +1,10 @@
+{
+  "foundation_exit": 0,
+  "strict_pass": 11,
+  "strict_fail": 0,
+  "history_commits_scanned": 264,
+  "history_secret_exit": 0,
+  "staged_secret_exit": 0,
+  "production_source_modified": false,
+  "final_head_ci": "pending after this commit"
+}

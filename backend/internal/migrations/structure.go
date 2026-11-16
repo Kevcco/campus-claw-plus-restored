@@ -103,6 +103,9 @@ func (e Executor) structure(ctx context.Context, version int, partial bool) erro
 	if version >= 6 {
 		tables = append(tables, documentTables...)
 	}
+	if version >= 7 {
+		tables = append(tables, ocrTables...)
+	}
 	for _, table := range tables {
 		var engine string
 		err := e.DB.QueryRowContext(ctx, "SELECT ENGINE FROM information_schema.TABLES WHERE TABLE_SCHEMA=? AND TABLE_NAME=?", e.Database, table).Scan(&engine)
@@ -111,6 +114,20 @@ func (e Executor) structure(ctx context.Context, version int, partial bool) erro
 		}
 		if err != nil || engine != "InnoDB" {
 			return ErrState
+		}
+		if version >= 7 {
+			ocr := false
+			for _, name := range ocrTables {
+				if table == name {
+					ocr = true
+				}
+			}
+			if ocr {
+				if err := e.ocrStructure(ctx, table); err != nil {
+					return err
+				}
+				continue
+			}
 		}
 		if version >= 6 {
 			var document bool

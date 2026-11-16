@@ -1,0 +1,16 @@
+
+> campus-claw-plus@0.0.1 gate
+> node scripts/gate.mjs
+
+file:///C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/scripts/gate-runner.mjs:59
+    if (error.code === 'EEXIST') throw new Error(`Gate lock exists at ${path}. Wait for the active process. After a crash, confirm it stopped before removing that lock.`)
+                                       ^
+
+Error: Gate lock exists at C:\Users\lenovo\Desktop\SoftwareDevelopment\group_project\output\04-document-http-pages-2026-11-15\output\verification\gate.lock. Wait for the active process. After a crash, confirm it stopped before removing that lock.
+    at acquireLock (file:///C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/scripts/gate-runner.mjs:59:40)
+    at file:///C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/scripts/gate.mjs:9:17
+    at ModuleJob.run (node:internal/modules/esm/module_job:413:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:654:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v25.2.1
