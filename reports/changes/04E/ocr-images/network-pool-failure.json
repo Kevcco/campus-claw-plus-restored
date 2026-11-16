@@ -1,0 +1,47 @@
+{
+  "exit_code": 1,
+  "scope": "Isolated candidate revision DDL and actual Go transactions; production Target6 unchanged",
+  "run_id": "campus-ocr-revisions-98db8d84a585",
+  "real_ocr_fixture": {
+    "engine_output_sha256": "e0737982ca3e10b910e40ae7f59ae859c7d5e1da75071e906e50eba895e5da71",
+    "source_sha256": "e23ba3b7ffbf2ea74e6993f0340b007a647cf1501aab3a91d027af36a82ae0ed",
+    "original_sha256": "bfb8a3728453b52a80a254e872b6d417fe0ee4314310e28045b5f81a079e2135",
+    "pages": 4,
+    "words": 437
+  },
+  "image_id": "sha256:5c0ab470392cdb887bb410475bcb6e6dcb6550a3a88c25eea2029c46a8c21d70",
+  "error": "create exclusive internal OCR pipeline network: Error response from daemon: all predefined address pools have been fully subnetted\n\n\n1 !== 0\n",
+  "cleanup": [
+    {
+      "resource": "campus-ocr-revisions-98db8d84a585-ocr",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-revisions-98db8d84a585",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-revisions-98db8d84a585:probe",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-revisions-98db8d84a585-net",
+      "ok": true
+    }
+  ],
+  "secret_file_removed": true,
+  "results": [
+    {
+      "label": "build pinned MySQL probe",
+      "exit_code": 0
+    },
+    {
+      "label": "immutable MySQL image",
+      "exit_code": 0
+    },
+    {
+      "label": "create exclusive internal OCR pipeline network",
+      "exit_code": 1
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+
+> campus-claw-plus@0.0.1 check:ocr-draft
+> node --test scripts/ocr-draft-contract.test.mjs scripts/ocr-private-contract.test.mjs && node --test scripts/ocr-tsv.test.mjs && node scripts/check-ocr-raster.mjs
+
+✔ DI-SC-16/17 private draft single-source 2020-12 and OpenAPI paths accept only closed bounded data (3.1671ms)
+✔ DI-SC-17 semantic pixel/range/quote/order/bbox guards reject structurally valid false citations (5.2506ms)
+✔ DI-SC-18 review requires explicit acknowledgement, bounded content and server authority/CAS (1.5302ms)
+✔ DI-SC-25 candidate is explicitly draft and cannot activate current endpoints/config/migration (1.0332ms)
+✔ DI-SC-16/19 private OCR exact fixed origin, canonical auth and three bounded binary media (1.5811ms)
+✔ DI-SC-17/19 exact HTTP status and single-source success/failure data agree (461.0846ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1171.2288
+✔ DI-SC-17 actual TSV shape yields original boxes and Unicode codepoint quotes across pages (1.9556ms)
+✔ DI-SC-17 malformed, forged boxes, nonfinite confidence, unordered and empty TSV fail closed (6.1827ms)
+✔ DI-SC-18 low raw confidence remains a review result and never publishes ready (0.221ms)
+✔ DI-SC-17 real engine whitespace word rows are layout rather than fabricated text (0.2721ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 135.6575
+{"request_id": "e1e9a80522d5409c9359f2d9360463ba", "path": "/health", "status": 401, "duration_ms": 0}
+{"request_id": "bdac7edb7979450c8e3b9964ae2ae698", "path": "/health", "status": 200, "duration_ms": 0}
+{"request_id": "ad770f10c8fb44bc9b06bae38e233ba3", "path": "unknown", "status": 404, "duration_ms": 0}
+{"request_id": "f44c3af32dd04721bf40d34a462a6445", "path": "unknown", "status": 400, "duration_ms": 0}
+{"request_id": "32e899f994814deb83902a511017807e", "path": "/internal/ocr", "status": 503, "duration_ms": 1}
+{"request_id": "4a9e574bfa3a42ce86de156baa581bbb", "path": "/internal/ocr", "status": 422, "duration_ms": 1}
+{"request_id": "98f2a8e92da6440e8bd5aa6b953c1921", "path": "/internal/ocr", "status": 422, "duration_ms": 1}
+{"request_id": "4a4fc2891ccb4fd0bf8e2c55370ce7f1", "path": "/internal/ocr", "status": 422, "duration_ms": 0}
+{"request_id": "8c9c2b01c5e34662ab945d4282044fe3", "path": "/internal/ocr", "status": 422, "duration_ms": 1}
+{"request_id": "aa982a8aa7784fc8b6f52778accd8868", "path": "/internal/ocr", "status": 422, "duration_ms": 1}
+{"request_id": "2ecb453161e04035b6a98ecda14d5598", "path": "/internal/ocr", "status": 400, "duration_ms": 0}
+{"request_id": "04511d17d265480ea861fb20ed0f91c4", "path": "/internal/ocr", "status": 422, "duration_ms": 21}
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.594s
+
+OK

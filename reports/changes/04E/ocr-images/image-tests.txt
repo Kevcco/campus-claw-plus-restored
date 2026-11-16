@@ -1,0 +1,5 @@
+=== RUN   TestRealImageOCRDevelopment
+    images_test.go:103: IMAGE_RPC development_inputs=14 metadata_invariance=2 bounded_rejections=3 original_geometry_checked=true gold_in_service=false blind_inputs=0
+--- PASS: TestRealImageOCRDevelopment (26.03s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/integration/ocrpipeline	26.035s

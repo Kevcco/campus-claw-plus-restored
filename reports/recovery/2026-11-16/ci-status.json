@@ -1,0 +1,48 @@
+{
+  "checked_at": "2026-11-16T15:30:48.762Z",
+  "main": {
+    "id": 43896535416,
+    "head": "909eefd7e296d72cedeabde7b80547a66d893516",
+    "status": "in_progress",
+    "conclusion": null,
+    "url": "https://github.com/Kevcco/campus-claw-plus-restored/actions/runs/43896535416"
+  },
+  "prs": [
+    {
+      "number": 1,
+      "url": "https://github.com/Kevcco/campus-claw-plus-restored/pull/1",
+      "head": "f377ad687e2cf22e7450e57ad3377e12f880fb24",
+      "draft": false,
+      "state": "open",
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "checks": [
+        {
+          "id": 133402402345,
+          "name": "check",
+          "status": "in_progress",
+          "conclusion": null,
+          "url": "https://github.com/Kevcco/campus-claw-plus-restored/actions/runs/43896792243/job/133402402345"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "url": "https://github.com/Kevcco/campus-claw-plus-restored/pull/2",
+      "head": "23234fe5558c1adbda44c4fbac7558774342029c",
+      "draft": true,
+      "state": "open",
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "checks": [
+        {
+          "id": 133402417943,
+          "name": "check",
+          "status": "in_progress",
+          "conclusion": null,
+          "url": "https://github.com/Kevcco/campus-claw-plus-restored/actions/runs/43896796138/job/133402417943"
+        }
+      ]
+    }
+  ]
+}

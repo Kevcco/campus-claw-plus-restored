@@ -1,0 +1,59 @@
+FFFFFF
+======================================================================
+FAIL: test_di_sc_19_pixel_limit_before_any_native_decoder (test_ocr_image.ImageAdmission.test_di_sc_19_pixel_limit_before_any_native_decoder) (format='png', w=4001)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/case/test_ocr_image.py", line 37, in test_di_sc_19_pixel_limit_before_any_native_decoder
+    with self.subTest(format=factory.__name__, w=w), self.assertRaises(ValueError):
+                                                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_di_sc_19_pixel_limit_before_any_native_decoder (test_ocr_image.ImageAdmission.test_di_sc_19_pixel_limit_before_any_native_decoder) (format='png', w=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/case/test_ocr_image.py", line 37, in test_di_sc_19_pixel_limit_before_any_native_decoder
+    with self.subTest(format=factory.__name__, w=w), self.assertRaises(ValueError):
+                                                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_di_sc_19_pixel_limit_before_any_native_decoder (test_ocr_image.ImageAdmission.test_di_sc_19_pixel_limit_before_any_native_decoder) (format='png', w=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/case/test_ocr_image.py", line 37, in test_di_sc_19_pixel_limit_before_any_native_decoder
+    with self.subTest(format=factory.__name__, w=w), self.assertRaises(ValueError):
+                                                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_di_sc_19_pixel_limit_before_any_native_decoder (test_ocr_image.ImageAdmission.test_di_sc_19_pixel_limit_before_any_native_decoder) (format='jpeg', w=4001)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/case/test_ocr_image.py", line 37, in test_di_sc_19_pixel_limit_before_any_native_decoder
+    with self.subTest(format=factory.__name__, w=w), self.assertRaises(ValueError):
+                                                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_di_sc_19_pixel_limit_before_any_native_decoder (test_ocr_image.ImageAdmission.test_di_sc_19_pixel_limit_before_any_native_decoder) (format='jpeg', w=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/case/test_ocr_image.py", line 37, in test_di_sc_19_pixel_limit_before_any_native_decoder
+    with self.subTest(format=factory.__name__, w=w), self.assertRaises(ValueError):
+                                                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_di_sc_19_pixel_limit_before_any_native_decoder (test_ocr_image.ImageAdmission.test_di_sc_19_pixel_limit_before_any_native_decoder) (format='jpeg', w=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/case/test_ocr_image.py", line 37, in test_di_sc_19_pixel_limit_before_any_native_decoder
+    with self.subTest(format=factory.__name__, w=w), self.assertRaises(ValueError):
+                                                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.015s
+
+FAILED (failures=6)

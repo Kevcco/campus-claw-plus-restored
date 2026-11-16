@@ -1,0 +1,18 @@
+[
+  {
+    "number": 1,
+    "url": "https://github.com/Kevcco/campus-claw-plus-restored/pull/1",
+    "head": "f377ad687e2cf22e7450e57ad3377e12f880fb24",
+    "head_ref": "codex/04e-runtime-closeout-2026-11-15",
+    "base": "909eefd7e296d72cedeabde7b80547a66d893516",
+    "draft": false
+  },
+  {
+    "number": 2,
+    "url": "https://github.com/Kevcco/campus-claw-plus-restored/pull/2",
+    "head": "23234fe5558c1adbda44c4fbac7558774342029c",
+    "head_ref": "codex/04e-ocr-images-2026-11-16",
+    "base": "909eefd7e296d72cedeabde7b80547a66d893516",
+    "draft": true
+  }
+]

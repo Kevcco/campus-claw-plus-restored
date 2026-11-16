@@ -1,0 +1,617 @@
+[
+  {
+    "source_ref": "heads/codex/00-correction-path-2026-11-06",
+    "commit": "d5dccb6dd563d27b993bd8e653abaaf48937dd0f",
+    "restored_branch": "codex/00-correction-path-2026-11-06"
+  },
+  {
+    "source_ref": "heads/codex/00-main-integration",
+    "commit": "4cfd61d8119c51bc3bf2870a17c9754f0975b3dc",
+    "restored_branch": "codex/00-main-integration"
+  },
+  {
+    "source_ref": "heads/codex/01-identity-implementation",
+    "commit": "2ec6668475fa99f46d25206a1da8249b784ca4ad",
+    "restored_branch": "recovery/peer/codex/01-identity-implementation"
+  },
+  {
+    "source_ref": "heads/codex/02-archive-2026-11-09",
+    "commit": "23eb59c7f089349325a36bfc35d2357c2c3037f6",
+    "restored_branch": "codex/02-archive-2026-11-09"
+  },
+  {
+    "source_ref": "heads/codex/02-crimson-visual-spec",
+    "commit": "827bd562af5fbe7063075211f9c078b447b05905",
+    "restored_branch": "codex/02-crimson-visual-spec"
+  },
+  {
+    "source_ref": "heads/codex/02-page-samples-2026-11-06",
+    "commit": "90976b9a6ef8cef5fdb4f1559b64819dc39a2689",
+    "restored_branch": "codex/02-page-samples-2026-11-06"
+  },
+  {
+    "source_ref": "heads/codex/04-archive-2026-11-11",
+    "commit": "10487851b0ba30cc1136a7be9d8c94d18ef1dd98",
+    "restored_branch": "codex/04-archive-2026-11-11"
+  },
+  {
+    "source_ref": "heads/codex/04-document-http-pages-2026-11-15",
+    "commit": "3fb53ed5363122737622cd5c05f1512e67442ed6",
+    "restored_branch": "codex/04-document-http-pages-2026-11-15"
+  },
+  {
+    "source_ref": "heads/codex/04-document-intelligence-2026-11-13",
+    "commit": "c1594f398931b7fefd1c9c71923dc8541f74ea78",
+    "restored_branch": "codex/04-document-intelligence-2026-11-13"
+  },
+  {
+    "source_ref": "heads/codex/04-document-migration6-2026-11-14",
+    "commit": "c242a5176b1f51d98ddabf20333e5e2e9a0a3f0f",
+    "restored_branch": "recovery/peer/codex/04-document-migration6-2026-11-14"
+  },
+  {
+    "source_ref": "heads/codex/04-document-page-sample-2026-11-13",
+    "commit": "4acd495b40ef44e7affe023fe9921f2fdd532c49",
+    "restored_branch": "codex/04-document-page-sample-2026-11-13"
+  },
+  {
+    "source_ref": "heads/codex/04-document-parsing-2026-11-13",
+    "commit": "b476e3e0a8bb557b97f958c38ed2f832343260f2",
+    "restored_branch": "codex/04-document-parsing-2026-11-13"
+  },
+  {
+    "source_ref": "heads/codex/04-document-queue-2026-11-14",
+    "commit": "34defc12fe910d8a9245245486900f31520c0d79",
+    "restored_branch": "recovery/peer/codex/04-document-queue-2026-11-14"
+  },
+  {
+    "source_ref": "heads/codex/04-document-runtime-2026-11-14",
+    "commit": "4a7fc662153fa6bf1ec5dbe350797a3904d0f6f1",
+    "restored_branch": "recovery/peer/codex/04-document-runtime-2026-11-14"
+  },
+  {
+    "source_ref": "heads/codex/04-machine-contracts",
+    "commit": "50a08d11564d9e8a4b74f8e85a7d81d2f9324d62",
+    "restored_branch": "codex/04-machine-contracts"
+  },
+  {
+    "source_ref": "heads/codex/04-materials-archive",
+    "commit": "f81d1f308a019aa242ed83149f452efa17c9ce62",
+    "restored_branch": "codex/04-materials-archive"
+  },
+  {
+    "source_ref": "heads/codex/04-materials-backend",
+    "commit": "2bb6dc085d8555a84eef82800525b40cf55a8434",
+    "restored_branch": "codex/04-materials-backend"
+  },
+  {
+    "source_ref": "heads/codex/04-materials-retrieval",
+    "commit": "86c9570afe628352942fabb60a910e881e348a0e",
+    "restored_branch": "recovery/peer/codex/04-materials-retrieval"
+  },
+  {
+    "source_ref": "heads/codex/04-parser-client-2026-11-14",
+    "commit": "808b02e09c82bdca76645ffe92b099a88e9104a8",
+    "restored_branch": "recovery/peer/codex/04-parser-client-2026-11-14"
+  },
+  {
+    "source_ref": "heads/codex/04-parser-core-closeout-2026-11-13",
+    "commit": "2dab251a95f52fadda6c8350d4eb2313fe9779e2",
+    "restored_branch": "recovery/peer/codex/04-parser-core-closeout-2026-11-13"
+  },
+  {
+    "source_ref": "heads/codex/04-parser-integration-contracts-2026-11-13",
+    "commit": "944bfdfbf2853012c7bc9a37808cb38e79377940",
+    "restored_branch": "recovery/peer/codex/04-parser-integration-contracts-2026-11-13"
+  },
+  {
+    "source_ref": "heads/codex/04-parser-rpc-2026-11-14",
+    "commit": "97d4f0802b9c0654876a7e755f9931bcb7305583",
+    "restored_branch": "codex/04-parser-rpc-2026-11-14"
+  },
+  {
+    "source_ref": "heads/codex/04-spec-merge-status",
+    "commit": "c451c16e681eb7daa4db5fd51bfb4354e8f55120",
+    "restored_branch": "codex/04-spec-merge-status"
+  },
+  {
+    "source_ref": "heads/codex/04e-main-acceptance-2026-11-16",
+    "commit": "378f6ce0f080cd32949354fb9cc2ff1d90d48139",
+    "restored_branch": "codex/04e-main-acceptance-2026-11-16"
+  },
+  {
+    "source_ref": "heads/codex/04e-ocr-engine-contract-2026-11-16",
+    "commit": "881da2d807a6dbd2e7d912d185e4cbe37d8e4b50",
+    "restored_branch": "codex/04e-ocr-engine-contract-2026-11-16"
+  },
+  {
+    "source_ref": "heads/codex/04e-ocr-foundation-2026-11-16",
+    "commit": "c1d4ec9da52df14eb06a63bdd9c609ea9b02c948",
+    "restored_branch": "codex/04e-ocr-foundation-2026-11-16"
+  },
+  {
+    "source_ref": "heads/codex/04e-ocr-images-2026-11-16",
+    "commit": "345071b200bc263e8a0477b2a7d4cfebe90a155d",
+    "restored_branch": "recovery/peer/codex/04e-ocr-images-2026-11-16"
+  },
+  {
+    "source_ref": "heads/codex/05-archive-2026-11-13",
+    "commit": "22c3b7e6b71cd26476be22e6dbf4f65ab5e45828",
+    "restored_branch": "codex/05-archive-2026-11-13"
+  },
+  {
+    "source_ref": "heads/codex/05-archive-closeout-2026-11-13",
+    "commit": "00d09784e7f282686e123420f71a93c084cf4f8d",
+    "restored_branch": "recovery/peer/codex/05-archive-closeout-2026-11-13"
+  },
+  {
+    "source_ref": "heads/codex/05-assignment-submission-2026-11-12",
+    "commit": "08225e69bf2861b0dabcdabb91e4e8d49a553b3e",
+    "restored_branch": "recovery/peer/codex/05-assignment-submission-2026-11-12"
+  },
+  {
+    "source_ref": "heads/codex/05-assignment-tasks-spec",
+    "commit": "ef3553f376dd7f448b34950ec8aee100b0c5bd11",
+    "restored_branch": "codex/05-assignment-tasks-spec"
+  },
+  {
+    "source_ref": "heads/codex/05-contract-main-acceptance",
+    "commit": "486852f69226097847902628746f72a000ed8c14",
+    "restored_branch": "codex/05-contract-main-acceptance"
+  },
+  {
+    "source_ref": "heads/codex/05-main-integration-2026-11-13",
+    "commit": "d06198de7cbff56b4304b3483aeec32ad9a3e085",
+    "restored_branch": "codex/05-main-integration-2026-11-13"
+  },
+  {
+    "source_ref": "heads/codex/05-public-contracts-2026-11-12",
+    "commit": "f253ae7e91feda514f37e8e5988da39d4f9e54e2",
+    "restored_branch": "recovery/peer/codex/05-public-contracts-2026-11-12"
+  },
+  {
+    "source_ref": "heads/codex/05-runtime-2026-11-12",
+    "commit": "7878164a5fd65c0fd8d938cce6dcb9b0b9c81424",
+    "restored_branch": "recovery/peer/codex/05-runtime-2026-11-12"
+  },
+  {
+    "source_ref": "heads/codex/05-worker-2026-11-12",
+    "commit": "c7f40f541c705dd652d3d423e6a58717ca1c5a6d",
+    "restored_branch": "recovery/peer/codex/05-worker-2026-11-12"
+  },
+  {
+    "source_ref": "heads/codex/06-material-samples-2026-11-11",
+    "commit": "0059ee6955ef1a77f18af8a0463d6ca46d07c5cb",
+    "restored_branch": "codex/06-material-samples-2026-11-11"
+  },
+  {
+    "source_ref": "heads/codex/06-materials-archive-2026-11-12",
+    "commit": "fd825f25333f3d16f756797368154acddee88766",
+    "restored_branch": "recovery/peer/codex/06-materials-archive-2026-11-12"
+  },
+  {
+    "source_ref": "heads/codex/06-materials-frontend-2026-11-11",
+    "commit": "09ed9579097b9c9d4a01117739a4240fb174402f",
+    "restored_branch": "codex/06-materials-frontend-2026-11-11"
+  },
+  {
+    "source_ref": "heads/codex/06-materials-ui-spec",
+    "commit": "425bd56889d7dfb466438206c78ca34b02b6e263",
+    "restored_branch": "recovery/peer/codex/06-materials-ui-spec"
+  },
+  {
+    "source_ref": "heads/codex/10-b-main-acceptance",
+    "commit": "568c1ad418df28febf83bdc88719a33ec1b55653",
+    "restored_branch": "codex/10-b-main-acceptance"
+  },
+  {
+    "source_ref": "heads/codex/2026-11-05-frontend-foundation",
+    "commit": "a4bfef79267d42b281029aaf244a6c7179d643c5",
+    "restored_branch": "codex/2026-11-05-frontend-foundation"
+  },
+  {
+    "source_ref": "heads/codex/apply-business-contracts",
+    "commit": "c6d4e9381e33230a74b14ce6724fdc20e5d5ec7b",
+    "restored_branch": "codex/apply-business-contracts"
+  },
+  {
+    "source_ref": "heads/codex/login-integration-closeout-2026-11-08",
+    "commit": "a6c1ce1347480d4148f2b55ce9a9bf59baffcaaa",
+    "restored_branch": "codex/login-integration-closeout-2026-11-08"
+  },
+  {
+    "source_ref": "heads/codex/progress-closeout-2026-11-12",
+    "commit": "95a156575876ec003ae207eca814cfb3006b6380",
+    "restored_branch": "recovery/peer/codex/progress-closeout-2026-11-12"
+  },
+  {
+    "source_ref": "heads/codex/project-completion-2026-11-16",
+    "commit": "c31b35c2d862b9c842b7657ade071f8c6d94cf46",
+    "restored_branch": "recovery/peer/codex/project-completion-2026-11-16"
+  },
+  {
+    "source_ref": "heads/codex/project-progress",
+    "commit": "11b5b62c745438141c421b9e2e887abc20fa4fe5",
+    "restored_branch": "codex/project-progress"
+  },
+  {
+    "source_ref": "heads/codex/recover-main-secret-scan",
+    "commit": "956e740e2847d91a7f9dc51b14051d048b742594",
+    "restored_branch": "codex/recover-main-secret-scan"
+  },
+  {
+    "source_ref": "heads/codex/review-18-2026-11-08",
+    "commit": "a9d89670d04add1ed129309819b4e0f48c3be025",
+    "restored_branch": "codex/review-18-2026-11-08"
+  },
+  {
+    "source_ref": "heads/codex/review-business-contracts",
+    "commit": "9e9a2329b59f9fa40c969dc7bd925095ee1c693f",
+    "restored_branch": "codex/review-business-contracts"
+  },
+  {
+    "source_ref": "heads/codex/review-identity-contract-freeze",
+    "commit": "ca7145785945272ba4807ddce287b11febc848c6",
+    "restored_branch": "codex/review-identity-contract-freeze"
+  },
+  {
+    "source_ref": "heads/codex/trivy-db-source-2026-11-09",
+    "commit": "76f54cb0fbbade868143dcabc028e6f96b6022ab",
+    "restored_branch": "codex/trivy-db-source-2026-11-09"
+  },
+  {
+    "source_ref": "heads/codex/verified-main-2026-11-08",
+    "commit": "05965056098e6cb3b4d8411d62cbac482697b31c",
+    "restored_branch": "codex/verified-main-2026-11-08"
+  },
+  {
+    "source_ref": "heads/feat/2026-10-28-member-b-foundation",
+    "commit": "0fccbc7e2b66bbd7e091711efffbf1c9d73d1070",
+    "restored_branch": "recovery/peer/feat/2026-10-28-member-b-foundation"
+  },
+  {
+    "source_ref": "heads/main",
+    "commit": "13bc04fa9de55d2ae4b2f746f925ab5802bd4d62",
+    "restored_branch": "recovery/peer/main"
+  },
+  {
+    "source_ref": "remotes/origin/codex/00-correction-path-2026-11-06",
+    "commit": "d5dccb6dd563d27b993bd8e653abaaf48937dd0f",
+    "restored_branch": "codex/00-correction-path-2026-11-06"
+  },
+  {
+    "source_ref": "remotes/origin/codex/01-archive-2026-11-08",
+    "commit": "9c87e55e86ff3f2fb82492cd66331c55a632cb9e",
+    "restored_branch": "codex/01-archive-2026-11-08"
+  },
+  {
+    "source_ref": "remotes/origin/codex/01-identity-implementation",
+    "commit": "917596428392ca2bb66a061688b6d0c0e63055d6",
+    "restored_branch": "codex/01-identity-implementation"
+  },
+  {
+    "source_ref": "remotes/origin/codex/01-main-integration-record",
+    "commit": "a9d89670d04add1ed129309819b4e0f48c3be025",
+    "restored_branch": "codex/01-main-integration-record"
+  },
+  {
+    "source_ref": "remotes/origin/codex/02-archive-2026-11-09",
+    "commit": "23eb59c7f089349325a36bfc35d2357c2c3037f6",
+    "restored_branch": "codex/02-archive-2026-11-09"
+  },
+  {
+    "source_ref": "remotes/origin/codex/02-crimson-visual-spec",
+    "commit": "827bd562af5fbe7063075211f9c078b447b05905",
+    "restored_branch": "codex/02-crimson-visual-spec"
+  },
+  {
+    "source_ref": "remotes/origin/codex/02-page-samples-2026-11-06",
+    "commit": "90976b9a6ef8cef5fdb4f1559b64819dc39a2689",
+    "restored_branch": "codex/02-page-samples-2026-11-06"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-archive-2026-11-11",
+    "commit": "10487851b0ba30cc1136a7be9d8c94d18ef1dd98",
+    "restored_branch": "codex/04-archive-2026-11-11"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-document-http-pages-2026-11-15",
+    "commit": "3fb53ed5363122737622cd5c05f1512e67442ed6",
+    "restored_branch": "codex/04-document-http-pages-2026-11-15"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-document-intelligence-2026-11-13",
+    "commit": "c1594f398931b7fefd1c9c71923dc8541f74ea78",
+    "restored_branch": "codex/04-document-intelligence-2026-11-13"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-document-migration6-2026-11-14",
+    "commit": "4ac423a0ad00e175fa5c2fbcd0cdde473029ec10",
+    "restored_branch": "codex/04-document-migration6-2026-11-14"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-document-page-sample-2026-11-13",
+    "commit": "4acd495b40ef44e7affe023fe9921f2fdd532c49",
+    "restored_branch": "codex/04-document-page-sample-2026-11-13"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-document-parsing-2026-11-13",
+    "commit": "b476e3e0a8bb557b97f958c38ed2f832343260f2",
+    "restored_branch": "codex/04-document-parsing-2026-11-13"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-document-queue-2026-11-14",
+    "commit": "ce0fd30830105292fe78d1f3e8866f3d271b6d6c",
+    "restored_branch": "codex/04-document-queue-2026-11-14"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-document-runtime-2026-11-14",
+    "commit": "6ff53ae1bb66eded6d9346f9f6c5e42bbdb93114",
+    "restored_branch": "codex/04-document-runtime-2026-11-14"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-machine-contracts",
+    "commit": "50a08d11564d9e8a4b74f8e85a7d81d2f9324d62",
+    "restored_branch": "codex/04-machine-contracts"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-materials-archive",
+    "commit": "f81d1f308a019aa242ed83149f452efa17c9ce62",
+    "restored_branch": "codex/04-materials-archive"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-materials-backend",
+    "commit": "2bb6dc085d8555a84eef82800525b40cf55a8434",
+    "restored_branch": "codex/04-materials-backend"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-materials-retrieval",
+    "commit": "4316071ac2971e29a6d6a7413f8d76e2c0d4f72d",
+    "restored_branch": "codex/04-materials-retrieval"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-parser-client-2026-11-14",
+    "commit": "20191c4157be936c948fc0faa58aaa3ec853836d",
+    "restored_branch": "codex/04-parser-client-2026-11-14"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-parser-core-closeout-2026-11-13",
+    "commit": "c1b9cb713c18d40431aacd5d6f9cc4a14996e2f2",
+    "restored_branch": "codex/04-parser-core-closeout-2026-11-13"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-parser-integration-contracts-2026-11-13",
+    "commit": "77f956f576da0ec9b9918037d8efa4927bf5dd70",
+    "restored_branch": "codex/04-parser-integration-contracts-2026-11-13"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-parser-rpc-2026-11-14",
+    "commit": "97d4f0802b9c0654876a7e755f9931bcb7305583",
+    "restored_branch": "codex/04-parser-rpc-2026-11-14"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04-spec-merge-status",
+    "commit": "c451c16e681eb7daa4db5fd51bfb4354e8f55120",
+    "restored_branch": "codex/04-spec-merge-status"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04e-contract48-main-closeout",
+    "commit": "6422f29273810de9779677cf31d8be9650e5fe99",
+    "restored_branch": "codex/04e-contract48-main-closeout"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04e-main-acceptance-2026-11-16",
+    "commit": "378f6ce0f080cd32949354fb9cc2ff1d90d48139",
+    "restored_branch": "codex/04e-main-acceptance-2026-11-16"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04e-ocr-engine-contract-2026-11-16",
+    "commit": "881da2d807a6dbd2e7d912d185e4cbe37d8e4b50",
+    "restored_branch": "codex/04e-ocr-engine-contract-2026-11-16"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04e-ocr-foundation-2026-11-16",
+    "commit": "c1d4ec9da52df14eb06a63bdd9c609ea9b02c948",
+    "restored_branch": "codex/04e-ocr-foundation-2026-11-16"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04e-ocr-images-2026-11-16",
+    "commit": "78214a4f9a19cf55548e6dda2f71a3b3c191c476",
+    "restored_branch": "recovery/peer/codex/04e-ocr-images-2026-11-16-78214a4f"
+  },
+  {
+    "source_ref": "remotes/origin/codex/04e-runtime-closeout-2026-11-15",
+    "commit": "71b7bcef850a8289dab78adf3ddf1e5698f0540e",
+    "restored_branch": "recovery/peer/codex/04e-runtime-closeout-2026-11-15"
+  },
+  {
+    "source_ref": "remotes/origin/codex/05-archive-2026-11-13",
+    "commit": "22c3b7e6b71cd26476be22e6dbf4f65ab5e45828",
+    "restored_branch": "codex/05-archive-2026-11-13"
+  },
+  {
+    "source_ref": "remotes/origin/codex/05-archive-closeout-2026-11-13",
+    "commit": "dc18ea06816ec9f841bebe7211d4a7832b9aa384",
+    "restored_branch": "codex/05-archive-closeout-2026-11-13"
+  },
+  {
+    "source_ref": "remotes/origin/codex/05-assignment-submission-2026-11-12",
+    "commit": "a485b94ffa4b7c2d31a6564014e5e3bb444f51ad",
+    "restored_branch": "codex/05-assignment-submission-2026-11-12"
+  },
+  {
+    "source_ref": "remotes/origin/codex/05-assignment-tasks-spec",
+    "commit": "ef3553f376dd7f448b34950ec8aee100b0c5bd11",
+    "restored_branch": "codex/05-assignment-tasks-spec"
+  },
+  {
+    "source_ref": "remotes/origin/codex/05-contract-main-acceptance",
+    "commit": "486852f69226097847902628746f72a000ed8c14",
+    "restored_branch": "codex/05-contract-main-acceptance"
+  },
+  {
+    "source_ref": "remotes/origin/codex/05-public-contracts-2026-11-12",
+    "commit": "7fe5b5d8f0500ec6a2e26a1aafbe09eb354f70a5",
+    "restored_branch": "codex/05-public-contracts-2026-11-12"
+  },
+  {
+    "source_ref": "remotes/origin/codex/05-runtime-2026-11-12",
+    "commit": "22860fdebab955bd701ee2e0c7e439d60559f21d",
+    "restored_branch": "codex/05-runtime-2026-11-12"
+  },
+  {
+    "source_ref": "remotes/origin/codex/05-worker-2026-11-12",
+    "commit": "e59b57a2f7f3b53c497df1732528e276f9cfedd3",
+    "restored_branch": "codex/05-worker-2026-11-12"
+  },
+  {
+    "source_ref": "remotes/origin/codex/06-material-samples-2026-11-11",
+    "commit": "0059ee6955ef1a77f18af8a0463d6ca46d07c5cb",
+    "restored_branch": "codex/06-material-samples-2026-11-11"
+  },
+  {
+    "source_ref": "remotes/origin/codex/06-materials-archive-2026-11-12",
+    "commit": "ae64bb49f51f87f358183783a4ad537623fa4b27",
+    "restored_branch": "codex/06-materials-archive-2026-11-12"
+  },
+  {
+    "source_ref": "remotes/origin/codex/06-materials-frontend-2026-11-11",
+    "commit": "09ed9579097b9c9d4a01117739a4240fb174402f",
+    "restored_branch": "codex/06-materials-frontend-2026-11-11"
+  },
+  {
+    "source_ref": "remotes/origin/codex/06-materials-ui-spec",
+    "commit": "9df9704a8a69b6f808659318407aceb7c6f8244b",
+    "restored_branch": "codex/06-materials-ui-spec"
+  },
+  {
+    "source_ref": "remotes/origin/codex/10-b-assignment-batch",
+    "commit": "497a3739d7ccbcfa93b4f13c6e7ea5a4557a479d",
+    "restored_branch": "codex/10-b-assignment-batch"
+  },
+  {
+    "source_ref": "remotes/origin/codex/10-b-main-acceptance",
+    "commit": "568c1ad418df28febf83bdc88719a33ec1b55653",
+    "restored_branch": "codex/10-b-main-acceptance"
+  },
+  {
+    "source_ref": "remotes/origin/codex/10-b-service-batches",
+    "commit": "510e882c9f20f349c909fba7ceeaf84ecb8f9b88",
+    "restored_branch": "codex/10-b-service-batches"
+  },
+  {
+    "source_ref": "remotes/origin/codex/10-gate-proof",
+    "commit": "ecd6c71de3c07a55a40b2691f1e8cb9a55847ac7",
+    "restored_branch": "codex/10-gate-proof"
+  },
+  {
+    "source_ref": "remotes/origin/codex/10-main-acceptance-2026-11-07",
+    "commit": "724e4251dcf15484bf456e5c298bc1df0ff203fa",
+    "restored_branch": "codex/10-main-acceptance-2026-11-07"
+  },
+  {
+    "source_ref": "remotes/origin/codex/10-preflight-gates",
+    "commit": "b81d6989f90b85d702f8b1d4c03abf6b5a2e612f",
+    "restored_branch": "codex/10-preflight-gates"
+  },
+  {
+    "source_ref": "remotes/origin/codex/10-protected-gate-proof",
+    "commit": "9ad69775960d2cd7b12a7fbddfa2250b9307f2ba",
+    "restored_branch": "codex/10-protected-gate-proof"
+  },
+  {
+    "source_ref": "remotes/origin/codex/2026-11-04-identity-foundation",
+    "commit": "ca7145785945272ba4807ddce287b11febc848c6",
+    "restored_branch": "codex/2026-11-04-identity-foundation"
+  },
+  {
+    "source_ref": "remotes/origin/codex/2026-11-05-delivery-observability",
+    "commit": "8246bc9248f3267408bb810806568ffa77a1c59f",
+    "restored_branch": "codex/2026-11-05-delivery-observability"
+  },
+  {
+    "source_ref": "remotes/origin/codex/2026-11-05-frontend-foundation",
+    "commit": "a4bfef79267d42b281029aaf244a6c7179d643c5",
+    "restored_branch": "codex/2026-11-05-frontend-foundation"
+  },
+  {
+    "source_ref": "remotes/origin/codex/33-34-main-verification-2026-11-12",
+    "commit": "a8f3d8dbf0fc9dd24bcd14fa2a3a95bde742fd09",
+    "restored_branch": "codex/33-34-main-verification-2026-11-12"
+  },
+  {
+    "source_ref": "remotes/origin/codex/apply-business-contracts",
+    "commit": "c6d4e9381e33230a74b14ce6724fdc20e5d5ec7b",
+    "restored_branch": "codex/apply-business-contracts"
+  },
+  {
+    "source_ref": "remotes/origin/codex/login-integration-closeout-2026-11-08",
+    "commit": "a6c1ce1347480d4148f2b55ce9a9bf59baffcaaa",
+    "restored_branch": "codex/login-integration-closeout-2026-11-08"
+  },
+  {
+    "source_ref": "remotes/origin/codex/progress-closeout-2026-11-12",
+    "commit": "bb7dd5eafe82d6f4368df36302f237ac1fae2919",
+    "restored_branch": "codex/progress-closeout-2026-11-12"
+  },
+  {
+    "source_ref": "remotes/origin/codex/project-completion-2026-11-16",
+    "commit": "d14967e5ee774b85e594635b5fa84059c6394e56",
+    "restored_branch": "codex/project-completion-2026-11-16"
+  },
+  {
+    "source_ref": "remotes/origin/codex/project-progress",
+    "commit": "11b5b62c745438141c421b9e2e887abc20fa4fe5",
+    "restored_branch": "codex/project-progress"
+  },
+  {
+    "source_ref": "remotes/origin/codex/recover-main-secret-scan",
+    "commit": "956e740e2847d91a7f9dc51b14051d048b742594",
+    "restored_branch": "codex/recover-main-secret-scan"
+  },
+  {
+    "source_ref": "remotes/origin/codex/review-business-contracts",
+    "commit": "9e9a2329b59f9fa40c969dc7bd925095ee1c693f",
+    "restored_branch": "codex/review-business-contracts"
+  },
+  {
+    "source_ref": "remotes/origin/codex/trivy-db-source-2026-11-09",
+    "commit": "76f54cb0fbbade868143dcabc028e6f96b6022ab",
+    "restored_branch": "codex/trivy-db-source-2026-11-09"
+  },
+  {
+    "source_ref": "remotes/origin/di54-final-preview",
+    "commit": "86a72ec1838639be993d2ea5d289ba32e8dd2042",
+    "restored_branch": "di54-final-preview"
+  },
+  {
+    "source_ref": "remotes/origin/di55-final-preview",
+    "commit": "39014b0eb0d0fe9329e78a8e3a6deb15e785874d",
+    "restored_branch": "di55-final-preview"
+  },
+  {
+    "source_ref": "remotes/origin/di55-preview",
+    "commit": "36e3d947e165f1ac21f0396427c81ce55527b5d7",
+    "restored_branch": "di55-preview"
+  },
+  {
+    "source_ref": "remotes/origin/docs/2026-11-04-business-contracts",
+    "commit": "221be733194830daa9b35f810c37f035679e51bb",
+    "restored_branch": "docs/2026-11-04-business-contracts"
+  },
+  {
+    "source_ref": "remotes/origin/docs/openspec",
+    "commit": "d1f9b2ed945bbfc1300990da963c4f0a177fcdfa",
+    "restored_branch": "docs/openspec"
+  },
+  {
+    "source_ref": "remotes/origin/feat/2026-10-28-member-b-foundation",
+    "commit": "5b4cc132f7e2f41bd903b46ea251946719c1a323",
+    "restored_branch": "feat/2026-10-28-member-b-foundation"
+  },
+  {
+    "source_ref": "remotes/origin/main",
+    "commit": "909eefd7e296d72cedeabde7b80547a66d893516",
+    "restored_branch": "main"
+  }
+]

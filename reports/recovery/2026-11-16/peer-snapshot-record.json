@@ -1,0 +1,81 @@
+{
+  "source_commit": "345071b200bc263e8a0477b2a7d4cfebe90a155d",
+  "snapshot_commit": "eb179c1710f7597d9a8d4f431d34a587eb76e272",
+  "snapshot_branch": "recovery/peer-working-tree-2026-11-16",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 14370,
+      "sha256": "39577cb307c9c71218d44a5087ed23ee83a3ba8a0e69a6f6e693a1ec138c26a9",
+      "untracked": false
+    },
+    {
+      "path": "docs/contracts/ocr-image-originals/README.md",
+      "bytes": 4317,
+      "sha256": "9c74728fb389f2f58f38e28a4ca4f1e76f9ea8c806230d82bfe5fb2f733553ff",
+      "untracked": false
+    },
+    {
+      "path": "docs/project-status.md",
+      "bytes": 197617,
+      "sha256": "2cd6cae1259ca97fd805ded5b8400c52834449c177a3b21a50ce3c96b12addee",
+      "untracked": false
+    },
+    {
+      "path": "openspec/changes/2026-11-13-materials-document-intelligence/tasks.md",
+      "bytes": 52248,
+      "sha256": "7b5d60a2bd0f396650153c27885d32b98de47de433cd410789407bb7106dfa78",
+      "untracked": false
+    },
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/README.md",
+      "bytes": 2834,
+      "sha256": "857b7a98490f7b83ca7ebe6f927f5500821f163e26395a8bd7a6a27b9814cb7c",
+      "untracked": false
+    },
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/README.md",
+      "bytes": 1633,
+      "sha256": "b9bb8a9a7067579a219ca0258e66430b4ed1b2b5d61fb8ad0ee95f05c86a58fd",
+      "untracked": true
+    },
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/inventory.py",
+      "bytes": 1030,
+      "sha256": "9d0c942b753bb3515afc3e5c5ba5ba9e1e7a0382ec59841d0c75d016636dffdd",
+      "untracked": true
+    },
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/manifest.json",
+      "bytes": 844,
+      "sha256": "4e40cb8e62ac1872cb2fd390047c0ab799b1022515bee86f25cef9dc38a2ae13",
+      "untracked": true
+    },
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/runtime.json",
+      "bytes": 10291,
+      "sha256": "142a7e2275042a2d654fee675fbbe52009fc2435ae783d60e49bd94a2066c250",
+      "untracked": true
+    },
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/wheel-files.json",
+      "bytes": 5727,
+      "sha256": "0739936d6f7de366301d9c75f45237c8bf412adda0579b6e768f8d191bff4454",
+      "untracked": true
+    },
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/after-gate.json",
+      "bytes": 646,
+      "sha256": "46fbcc1d4608e4d1253ce8c59d3228c2a43ad9ca9de6df1d83264597b5f50aa9",
+      "untracked": true
+    },
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/after-proof.json",
+      "bytes": 528156,
+      "sha256": "060ae2b42cb2e3ed099a55b1bad4a9185eb0efb58d1feb21edc520265baa00d3",
+      "untracked": true
+    }
+  ],
+  "source_hashes_verified": true,
+  "archival_only": true
+}

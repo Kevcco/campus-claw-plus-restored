@@ -1,0 +1,11 @@
+{
+  "history_secret_scan_exit": 0,
+  "staged_secret_scan_exit": 0,
+  "git_fsck_exit": 0,
+  "runtime_source_unchanged": true,
+  "other_progress_rows_preserved": true,
+  "table_columns_preserved": true,
+  "planned_branches": 121,
+  "planned_tags": 1,
+  "staged_document_files": 10
+}

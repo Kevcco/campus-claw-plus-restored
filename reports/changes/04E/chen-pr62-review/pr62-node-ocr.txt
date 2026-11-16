@@ -1,0 +1,23 @@
+✔ DI-SC-16/17 fixed 50 blind, 10 negatives, independent development and 100 boxes (172.5573ms)
+✔ DI-SC-16 sample loss, split leakage, digest changes and relaxed limits are rejected (174.5529ms)
+✔ DI-SC-17 wrong coordinate frame, area, quote and PDF page binding cannot pass (13.5192ms)
+✔ DI-SC-16 scoring retains case/punctuation and uses codepoints and micro denominators (0.4858ms)
+✔ DI-SC-17 IoU handles overlap boundaries and rejects malformed boxes (0.249ms)
+✔ DI-SC-16/17 private draft single-source 2020-12 and OpenAPI paths accept only closed bounded data (3.7099ms)
+✔ DI-SC-17 semantic pixel/range/quote/order/bbox guards reject structurally valid false citations (6.1896ms)
+✔ DI-SC-18 review requires explicit acknowledgement, bounded content and server authority/CAS (2.6203ms)
+✔ DI-SC-25 candidate is explicitly draft and cannot activate current endpoints/config/migration (3.1344ms)
+✔ DI-SC-16/19 private OCR exact fixed origin, canonical auth and three bounded binary media (1.5994ms)
+✔ DI-SC-17/19 exact HTTP status and single-source success/failure data agree (524.5595ms)
+✔ DI-SC-17 actual TSV shape yields original boxes and Unicode codepoint quotes across pages (3.2504ms)
+✔ DI-SC-17 malformed, forged boxes, nonfinite confidence, unordered and empty TSV fail closed (8.9089ms)
+✔ DI-SC-18 low raw confidence remains a review result and never publishes ready (0.3275ms)
+✔ DI-SC-17 real engine whitespace word rows are layout rather than fabricated text (0.3571ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 932.6596

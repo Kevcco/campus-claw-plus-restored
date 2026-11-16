@@ -2,80 +2,12 @@
   "openapi": "3.1.0",
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
-    "title": "04E OCR draft boundary; NOT registered or callable",
+    "title": "04E OCR public review draft; incomplete, not registered or callable",
     "version": "0.1.0"
   },
   "x-contract-status": "draft",
   "x-runtime-activation": false,
   "paths": {
-    "/internal/ocr": {
-      "post": {
-        "operationId": "draftPrivateOCR",
-        "description": "Proposed private path only; final network/origin/RPC profile remains pending.",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "image/png": {
-              "schema": {
-                "type": "string",
-                "format": "binary"
-              }
-            },
-            "image/jpeg": {
-              "schema": {
-                "type": "string",
-                "format": "binary"
-              }
-            },
-            "application/pdf": {
-              "schema": {
-                "type": "string",
-                "format": "binary"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Recognition draft requires teacher review",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "./OCRResult.schema.json"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Explicit 400; exact existing Error envelope is a required final-freeze integration task"
-          },
-          "401": {
-            "description": "Explicit 401; exact existing Error envelope is a required final-freeze integration task"
-          },
-          "403": {
-            "description": "Explicit 403; exact existing Error envelope is a required final-freeze integration task"
-          },
-          "404": {
-            "description": "Explicit 404; exact existing Error envelope is a required final-freeze integration task"
-          },
-          "409": {
-            "description": "Explicit 409; exact existing Error envelope is a required final-freeze integration task"
-          },
-          "413": {
-            "description": "Explicit 413; exact existing Error envelope is a required final-freeze integration task"
-          },
-          "429": {
-            "description": "Explicit 429; exact existing Error envelope is a required final-freeze integration task"
-          },
-          "503": {
-            "description": "Explicit 503; exact existing Error envelope is a required final-freeze integration task"
-          },
-          "504": {
-            "description": "Explicit 504; exact existing Error envelope is a required final-freeze integration task"
-          }
-        }
-      }
-    },
     "/api/v1/documents/{id}/ocr-reviews": {
       "parameters": [
         {
