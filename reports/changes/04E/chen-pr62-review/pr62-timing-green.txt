@@ -1,0 +1,17 @@
+{"request_id": "48643cfcfafb4a57ab8aafd0234b59c7", "path": "/health", "status": 401, "duration_ms": 0}
+{"request_id": "8f857d45efc64fada46353e24c43fc31", "path": "/health", "status": 200, "duration_ms": 0}
+{"request_id": "7ff94550e47f473b96fe293e84f49e35", "path": "unknown", "status": 404, "duration_ms": 16}
+{"request_id": "3e1ae6a7d87a4fb18ae4f950c1ed317c", "path": "unknown", "status": 400, "duration_ms": 0}
+{"request_id": "5e0c3c21e8eb436aaeddb6c7beec1430", "path": "/internal/ocr", "status": 503, "duration_ms": 0}
+{"request_id": "ee72fba779034cc6abb314a6dcb646b0", "path": "/internal/ocr", "status": 422, "duration_ms": 15}
+{"request_id": "fa2053b5b93947dfb6a9b8d2b31ca42a", "path": "/internal/ocr", "status": 422, "duration_ms": 32}
+{"request_id": "b7d8fde7d8874875ba00a3a236b818b9", "path": "/internal/ocr", "status": 422, "duration_ms": 31}
+{"request_id": "82628468b36f41509fe1870ced3516b2", "path": "/internal/ocr", "status": 422, "duration_ms": 0}
+{"request_id": "3716c3e578224bea99940bd9c23ce420", "path": "/internal/ocr", "status": 422, "duration_ms": 0}
+{"request_id": "8d531c50ba2346faaa5fcfe2c29e3ab4", "path": "/internal/ocr", "status": 400, "duration_ms": 0}
+{"request_id": "093cfedb20da4f62ad32a67495ccc0a0", "path": "/internal/ocr", "status": 422, "duration_ms": 46}
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.657s
+
+OK

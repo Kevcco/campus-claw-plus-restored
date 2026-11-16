@@ -2,7 +2,7 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "fa8584a88ab88fa9345f04f38e5690487076f32f627aee972ab66785d0d42214"
+      "sha256": "348ed1e1391f98e0cc2e423ff32ddc54bfa155d4a306dca498523528c18e38b4"
     },
     {
       "path": "audit-final.txt",
@@ -34,15 +34,15 @@
     },
     {
       "path": "merge-contracts.txt",
-      "sha256": "04c8d0ebe8ffe1c2fe3c6491d2a7c8799ece703b8ed608949994d90209873d29"
+      "sha256": "6cf71c0a5f9e56821c3917b915f9aba7ff4ba39680fcd5c5c0891d6ebacb884f"
     },
     {
       "path": "merge-foundation.txt",
-      "sha256": "144aee2f09b9f05f933b7dd5e6326fdd559ee37c7d512c4289725f4b64fe01eb"
+      "sha256": "15ca270bf228ec65c413e512491b23604c2af1dd7e3f408f716a8d35dba8095e"
     },
     {
       "path": "merge-ocr.txt",
-      "sha256": "335ba269a2798c7c9aa180f5f3fa6a1a6147dbfa36ea89e529777a1e37785ad6"
+      "sha256": "386e6e035a70db7082333e52daae884856d80db8c399aa607110151bb35caf08"
     },
     {
       "path": "merge-scope.md",
@@ -50,7 +50,7 @@
     },
     {
       "path": "merge-spec.txt",
-      "sha256": "8de060d6d2e4522894e1ff3b13df71c63d066a2124a9d1caa93542d592cfc331"
+      "sha256": "a3863d315f413e39d5f8ffda1fa08feaed87a8426f800b76ccd70f879776ec4d"
     },
     {
       "path": "mysql-tests.txt",
@@ -82,7 +82,7 @@
     },
     {
       "path": "secret-scan.txt",
-      "sha256": "cf2a52d2ea3759b34ac6683e666bae830a5d1f5cc52666e5191da05098a423a6"
+      "sha256": "c9666c0fd18d8abe73ef67d38bd6fa35317f60e770e6c11f2bef8fd175e23fcf"
     },
     {
       "path": "server-logs.txt",

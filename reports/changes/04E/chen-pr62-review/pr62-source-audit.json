@@ -1,0 +1,38 @@
+{
+  "reviewed_head": "78214a4f9a19cf55548e6dda2f71a3b3c191c476",
+  "author_evidence_files": 23,
+  "original_manifest_mismatches": [
+    "merge-contracts.txt",
+    "merge-foundation.txt",
+    "merge-ocr.txt",
+    "merge-spec.txt",
+    "secret-scan.txt"
+  ],
+  "source_hashes": 19,
+  "image_responses": 14,
+  "scores": {
+    "all": {
+      "errors": 25,
+      "denominator": 1618,
+      "pages": 4
+    },
+    "zh": {
+      "errors": 23,
+      "denominator": 395,
+      "pages": 2
+    },
+    "en": {
+      "errors": 2,
+      "denominator": 1223,
+      "pages": 2
+    }
+  },
+  "negative_diagnostics": 10,
+  "raw_mysql_groups": 13,
+  "metadata_checks_reported": 2,
+  "bounded_rejections_reported": 3,
+  "cleanup_checked": true,
+  "independent_docker_mysql_tesseract_run": false,
+  "scope": "Independent tracked-source, manifest, schema, dimensions and Unicode CER audit of author originals; not new native or database execution",
+  "exit": 0
+}

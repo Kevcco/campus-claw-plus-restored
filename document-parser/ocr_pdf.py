@@ -43,14 +43,16 @@ def render_page(path, index, destination):
 
 
 def one_page(path, index):
+    started = time.monotonic()
     with tempfile.TemporaryDirectory(prefix='ocr-page-') as temporary:
         image = Path(temporary) / 'page.ppm'
         width, height = render_page(path, index, image)
-        return recognize_raster(image, width, height, index)
+        return recognize_raster(image, width, height, index, started=started)
 
 
-def recognize_raster(image, width, height, index):
-    started = time.monotonic()
+def recognize_raster(image, width, height, index, *, started=None):
+    if started is None:
+        started = time.monotonic()
     with tempfile.TemporaryDirectory(prefix='ocr-text-') as temporary:
         prefix = Path(temporary) / 'result'
         child = subprocess.run(['tesseract', str(image), str(prefix), '--oem', '1',

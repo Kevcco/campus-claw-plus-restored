@@ -1,0 +1,75 @@
+{
+  "byte_source": "UTF-8 LF review originals",
+  "evidence": [
+    {
+      "file": "pr62-doc-check.json",
+      "sha256": "c11c4c3da5a80097a1897c0889d9dea439ec383f7b78178aef616099ac42a2a2",
+      "bytes": 309
+    },
+    {
+      "file": "pr62-foundation.txt",
+      "sha256": "15ca270bf228ec65c413e512491b23604c2af1dd7e3f408f716a8d35dba8095e",
+      "bytes": 294
+    },
+    {
+      "file": "pr62-go-tests.txt",
+      "sha256": "f73b7039041c7bd23baa60c68715be307e4131e2c170e174fa5a4376cb95d6d8",
+      "bytes": 1737
+    },
+    {
+      "file": "pr62-go-vet.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "pr62-node-contracts.txt",
+      "sha256": "d5de0191c6924878299c624202e2d2d1a886826bf0e773bf86293199dfb9b644",
+      "bytes": 5833
+    },
+    {
+      "file": "pr62-node-ocr.txt",
+      "sha256": "d4b9b817f6b05125e4712a7a35a8857a03ae773dd1836df487d935a57f54de85",
+      "bytes": 1627
+    },
+    {
+      "file": "pr62-npm24-ci.txt",
+      "sha256": "9b5aab76ab13ad855cf20d5cc24edb9c0d19d0dfcea02936de9dd9113dd2a9bd",
+      "bytes": 25
+    },
+    {
+      "file": "pr62-png-order-red.txt",
+      "sha256": "ca2f5fd7a5d02b28316e7470ca76687ddf64915099e6f1344d3de5b627172392",
+      "bytes": 2802
+    },
+    {
+      "file": "pr62-python-final.txt",
+      "sha256": "a543740903399b789a6c78f2812b26a768a848911c2bdd938e8b8f8b4d25cef8",
+      "bytes": 1402
+    },
+    {
+      "file": "pr62-secrets-final.txt",
+      "sha256": "9b0eb1522fa87a0c19a5950dcde3720c6202e3106d12f31f93ef9848a2bf6c1e",
+      "bytes": 198
+    },
+    {
+      "file": "pr62-source-audit.json",
+      "sha256": "906b9ee77b12007ae6623bc0c2cfc554c3c7a439c7bddf50b868be421d119f3b",
+      "bytes": 939
+    },
+    {
+      "file": "pr62-spec.txt",
+      "sha256": "a3863d315f413e39d5f8ffda1fa08feaed87a8426f800b76ccd70f879776ec4d",
+      "bytes": 528
+    },
+    {
+      "file": "pr62-timing-green.txt",
+      "sha256": "4cb3d8618cdedbf66682b90b53ae654f4c7cf67c1455ed0dd3b031eb4173c823",
+      "bytes": 1400
+    },
+    {
+      "file": "pr62-timing-red.txt",
+      "sha256": "7703addc5608d3a74ad75424fcd7a75720b94af9ab95cb51c17f4870805c0e1f",
+      "bytes": 1183
+    }
+  ]
+}

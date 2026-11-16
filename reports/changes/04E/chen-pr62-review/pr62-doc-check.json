@@ -1,0 +1,11 @@
+{
+  "checked_at": "2026-11-16T14:09:29.880Z",
+  "documents": 8,
+  "local_links": 305,
+  "author_evidence_files": 23,
+  "evidence_git_blob_digests": true,
+  "non04e_progress_preserved": true,
+  "status_table_columns_preserved": true,
+  "current_endpoints_active_config_compose_equal_main": true,
+  "exit": 0
+}

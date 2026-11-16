@@ -1,0 +1,22 @@
+?   	github.com/zwh9616/campus-claw-plus/backend/cmd/identity-admin	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/cmd/server	[no test files]
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/assignments	1.300s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/config	0.791s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/documentparser	2.890s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/documentqueue	0.946s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/documents	1.056s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/httpserver	2.170s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/identity	1.016s
+?   	github.com/zwh9616/campus-claw-plus/backend/internal/identityapp	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/internal/integration/fixture	[no test files]
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/integration/wiring	1.039s
+?   	github.com/zwh9616/campus-claw-plus/backend/internal/integration/wiringfixture	[no test files]
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/materials	0.952s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/migrations	1.031s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/mysqlstore	1.031s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/observability	1.000s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/ocrreview	1.041s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/privateocr	3.215s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/probe	5.206s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/runtimeapp	2.032s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/strictjson	0.979s

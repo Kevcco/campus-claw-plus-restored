@@ -5,7 +5,7 @@ import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
 
-from ocr_image import admitted_image, recognize_image, PNG
+from ocr_image import admitted_image, one_image, recognize_image, PNG
 
 
 def chunk(kind, data):
@@ -44,11 +44,56 @@ class ImageAdmission(unittest.TestCase):
             with self.subTest(size=len(data)), self.assertRaises(ValueError):
                 admitted_image(data)
 
+    def test_di_sc_19_png_chunk_order_and_duplicate_guards(self):
+        ihdr = chunk(b'IHDR', struct.pack('>IIBBBBB', 100, 50, 8, 2, 0, 0, 0))
+        plte = chunk(b'PLTE', b'\x00\x00\x00')
+        trns = chunk(b'tRNS', b'\x00')
+        idat = chunk(b'IDAT', b'payload')
+        iend = chunk(b'IEND', b'')
+        for chunks in ((ihdr, plte, plte, idat, iend),
+                       (ihdr, idat, plte, iend),
+                       (ihdr, idat, chunk(b'tEXt', b'x'), idat, iend),
+                       (ihdr, idat, chunk(b'ABCD', b'unknown critical'), iend),
+                       (ihdr, trns, trns, idat, iend)):
+            with self.subTest(chunks=len(chunks)), self.assertRaises(ValueError):
+                admitted_image(PNG + b''.join(chunks))
+
     def test_di_sc_19_native_failures_keep_timeout_resource_and_internal_distinct(self):
         for code, stdout, reason in [(-9, b'', 'resource_limit'), (1, b'ocr_timeout\n', 'ocr_timeout'), (1, b'internal_failure\n', 'internal_failure'), (1, b'untrusted stack trace', 'internal_failure'), (1, b'image_corrupt\n', 'image_corrupt')]:
             with patch('ocr_image.subprocess.run', return_value=SimpleNamespace(returncode=code, stdout=stdout)):
                 with self.assertRaisesRegex(ValueError, '^' + reason + '$'):
                     recognize_image('opaque-test-path')
+
+    def test_di_sc_19_image_elapsed_includes_admission_before_ocr(self):
+        import tempfile
+        clock = [100.0]
+        original_read = Path.read_text
+
+        def admit(_data):
+            clock[0] += 3
+            return b'controlled raster', (100, 50)
+
+        def engine(args, **_kwargs):
+            clock[0] += 2
+            prefix = Path(args[2])
+            prefix.with_suffix('.txt').write_text('controlled text', encoding='utf8')
+            prefix.with_suffix('.tsv').write_text('controlled tsv', encoding='utf8')
+            return SimpleNamespace(returncode=0)
+
+        def read(path, *args, **kwargs):
+            if str(path).replace('\\', '/') == '/sys/fs/cgroup/memory.peak':
+                return '64'
+            return original_read(path, *args, **kwargs)
+
+        with tempfile.TemporaryDirectory() as temporary:
+            source = Path(temporary) / 'controlled.png'
+            source.write_bytes(b'controlled source')
+            with patch('time.monotonic', side_effect=lambda: clock[0]), \
+                    patch('ocr_image.admitted_image', side_effect=admit), \
+                    patch('ocr_pdf.subprocess.run', side_effect=engine), \
+                    patch.object(Path, 'read_text', read):
+                result = one_image(source)
+        self.assertEqual(result['elapsed_ms'], 5000)
 
 
 if __name__ == '__main__':

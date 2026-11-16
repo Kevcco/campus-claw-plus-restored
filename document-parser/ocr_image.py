@@ -8,6 +8,7 @@ from pathlib import Path
 import struct
 import subprocess
 import sys
+import time
 
 from ocr_pdf import raster_size, recognize_raster
 
@@ -16,6 +17,8 @@ PNG = b'\x89PNG\r\n\x1a\n'
 
 def png_pixels(data):
     offset, chunks, dimensions, ended, seen_data = 8, [PNG], None, False, False
+    seen_plte = seen_trns = False
+    idat_closed = False
     while offset < len(data):
         if offset + 12 > len(data):
             raise ValueError('image_corrupt')
@@ -37,16 +40,28 @@ def png_pixels(data):
             dimensions = raster_size(w, h, 1)
         elif kind == b'IHDR':
             raise ValueError('image_corrupt')
+        if kind == b'IDAT' and idat_closed:
+            raise ValueError('image_corrupt')
+        if kind == b'PLTE':
+            if seen_plte or seen_data:
+                raise ValueError('image_corrupt')
+            seen_plte = True
+        if kind == b'tRNS':
+            if seen_trns or seen_data:
+                raise ValueError('image_corrupt')
+            seen_trns = True
         if kind in (b'acTL', b'fcTL', b'fdAT'):
+            raise ValueError('image_unsupported')
+        if kind not in (b'IHDR', b'PLTE', b'tRNS', b'IDAT', b'IEND') and not kind[0] & 32:
             raise ValueError('image_unsupported')
         if kind == b'IDAT':
             seen_data = True
+        elif seen_data and kind != b'IEND':
+            idat_closed = True
         elif kind == b'IEND':
             if size or not seen_data or end != len(data):
                 raise ValueError('image_corrupt')
             ended = True
-        elif kind not in (b'IHDR', b'PLTE', b'tRNS') and not kind[0] & 32:
-            raise ValueError('image_unsupported')
         if kind in (b'IHDR', b'PLTE', b'tRNS', b'IDAT', b'IEND'):
             chunks.append(data[offset:end])
         offset = end
@@ -131,11 +146,12 @@ def admitted_image(data):
 
 def one_image(path):
     import tempfile
+    started = time.monotonic()
     pixels, (width, height) = admitted_image(Path(path).read_bytes())
     with tempfile.TemporaryDirectory(prefix='ocr-image-') as directory:
         image = Path(directory) / 'raster'
         image.write_bytes(pixels)
-        return recognize_raster(image, width, height, 0)
+        return recognize_raster(image, width, height, 0, started=started)
 
 
 def recognize_image(path):

@@ -1,0 +1,41 @@
+FFFF
+======================================================================
+FAIL: test_di_sc_19_png_chunk_order_and_duplicate_guards (test_ocr_image.ImageAdmission.test_di_sc_19_png_chunk_order_and_duplicate_guards) (chunks=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\long\AppData\Local\Temp\campus-ocr-order-review-_ki_dkg8\test_ocr_image.py", line 58, in test_di_sc_19_png_chunk_order_and_duplicate_guards
+    with self.subTest(chunks=len(chunks)), self.assertRaises(ValueError):
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_di_sc_19_png_chunk_order_and_duplicate_guards (test_ocr_image.ImageAdmission.test_di_sc_19_png_chunk_order_and_duplicate_guards) (chunks=4)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\long\AppData\Local\Temp\campus-ocr-order-review-_ki_dkg8\test_ocr_image.py", line 58, in test_di_sc_19_png_chunk_order_and_duplicate_guards
+    with self.subTest(chunks=len(chunks)), self.assertRaises(ValueError):
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_di_sc_19_png_chunk_order_and_duplicate_guards (test_ocr_image.ImageAdmission.test_di_sc_19_png_chunk_order_and_duplicate_guards) (chunks=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\long\AppData\Local\Temp\campus-ocr-order-review-_ki_dkg8\test_ocr_image.py", line 58, in test_di_sc_19_png_chunk_order_and_duplicate_guards
+    with self.subTest(chunks=len(chunks)), self.assertRaises(ValueError):
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_di_sc_19_png_chunk_order_and_duplicate_guards (test_ocr_image.ImageAdmission.test_di_sc_19_png_chunk_order_and_duplicate_guards) (chunks=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\long\AppData\Local\Temp\campus-ocr-order-review-_ki_dkg8\test_ocr_image.py", line 58, in test_di_sc_19_png_chunk_order_and_duplicate_guards
+    with self.subTest(chunks=len(chunks)), self.assertRaises(ValueError):
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=4)
