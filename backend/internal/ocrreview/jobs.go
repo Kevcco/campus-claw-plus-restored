@@ -91,7 +91,7 @@ func (s *Store) ClaimOCR(ctx context.Context, id, class string) (out Work, err e
 			return identity.ErrConflict
 		}
 		if j.attempts >= 3 {
-			_, e = tx.ExecContext(ctx, "UPDATE document_ocr_jobs SET state='failed',worker_owner=NULL,lease_until=NULL WHERE document_id=? AND class_id=?", id, class)
+			_, e = tx.ExecContext(ctx, "UPDATE document_ocr_jobs SET state='failed',worker_owner=NULL,lease_until=NULL,failure_reason='worker_interrupted' WHERE document_id=? AND class_id=?", id, class)
 			exhausted = true
 			return e
 		}

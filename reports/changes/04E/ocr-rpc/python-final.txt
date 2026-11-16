@@ -1,0 +1,11 @@
+{"request_id": "df9a8f14e6d84b5bb92304e795cd4ce6", "path": "/health", "status": 401, "duration_ms": 1}
+{"request_id": "872d9f870ec445fbb8d102990b7f920f", "path": "/health", "status": 200, "duration_ms": 0}
+{"request_id": "579bcb737c554fe791be9012cbe384de", "path": "unknown", "status": 404, "duration_ms": 0}
+{"request_id": "28af3e02cc444b73aa39e489f7d1d812", "path": "unknown", "status": 400, "duration_ms": 1}
+{"request_id": "c180cff35d614c91aef2bb3964da974e", "path": "/internal/ocr", "status": 503, "duration_ms": 1}
+{"request_id": "199616fcaa3d4fe981c6cfe8a7ac6e7f", "path": "/internal/ocr", "status": 422, "duration_ms": 1}
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.525s
+
+OK

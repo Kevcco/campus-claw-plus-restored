@@ -31,3 +31,7 @@
 ## 原始词框来源与作业候选
 
 本轮追加document_ocr_sources和document_ocr_jobs，准确候选SQL共六表。来源保存原始OCRResult字节/SHA和原件摘要，校对不会覆盖词框；提交严格解码并绑定owner/epoch/数据库租约，最终SQL再次核对到期时间，来源/草稿/head/作业同事务。独占MySQL九组和最终租约保护红1→绿0通过，包含实际杀死持有人与接管。仍需私有RPC/默认worker、显式失败分类重试、结构manifest/Target6备份恢复及公开接口接线。机器候选见source-jobs.json，不改变runtime activation。
+
+## 私有RPC与worker候选已互通
+
+准确隔离组件profile见private-rpc.json。独立服务http://document-ocr:8092/internal/ocr，当前实现PDF，PNG/JPEG仍计划；190秒客户端总预算独立于原A解析器35秒。沿用既有令牌格式在隔离进程传入DOCUMENT_PARSER_TOKEN，不代表该键已登记新生产消费者；生产服务/密钥消费者须随正式接线原子更新。实际4页PDF→私有RPC→顺序worker→11组MySQL候选→教师校对→学生检索及请求取消释放进程已通过。显式失败原因保存，只有超时/中断/内部失败可在attempts<3时教师重试，不自动消耗三次。候选六表DDL已同步状态约束与摘要；结构manifest/备份恢复/公开接口及最终质量仍待。

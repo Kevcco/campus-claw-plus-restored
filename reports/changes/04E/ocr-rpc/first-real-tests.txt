@@ -1,0 +1,5 @@
+=== RUN   TestRealPDFOCRWorkerAndReviewedSearch
+    pipeline_test.go:141: PIPELINE {"citations":2,"cross_class_results":0,"original_sha256":[191,184,163,114,132,83,181,42,128,162,84,232,114,182,212,23,254,14,228,49,67,16,226,128,69,181,248,26,7,158,33,53],"pages":4,"review_revision":2,"source_sha256":[213,55,188,224,248,106,60,25,116,209,38,109,27,208,84,211,128,45,176,245,236,230,218,167,171,46,81,128,107,32,57,99],"source_unchanged":true,"words":437,"worker_state":"succeeded"}
+--- PASS: TestRealPDFOCRWorkerAndReviewedSearch (11.62s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/integration/ocrpipeline	11.627s

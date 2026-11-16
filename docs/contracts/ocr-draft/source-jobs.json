@@ -20,8 +20,14 @@
   "source_visibility": "same-class teacher",
   "source_immutable": true,
   "sql": {
-    "docs/contracts/ocr-draft/000007_ocr_revisions.up.sql": "717093800db6f518aec97e21d07cc00bb45a62a2ca0edd61d742a8114a4a5ab8",
+    "docs/contracts/ocr-draft/000007_ocr_revisions.up.sql": "cf5266e4831e70acdaa2d3ed1976a81d05b0d03bd4b0ccd564a966dd45f2403a",
     "docs/contracts/ocr-draft/000007_ocr_revisions.down.sql": "3c13e03c8d8b4378db943a1d05ed47d684db105a3634f15601d10b2bdec410bc"
   },
-  "runtime_target": 6
+  "runtime_target": 6,
+  "explicit_retry": true,
+  "retryable_failures": [
+    "ocr_timeout",
+    "worker_interrupted",
+    "internal_failure"
+  ]
 }

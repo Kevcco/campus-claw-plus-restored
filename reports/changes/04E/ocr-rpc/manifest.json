@@ -1,0 +1,44 @@
+{
+  "run_id": "campus-ocr-revisions-08fcc26417ca",
+  "image_id": "sha256:543c3ae8067ff6d1f3ba32a80a502dc1b2ca13b8a8c6656b1dc4605bf5b8f381",
+  "source_files": {
+    "backend/internal/ocrreview/jobs.go": "e6c1107458da03e31935e67abe2b0ab799d9d8060f9e6e2fba3824df5e456720",
+    "backend/internal/ocrreview/mysql_test.go": "07a9ef7a266bff8da12bcfcd485deb7ecee06c26ceb688584d55d1505bf99f21",
+    "backend/internal/ocrreview/source.go": "9ed54bcd2d0e225fd8fc5a1c167a74d72d7de3bfaab1fc82ae7b581ab820a596",
+    "backend/internal/ocrreview/source_mysql_test.go": "32a0076bd5b26d1e35f906c34abbde4e9ddbe5e2b699f71560ada9740d537b4e",
+    "backend/internal/ocrreview/source_test.go": "09eb85c0d5fd62aedf04997e40de7f2bf208e8f64f24684f4a91c1ca66190131",
+    "backend/internal/ocrreview/store.go": "3b0a7874efee94745efd10f4ec38f51dfb16e784dffd8bc8c2f7f89a390fff14",
+    "backend/internal/ocrreview/store_test.go": "8f626c8793d3d35599536bf289aab7b407e69af17e51cd88e62a1532fff479ae",
+    "backend/internal/ocrreview/worker.go": "34d3e314ce7a996ec8e3d2c3dfaf61ed511844a0e69f6a7091aae761db2326a7",
+    "backend/internal/ocrreview/worker_mysql_test.go": "1252ce899fcc996aff6b4b6f9b86bccb680aaed5e9b7e191cf9fc45dde9683f7",
+    "document-parser/ocr_server.py": "ae03915b5c8acb98de1512409e40aa56a607b6d145281d37505ab2db8fafd936",
+    "document-parser/ocr_process.py": "0f8c6d3913d7a2f55c59ff18ff567f4fb501581cc3deae3ce8b6a69f93ff2b0a",
+    "document-parser/ocr_pdf.py": "e19f2b38d5db6384d1ab5365a802495b12a4acb6bd43f5386d36045196b487d6",
+    "document-parser/ocr_result.py": "e24753c081ad5b33fbf6fa8172f26654e3f633313c699721cee450795726bb95",
+    "backend/internal/integration/ocrpipeline/pipeline_test.go": "df980fe90623f6742e08f23a7138ae1ccb14fd11978f006f1ea2a5fa4ec8eaf2",
+    "backend/internal/privateocr/client.go": "fe8054c03d82a636a863fd427c609f4c77f39ac1962c7d285cd96c4352cc9ae7",
+    "backend/internal/privateocr/client_test.go": "bf4cea8e2550f3dc8632b056fc03c573b5ee05f2375692d7a8aa76a682efa183",
+    "scripts/check-ocr-revisions.mjs": "91ccea29e8cba026b95db74e7719005e8828457eb4731a98aa6742ab7697fd47",
+    "scripts/check-ocr-raster.mjs": "f1df23c47d1911841333038b3b904a97cbb24e8f57ee8e824d5cfb71d8473aa8",
+    "docs/contracts/ocr-draft/private-rpc.json": "2e5cf2496c0505cf8019a081961b841391ed12785cfc1979d9cd4e7278632bb6",
+    "docs/contracts/ocr-draft/source-jobs.json": "0593087d09fbb6bb158f97a565cf6ba1fe989d0ba5f967ec231c64ef1199495b"
+  },
+  "response_sha256": "6e89ddb87aac3b4fb7ddc273abef046cf7f90b9d6b43afa72e10402c91b084bf",
+  "response_development_cer": {
+    "errors": 35,
+    "denominator": 1618,
+    "cer": 0.021631644004944377,
+    "pages": 4
+  },
+  "engine_mount_files": [
+    "ocr_pdf.py",
+    "ocr_process.py",
+    "ocr_result.py",
+    "ocr_server.py",
+    "runner.py",
+    "server.py"
+  ],
+  "gold_available": false,
+  "blind_available": false,
+  "production_activation": false
+}

@@ -70,11 +70,13 @@ CREATE TABLE document_ocr_jobs (
  execution_epoch BIGINT UNSIGNED NOT NULL DEFAULT 0,
  worker_owner BINARY(32) NULL,
  lease_until DATETIME(3) NULL,
+ failure_reason ENUM('corrupt','encrypted','unsupported_content','resource_limit','ocr_timeout','worker_interrupted','language_missing','internal_failure') NULL,
  PRIMARY KEY(document_id,class_id),
  KEY ix_ocr_job_claim(state,lease_until,document_id),
  CONSTRAINT fk_ocr_job_original FOREIGN KEY(document_id,class_id,original_version) REFERENCES documents(id,class_id,version),
  CONSTRAINT ck_ocr_job CHECK(original_version=1 AND attempts<=3 AND
- ((state='queued' AND attempts=0 AND execution_epoch=0 AND worker_owner IS NULL AND lease_until IS NULL) OR
-  (state='processing' AND attempts BETWEEN 1 AND 3 AND execution_epoch>0 AND worker_owner IS NOT NULL AND lease_until IS NOT NULL) OR
-  (state IN('succeeded','failed') AND attempts BETWEEN 1 AND 3 AND execution_epoch>0 AND worker_owner IS NULL AND lease_until IS NULL)))
+ ((state='queued' AND attempts<=2 AND execution_epoch=attempts AND worker_owner IS NULL AND lease_until IS NULL AND failure_reason IS NULL) OR
+  (state='processing' AND attempts BETWEEN 1 AND 3 AND execution_epoch=attempts AND worker_owner IS NOT NULL AND lease_until IS NOT NULL AND failure_reason IS NULL) OR
+  (state='succeeded' AND attempts BETWEEN 1 AND 3 AND execution_epoch=attempts AND worker_owner IS NULL AND lease_until IS NULL AND failure_reason IS NULL) OR
+  (state='failed' AND attempts BETWEEN 1 AND 3 AND execution_epoch=attempts AND worker_owner IS NULL AND lease_until IS NULL AND failure_reason IS NOT NULL)))
 );
