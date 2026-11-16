@@ -22,6 +22,15 @@ func TestDocumentDefinitionComparison(t *testing.T) {
 	}
 	base := all["documents"]
 	normalized := canonicalDocumentDefinition(base)
+	explicit := strings.Replace(base, "enum('pdf','docx') COLLATE", "enum('pdf','docx') CHARACTER SET utf8mb4 COLLATE", 1)
+	if explicit == base || canonicalDocumentDefinition(explicit) != normalized {
+		t.Fatal("equivalent restored enum charset rejected")
+	}
+	for _, bad := range []string{strings.Replace(explicit, "CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_bin", "CHARACTER SET latin1 COLLATE utf8mb4_0900_bin", 1), strings.Replace(explicit, "COLLATE utf8mb4_0900_bin", "COLLATE utf8mb4_0900_ai_ci", 1)} {
+		if canonicalDocumentDefinition(bad) == normalized {
+			t.Fatal("meaningful charset/collation difference hidden")
+		}
+	}
 	if canonicalDocumentDefinition(strings.Replace(base, ") ENGINE=InnoDB", ") ENGINE=InnoDB AUTO_INCREMENT=123", 1)) != normalized {
 		t.Fatal("next ID should not change structure")
 	}

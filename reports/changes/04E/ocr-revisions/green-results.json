@@ -1,0 +1,97 @@
+{
+  "exit_code": 0,
+  "scope": "Isolated candidate revision DDL and actual Go transactions; production Target6 unchanged",
+  "run_id": "campus-ocr-revisions-64fb48c0aaea",
+  "image_id": "sha256:9804df0a08ab445fb7b62622941d69326ef99560dedfacca99017b2f59235d44",
+  "mysql_version": "8.4.13",
+  "candidate_sql_sha256": "8bd387f4fd0959b91beda5793dcaa9a3b7502682964ed425ef91d45b4b7969dc",
+  "groups": [
+    "TestMySQLReviewRollbackAndPageCount",
+    "TestMySQLReviewIdempotentRaceAndOldSource",
+    "TestMySQLReviewPublishedKeywordIsolation",
+    "TestMySQLReviewForeignClassAndRevisionBounds",
+    "TestMySQLReviewCASRaceAndAuthorization"
+  ],
+  "source_files": {
+    "backend/internal/ocrreview/mysql_test.go": "cb0bd4b5cbbf1510c3a27b45346d4f42b7315ea1a3f8016fad73ca83d6fcab24",
+    "backend/internal/ocrreview/store.go": "041c7f01c4e3e66762858bdda633dabb3a4ecd8d693bbe43453bd390d46a31d3",
+    "backend/internal/ocrreview/store_test.go": "8f626c8793d3d35599536bf289aab7b407e69af17e51cd88e62a1532fff479ae"
+  },
+  "cleanup": [
+    {
+      "resource": "campus-ocr-revisions-64fb48c0aaea",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-revisions-64fb48c0aaea:probe",
+      "ok": true
+    }
+  ],
+  "secret_file_removed": true,
+  "results": [
+    {
+      "label": "build pinned MySQL probe",
+      "exit_code": 0
+    },
+    {
+      "label": "immutable MySQL image",
+      "exit_code": 0
+    },
+    {
+      "label": "start owned isolated MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "database version",
+      "exit_code": 0
+    },
+    {
+      "label": "create isolated schema",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000001_identity_users_classes.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000002_identity_sessions.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000003_identity_auth_audit.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000004_materials_retrieval.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000005_assignment_tasks.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000006_documents.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "identity fixtures",
+      "exit_code": 0
+    },
+    {
+      "label": "candidate append-only revision DDL",
+      "exit_code": 0
+    },
+    {
+      "label": "remove owned candidate rows",
+      "exit_code": 0
+    },
+    {
+      "label": "candidate reverse DDL",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline tables preserved",
+      "exit_code": 0
+    }
+  ]
+}

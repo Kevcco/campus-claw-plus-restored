@@ -74,7 +74,7 @@ try {
   report.mysql_version = sql('actual database version', 'SELECT VERSION();', { database: null })
   assert.match(report.mysql_version, /^8\.4\.13(?:[-.]|$)/)
   sql('fresh isolated schema only', 'CREATE DATABASE di_contract_probe CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_bin;', { database: null })
-  const old = readdirSync('backend/internal/migrations/sql').filter(n => n.endsWith('.up.sql') && !n.startsWith('000006')).sort()
+  const old = readdirSync('backend/internal/migrations/sql').filter(n => n.endsWith('.up.sql') && Number(n.slice(0,6)) < 6).sort()
   assert.equal(old.length, 5)
   for (const name of old) sql('published table baseline ' + name, readFileSync('backend/internal/migrations/sql/' + name, 'utf8'))
   const count = () => Number(sql('inspect isolated table count', "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='di_contract_probe';"))

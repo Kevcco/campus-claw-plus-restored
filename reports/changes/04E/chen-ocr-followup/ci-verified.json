@@ -1,0 +1,186 @@
+{
+  "observer": "小陈 / Kevcco（AI辅助）",
+  "checked_at": "2026-11-16T12:02:06.698Z",
+  "head": "d540bdc74ed8d3f621c1b286fd0c1fef896fb157",
+  "run": 43861270879,
+  "artifact_id": 14224341190,
+  "artifact_digest": "sha256:1022f4bce036482d93a1a38d6209905a3ddbf9071b23cf15e11beae9220b63af",
+  "artifact_digest_verified": true,
+  "tracked_files": 2800,
+  "tracked_fingerprint": "79714c4b07fbdbc620fdfed033ae4621bdeb14c405b97941093611c184949513",
+  "git_blob_match": true,
+  "gate": [
+    {
+      "name": "check",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 159109
+    },
+    {
+      "name": "audit",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 664
+    },
+    {
+      "name": "secret-scan",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 1699
+    },
+    {
+      "name": "verify",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 379056
+    }
+  ],
+  "images": [
+    {
+      "service": "mysql",
+      "image_id": "sha256:8262ba3b2a08ecba5a7b653e8a7ef3d64122c1354de1d25116342ca7c7cd108e",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "admin",
+      "image_id": "sha256:be1b0aa98eccfd216d74e6535e2eff02eb9dc44a72b3b48faa30fdfa689b5763",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "backend",
+      "image_id": "sha256:e92d3bb659b5818995319d7f0bdab786802f677a7c452d2682b82ef3a1122e4b",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "frontend",
+      "image_id": "sha256:33af286a4927bedc7ec5af3b332b0df8f9df0eebd5597bb789b22a336c7bf477",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "document-parser",
+      "image_id": "sha256:7d57c83aa15fbfa04b29c5187b657107e776602c0f35a79e6ba26a6d46463226",
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  ],
+  "cleanup": 5,
+  "migration": {
+    "target": 6,
+    "restored_target": 5,
+    "tests": [
+      "TestDIMigration6FreshUpgradeAndHistory",
+      "TestDIFiveDDLInterruptionAndForwardRepair",
+      "TestDIExactStructureDrift",
+      "TestDIEmptyDisposableDownOnly"
+    ],
+    "interrupted_ddl_steps": 5,
+    "accepted5_commit": "c1ac4213580df1fcc03520b8dddcfbece2a3344d",
+    "binaries": {
+      "pre06-server": "55704b6ad8564f01cbd704460c446e81576435947be0959d55a87e5890206d59",
+      "pre06-admin": "07605b774b31eb62a8ac7ad5855969632315dfe1e9d1c354ec6dca500cfc36d9",
+      "server": "d26f538af9b4c3091fdb1fbd21a70b0ce6150943fbbff78683393c36356e74c7",
+      "identity-admin": "dd3d90cd26820a8b4da899898972fd7db899c1d73ac9604c498685b4e75ffc52"
+    },
+    "dump_sha256": "46f263e5a965e3fc996f9613d99a034f7f2a2f41ec8a28de7846c533f4574b5f",
+    "backup_utc": "2026-11-16T11:58:44.988Z",
+    "observed_rto_upper_bound_ms": 1635,
+    "separate_preserved_source": "idf_test_63",
+    "isolated_restore": "idf_test_64"
+  },
+  "worker": {
+    "stages": [
+      "corpus",
+      "outage-enqueue",
+      "outage-retry",
+      "restart-enqueue",
+      "restart-verify",
+      "kill-enqueue",
+      "kill-expire",
+      "kill-verify",
+      "database-verify"
+    ],
+    "documents": 40,
+    "locations": 195,
+    "chunks": 196,
+    "actual_worker_sigkill": true,
+    "forced_test_lease_expiry": true,
+    "actual_database_recovery": true,
+    "public_document_http": "separate-required-proof",
+    "parser_image": "sha256:7d57c83aa15fbfa04b29c5187b657107e776602c0f35a79e6ba26a6d46463226",
+    "backend_image": "sha256:e92d3bb659b5818995319d7f0bdab786802f677a7c452d2682b82ef3a1122e4b"
+  },
+  "public_http": {
+    "stages": [
+      "main",
+      "outage",
+      "persist"
+    ],
+    "database_tests": [
+      "TestDHExplicitRetryStopsAtThreeAndPreservesOriginal202",
+      "TestDHPublicAuthorizationOriginalsAndCitations",
+      "TestDHConcurrentIdempotencySharedQuotaAndRollback",
+      "TestDHSnapshotConsistencyAndStrictInput",
+      "TestDHSlowBodyUsesWholeFiveSecondBudget"
+    ],
+    "real_formats": 2,
+    "actors": 5,
+    "default_https": true,
+    "real_parser": true,
+    "exact_originals": true,
+    "persistent_quotes": true,
+    "actual_parser_outage": true,
+    "container_recreation": true
+  },
+  "queue": {
+    "groups": [
+      "TestMySQLAcceptanceRollbackAndMixedPayload",
+      "TestMySQLAtomicPublicationAndSource",
+      "TestMySQLClaimAndRetryRollback",
+      "TestMySQLConcurrentAcceptance",
+      "TestMySQLLeaseCASAndExhaustion",
+      "TestMySQLLeaseExpiryDuringPublication",
+      "TestMySQLLongChunksAndRetry",
+      "TestMySQLProcessCrashRecovery",
+      "TestMySQLStorageDeadline",
+      "TestMySQLWorkerSingleFlightAndCancellation"
+    ],
+    "log_sha256": "b96edaed34595b00c53b0d93f4779d32d7403b3f39d53228577dcc19ca4b3b49",
+    "source_files": {
+      "mysql_test.go": "0ba9253ce5c152f321b05c440646d15197add4d9b0c517ca094751ac0f21b456",
+      "result_test.go": "8e163dccfd43edcfac61df5c23921da70cae7887c3701625358e217f87d80663",
+      "reviewer_test.go": "5a85e2e9953270ce51c549a847afc9189316a9911cc44fe50657575f377e400a",
+      "store.go": "d81dccc98d3a4950bdd2b26274ded6f73e076d177911b32af7014c89bc821444",
+      "worker.go": "7780d64666c8e64cd87efafb5db2ddea9bd24ddccfde9183ec0e48df9e6a46cf"
+    }
+  },
+  "parser": [
+    {
+      "mode": "check",
+      "documents": 40,
+      "negatives": 25,
+      "locations": 195,
+      "rpc_groups": 7,
+      "private_health_groups": 3,
+      "actual_client_outage": true
+    },
+    {
+      "mode": "scan",
+      "documents": 40,
+      "negatives": 25,
+      "locations": 195,
+      "rpc_groups": 7,
+      "private_health_groups": 3,
+      "actual_client_outage": true
+    }
+  ],
+  "exit_code": 0,
+  "scope": "Independent verification of downloaded exact-PR CI originals; no new local Docker/database/browser run or holder deployment claimed"
+}

@@ -1,0 +1,8 @@
+{
+  "id": 5919841584,
+  "head": "d14967e5ee774b85e594635b5fa84059c6394e56",
+  "state": "APPROVED",
+  "user": "Kevcco",
+  "url": "https://github.com/zwh9616/campus-claw-plus/pull/61#pullrequestreview-5919841584",
+  "body": "小陈 / Kevcco（AI辅助）复审最终 d14967e5ee774b85e594635b5fa84059c6394e56：前次两条行为问题均已修复，批准本次隔离候选组件及 prepared7 范围。512码点窗口保留199码点重叠，文档幂等唯一键和回查均含document_id；已核对中文/非BMP/最大查询、双文档同键并发、回执重放与回滚，以及修复前红/修复后13组MySQL原件和对应源码摘要。prepared7四组迁移/五阶段恢复6和7、四页437词框RPC原件及开发CER35/1618已独立重算核验。\n\n本人Node24合同46项、OCR13项、Go相关三包和全部后端随机测试/vet、Python六项通过；非法200拒绝与enum恢复等价比较两处受控红1→逐字恢复绿0。精确最终head完整CI及原artifact摘要、全Git blob源码指纹、四段门禁、五制品同ID扫描/运行、HTTPS/SQL/worker/迁移6恢复和清理已独立核验。作者MySQL/OCR原件及CI核验不冒称本轮独立Docker或OCR引擎执行。\n\n审查阶段已在原PR直接提交d14967e，对齐本会话现行流程：仅04E统一负责人例外，保留真实远端批准、合同先合入再apply及其他暂停安排；实现、机器合同和测试逐字保持。生产仍Target6/28 current/15空active；没有放行默认OCR服务、公开API/教师校对页、持有人升级、50页盲测/100框、完整native安全闭包或C语义。A/B/C未整体验收。批准只绑定本head，合并后精确main复验另记。\n\n复审记录：https://github.com/zwh9616/campus-claw-plus/blob/d14967e5ee774b85e594635b5fa84059c6394e56/reports/changes/04E/chen-ocr-followup-2026-11-16.md\r\n"
+}

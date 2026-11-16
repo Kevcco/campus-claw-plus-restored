@@ -1,0 +1,13 @@
+{
+  "run": 43858652543,
+  "status": "completed",
+  "conclusion": "success",
+  "head": "51464ad99423ffe65e2d3c9a7eec970edc4c07ce",
+  "merge_preview": "0a57792d32d76a089048d32d92cfb3d9effbaa87",
+  "identical_tree": "e4479a366846fc0b36525b0e27289b2171529e40",
+  "artifact_id": 14221544062,
+  "artifact_bytes": 231876,
+  "artifact_sha256": "ad58ea7cdeebc71a805ddfacc9d491d450afc35d91504e58b97047f8abac5fba",
+  "proof": "ci-proof.json",
+  "scope": "actual CI original artifact independently checked; not main merge acceptance"
+}

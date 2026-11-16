@@ -1,0 +1,8 @@
+{"request_id": "fa5db0941278433a9dfdedae97d22338", "path": "/health", "status": 200, "duration_ms": 1}
+{"request_id": "e646b88342414c189df8212dedb67392", "path": "/health", "status": 200, "duration_ms": 1}
+{"request_id": "ddc7491e81864fe4a152422f327b7064", "path": "/health", "status": 401, "duration_ms": 0}
+{"request_id": "ba123196e7234cce8dc4858fcc775d39", "path": "/internal/ocr", "status": 200, "duration_ms": 10187}
+{"request_id": "34caddf3327c4e15b016e1f770608400", "path": "/internal/ocr", "status": 503, "duration_ms": 1}
+{"request_id": "744e2df429eb47fd976c5f8ec97e19b3", "path": "/internal/ocr", "status": 503, "duration_ms": 1}
+{"request_id": "e2294aab79144d62bb24c25429ff3014", "path": "/internal/ocr", "status": 503, "duration_ms": 104}
+{"request_id": "0ad134e3ee6147aa9dcdd4ef5ab2280d", "path": "/internal/ocr", "status": 422, "duration_ms": 642}

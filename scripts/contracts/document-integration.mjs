@@ -112,9 +112,12 @@ export function validateIntegrationProfile(contract, register, read = p => readF
   }
   assert.equal(migration.published_files.length, 10)
   for (const entry of migration.published_files) assert.deepEqual(Object.keys(entry).sort(), ['name', 'sha256'])
-  const expectedManifest = { ...Object.fromEntries(migration.published_files.map(e => [e.name, e.sha256])), ...migration.files }
+  assert.deepEqual(Object.keys(migration.prepared_files).sort(),['000007_ocr_revisions.down.sql','000007_ocr_revisions.up.sql'])
+  assert.deepEqual(Object.keys(migration.prepared_structure).sort(),['path','sha256']);assert.equal(migration.prepared_structure.path,'backend/internal/migrations/ocr-structure.json');assert.equal(sha(read(migration.prepared_structure.path)),migration.prepared_structure.sha256,'Prepared OCR snapshot drift')
+  for(const [name,digest]of Object.entries(migration.prepared_files)){assert.equal(sha(read('docs/contracts/ocr-draft/'+name)),digest,'Prepared OCR SQL drift');assert.equal(sha(read('backend/internal/migrations/sql/'+name)),digest,'Prepared OCR embedded mismatch')}
+  const expectedManifest = { ...Object.fromEntries(migration.published_files.map(e => [e.name, e.sha256])), ...migration.files, ...migration.prepared_files }
   assert.deepEqual(JSON.parse(read('backend/internal/migrations/manifest.json')), expectedManifest)
-  assert.deepEqual([...names].sort(), Object.keys(expectedManifest).sort(), 'Exact twelve embedded SQL files')
+  assert.deepEqual([...names].sort(), Object.keys(expectedManifest).sort(), 'Exact twelve active and two prepared embedded SQL files')
   const phase = JSON.parse(read('docs/contracts/identity-phase.json'))
   assert.equal(phase.migrations.length, 6)
   assert.deepEqual(phase.migrations[5], { number: '000006', name: 'documents', owner: '04E', status: 'available',

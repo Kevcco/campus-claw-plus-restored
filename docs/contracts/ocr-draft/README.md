@@ -18,8 +18,24 @@
 2. 原GET详情URL未含版本；新版本读取必须有显式revision路径，旧URL仍能回查v1，不把原URL默认为最新正文。新资料列表/上传PNG-JPEG/搜索与当前六接口的兼容投影需要同一批准确OpenAPI和Schema；当前草案**尚未定义完这些公开操作**，不得据两条草案path提前实现。
 3. 追加迁移编号7只是预留方向，准确DDL/摘要/复合FK/结构校验、Target6备份、五表旧数据回填策略、dirty中断/前向修复/隔离恢复6仍待独占MySQL验证。不得改旧六份SQL、提前更改Target或运行数据库。
 4. A私有RPC现有35秒不能承载180秒OCR；最终须冻结准确origin/path、输入读预算、185秒左右总RPC上界、认证/健康、持久job的owner/epoch/租约心跳和最多三次规则。无外网模型下载、共享解析并发与A新上传公平性、解析器停机旧ready可读都须有真实反例。目前不新增active配置或新服务。
-5. PDF栅格器精确版本/轮子/许可/外链与脚本禁用、单页尺寸预检、完整依赖包闭包/漏洞扫描、开发集方向与质量阈值仍待；必须与最终引擎选择一并冻结。当前实际实验仅14张开发图片，不声称扫描PDF栅格链路通过。
+5. PDF栅格器精确版本/轮子/许可/外链与脚本禁用、单页尺寸预检、完整依赖包闭包/漏洞扫描、开发集方向与质量阈值仍待；必须与最终引擎选择一并冻结。后续14页开发PDF的PDFium栅格/OCR链路已实测，4正例CER2.16%，见ocr-pdf-development报告；完整依赖/安全闭包与生产混合页策略仍待。
 
 ## 可执行检查与范围
 
 `node --test scripts/ocr-draft-contract.test.mjs`对相同正反例跑Schema2020-12单源和OpenAPI3.1解引用两条路径，另验像素乘积、连续页码、逐字区间、正面积bbox和教师/班级/CAS语义。它是合同检查，**不能代替真实权限、事务、OCR准确率或恢复测试**。B1.2保持未完成，候选参数与未决项必须完成审查后才转frozen。
+
+## 2026-11-16版本事务候选实测
+
+本目录000007_ocr_revisions.up/down.sql已在独占MySQL8.4.13真实执行，追加revision/head/idempotency/chunk四表，不改变documents.version=1。Go ocrreview组件的CAS、20并发幂等、跨班与学生限制、事务回滚和仅当前发布索引已通过五组真实测试及班级过滤红1→绿0。此为准确候选SQL，不是runtime已启用迁移7；完整词框来源及owner-epoch绑定后续已实现并经九组真实MySQL验证；结构manifest/备份/dirty修复/恢复及公开接口兼容仍待。表名前缀不自动授予公开调用能力。
+
+## 原始词框来源与作业候选
+
+本轮追加document_ocr_sources和document_ocr_jobs，准确候选SQL共六表。来源保存原始OCRResult字节/SHA和原件摘要，校对不会覆盖词框；提交严格解码并绑定owner/epoch/数据库租约，最终SQL再次核对到期时间，来源/草稿/head/作业同事务。独占MySQL九组和最终租约保护红1→绿0通过，包含实际杀死持有人与接管。仍需私有RPC/默认worker、显式失败分类重试、结构manifest/Target6备份恢复及公开接口接线。机器候选见source-jobs.json，不改变runtime activation。
+
+## 私有RPC与worker候选已互通
+
+准确隔离组件profile见private-rpc.json。独立服务http://document-ocr:8092/internal/ocr，当前实现PDF，PNG/JPEG仍计划；190秒客户端总预算独立于原A解析器35秒。沿用既有令牌格式在隔离进程传入DOCUMENT_PARSER_TOKEN，不代表该键已登记新生产消费者；生产服务/密钥消费者须随正式接线原子更新。实际4页PDF→私有RPC→顺序worker→11组MySQL候选→教师校对→学生检索及请求取消释放进程已通过。显式失败原因保存，只有超时/中断/内部失败可在attempts<3时教师重试，不自动消耗三次。候选六表DDL已同步状态约束与摘要；结构manifest/备份恢复/公开接口及最终质量仍待。
+
+## 迁移7真实嵌入式执行和恢复已验证
+
+六表SQL已按SHA加入migrations目录，执行器显式Up(7)/Check(7)/Repair(7)和测试专用空库down可用；生产Target6和identity-admin默认目标保持，不会启动自动DDL。固定结构快照仅从已知SHA候选SQL首次生成并提交，校验器不从待检查库学习。旧合同登记12个当前SQL+2个prepared SQL，准确SHA/快照路径白名单仍强校验。实际6→7/六DDL中断/严格结构/真实dump恢复6和7全部通过，原件见ocr-migration7报告。公开接口与服务消费者/Target7的原子正式激活待下一批。

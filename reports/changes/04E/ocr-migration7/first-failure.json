@@ -1,0 +1,85 @@
+{
+  "run_id": "campus-ocr-migration-f7cbcd2622f4",
+  "exit_code": 1,
+  "scope": "actual embedded migration7, six DDL interruptions/repair, and isolated source6/source7 dump restores; production Target6 unchanged",
+  "image_id": "sha256:97fb92718a2a4f007e731547cade3d1b2923a477d35f05921bd47926559c3501",
+  "mysql_version": "8.4.13",
+  "migration_groups": [
+    "TestOCRMigrationFreshAndUpgrade",
+    "TestOCRMigrationSixInterruptionsAndDrift",
+    "TestOCRMigrationExactStructureAndHistory",
+    "TestOCRMigrationEmptyDownNeverPretendsRollback"
+  ],
+  "backup6": {
+    "path": "C:\\Users\\lenovo\\Desktop\\SoftwareDevelopment\\group_project\\output\\04-document-http-pages-2026-11-15\\output\\ocr-migration/backup6.sql",
+    "bytes": 1542353,
+    "sha256": "93fa1fad075a4d0191db6628460016e4dd486ff414db63585e595568ae7a3089"
+  },
+  "backup7": {
+    "path": "C:\\Users\\lenovo\\Desktop\\SoftwareDevelopment\\group_project\\output\\04-document-http-pages-2026-11-15\\output\\ocr-migration/backup7.sql",
+    "bytes": 1714734,
+    "sha256": "5c5bb6bba6787ad92d2e79a0bdfaf5ed95bbd813c6a8689be7499ad02d38bab9"
+  },
+  "error": "verify actual restored6: \n\n1 !== 0\n",
+  "cleanup": [
+    {
+      "resource": "campus-ocr-migration-f7cbcd2622f4",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-migration-f7cbcd2622f4:probe",
+      "ok": true
+    }
+  ],
+  "private_files_removed": true,
+  "results": [
+    {
+      "label": "build pinned MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "exact MySQL image",
+      "exit_code": 0
+    },
+    {
+      "label": "start owned temporary MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "actual MySQL version",
+      "exit_code": 0
+    },
+    {
+      "label": "embedded7 migration/interruptions/strict drift/empty down",
+      "exit_code": 0
+    },
+    {
+      "label": "create actual populated source6",
+      "exit_code": 0
+    },
+    {
+      "label": "real mysqldump source6",
+      "exit_code": 0
+    },
+    {
+      "label": "upgrade source6 to7 and publish real source/review",
+      "exit_code": 0
+    },
+    {
+      "label": "real mysqldump source7",
+      "exit_code": 0
+    },
+    {
+      "label": "create isolated restore6",
+      "exit_code": 0
+    },
+    {
+      "label": "restore actual SQL dump6",
+      "exit_code": 0
+    },
+    {
+      "label": "verify actual restored6",
+      "exit_code": 1
+    }
+  ]
+}

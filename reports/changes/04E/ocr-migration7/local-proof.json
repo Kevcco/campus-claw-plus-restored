@@ -1,0 +1,225 @@
+{
+  "source": {
+    "commit": "51464ad99423ffe65e2d3c9a7eec970edc4c07ce",
+    "dirty": false,
+    "fingerprint": "e2badc07b5e77d66345d907e52a565d4890a56d2816d43930df52392606ced06"
+  },
+  "source_binding": {
+    "actual_fingerprint": "e2badc07b5e77d66345d907e52a565d4890a56d2816d43930df52392606ced06",
+    "scope": "clean local commit worktree; actual source bytes bound; not main acceptance",
+    "verified_file_count": 2785
+  },
+  "tracked_files": 2785,
+  "publicHTTP": {
+    "stages": [
+      "main",
+      "outage",
+      "persist"
+    ],
+    "database_tests": [
+      "TestDHExplicitRetryStopsAtThreeAndPreservesOriginal202",
+      "TestDHPublicAuthorizationOriginalsAndCitations",
+      "TestDHConcurrentIdempotencySharedQuotaAndRollback",
+      "TestDHSnapshotConsistencyAndStrictInput",
+      "TestDHSlowBodyUsesWholeFiveSecondBudget"
+    ],
+    "real_formats": 2,
+    "actors": 5,
+    "default_https": true,
+    "real_parser": true,
+    "exact_originals": true,
+    "persistent_quotes": true,
+    "actual_parser_outage": true,
+    "container_recreation": true
+  },
+  "four_segments_exit0": false,
+  "manual_retries_exit0": true,
+  "full_gate_failure": "audit TLS network; separate same-commit audit/secret/600s verify succeeded",
+  "verify_ms": 562472,
+  "images": [
+    {
+      "service": "mysql",
+      "image_id": "sha256:d172d2344f09ced6eefa975d956efd8f724838457619213dfd2b6b00ad48bcbd",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "admin",
+      "image_id": "sha256:dfaed95349cf1087215ad093a27ee440ef5391423a0b8fd87db7569c902cc557",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "backend",
+      "image_id": "sha256:c6cae82185b39f535ae8b6edb36e510b2450bcb8029262a393af617c3bb3bd66",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "frontend",
+      "image_id": "sha256:2f1f02417b40952a27395c43f45f67dcf95a92cfce9cdbc3cef7048c06aed40e",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "document-parser",
+      "image_id": "sha256:2f080b631b9586bc5eba316499a35a8906cca8b6256c3ab7a66b38769c8fa5c6",
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  ],
+  "migration": {
+    "target": 6,
+    "restored_target": 5,
+    "tests": [
+      "TestDIMigration6FreshUpgradeAndHistory",
+      "TestDIFiveDDLInterruptionAndForwardRepair",
+      "TestDIExactStructureDrift",
+      "TestDIEmptyDisposableDownOnly"
+    ],
+    "interrupted_ddl_steps": 5,
+    "accepted5_commit": "c1ac4213580df1fcc03520b8dddcfbece2a3344d",
+    "binaries": {
+      "pre06-server": "55704b6ad8564f01cbd704460c446e81576435947be0959d55a87e5890206d59",
+      "pre06-admin": "07605b774b31eb62a8ac7ad5855969632315dfe1e9d1c354ec6dca500cfc36d9",
+      "server": "d26f538af9b4c3091fdb1fbd21a70b0ce6150943fbbff78683393c36356e74c7",
+      "identity-admin": "dd3d90cd26820a8b4da899898972fd7db899c1d73ac9604c498685b4e75ffc52"
+    },
+    "dump_sha256": "a5445b4214a04f61179c2edbb360df7a53129fb46777e52bcd148028629b73bc",
+    "backup_utc": "2026-11-16T11:44:50.461Z",
+    "observed_rto_upper_bound_ms": 4730,
+    "separate_preserved_source": "idf_test_63",
+    "isolated_restore": "idf_test_64"
+  },
+  "worker": {
+    "stages": [
+      "corpus",
+      "outage-enqueue",
+      "outage-retry",
+      "restart-enqueue",
+      "restart-verify",
+      "kill-enqueue",
+      "kill-expire",
+      "kill-verify",
+      "database-verify"
+    ],
+    "documents": 40,
+    "locations": 195,
+    "chunks": 196,
+    "actual_worker_sigkill": true,
+    "forced_test_lease_expiry": true,
+    "actual_database_recovery": true,
+    "public_document_http": "separate-required-proof",
+    "parser_image": "sha256:2f080b631b9586bc5eba316499a35a8906cca8b6256c3ab7a66b38769c8fa5c6",
+    "backend_image": "sha256:c6cae82185b39f535ae8b6edb36e510b2450bcb8029262a393af617c3bb3bd66"
+  },
+  "parser": {
+    "check": {
+      "documents": 40,
+      "locations": 195,
+      "negative_classes": 25,
+      "max_cer": 0,
+      "private_http_groups": 7,
+      "private_probe_groups": 3,
+      "actual_client_outage": true
+    },
+    "scan": {
+      "documents": 40,
+      "locations": 195,
+      "negative_classes": 25,
+      "max_cer": 0,
+      "private_http_groups": 7,
+      "private_probe_groups": 3,
+      "actual_client_outage": true
+    }
+  },
+  "queue_groups": 10,
+  "sql_rejections": 16,
+  "all_cleanup_ok": true,
+  "originals": [
+    {
+      "path": "mysql-image-verify/results.json",
+      "sha256": "ffa21bb3a650a79b9902076f9c75a6c75557b3a4883fd7d171714e498315490a"
+    },
+    {
+      "path": "mysql-image-verify/mysql.json",
+      "sha256": "e4157afa99da8f9c622f79a371cc46b3104979d993c47c53f4d0222386ecd332"
+    },
+    {
+      "path": "application-image-verify/results.json",
+      "sha256": "d302b6954c38db7352934c5cdffaebec95bed39b5dcb44403e5b772f43f36840"
+    },
+    {
+      "path": "application-image-verify/backend.json",
+      "sha256": "79d15dad3e7f70d43c3d47949c4a445ce9d1b573bbdb97e1d49c4de2e78c2dcd"
+    },
+    {
+      "path": "application-image-verify/admin.json",
+      "sha256": "db5712c4363455f98979efc5e5c6b14d980e856d90fe0501638cefab4569967f"
+    },
+    {
+      "path": "application-image-verify/frontend.json",
+      "sha256": "4e3c225afc84dbe660f7d1e47a73dd8e00bd9ed6c89fadfe059e346e57b8ae2f"
+    },
+    {
+      "path": "application-image-verify/document-parser.json",
+      "sha256": "70e325735985491a4e3c67dbc90c7acf919657ca2d86eb1bd1c6fa3727441d6b"
+    },
+    {
+      "path": "identity/results.json",
+      "sha256": "315ad09bd357debbe5c5df13b2b955fce848d5cb7e0dda4928314248b915291f"
+    },
+    {
+      "path": "identity-wiring/results.json",
+      "sha256": "bec285a875a778b57a3d0305e9649315827b63800637deea1081e19618a30478"
+    },
+    {
+      "path": "verification/gate-results.json",
+      "sha256": "ea7bab74a02fc9b615635e1c0a2f0250831df36b950afc4856696b46cdc4ac54"
+    },
+    {
+      "path": "verification/ocr-verify-only-results.json",
+      "sha256": "688b169aeb9469301db79a3272a25fa9226d4709bd6b1319da1a3dbd17bfe13e"
+    },
+    {
+      "path": "ocr-migration-clean-audit-retry.txt",
+      "sha256": "b80a70f74a2ead883bd1883d1d2068a8e18909f5be1eefc2f6484658c38add40"
+    },
+    {
+      "path": "ocr-migration-clean-secret.txt",
+      "sha256": "df9d8364ac0aa369f09d042d59ffef6b94cecc356222f3c2dec498a9b2ee9d69"
+    },
+    {
+      "path": "service-batches/results.json",
+      "sha256": "a513ffbced3dcc31b99f6fcbfd73fa1960582f4a3e91b336d8764cae5c93f2e4"
+    },
+    {
+      "path": "document-parser/check/results.json",
+      "sha256": "e82b178176e887a2fc1f90708ac0dfcc6ded09ed39cf334292530c22673c6b42"
+    },
+    {
+      "path": "document-parser/check/tests.json",
+      "sha256": "6f36ead366ab1d218ae8889e7fe2612dfec0eff0788ea1bf363d38fb79d19ece"
+    },
+    {
+      "path": "document-parser/scan/results.json",
+      "sha256": "b55fdcebf10244793756700f87d1d364c0114f23b8f55c3b52e118cd7362b91f"
+    },
+    {
+      "path": "document-parser/scan/tests.json",
+      "sha256": "4f77f15276c803cecbd6e473a90f9cb1d7dc368b9916ea4b449552fde6ce63a2"
+    },
+    {
+      "path": "document-parser/scan/parser.json",
+      "sha256": "6a8cc28cc1ef9d8436de62bee6c7b7fcabb4fb54c45d8cfe818bd23030ad025b"
+    },
+    {
+      "path": "document-storage-contract/results.json",
+      "sha256": "102f800ebaaec783191121fdf8515689038c6278ace5c33313bb31b7361cda51"
+    },
+    {
+      "path": "document-storage-contract/queue-test.log",
+      "sha256": "22a378b51cbbb614248e7bec5c49a8dfe9e7640f5a653404196f1c6750ebbe5d"
+    }
+  ]
+}

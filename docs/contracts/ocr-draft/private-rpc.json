@@ -1,0 +1,48 @@
+{
+  "status": "candidate-component",
+  "runtime_activation": false,
+  "origin": "http://document-ocr:8092",
+  "path": "/internal/ocr",
+  "health": "/health",
+  "implemented_media": [
+    "application/pdf"
+  ],
+  "planned_media": [
+    "image/png",
+    "image/jpeg"
+  ],
+  "input_bytes": 10485760,
+  "response_bytes": 8388608,
+  "task_ms": 180000,
+  "client_total_ms": 190000,
+  "header_ms": 5000,
+  "body_ms": 5000,
+  "preflight_ms": 500,
+  "concurrency": 1,
+  "max_connections": 16,
+  "redirects": false,
+  "proxy_from_environment": false,
+  "token": "canonical 32-byte base64url without padding",
+  "candidate_token_input": "DOCUMENT_PARSER_TOKEN in isolated process only; production composition/consumer register pending",
+  "failure_codes": {
+    "corrupt": 422,
+    "encrypted": 422,
+    "unsupported_content": 422,
+    "resource_limit": 422,
+    "ocr_timeout": 504,
+    "worker_interrupted": 503,
+    "language_missing": 503,
+    "internal_failure": 503
+  },
+  "failure_status": "failed",
+  "failure_field": "reason",
+  "success_status": "needs_review",
+  "lease_seconds": 60,
+  "heartbeat_seconds": 20,
+  "max_attempts": 3,
+  "retry": "explicit same-class teacher only for ocr_timeout/worker_interrupted/internal_failure when attempts<3",
+  "production_target": 6,
+  "server_work_budget_ms": 185000,
+  "reply_socket_ms": 2000,
+  "engine_mount": "six explicit runtime files only; no corpus/gold/blind/fixtures"
+}

@@ -1,0 +1,74 @@
+{
+  "exit_code": 1,
+  "scope": "Isolated candidate revision DDL and actual Go transactions; production Target6 unchanged",
+  "run_id": "campus-ocr-revisions-6d7ad02ce616",
+  "image_id": "sha256:f41edaee49ced3d98de815540987817b0f73b9ba8d0b51210f473c2b50e63d19",
+  "mysql_version": "8.4.13",
+  "candidate_sql_sha256": "8bd387f4fd0959b91beda5793dcaa9a3b7502682964ed425ef91d45b4b7969dc",
+  "error": "real revision transactions failed; see mysql-tests.txt\n\n1 !== 0\n",
+  "cleanup": [
+    {
+      "resource": "campus-ocr-revisions-6d7ad02ce616",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-revisions-6d7ad02ce616:probe",
+      "ok": true
+    }
+  ],
+  "secret_file_removed": true,
+  "results": [
+    {
+      "label": "build pinned MySQL probe",
+      "exit_code": 0
+    },
+    {
+      "label": "immutable MySQL image",
+      "exit_code": 0
+    },
+    {
+      "label": "start owned isolated MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "database version",
+      "exit_code": 0
+    },
+    {
+      "label": "create isolated schema",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000001_identity_users_classes.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000002_identity_sessions.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000003_identity_auth_audit.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000004_materials_retrieval.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000005_assignment_tasks.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000006_documents.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "identity fixtures",
+      "exit_code": 0
+    },
+    {
+      "label": "candidate append-only revision DDL",
+      "exit_code": 0
+    }
+  ]
+}

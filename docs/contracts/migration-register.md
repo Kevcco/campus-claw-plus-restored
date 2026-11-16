@@ -41,4 +41,6 @@
 
 ## 04E准确000006已进入实施候选（未部署）
 
+2026-11-16最新：000006已随#54/#55/#57获审合入并通过真实运行，当前仍精确Target6。#61追加prepared `000007_ocr_revisions` 六表，上下行字节与固定结构快照准确SHA见document-integration.json的prepared_files/prepared_structure，未登记为active/available7。显式嵌入式Up7/Check7/Repair7、六DDL中断、结构/历史篡改拒绝和真实dump隔离恢复6/7已实测。校对幂等作用域为用户/班级/文档/键；仅改尚未发布7，不改已发布1—6。正式Target7/服务接线、持有人升级及生产回退仍待，详情见[迁移7实测](../../reports/changes/04E/ocr-migration7/README.md)。
+
 本轮小张按已批准#48的I3逐字复制上下行至backend embed，并追加真实manifest/identity-phase available，server/admin共用精确Target6；上文候选号段为冻结当时快照。全部旧SQL字节保持，当前四服务/13 active/22 current不改，资料六操作仍frozen。结构使用锁定MySQL8.4.13对已获审SQL一次性生成并提交的完整定义快照，运行检查不从待验库学习预期；逐列/索引/复合FK schema和列序/CHECK及执行性/引擎/字符集/排序均须一致。当前正在执行五DDL中断、前向修复及真实5制品/停写备份/隔离恢复5；尚无完整验收或生产升级结论。

@@ -1,0 +1,105 @@
+{
+  "exit_code": 1,
+  "scope": "Isolated candidate revision DDL and actual Go transactions; production Target6 unchanged",
+  "run_id": "campus-ocr-revisions-9d2cccdcaa75",
+  "real_ocr_fixture": {
+    "engine_output_sha256": "e0737982ca3e10b910e40ae7f59ae859c7d5e1da75071e906e50eba895e5da71",
+    "source_sha256": "e23ba3b7ffbf2ea74e6993f0340b007a647cf1501aab3a91d027af36a82ae0ed",
+    "original_sha256": "bfb8a3728453b52a80a254e872b6d417fe0ee4314310e28045b5f81a079e2135",
+    "pages": 4,
+    "words": 437
+  },
+  "image_id": "sha256:337a4eb03336c68a68be55e8244d96b73a0e404718a4f25031b7cb4614169d3e",
+  "mysql_version": "8.4.13",
+  "candidate_sql_sha256": "d89b754dc5b93718b2bcb0fcc3891dcaff96274d38e2a5d04026e061870c7ba0",
+  "error": "real revision transactions failed; see mysql-tests.txt\n\n1 !== 0\n",
+  "cleanup": [
+    {
+      "resource": "campus-ocr-revisions-9d2cccdcaa75",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-revisions-9d2cccdcaa75:probe",
+      "ok": true
+    }
+  ],
+  "secret_file_removed": true,
+  "results": [
+    {
+      "label": "build pinned MySQL probe",
+      "exit_code": 0
+    },
+    {
+      "label": "immutable MySQL image",
+      "exit_code": 0
+    },
+    {
+      "label": "start owned isolated MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "database version",
+      "exit_code": 0
+    },
+    {
+      "label": "create isolated schema",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000001_identity_users_classes.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000002_identity_sessions.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000003_identity_auth_audit.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000004_materials_retrieval.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000005_assignment_tasks.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000006_documents.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "identity fixtures",
+      "exit_code": 0
+    },
+    {
+      "label": "candidate append-only revision DDL",
+      "exit_code": 0
+    },
+    {
+      "label": "record candidate structure document_ocr_revisions",
+      "exit_code": 0
+    },
+    {
+      "label": "record candidate structure document_ocr_heads",
+      "exit_code": 0
+    },
+    {
+      "label": "record candidate structure document_ocr_review_keys",
+      "exit_code": 0
+    },
+    {
+      "label": "record candidate structure document_ocr_chunks",
+      "exit_code": 0
+    },
+    {
+      "label": "record candidate structure document_ocr_sources",
+      "exit_code": 0
+    },
+    {
+      "label": "record candidate structure document_ocr_jobs",
+      "exit_code": 0
+    }
+  ]
+}

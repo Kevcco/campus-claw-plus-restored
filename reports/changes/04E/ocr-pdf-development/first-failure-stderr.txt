@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/driver/ocr_pdf.py", line 97, in <module>
+    print(json.dumps(recognize_pdf(sys.argv[1]), ensure_ascii=False))
+                     ~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/driver/ocr_pdf.py", line 87, in recognize_pdf
+    raise ValueError('page_worker_failure')
+ValueError: page_worker_failure

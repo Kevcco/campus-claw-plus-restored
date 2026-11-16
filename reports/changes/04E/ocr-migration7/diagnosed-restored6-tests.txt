@@ -1,0 +1,13 @@
+=== RUN   TestOCRBackupFixture
+    migration_test.go:288: RESTORE_META version=6 dirty=false
+    migration_test.go:289: STRUCTURE_1 <nil>
+    migration_test.go:289: STRUCTURE_2 <nil>
+    migration_test.go:289: STRUCTURE_3 <nil>
+    migration_test.go:289: STRUCTURE_4 <nil>
+    migration_test.go:289: STRUCTURE_5 <nil>
+    migration_test.go:289: STRUCTURE_6 migration state requires inspection; no automatic repair
+    migration_test.go:291: restored6 version
+--- FAIL: TestOCRBackupFixture (0.22s)
+FAIL
+FAIL	github.com/zwh9616/campus-claw-plus/backend/internal/integration/ocrmigration	0.222s
+FAIL

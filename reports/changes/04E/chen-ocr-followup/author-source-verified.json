@@ -1,0 +1,58 @@
+{
+  "observer": "小陈 / Kevcco（AI辅助）",
+  "head": "d540bdc74ed8d3f621c1b286fd0c1fef896fb157",
+  "checks": [
+    {
+      "folder": "ocr-review-feedback",
+      "groups": [
+        "TestMySQLReviewRollbackAndPageCount",
+        "TestMySQLReviewBoundaryKeywords",
+        "TestMySQLOCRRealSourceAndReview",
+        "TestMySQLReviewIdempotentRaceAndOldSource",
+        "TestMySQLReviewDocumentScopedIdempotency",
+        "TestMySQLOCRTakeoverAndExhaustion",
+        "TestMySQLOCRKilledWorkerTakeover",
+        "TestMySQLReviewPublishedKeywordIsolation",
+        "TestMySQLReviewCASRaceAndAuthorization",
+        "TestMySQLOCRWorkerFailureAndExplicitRetry",
+        "TestMySQLOCRSourceRollbackAndFinalLeaseExpiry",
+        "TestMySQLReviewForeignClassAndRevisionBounds",
+        "TestMySQLOCRWorkerCancelAndLostLease"
+      ],
+      "source_count": 10,
+      "source_hashes_match": true,
+      "cleanup": true
+    },
+    {
+      "folder": "ocr-migration7",
+      "groups": [
+        "TestOCRMigrationFreshAndUpgrade",
+        "TestOCRMigrationSixInterruptionsAndDrift",
+        "TestOCRMigrationExactStructureAndHistory",
+        "TestOCRMigrationEmptyDownNeverPretendsRollback"
+      ],
+      "source_count": 8,
+      "source_hashes_match": true,
+      "cleanup": true
+    }
+  ],
+  "feedback_red_cases": 2,
+  "overlap_positions_checked": 300000,
+  "candidate_runtime_sql_equal": true,
+  "rpc": {
+    "pages": 4,
+    "words": 437,
+    "quality": {
+      "errors": 35,
+      "denominator": 1618,
+      "cer": 0.021631644004944377,
+      "pages": 4
+    },
+    "source_hashes_match": true,
+    "gold_available": false,
+    "blind_available": false
+  },
+  "independent_database_run": false,
+  "scope": "Independent Git-blob/source/log checks of author MySQL originals; no new local MySQL/OCR engine execution",
+  "exit_code": 0
+}

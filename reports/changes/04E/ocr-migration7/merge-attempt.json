@@ -1,0 +1,14 @@
+{
+  "pr": 61,
+  "expected_head": "51464ad99423ffe65e2d3c9a7eec970edc4c07ce",
+  "method": "normal merge",
+  "ci_run": 43858652543,
+  "ci": "success",
+  "local_verify_ms": 562472,
+  "merged": false,
+  "status": 405,
+  "message": "1 review requesting changes by reviewers with write access.",
+  "review_threads_resolved": 2,
+  "reviewer_requested": "Kevcco",
+  "scope": "remote protection rejection; no review forged, no protection changed"
+}

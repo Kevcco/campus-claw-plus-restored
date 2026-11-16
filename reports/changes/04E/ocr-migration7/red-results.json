@@ -1,0 +1,41 @@
+{
+  "run_id": "campus-ocr-migration-c27a09d6b78c",
+  "exit_code": 1,
+  "scope": "actual embedded migration7, six DDL interruptions/repair, and isolated source6/source7 dump restores; production Target6 unchanged",
+  "image_id": "sha256:b2e8640c142e1ce87c8c830c3cea61344376b6ac3fd8f8d3d65d2bdf60b40565",
+  "mysql_version": "8.4.13",
+  "error": "embedded7 migration/interruptions/strict drift/empty down failed; see original stage log\n\n1 !== 0\n",
+  "cleanup": [
+    {
+      "resource": "campus-ocr-migration-c27a09d6b78c",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-migration-c27a09d6b78c:probe",
+      "ok": true
+    }
+  ],
+  "private_files_removed": true,
+  "results": [
+    {
+      "label": "build pinned MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "exact MySQL image",
+      "exit_code": 0
+    },
+    {
+      "label": "start owned temporary MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "actual MySQL version",
+      "exit_code": 0
+    },
+    {
+      "label": "embedded7 migration/interruptions/strict drift/empty down",
+      "exit_code": 1
+    }
+  ]
+}
