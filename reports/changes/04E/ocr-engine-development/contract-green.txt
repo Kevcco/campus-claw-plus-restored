@@ -1,0 +1,12 @@
+✔ DI-SC-16/17 private draft single-source 2020-12 and OpenAPI paths accept only closed bounded data (3.2437ms)
+✔ DI-SC-17 semantic pixel/range/quote/order/bbox guards reject structurally valid false citations (4.8659ms)
+✔ DI-SC-18 review requires explicit acknowledgement, bounded content and server authority/CAS (1.3829ms)
+✔ DI-SC-25 candidate is explicitly draft and cannot activate current endpoints/config/migration (0.9436ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 703.6223

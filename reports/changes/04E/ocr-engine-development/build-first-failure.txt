@@ -1,0 +1,86 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.23kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 ...
+
+#5 [build 1/5] FROM docker.io/library/python@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67
+#5 resolve docker.io/library/python@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67 0.0s done
+#5 CACHED
+
+#4 [internal] load build context
+#4 transferring context: 19.12MB 1.1s done
+#4 DONE 1.1s
+
+#6 [build 2/5] RUN apk add --no-cache build-base cmake leptonica-dev
+#6 5.744 WARNING: fetching https://dl-cdn.alpinelinux.org/alpine/v3.24/main/x86_64/APKINDEX.tar.gz: TLS: unspecified error
+#6 ...
+
+#7 [stage-1 2/6] RUN apk add --no-cache leptonica libstdc++ && apk info -v > /opt/apk-packages.txt
+#7 12.81 ( 1/10) Installing giflib (5.2.2-r2)
+#7 13.30 ( 2/10) Installing libjpeg-turbo (3.1.3-r0)
+#7 14.52 ( 3/10) Installing libpng (1.6.59-r0)
+#7 14.98 ( 4/10) Installing libsharpyuv (1.6.0-r0)
+#7 15.29 ( 5/10) Installing libwebp (1.6.0-r0)
+#7 16.70 ( 6/10) Installing tiff (4.7.2-r0)
+#7 17.90 ( 7/10) Installing libwebpmux (1.6.0-r0)
+#7 18.10 ( 8/10) Installing leptonica (1.87.0-r0)
+#7 ...
+
+#6 [build 2/5] RUN apk add --no-cache build-base cmake leptonica-dev
+#6 22.30 ERROR: unable to select packages:
+#6 22.30   build-base (no such package):
+#6 22.30     required by: world[build-base]
+#6 22.30   cmake (no such package):
+#6 22.30     required by: world[cmake]
+#6 22.30   so:libgif.so.7 (no such package):
+#6 22.30     required by: leptonica-1.87.0-r0[so:libgif.so.7]
+#6 22.30   so:libjpeg.so.8 (no such package):
+#6 22.30     required by: leptonica-1.87.0-r0[so:libjpeg.so.8]
+#6 22.30   so:libpng16.so.16 (no such package):
+#6 22.30     required by: leptonica-1.87.0-r0[so:libpng16.so.16]
+#6 22.30   so:libtiff.so.6 (no such package):
+#6 22.30     required by: leptonica-1.87.0-r0[so:libtiff.so.6]
+#6 22.30   so:libwebp.so.7 (no such package):
+#6 22.30     required by: leptonica-1.87.0-r0[so:libwebp.so.7]
+#6 22.30   so:libwebpmux.so.3 (no such package):
+#6 22.30     required by: leptonica-1.87.0-r0[so:libwebpmux.so.3]
+#6 22.30   pkgconfig (no such package):
+#6 22.31     required by: leptonica-dev-1.87.0-r0[pkgconfig]
+#6 ERROR: process "/bin/sh -c apk add --no-cache build-base cmake leptonica-dev" did not complete successfully: exit code: 11
+
+#7 [stage-1 2/6] RUN apk add --no-cache leptonica libstdc++ && apk info -v > /opt/apk-packages.txt
+#7 CANCELED
+------
+ > [build 2/5] RUN apk add --no-cache build-base cmake leptonica-dev:
+22.30   so:libpng16.so.16 (no such package):
+22.30     required by: leptonica-1.87.0-r0[so:libpng16.so.16]
+22.30   so:libtiff.so.6 (no such package):
+22.30     required by: leptonica-1.87.0-r0[so:libtiff.so.6]
+22.30   so:libwebp.so.7 (no such package):
+22.30     required by: leptonica-1.87.0-r0[so:libwebp.so.7]
+22.30   so:libwebpmux.so.3 (no such package):
+22.30     required by: leptonica-1.87.0-r0[so:libwebpmux.so.3]
+22.30   pkgconfig (no such package):
+22.31     required by: leptonica-dev-1.87.0-r0[pkgconfig]
+------
+Dockerfile:2
+--------------------
+   1 |     FROM python@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67 AS build
+   2 | >>> RUN apk add --no-cache build-base cmake leptonica-dev
+   3 |     WORKDIR /build
+   4 |     COPY tesseract-5.5.4.tar.gz .
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c apk add --no-cache build-base cmake leptonica-dev" did not complete successfully: exit code: 11
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/ghnd8zft1dtyyrrpr5998fmyv

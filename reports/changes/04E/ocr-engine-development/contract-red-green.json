@@ -1,0 +1,8 @@
+{
+  "scenario": "DI-SC-17",
+  "mutation": "disable exact persistent quote comparison",
+  "red": 1,
+  "green": 0,
+  "restored_exactly": true,
+  "scope": "draft schema and semantic guards only; no real HTTP/authorization/transaction execution"
+}

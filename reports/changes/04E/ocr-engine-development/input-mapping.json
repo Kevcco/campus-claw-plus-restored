@@ -1,0 +1,86 @@
+[
+  {
+    "file": "page-01.png",
+    "id": "negative-01",
+    "sha256": "cf28de4c8e3c97b598041a133937f31abd6a2a679f24934f1212562cb6ede527",
+    "split": "development-negative"
+  },
+  {
+    "file": "page-02.jpg",
+    "id": "negative-02",
+    "sha256": "987841c749dae1975f9792514526aa88e07d319a9a661457be63f97e217929e9",
+    "split": "development-negative"
+  },
+  {
+    "file": "page-03.png",
+    "id": "negative-03",
+    "sha256": "fa78b1d24bd0a160ccc45c94642a98982efce73fd1f355f94927309bd44747c7",
+    "split": "development-negative"
+  },
+  {
+    "file": "page-04.png",
+    "id": "negative-04",
+    "sha256": "56245cdb8b407cf975d4072b11536f361a78b167b76becb82306089008aa7b28",
+    "split": "development-negative"
+  },
+  {
+    "file": "page-05.png",
+    "id": "negative-05",
+    "sha256": "37a78298249f82f7f6c635068c4839fb80be0919e50131af446b850427314d08",
+    "split": "development-negative"
+  },
+  {
+    "file": "page-06.jpg",
+    "id": "negative-06",
+    "sha256": "0e4bef3692c459303aa014349a672849682ccb60541ae8d1299b9e096168ce97",
+    "split": "development-negative"
+  },
+  {
+    "file": "page-07.png",
+    "id": "negative-07",
+    "sha256": "5d63ebc07212fbc12074dcca8433922d9787518e45775fe84da54a8bbfcd8b69",
+    "split": "development-negative"
+  },
+  {
+    "file": "page-08.png",
+    "id": "negative-08",
+    "sha256": "cf82b139a9c4a190169c60cf92cbcc161a3984b53c91df6ff6b5611ad5e268d2",
+    "split": "development-negative"
+  },
+  {
+    "file": "page-09.png",
+    "id": "negative-09",
+    "sha256": "966e3d9baf95e684296bdaf8160d948351c120507058d93d44583221bde0b5b7",
+    "split": "development-negative"
+  },
+  {
+    "file": "page-10.jpg",
+    "id": "negative-10",
+    "sha256": "01fe2ff6a572df33ba9d012378bdacb40e411aa9983b221d0014af91b8956a44",
+    "split": "development-negative"
+  },
+  {
+    "file": "page-11.png",
+    "id": "dev-01",
+    "sha256": "3293b3495ecf415c5d27df53ca1bf7f0b740ddde884b14230aaf2b847f22ecae",
+    "split": "development-positive"
+  },
+  {
+    "file": "page-12.jpg",
+    "id": "dev-02",
+    "sha256": "8317527f512daa93c0cf1fc93f2bd3d3238b2694e1e26fe011ad28fd1c0a8e14",
+    "split": "development-positive"
+  },
+  {
+    "file": "page-13.png",
+    "id": "dev-03",
+    "sha256": "134d0284239aafc50e9b0999f4a02d911b76d870768c5a412a9f2ece0c8806f5",
+    "split": "development-positive"
+  },
+  {
+    "file": "page-14.png",
+    "id": "dev-04",
+    "sha256": "8d2b1cc9ecc5d71b97af7af6243997b993ae5d1f7db3abf379763de658041fa4",
+    "split": "development-positive"
+  }
+]
