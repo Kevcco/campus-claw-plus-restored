@@ -1,0 +1,1 @@
+{"manifest_version":2,"name":"Campus isolated native zoom check","version":"1.0","permissions":["https://campus.test/*"],"background":{"scripts":["zoom.js"]},"browser_specific_settings":{"gecko":{"id":"campus-native-zoom-test@example.invalid"}}}

@@ -61,3 +61,5 @@
 
 
 2026-11-15晚#57交审补证：代码ee7e285原生200%/最终键盘及重试实测完成，已转ready并实际请求Kevcco复审。该代码完整CI43725610304成功；预演eec9a608与head整树一致，artifact14166756905原ZIP SHA256 c9670aa6311cf4d0b05fcf0b99f1f383f0fbce784e16687f44922c755dff38a7、18原件及全跟踪Git blob指纹已独立核验，四段0、verify518477ms、五镜像零HIGH/CRITICAL、三公开HTTPS/五真实SQL/九worker/迁移恢复/原回归与清理均通过，解包秘密扫描0。ee7e285本机完整check0、429源码/68浏览器原件均与Git匹配。最新仍无Kevcco实际APPROVED，故未合并；待真实批准并确认最终head门禁后正常合并/main复验。本提交只补证与进度，代码保持ee7e285逐字一致，其自身CI仍按正常门禁跟进；不提前勾A/B/C或持有人部署。证据见reports/changes/04E/document-http/native200-ci/。
+
+2026-11-16小张处理#57最新复审：补767/768实测时实际发现768–1000px状态与文件大小重叠，已修正共享列表选择器排除document-status，真实重叠断言红1→绿0；360/767/768/1440四档52截图、48次Tab、长200码点标题/5280码点正文末尾/逐字出处通过，另1000/1001边界无重叠。修复构建重新完成原生200%（站点zoom2/DPR3/viewport=null，临时扩展移除后验收）、14页面态、14次Tab、12次长出处及真实文档7失败1→Enter一次202→ready2、文档8两次202→耗尽3、扫描/加密不重试，五份下载SHA一致。本机完整check/audit0，实际JS/CSS与同次dist逐字匹配，隔离运行清理0；两处证据末尾空行按意见清理并同步原清单摘要。A3.1b浏览器验收完成，最终head CI/实际批准/main复验仍由A4.3收口，不提前勾A父项或持有人部署。证据见reports/changes/04E/document-http/breakpoint-final/。

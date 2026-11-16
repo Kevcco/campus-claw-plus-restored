@@ -1,0 +1,38 @@
+async page => {
+  const origin = __ORIGIN__, base = 'C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/output/breakpoint-browser/';
+  const title = [...('修复断点𠮷😀课程资料'.repeat(30))].slice(0,200).join('');
+  const checks = [], screenshots = [], tabs = [];
+  const check = (name, ok, detail) => { if (!ok) throw Error(name + ': ' + JSON.stringify(detail)); checks.push({name, detail}); };
+  await page.route(origin+'/**', route => route.continue());
+  const asset = await page.evaluate(async () => { const url = [...document.scripts].find(s => s.src).src; const r = await fetch(url,{cache:'no-store'}); const b = await r.arrayBuffer(); return {url,status:r.status,bytes:b.byteLength,sha256:[...new Uint8Array(await crypto.subtle.digest('SHA-256',b))].map(n=>n.toString(16).padStart(2,'0')).join('')}; });
+  check('same production JS as native200 acceptance',asset.status===200&&asset.sha256==='b8f44b2308fdee8e9e66e3ac44c6edeb96b625d1a1d7eaf34506e26fb69e21f7',asset);
+  await page.getByRole('link',{name:'上传资料',exact:true}).click();
+  await page.locator('#document-title').fill(title);
+  await page.locator('#document-file').setInputFiles(base+'long.docx');
+  const accepted = page.waitForResponse(r=>r.url().endsWith('/api/v1/documents')&&r.request().method()==='POST');
+  await page.getByRole('button',{name:'上传资料',exact:true}).click();
+  const response = await accepted;
+  check('actual long Word accepted',response.status()===202,{status:response.status(),location:response.headers().location});
+  await page.getByRole('heading',{name:'原文与出处',exact:true}).waitFor({timeout:40000});
+  const longURL = page.url();
+  const body = await page.locator('.document-body').innerText();
+  check('long title and escaped real body',[...title].length===200&&[...body].length===5280&&await page.evaluate(()=>window.leak)===undefined,{titleCodepoints:[...title].length,bodyCodepoints:[...body].length});
+  async function list() { await page.goto(origin+'/app/materials/documents'); await page.getByRole('link',{name:title,exact:true}).waitFor(); }
+  async function shot(name,width,fullPage=true) { const m=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,clientWidth:document.documentElement.clientWidth,dpr:devicePixelRatio,zoom:getComputedStyle(document.documentElement).zoom,scale:visualViewport.scale}));check(name+' layout',m.width===width&&m.scrollWidth<=m.clientWidth&&m.dpr===1&&Number(m.zoom)===1&&m.scale===1,m);const file=name+'-'+width+'.png';await page.screenshot({path:base+'screenshots/'+file,fullPage});screenshots.push(file); }
+  for (const width of [360,767,768,1440]) {
+    await page.setViewportSize({width,height:900}); await list(); await shot('list',width);
+    await page.getByRole('link',{name:'CampusClawPlus',exact:true}).focus();
+    for(let i=0;i<12;i++){await page.keyboard.press('Tab');const f=await page.evaluate(()=>{const e=document.activeElement,r=e.getBoundingClientRect(),s=getComputedStyle(e);return{tag:e.tagName,text:(e.textContent||e.getAttribute('aria-label')||e.id).slice(0,60),x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:innerWidth,height:innerHeight,outline:s.outlineStyle,outlineWidth:s.outlineWidth};});check('Tab '+width+'/'+i,f.tag!=='BODY'&&f.x>=-1&&f.y>=-1&&f.right<=f.width+1&&f.bottom<=f.height+1,f);tabs.push({width,...f});}
+    await shot('keyboard',width,false);
+    await page.getByLabel('关键词',{exact:true}).fill('不存在的验收关键词abc987');await page.getByRole('button',{name:'搜索',exact:true}).click();await page.getByText('没有找到匹配资料',{exact:true}).waitFor();await shot('empty',width);
+    let release;const held=new Promise(resolve=>release=resolve);const delayed=async route=>{await held;await route.continue();};await page.route('**/api/v1/documents?*',delayed);
+    try{await page.goto(origin+'/app/materials/documents');await page.getByText('正在加载资料…',{exact:true}).waitFor();await shot('loading',width);}finally{release();}
+    await page.getByRole('link',{name:title,exact:true}).waitFor();await page.unroute('**/api/v1/documents?*',delayed);
+    const failure=route=>route.abort('failed');await page.route('**/api/v1/documents?*',failure);await page.goto(origin+'/app/materials/documents');await page.getByRole('alert').waitFor();await shot('error',width);await page.unroute('**/api/v1/documents?*',failure);await page.getByRole('button',{name:'重试加载',exact:true}).click();await page.getByRole('link',{name:title,exact:true}).waitFor();await shot('recovered',width);
+    await page.getByRole('link',{name:'上传资料',exact:true}).click();await page.getByRole('heading',{name:'上传PDF与Word资料',exact:true}).waitFor();await shot('upload',width);await page.getByRole('button',{name:'上传资料',exact:true}).click();await page.getByRole('alert').waitFor();await shot('validation',width);await page.locator('#document-title').focus();await page.keyboard.press('Tab');check('upload file keyboard '+width,await page.locator('#document-file').evaluate(e=>e===document.activeElement));await page.keyboard.press('Tab');check('upload button keyboard '+width,await page.getByRole('button',{name:'上传资料',exact:true}).evaluate(e=>e===document.activeElement));
+    await page.goto(longURL);await page.getByRole('heading',{name:'原文与出处',exact:true}).waitFor();await shot('long-word',width);await page.keyboard.press('Control+End');await page.waitForFunction(()=>scrollY+innerHeight>=document.documentElement.scrollHeight-2);const end=await page.locator('.document-body').evaluate(e=>{const r=document.createRange();const n=e.lastChild;r.setStart(n,n.textContent.length-1);r.setEnd(n,n.textContent.length);const b=r.getBoundingClientRect();return{top:b.top,bottom:b.bottom,height:innerHeight};});check('long body end reachable '+width,end.top>=0&&end.bottom<=end.height+1,end);await shot('long-end',width,false);
+    await list();await page.getByLabel('关键词',{exact:true}).fill('核对出处与授权');await page.getByRole('button',{name:'搜索',exact:true}).focus();await page.keyboard.press('Enter');const citation=page.locator('.material-citations li').nth(1);await citation.waitFor();await shot('search',width);const quote=await citation.locator('.material-quote').innerText();await citation.getByRole('link').focus();await page.keyboard.press('Enter');await page.locator('mark').waitFor();await page.waitForFunction(()=>document.activeElement?.tagName==='MARK');const m=await page.locator('mark').evaluate(e=>({top:e.getClientRects()[0].top,height:innerHeight,focused:e===document.activeElement}));check('exact long citation keyboard '+width,m.focused&&m.top>=0&&m.top<m.height-40&&await page.locator('mark').innerText()===quote,m);await shot('citation',width,false);
+    await list();await page.getByRole('link',{name:'公开资料 clear-01.pdf',exact:true}).click();await page.getByRole('heading',{name:'第 1 页',exact:true}).waitFor();await shot('pdf',width);
+  }
+  return {passed:true,baseHead:'5e8cba97cdb4867043691601c5361ab48f808346',runtimeChange:'materials.css excludes document-status from size positioning',widths:[360,767,768,1440],asset,checks,tabs,screenshots,actualHTTPS:true,mockResponses:false,nativeZoom:1,scope:'responsive viewport sizes; native200 separately bound to identical runtime sources and served asset'};
+}

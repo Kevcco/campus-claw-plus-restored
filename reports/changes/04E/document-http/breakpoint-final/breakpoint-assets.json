@@ -1,0 +1,22 @@
+{
+  "assets": [
+    {
+      "url": "https://campus.test:32775/assets/index-By0u-PF6.js",
+      "status": 200,
+      "bytes": 203560,
+      "sha256": "b8f44b2308fdee8e9e66e3ac44c6edeb96b625d1a1d7eaf34506e26fb69e21f7"
+    },
+    {
+      "url": "https://campus.test:32775/assets/index-D3gklIM4.css",
+      "status": 200,
+      "bytes": 10248,
+      "sha256": "43b80138dd0f5f4c3621d23bb69a6b466f64fd7974afd39a97beed5eab066d39"
+    }
+  ],
+  "zoom": {
+    "dpr": 3,
+    "width": 720,
+    "scale": 1,
+    "cssZoom": "1"
+  }
+}

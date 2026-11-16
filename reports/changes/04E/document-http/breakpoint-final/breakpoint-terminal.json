@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "file": "scan.pdf",
+      "status": "待文字识别",
+      "noRetry": true,
+      "dpr": 3,
+      "width": 720,
+      "scroll": 720
+    },
+    {
+      "file": "encrypted.pdf",
+      "status": "解析失败",
+      "noRetry": true,
+      "dpr": 3,
+      "width": 720,
+      "scroll": 720
+    }
+  ]
+}

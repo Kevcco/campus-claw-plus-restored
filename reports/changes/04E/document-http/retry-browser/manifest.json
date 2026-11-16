@@ -1801,11 +1801,11 @@
     },
     {
       "path": "pr57-exhausted-copy-red.txt",
-      "sha256": "1b1098db5a31f11ae29f48db31fa35215c5c4045bfa3ba54b16913842c222087"
+      "sha256": "5a5d3152bc855f67f30dd3904238048b6295acae9b025e04fb8cf0972c51a220"
     },
     {
       "path": "pr57-retry-typecheck.txt",
-      "sha256": "ac74ac3c373ee52ab4378c27d90c43bd4149600a29485859f03ccbbbe5a55a57"
+      "sha256": "62b09636e1f673f58aee1d3ef3790998497a5f41710b01ecff710614146b046d"
     },
     {
       "path": "pr57-retry-frontend.txt",
