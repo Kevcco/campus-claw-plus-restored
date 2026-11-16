@@ -4,7 +4,7 @@
   "info": {
     "title": "CampusClawPlus 公共合同",
     "version": "business-contracts/v1",
-    "description": "health、六个身份和六个资料操作已实现；本05候选原子装配九个已冻结作业/提交/任务操作，共22 current。生产执行器未绑定，受理保持pending；终审和合入状态见共享表。其余planned操作不生成paths。凭据样例均不可用。"
+    "description": "当前28个current操作包含健康、身份、TXT资料、作业/提交/任务及六个PDF/Word资料操作；私有解析worker已接线，05批改执行器仍未绑定、真实pending。其余planned教学、OCR和语义操作不进入paths。凭据示例均不可用。"
   },
   "paths": {
     "/health": {
@@ -7397,7 +7397,7 @@
       "post": {
         "operationId": "document_post_documents",
         "summary": "异步上传或重试PDF/Word资料",
-        "x-contract-status": "frozen",
+        "x-contract-status": "current",
         "x-owner-change": "04E",
         "x-spec-change": "openspec/changes/2026-11-13-materials-document-intelligence",
         "security": [
@@ -7905,7 +7905,7 @@
       "get": {
         "operationId": "document_get_documents",
         "summary": "本班PDF/Word资料列表",
-        "x-contract-status": "frozen",
+        "x-contract-status": "current",
         "x-owner-change": "04E",
         "x-spec-change": "openspec/changes/2026-11-13-materials-document-intelligence",
         "security": [
@@ -8229,7 +8229,7 @@
       "get": {
         "operationId": "document_get_documents_id",
         "summary": "授权正文与页或逻辑块",
-        "x-contract-status": "frozen",
+        "x-contract-status": "current",
         "x-owner-change": "04E",
         "x-spec-change": "openspec/changes/2026-11-13-materials-document-intelligence",
         "security": [
@@ -8586,7 +8586,7 @@
       "get": {
         "operationId": "document_get_documents_id_download",
         "summary": "下载受保护原始PDF或DOCX",
-        "x-contract-status": "frozen",
+        "x-contract-status": "current",
         "x-owner-change": "04E",
         "x-spec-change": "openspec/changes/2026-11-13-materials-document-intelligence",
         "security": [
@@ -8928,7 +8928,7 @@
       "post": {
         "operationId": "document_post_documents_id_retry",
         "summary": "异步上传或重试PDF/Word资料",
-        "x-contract-status": "frozen",
+        "x-contract-status": "current",
         "x-owner-change": "04E",
         "x-spec-change": "openspec/changes/2026-11-13-materials-document-intelligence",
         "security": [
@@ -9395,7 +9395,7 @@
       "get": {
         "operationId": "document_get_document_search",
         "summary": "本班PDF/Word关键词搜索",
-        "x-contract-status": "frozen",
+        "x-contract-status": "current",
         "x-owner-change": "04E",
         "x-spec-change": "openspec/changes/2026-11-13-materials-document-intelligence",
         "security": [

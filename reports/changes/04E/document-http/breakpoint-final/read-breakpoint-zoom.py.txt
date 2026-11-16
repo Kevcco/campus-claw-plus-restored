@@ -1,0 +1,7 @@
+import sqlite3,json,pathlib
+p=pathlib.Path('output/material-real/breakpoints-campus-document-browser-09820f7a14fc/content-prefs.sqlite').resolve()
+db=sqlite3.connect(p.as_uri()+'?mode=ro',uri=True)
+rows=db.execute("SELECT groups.name,settings.name,prefs.value FROM prefs LEFT JOIN groups ON prefs.groupID=groups.id JOIN settings ON prefs.settingID=settings.id WHERE settings.name='browser.content.full-zoom'").fetchall()
+value={'native_firefox_site_zoom':rows,'database_read_only':True}
+pathlib.Path('output/breakpoint-browser/native-firefox-zoom.json').write_text(json.dumps(value,indent=2)+'\n')
+print(json.dumps(value))

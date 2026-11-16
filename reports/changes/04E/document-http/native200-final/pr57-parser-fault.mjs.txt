@@ -1,0 +1,15 @@
+// Watch only the owned default backend's successful public upload. Kill its
+// real parser dependency immediately after durable acceptance; never edit SQL.
+import{readFileSync,writeFileSync}from'node:fs'
+import{spawn,spawnSync}from'node:child_process'
+import assert from'node:assert/strict'
+const r=JSON.parse(readFileSync('output/document-browser/ready.json')),target=r.id+'-document-parser-1'
+assert.match(r.id,/^campus-document-browser-[a-f0-9]{12}$/)
+const c=JSON.parse(spawnSync('docker',['inspect',target],{encoding:'utf8'}).stdout)[0];assert.equal(c.Config.Labels['com.docker.compose.project'],r.id)
+const proof={project:r.id,action:'SIGKILL actual private parser after default HTTP upload202',sql_mutation:false,time:new Date().toISOString()}
+const child=spawn('docker',['logs','--follow','--since','1s',r.id+'-backend-1'],{stdio:['ignore','pipe','pipe']})
+let buffer='',fired=false
+const end=setTimeout(()=>{child.kill();console.error('No accepted upload observed');process.exitCode=1},120000)
+const feed=data=>{buffer+=data;const lines=buffer.split('\n');buffer=lines.pop();for(const line of lines){let j;try{j=JSON.parse(line)}catch{continue}if(!fired&&j.method==='POST'&&j.path==='/api/v1/documents'&&j.status===202){fired=true;const result=spawnSync('docker',['kill','--signal','KILL',target],{encoding:'utf8',timeout:15000});proof.exit_code=result.status;proof.trigger={method:j.method,path:j.path,status:j.status};proof.fired_at=new Date().toISOString();writeFileSync('output/document-browser/parser-fault-'+process.argv[2]+'.json',JSON.stringify(proof,null,2)+'\n');clearTimeout(end);child.kill();assert.equal(result.status,0);console.log('Actual owned parser killed after accepted upload; no database mutation')}}}
+child.stdout.on('data',feed);child.stderr.on('data',feed)
+console.log('Armed owned parser outage after actual upload202')

@@ -1,0 +1,28 @@
+{
+  "document_id": "15",
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/api/v1/documents/15/retry"
+    }
+  ],
+  "accepted": {
+    "status": 202,
+    "location": "/api/v1/documents/15",
+    "body_status": "queued",
+    "attempts": 1
+  },
+  "final": {
+    "status": "ready",
+    "attempts": 2,
+    "retry_hidden": true
+  },
+  "keyboard_activation": "Enter",
+  "url": "https://campus.test:32773/app/materials/documents/15",
+  "native": {
+    "dpr": 3,
+    "width": 641,
+    "cssZoom": "1",
+    "scale": 1
+  }
+}

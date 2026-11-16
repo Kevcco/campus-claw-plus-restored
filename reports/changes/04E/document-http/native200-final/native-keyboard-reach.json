@@ -1,0 +1,169 @@
+{
+  "passed": true,
+  "tabs": [
+    {
+      "tag": "A",
+      "id": "",
+      "text": "CampusClawPlus",
+      "top": 16,
+      "bottom": 60,
+      "left": 16,
+      "right": 186.6666717529297,
+      "width": 641,
+      "height": 416
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "text": "工作台",
+      "top": 85,
+      "bottom": 129,
+      "left": 16,
+      "right": 96,
+      "width": 641,
+      "height": 416
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "text": "资料",
+      "top": 85,
+      "bottom": 129,
+      "left": 104,
+      "right": 168,
+      "width": 641,
+      "height": 416
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "text": "账号与班级",
+      "top": 85,
+      "bottom": 129,
+      "left": 176,
+      "right": 288,
+      "width": 641,
+      "height": 416
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "text": "文本资料",
+      "top": 170,
+      "bottom": 214,
+      "left": 32,
+      "right": 128,
+      "width": 641,
+      "height": 416
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "text": "PDF与Word资料",
+      "top": 170,
+      "bottom": 214,
+      "left": 144,
+      "right": 300.75,
+      "width": 641,
+      "height": 416
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "text": "上传资料",
+      "top": 251,
+      "bottom": 295,
+      "left": 510.66668701171875,
+      "right": 624.6666870117188,
+      "width": 641,
+      "height": 416
+    },
+    {
+      "tag": "INPUT",
+      "id": "document-query",
+      "text": "",
+      "top": 372,
+      "bottom": 416,
+      "left": 16,
+      "right": 624.6666870117188,
+      "width": 641,
+      "height": 416
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "搜索",
+      "top": 186,
+      "bottom": 230,
+      "left": 16,
+      "right": 98,
+      "width": 641,
+      "height": 416
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "清除",
+      "top": 186,
+      "bottom": 230,
+      "left": 106,
+      "right": 188,
+      "width": 641,
+      "height": 416
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "text": "长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀",
+      "top": 262.3999938964844,
+      "bottom": 416,
+      "left": 16,
+      "right": 624.6666870117188,
+      "width": 641,
+      "height": 416
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "text": "长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀",
+      "top": 131.1999969482422,
+      "bottom": 284.8000030517578,
+      "left": 16,
+      "right": 624.6666870117188,
+      "width": 641,
+      "height": 416
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "text": "真实依赖中断重试 1794753090230",
+      "top": 186,
+      "bottom": 230,
+      "left": 16,
+      "right": 277.0333251953125,
+      "width": 641,
+      "height": 416
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "text": "真实依赖中断重试 1794753040397",
+      "top": 186,
+      "bottom": 230,
+      "left": 16,
+      "right": 277.0333251953125,
+      "width": 641,
+      "height": 416
+    }
+  ],
+  "last": {
+    "top": 333.1333312988281,
+    "bottom": 354.46665954589844,
+    "height": 416,
+    "scrollY": 3783.9833984375,
+    "dpr": 3,
+    "overflow": false
+  },
+  "wordDownload": true,
+  "url": "https://campus.test:32773/app/materials/documents/14"
+}

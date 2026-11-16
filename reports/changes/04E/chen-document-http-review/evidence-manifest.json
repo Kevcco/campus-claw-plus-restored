@@ -1,0 +1,58 @@
+[
+  {
+    "path": "artifact-secrets.txt",
+    "sha256": "977bae887265507af4d8dbf81576b2e6305a4e2360ff30b025fb67f9e8783e4e"
+  },
+  {
+    "path": "audit.txt",
+    "sha256": "6f37586567164dbaf4a19d2e9608fad2caf2cf5a6afe27bd0cb6b5d741352c1a"
+  },
+  {
+    "path": "check.txt",
+    "sha256": "818dbfaa180786361247477b6474af9626408b8c0638645560ec69eaf0442e27"
+  },
+  {
+    "path": "ci-verified.json",
+    "sha256": "98f171da480d894c10a284616229b33a8f9c1eff9bffdf0bf993b458764a3e7d"
+  },
+  {
+    "path": "environment.txt",
+    "sha256": "308a24672c7dd3a20e18dddd5e627188aee962c845c1dc3808248b238d479948"
+  },
+  {
+    "path": "local-results.json",
+    "sha256": "48a92c9c2eb2b15fa20dc2f179b3726f00bcc8d6ce4fac6bf894926a201d664a"
+  },
+  {
+    "path": "location-probe.go.txt",
+    "sha256": "b9dbe82f30873e8420d020e671d46b13a9717a43d84c347911f792c67f27a346"
+  },
+  {
+    "path": "location-probe.txt",
+    "sha256": "d7cab0ef56b8180c70db1315f90698d48333939019b82f5c095dbcf5cc8778d2"
+  },
+  {
+    "path": "npm-ci.txt",
+    "sha256": "aa3af8a27fe9ad96d2d50fce60ee6fe83f6505e64493e0b11bca8523c62e5d8a"
+  },
+  {
+    "path": "review-foundation.txt",
+    "sha256": "15ca270bf228ec65c413e512491b23604c2af1dd7e3f408f716a8d35dba8095e"
+  },
+  {
+    "path": "review-secret-initial-failure.txt",
+    "sha256": "16492ed77424f7e8c1481804479f587783bbf095d3d64cda0289ddca8c0871b9"
+  },
+  {
+    "path": "review-secret-scan.txt",
+    "sha256": "8a1ad94f5690ebfa005e969b182b1f6c207da67bec556e6618c393fdf60ced1a"
+  },
+  {
+    "path": "review-spec.txt",
+    "sha256": "a3863d315f413e39d5f8ffda1fa08feaed87a8426f800b76ccd70f879776ec4d"
+  },
+  {
+    "path": "setup.txt",
+    "sha256": "8ffe206d12b13f1ee62b7a5099847d06ffc5fe29f52a844231c9abdf9405f606"
+  }
+]

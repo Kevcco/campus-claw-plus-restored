@@ -1,0 +1,100 @@
+{
+  "passed": true,
+  "native": {
+    "dpr": 3,
+    "width": 720,
+    "outer": 727,
+    "height": 450,
+    "scale": 1,
+    "cssZoom": "1"
+  },
+  "checks": [
+    {
+      "name": "list",
+      "width": 720,
+      "scroll": 720,
+      "dpr": 3,
+      "cssZoom": "1"
+    },
+    {
+      "name": "empty",
+      "width": 720,
+      "scroll": 720,
+      "dpr": 3,
+      "cssZoom": "1"
+    },
+    {
+      "name": "upload",
+      "width": 720,
+      "scroll": 720,
+      "dpr": 3,
+      "cssZoom": "1"
+    },
+    {
+      "name": "validation",
+      "width": 720,
+      "scroll": 720,
+      "dpr": 3,
+      "cssZoom": "1"
+    },
+    {
+      "name": "long-word",
+      "width": 720,
+      "scroll": 720,
+      "dpr": 3,
+      "cssZoom": "1"
+    },
+    {
+      "name": "search",
+      "width": 720,
+      "scroll": 720,
+      "dpr": 3,
+      "cssZoom": "1"
+    },
+    {
+      "name": "citation",
+      "width": 720,
+      "scroll": 720,
+      "dpr": 3,
+      "cssZoom": "1"
+    },
+    {
+      "name": "pdf-ready",
+      "width": 720,
+      "scroll": 720,
+      "dpr": 3,
+      "cssZoom": "1"
+    },
+    {
+      "name": "network-error",
+      "width": 720,
+      "scroll": 720,
+      "dpr": 3,
+      "cssZoom": "1"
+    },
+    {
+      "name": "network-recovered",
+      "width": 720,
+      "scroll": 720,
+      "dpr": 3,
+      "cssZoom": "1"
+    },
+    {
+      "name": "loading",
+      "width": 720,
+      "scroll": 720,
+      "dpr": 3,
+      "cssZoom": "1"
+    }
+  ],
+  "word_id": "6",
+  "titleCodepoints": 200,
+  "bodyCodepoints": 5280,
+  "citation": {
+    "top": 28.533340454101562,
+    "height": 450,
+    "focus": true
+  },
+  "no_viewport_emulation": true,
+  "no_CSS_zoom": true
+}

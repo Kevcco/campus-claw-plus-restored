@@ -1,0 +1,125 @@
+{
+  "states": [
+    {
+      "i": 0,
+      "full": true,
+      "tag": "A",
+      "id": "",
+      "text": "CampusClawPlus",
+      "top": 16,
+      "bottom": 60,
+      "height": 416,
+      "scroll": 0
+    },
+    {
+      "i": 1,
+      "full": true,
+      "tag": "A",
+      "id": "",
+      "text": "工作台",
+      "top": 85,
+      "bottom": 129,
+      "height": 416,
+      "scroll": 0
+    },
+    {
+      "i": 2,
+      "full": true,
+      "tag": "A",
+      "id": "",
+      "text": "资料",
+      "top": 85,
+      "bottom": 129,
+      "height": 416,
+      "scroll": 0
+    },
+    {
+      "i": 3,
+      "full": true,
+      "tag": "A",
+      "id": "",
+      "text": "账号与班级",
+      "top": 85,
+      "bottom": 129,
+      "height": 416,
+      "scroll": 0
+    },
+    {
+      "i": 4,
+      "full": true,
+      "tag": "A",
+      "id": "",
+      "text": "文本资料",
+      "top": 170,
+      "bottom": 214,
+      "height": 416,
+      "scroll": 0
+    },
+    {
+      "i": 5,
+      "full": true,
+      "tag": "A",
+      "id": "",
+      "text": "PDF与Word资料",
+      "top": 170,
+      "bottom": 214,
+      "height": 416,
+      "scroll": 0
+    },
+    {
+      "i": 6,
+      "full": true,
+      "tag": "A",
+      "id": "",
+      "text": "上传资料",
+      "top": 251,
+      "bottom": 295,
+      "height": 416,
+      "scroll": 0
+    },
+    {
+      "i": 7,
+      "full": true,
+      "tag": "INPUT",
+      "id": "document-query",
+      "text": "",
+      "top": 372,
+      "bottom": 416,
+      "height": 416,
+      "scroll": 2.5999999046325684
+    },
+    {
+      "i": 8,
+      "full": true,
+      "tag": "BUTTON",
+      "id": "",
+      "text": "搜索",
+      "top": 186,
+      "bottom": 230,
+      "height": 416,
+      "scroll": 248.60000610351562
+    },
+    {
+      "i": 9,
+      "full": true,
+      "tag": "BUTTON",
+      "id": "",
+      "text": "清除",
+      "top": 186,
+      "bottom": 230,
+      "height": 416,
+      "scroll": 248.60000610351562
+    },
+    {
+      "i": 10,
+      "full": false,
+      "tag": "A",
+      "id": "",
+      "text": "长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题",
+      "top": 355,
+      "bottom": 508.6000061035156,
+      "height": 416,
+      "scroll": 248.60000610351562
+    }
+  ]
+}

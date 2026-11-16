@@ -1,0 +1,11 @@
+async page=>{
+ const requests=[],responses=[],route=page.url().replace('/app/materials/documents/','/api/v1/documents/')+'/retry',id=page.url().split('/').at(-1)
+ const track=req=>{if(req.url()===route&&req.method()==='POST')requests.push({method:req.method(),path:new URL(req.url()).pathname})};page.on('request',track)
+ const response=page.waitForResponse(r=>r.url()===route&&r.request().method()==='POST');await page.getByRole('button',{name:'重试解析',exact:true}).focus();await page.keyboard.press('Enter');const r=await response,d=await r.json()
+ if(r.status()!==202||d.id!==id||d.status!=='queued'||d.attempts!==1||r.headers()['location']!=='/api/v1/documents/'+id)throw Error('retry accepted contract')
+ await page.getByRole('heading',{name:'原文与出处',exact:true}).waitFor({timeout:45000});if(await page.getByRole('button',{name:'重试解析',exact:true}).count()!==0||!(await page.locator('.document-metadata').innerText()).includes('已尝试 2 / 3 次'))throw Error('retry did not reach actual ready2')
+ if(requests.length!==1)throw Error('retry replayed automatically');page.off('request',track)
+ await page.screenshot({path:'C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/output/document-browser/screenshots/retry-success-ready.png',fullPage:true})
+ const download=page.waitForEvent('download');await page.getByRole('button',{name:'下载原件',exact:true}).click();const file=await download;await file.saveAs('C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/output/document-browser/retry-success.pdf')
+ return{document_id:id,requests,accepted:{status:r.status(),location:r.headers()['location'],body_status:d.status,attempts:d.attempts},final:{status:'ready',attempts:2,retry_hidden:true},keyboard_activation:'Enter',url:page.url(),native:await page.evaluate(()=>({dpr:devicePixelRatio,width:innerWidth,cssZoom:getComputedStyle(document.documentElement).zoom,scale:visualViewport.scale}))}
+}

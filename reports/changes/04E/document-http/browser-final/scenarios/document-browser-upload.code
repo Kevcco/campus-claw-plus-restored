@@ -1,0 +1,12 @@
+async page=>{
+ const base='C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/',title=[...('长标题𠮷😀课程资料'.repeat(30))].slice(0,200).join('')
+ await page.locator('#document-title').fill(title);await page.locator('#document-file').setInputFiles(base+'output/document-browser/long.docx')
+ const response=page.waitForResponse(r=>r.url().endsWith('/api/v1/documents')&&r.request().method()==='POST')
+ await page.getByRole('button',{name:'上传资料',exact:true}).click();const result=await response;if(result.status()!==202)throw new Error('real Word upload failed')
+ await page.getByRole('heading',{name:title,exact:true}).waitFor();const first=await page.locator('.document-status').innerText()
+ const queued=first==='等待解析'||first==='正在解析';if(queued)await page.screenshot({path:base+'output/document-browser/screenshots/teacher-queued-360.png',fullPage:true})
+ await page.getByRole('heading',{name:'原文与出处',exact:true}).waitFor({timeout:40000});await page.setViewportSize({width:1440,height:900});await page.screenshot({path:base+'output/document-browser/screenshots/teacher-long-word-1440.png',fullPage:true});await page.setViewportSize({width:360,height:900});await page.screenshot({path:base+'output/document-browser/screenshots/teacher-long-word-360.png',fullPage:true})
+ const source=await page.locator('.document-body').innerText();if(!source.includes('<script>window.leak=1</script>')||await page.evaluate(()=>window.leak)!==undefined)throw new Error('source escaping failed')
+ if(await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth))throw new Error('long title/source overflow')
+ return {status:result.status(),initialStatus:first,observedQueued:queued,titleCodepoints:[...title].length,bodyCodepoints:[...source].length,escaped:true,overflow:false,url:page.url()}
+}

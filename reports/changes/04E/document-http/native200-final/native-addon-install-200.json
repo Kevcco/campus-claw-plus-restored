@@ -1,0 +1,12 @@
+{
+  "time": "2026-11-15T14:17:17.893Z",
+  "temporary": true,
+  "native_API": "browser.tabs.setZoom(tab.id,2)",
+  "result": {
+    "addon": {
+      "id": "campus-native-zoom-test@example.invalid",
+      "actor": false
+    },
+    "from": "server1.conn0.addonsActor2"
+  }
+}

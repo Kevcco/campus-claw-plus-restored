@@ -1,0 +1,2058 @@
+{
+  "passed": true,
+  "baseHead": "5e8cba97cdb4867043691601c5361ab48f808346",
+  "runtimeChange": "materials.css excludes document-status from size positioning",
+  "widths": [
+    360,
+    767,
+    768,
+    1440
+  ],
+  "asset": {
+    "url": "https://campus.test:32775/assets/index-By0u-PF6.js",
+    "status": 200,
+    "bytes": 203560,
+    "sha256": "b8f44b2308fdee8e9e66e3ac44c6edeb96b625d1a1d7eaf34506e26fb69e21f7"
+  },
+  "checks": [
+    {
+      "name": "same production JS as native200 acceptance",
+      "detail": {
+        "url": "https://campus.test:32775/assets/index-By0u-PF6.js",
+        "status": 200,
+        "bytes": 203560,
+        "sha256": "b8f44b2308fdee8e9e66e3ac44c6edeb96b625d1a1d7eaf34506e26fb69e21f7"
+      }
+    },
+    {
+      "name": "actual long Word accepted",
+      "detail": {
+        "status": 202,
+        "location": "/api/v1/documents/5"
+      }
+    },
+    {
+      "name": "long title and escaped real body",
+      "detail": {
+        "titleCodepoints": 200,
+        "bodyCodepoints": 5280
+      }
+    },
+    {
+      "name": "list layout",
+      "detail": {
+        "width": 360,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "Tab 360/0",
+      "detail": {
+        "tag": "A",
+        "text": "工作台",
+        "x": 16,
+        "y": 84.66667175292969,
+        "right": 96,
+        "bottom": 128.6666717529297,
+        "width": 360,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 360/1",
+      "detail": {
+        "tag": "A",
+        "text": "资料",
+        "x": 104,
+        "y": 84.66667175292969,
+        "right": 168,
+        "bottom": 128.6666717529297,
+        "width": 360,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 360/2",
+      "detail": {
+        "tag": "A",
+        "text": "账号与班级",
+        "x": 176,
+        "y": 84.66667175292969,
+        "right": 288,
+        "bottom": 128.6666717529297,
+        "width": 360,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 360/3",
+      "detail": {
+        "tag": "A",
+        "text": "文本资料",
+        "x": 32,
+        "y": 169.3333282470703,
+        "right": 128,
+        "bottom": 213.3333282470703,
+        "width": 360,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 360/4",
+      "detail": {
+        "tag": "A",
+        "text": "PDF与Word资料",
+        "x": 144,
+        "y": 169.3333282470703,
+        "right": 300.75,
+        "bottom": 213.3333282470703,
+        "width": 360,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 360/5",
+      "detail": {
+        "tag": "A",
+        "text": "上传资料",
+        "x": 16,
+        "y": 357.6000061035156,
+        "right": 129.3333282470703,
+        "bottom": 401.6000061035156,
+        "width": 360,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 360/6",
+      "detail": {
+        "tag": "INPUT",
+        "text": "document-query",
+        "x": 16,
+        "y": 459.20001220703125,
+        "right": 344,
+        "bottom": 503.20001220703125,
+        "width": 360,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 360/7",
+      "detail": {
+        "tag": "BUTTON",
+        "text": "搜索",
+        "x": 16,
+        "y": 519.2000122070312,
+        "right": 97.33332824707031,
+        "bottom": 563.2000122070312,
+        "width": 360,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 360/8",
+      "detail": {
+        "tag": "BUTTON",
+        "text": "清除",
+        "x": 105.33332824707031,
+        "y": 519.2000122070312,
+        "right": 186.6666717529297,
+        "bottom": 563.2000122070312,
+        "width": 360,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 360/9",
+      "detail": {
+        "tag": "A",
+        "text": "修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料",
+        "x": 16,
+        "y": 618.4000244140625,
+        "right": 344,
+        "bottom": 900.0000305175781,
+        "width": 360,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 360/10",
+      "detail": {
+        "tag": "A",
+        "text": "断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料",
+        "x": 16,
+        "y": 309.20001220703125,
+        "right": 344,
+        "bottom": 590.8000183105469,
+        "width": 360,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 360/11",
+      "detail": {
+        "tag": "A",
+        "text": "长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷",
+        "x": 16,
+        "y": 618.4000244140625,
+        "right": 344,
+        "bottom": 900.0000305175781,
+        "width": 360,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "keyboard layout",
+      "detail": {
+        "width": 360,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "empty layout",
+      "detail": {
+        "width": 360,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "loading layout",
+      "detail": {
+        "width": 360,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "error layout",
+      "detail": {
+        "width": 360,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "recovered layout",
+      "detail": {
+        "width": 360,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "upload layout",
+      "detail": {
+        "width": 360,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "validation layout",
+      "detail": {
+        "width": 360,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "upload file keyboard 360"
+    },
+    {
+      "name": "upload button keyboard 360"
+    },
+    {
+      "name": "long-word layout",
+      "detail": {
+        "width": 360,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "long body end reachable 360",
+      "detail": {
+        "top": 817.7999877929688,
+        "bottom": 838.4666442871094,
+        "height": 900
+      }
+    },
+    {
+      "name": "long-end layout",
+      "detail": {
+        "width": 360,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "search layout",
+      "detail": {
+        "width": 360,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "exact long citation keyboard 360",
+      "detail": {
+        "top": 28.866668701171875,
+        "height": 900,
+        "focused": true
+      }
+    },
+    {
+      "name": "citation layout",
+      "detail": {
+        "width": 360,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "pdf layout",
+      "detail": {
+        "width": 360,
+        "scrollWidth": 360,
+        "clientWidth": 360,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "list layout",
+      "detail": {
+        "width": 767,
+        "scrollWidth": 767,
+        "clientWidth": 767,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "Tab 767/0",
+      "detail": {
+        "tag": "A",
+        "text": "工作台",
+        "x": 16,
+        "y": 84.66667175292969,
+        "right": 96,
+        "bottom": 128.6666717529297,
+        "width": 767,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 767/1",
+      "detail": {
+        "tag": "A",
+        "text": "资料",
+        "x": 104,
+        "y": 84.66667175292969,
+        "right": 168,
+        "bottom": 128.6666717529297,
+        "width": 767,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 767/2",
+      "detail": {
+        "tag": "A",
+        "text": "账号与班级",
+        "x": 176,
+        "y": 84.66667175292969,
+        "right": 288,
+        "bottom": 128.6666717529297,
+        "width": 767,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 767/3",
+      "detail": {
+        "tag": "A",
+        "text": "文本资料",
+        "x": 32,
+        "y": 169.3333282470703,
+        "right": 128,
+        "bottom": 213.3333282470703,
+        "width": 767,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 767/4",
+      "detail": {
+        "tag": "A",
+        "text": "PDF与Word资料",
+        "x": 144,
+        "y": 169.3333282470703,
+        "right": 300.75,
+        "bottom": 213.3333282470703,
+        "width": 767,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 767/5",
+      "detail": {
+        "tag": "A",
+        "text": "上传资料",
+        "x": 638,
+        "y": 250,
+        "right": 751.3333282470703,
+        "bottom": 294,
+        "width": 767,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 767/6",
+      "detail": {
+        "tag": "INPUT",
+        "text": "document-query",
+        "x": 16,
+        "y": 373.6000061035156,
+        "right": 751.3333129882812,
+        "bottom": 417.6000061035156,
+        "width": 767,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 767/7",
+      "detail": {
+        "tag": "BUTTON",
+        "text": "搜索",
+        "x": 16,
+        "y": 433.6000061035156,
+        "right": 97.33332824707031,
+        "bottom": 477.6000061035156,
+        "width": 767,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 767/8",
+      "detail": {
+        "tag": "BUTTON",
+        "text": "清除",
+        "x": 105.33332824707031,
+        "y": 433.6000061035156,
+        "right": 186.6666717529297,
+        "bottom": 477.6000061035156,
+        "width": 767,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 767/9",
+      "detail": {
+        "tag": "A",
+        "text": "修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料",
+        "x": 16,
+        "y": 602.2666625976562,
+        "right": 751.3333129882812,
+        "bottom": 730.2666625976562,
+        "width": 767,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 767/10",
+      "detail": {
+        "tag": "A",
+        "text": "断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料",
+        "x": 16,
+        "y": 386,
+        "right": 751.3333129882812,
+        "bottom": 514,
+        "width": 767,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 767/11",
+      "detail": {
+        "tag": "A",
+        "text": "长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷",
+        "x": 16,
+        "y": 688,
+        "right": 751.3333129882812,
+        "bottom": 816,
+        "width": 767,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "keyboard layout",
+      "detail": {
+        "width": 767,
+        "scrollWidth": 767,
+        "clientWidth": 767,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "empty layout",
+      "detail": {
+        "width": 767,
+        "scrollWidth": 767,
+        "clientWidth": 767,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "loading layout",
+      "detail": {
+        "width": 767,
+        "scrollWidth": 767,
+        "clientWidth": 767,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "error layout",
+      "detail": {
+        "width": 767,
+        "scrollWidth": 767,
+        "clientWidth": 767,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "recovered layout",
+      "detail": {
+        "width": 767,
+        "scrollWidth": 767,
+        "clientWidth": 767,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "upload layout",
+      "detail": {
+        "width": 767,
+        "scrollWidth": 767,
+        "clientWidth": 767,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "validation layout",
+      "detail": {
+        "width": 767,
+        "scrollWidth": 767,
+        "clientWidth": 767,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "upload file keyboard 767"
+    },
+    {
+      "name": "upload button keyboard 767"
+    },
+    {
+      "name": "long-word layout",
+      "detail": {
+        "width": 767,
+        "scrollWidth": 767,
+        "clientWidth": 767,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "long body end reachable 767",
+      "detail": {
+        "top": 817.7999877929688,
+        "bottom": 838.4666442871094,
+        "height": 900
+      }
+    },
+    {
+      "name": "long-end layout",
+      "detail": {
+        "width": 767,
+        "scrollWidth": 767,
+        "clientWidth": 767,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "search layout",
+      "detail": {
+        "width": 767,
+        "scrollWidth": 767,
+        "clientWidth": 767,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "exact long citation keyboard 767",
+      "detail": {
+        "top": 28.866668701171875,
+        "height": 900,
+        "focused": true
+      }
+    },
+    {
+      "name": "citation layout",
+      "detail": {
+        "width": 767,
+        "scrollWidth": 767,
+        "clientWidth": 767,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "pdf layout",
+      "detail": {
+        "width": 767,
+        "scrollWidth": 767,
+        "clientWidth": 767,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "list layout",
+      "detail": {
+        "width": 768,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "Tab 768/0",
+      "detail": {
+        "tag": "A",
+        "text": "工作台",
+        "x": 16,
+        "y": 100.66667175292969,
+        "right": 183.3333282470703,
+        "bottom": 144.6666717529297,
+        "width": 768,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 768/1",
+      "detail": {
+        "tag": "A",
+        "text": "资料",
+        "x": 16,
+        "y": 152.6666717529297,
+        "right": 183.3333282470703,
+        "bottom": 196.6666717529297,
+        "width": 768,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 768/2",
+      "detail": {
+        "tag": "A",
+        "text": "账号与班级",
+        "x": 16,
+        "y": 204.6666717529297,
+        "right": 183.3333282470703,
+        "bottom": 248.6666717529297,
+        "width": 768,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 768/3",
+      "detail": {
+        "tag": "A",
+        "text": "文本资料",
+        "x": 248,
+        "y": 132.6666717529297,
+        "right": 344,
+        "bottom": 176.6666717529297,
+        "width": 768,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 768/4",
+      "detail": {
+        "tag": "A",
+        "text": "PDF与Word资料",
+        "x": 360,
+        "y": 132.6666717529297,
+        "right": 516.75,
+        "bottom": 176.6666717529297,
+        "width": 768,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 768/5",
+      "detail": {
+        "tag": "A",
+        "text": "上传资料",
+        "x": 622.6666870117188,
+        "y": 221.3333282470703,
+        "right": 736.0000152587891,
+        "bottom": 265.3333282470703,
+        "width": 768,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 768/6",
+      "detail": {
+        "tag": "INPUT",
+        "text": "document-query",
+        "x": 232,
+        "y": 352.5333251953125,
+        "right": 549.3333129882812,
+        "bottom": 396.5333251953125,
+        "width": 768,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 768/7",
+      "detail": {
+        "tag": "BUTTON",
+        "text": "搜索",
+        "x": 565.3333129882812,
+        "y": 352.5333251953125,
+        "right": 646.6666564941406,
+        "bottom": 396.5333251953125,
+        "width": 768,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 768/8",
+      "detail": {
+        "tag": "BUTTON",
+        "text": "清除",
+        "x": 654.6666870117188,
+        "y": 352.5333251953125,
+        "right": 736.0000152587891,
+        "bottom": 396.5333251953125,
+        "width": 768,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 768/9",
+      "detail": {
+        "tag": "A",
+        "text": "修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料",
+        "x": 232,
+        "y": 521.2000122070312,
+        "right": 640,
+        "bottom": 751.6000213623047,
+        "width": 768,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 768/10",
+      "detail": {
+        "tag": "A",
+        "text": "断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料",
+        "x": 232,
+        "y": 669.5999755859375,
+        "right": 640,
+        "bottom": 899.9999694824219,
+        "width": 768,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 768/11",
+      "detail": {
+        "tag": "A",
+        "text": "长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷",
+        "x": 232,
+        "y": 334.79998779296875,
+        "right": 640,
+        "bottom": 565.1999816894531,
+        "width": 768,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "keyboard layout",
+      "detail": {
+        "width": 768,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "empty layout",
+      "detail": {
+        "width": 768,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "loading layout",
+      "detail": {
+        "width": 768,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "error layout",
+      "detail": {
+        "width": 768,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "recovered layout",
+      "detail": {
+        "width": 768,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "upload layout",
+      "detail": {
+        "width": 768,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "validation layout",
+      "detail": {
+        "width": 768,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "upload file keyboard 768"
+    },
+    {
+      "name": "upload button keyboard 768"
+    },
+    {
+      "name": "long-word layout",
+      "detail": {
+        "width": 768,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "long body end reachable 768",
+      "detail": {
+        "top": 809.13330078125,
+        "bottom": 830.4666290283203,
+        "height": 900
+      }
+    },
+    {
+      "name": "long-end layout",
+      "detail": {
+        "width": 768,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "search layout",
+      "detail": {
+        "width": 768,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "exact long citation keyboard 768",
+      "detail": {
+        "top": 28.866668701171875,
+        "height": 900,
+        "focused": true
+      }
+    },
+    {
+      "name": "citation layout",
+      "detail": {
+        "width": 768,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "pdf layout",
+      "detail": {
+        "width": 768,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "list layout",
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "Tab 1440/0",
+      "detail": {
+        "tag": "A",
+        "text": "工作台",
+        "x": 16,
+        "y": 100.66667175292969,
+        "right": 183.3333282470703,
+        "bottom": 144.6666717529297,
+        "width": 1440,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 1440/1",
+      "detail": {
+        "tag": "A",
+        "text": "资料",
+        "x": 16,
+        "y": 152.6666717529297,
+        "right": 183.3333282470703,
+        "bottom": 196.6666717529297,
+        "width": 1440,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 1440/2",
+      "detail": {
+        "tag": "A",
+        "text": "账号与班级",
+        "x": 16,
+        "y": 204.6666717529297,
+        "right": 183.3333282470703,
+        "bottom": 248.6666717529297,
+        "width": 1440,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 1440/3",
+      "detail": {
+        "tag": "A",
+        "text": "文本资料",
+        "x": 308,
+        "y": 132.6666717529297,
+        "right": 404,
+        "bottom": 176.6666717529297,
+        "width": 1440,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 1440/4",
+      "detail": {
+        "tag": "A",
+        "text": "PDF与Word资料",
+        "x": 420,
+        "y": 132.6666717529297,
+        "right": 576.75,
+        "bottom": 176.6666717529297,
+        "width": 1440,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 1440/5",
+      "detail": {
+        "tag": "A",
+        "text": "上传资料",
+        "x": 1234.6666259765625,
+        "y": 221.3333282470703,
+        "right": 1347.9999542236328,
+        "bottom": 265.3333282470703,
+        "width": 1440,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 1440/6",
+      "detail": {
+        "tag": "INPUT",
+        "text": "document-query",
+        "x": 292,
+        "y": 352.5333251953125,
+        "right": 1161.3333129882812,
+        "bottom": 396.5333251953125,
+        "width": 1440,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 1440/7",
+      "detail": {
+        "tag": "BUTTON",
+        "text": "搜索",
+        "x": 1177.3333740234375,
+        "y": 352.5333251953125,
+        "right": 1258.6667175292969,
+        "bottom": 396.5333251953125,
+        "width": 1440,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 1440/8",
+      "detail": {
+        "tag": "BUTTON",
+        "text": "清除",
+        "x": 1266.6666259765625,
+        "y": 352.5333251953125,
+        "right": 1347.9999542236328,
+        "bottom": 396.5333251953125,
+        "width": 1440,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 1440/9",
+      "detail": {
+        "tag": "A",
+        "text": "修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料",
+        "x": 292,
+        "y": 521.2000122070312,
+        "right": 1012,
+        "bottom": 649.2000122070312,
+        "width": 1440,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 1440/10",
+      "detail": {
+        "tag": "A",
+        "text": "断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料",
+        "x": 292,
+        "y": 726.86669921875,
+        "right": 1012,
+        "bottom": 854.86669921875,
+        "width": 1440,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "Tab 1440/11",
+      "detail": {
+        "tag": "A",
+        "text": "长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷",
+        "x": 292,
+        "y": 386,
+        "right": 1012,
+        "bottom": 514,
+        "width": 1440,
+        "height": 900,
+        "outline": "solid",
+        "outlineWidth": "2px"
+      }
+    },
+    {
+      "name": "keyboard layout",
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "empty layout",
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "loading layout",
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "error layout",
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "recovered layout",
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "upload layout",
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "validation layout",
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "upload file keyboard 1440"
+    },
+    {
+      "name": "upload button keyboard 1440"
+    },
+    {
+      "name": "long-word layout",
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "long body end reachable 1440",
+      "detail": {
+        "top": 809.13330078125,
+        "bottom": 830.4666290283203,
+        "height": 900
+      }
+    },
+    {
+      "name": "long-end layout",
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "search layout",
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "exact long citation keyboard 1440",
+      "detail": {
+        "top": 28.866668701171875,
+        "height": 900,
+        "focused": true
+      }
+    },
+    {
+      "name": "citation layout",
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    },
+    {
+      "name": "pdf layout",
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "dpr": 1,
+        "zoom": "1",
+        "scale": 1
+      }
+    }
+  ],
+  "tabs": [
+    {
+      "width": 360,
+      "tag": "A",
+      "text": "工作台",
+      "x": 16,
+      "y": 84.66667175292969,
+      "right": 96,
+      "bottom": 128.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 360,
+      "tag": "A",
+      "text": "资料",
+      "x": 104,
+      "y": 84.66667175292969,
+      "right": 168,
+      "bottom": 128.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 360,
+      "tag": "A",
+      "text": "账号与班级",
+      "x": 176,
+      "y": 84.66667175292969,
+      "right": 288,
+      "bottom": 128.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 360,
+      "tag": "A",
+      "text": "文本资料",
+      "x": 32,
+      "y": 169.3333282470703,
+      "right": 128,
+      "bottom": 213.3333282470703,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 360,
+      "tag": "A",
+      "text": "PDF与Word资料",
+      "x": 144,
+      "y": 169.3333282470703,
+      "right": 300.75,
+      "bottom": 213.3333282470703,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 360,
+      "tag": "A",
+      "text": "上传资料",
+      "x": 16,
+      "y": 357.6000061035156,
+      "right": 129.3333282470703,
+      "bottom": 401.6000061035156,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 360,
+      "tag": "INPUT",
+      "text": "document-query",
+      "x": 16,
+      "y": 459.20001220703125,
+      "right": 344,
+      "bottom": 503.20001220703125,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 360,
+      "tag": "BUTTON",
+      "text": "搜索",
+      "x": 16,
+      "y": 519.2000122070312,
+      "right": 97.33332824707031,
+      "bottom": 563.2000122070312,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 360,
+      "tag": "BUTTON",
+      "text": "清除",
+      "x": 105.33332824707031,
+      "y": 519.2000122070312,
+      "right": 186.6666717529297,
+      "bottom": 563.2000122070312,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 360,
+      "tag": "A",
+      "text": "修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料",
+      "x": 16,
+      "y": 618.4000244140625,
+      "right": 344,
+      "bottom": 900.0000305175781,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 360,
+      "tag": "A",
+      "text": "断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料",
+      "x": 16,
+      "y": 309.20001220703125,
+      "right": 344,
+      "bottom": 590.8000183105469,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 360,
+      "tag": "A",
+      "text": "长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷",
+      "x": 16,
+      "y": 618.4000244140625,
+      "right": 344,
+      "bottom": 900.0000305175781,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 767,
+      "tag": "A",
+      "text": "工作台",
+      "x": 16,
+      "y": 84.66667175292969,
+      "right": 96,
+      "bottom": 128.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 767,
+      "tag": "A",
+      "text": "资料",
+      "x": 104,
+      "y": 84.66667175292969,
+      "right": 168,
+      "bottom": 128.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 767,
+      "tag": "A",
+      "text": "账号与班级",
+      "x": 176,
+      "y": 84.66667175292969,
+      "right": 288,
+      "bottom": 128.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 767,
+      "tag": "A",
+      "text": "文本资料",
+      "x": 32,
+      "y": 169.3333282470703,
+      "right": 128,
+      "bottom": 213.3333282470703,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 767,
+      "tag": "A",
+      "text": "PDF与Word资料",
+      "x": 144,
+      "y": 169.3333282470703,
+      "right": 300.75,
+      "bottom": 213.3333282470703,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 767,
+      "tag": "A",
+      "text": "上传资料",
+      "x": 638,
+      "y": 250,
+      "right": 751.3333282470703,
+      "bottom": 294,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 767,
+      "tag": "INPUT",
+      "text": "document-query",
+      "x": 16,
+      "y": 373.6000061035156,
+      "right": 751.3333129882812,
+      "bottom": 417.6000061035156,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 767,
+      "tag": "BUTTON",
+      "text": "搜索",
+      "x": 16,
+      "y": 433.6000061035156,
+      "right": 97.33332824707031,
+      "bottom": 477.6000061035156,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 767,
+      "tag": "BUTTON",
+      "text": "清除",
+      "x": 105.33332824707031,
+      "y": 433.6000061035156,
+      "right": 186.6666717529297,
+      "bottom": 477.6000061035156,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 767,
+      "tag": "A",
+      "text": "修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料",
+      "x": 16,
+      "y": 602.2666625976562,
+      "right": 751.3333129882812,
+      "bottom": 730.2666625976562,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 767,
+      "tag": "A",
+      "text": "断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料",
+      "x": 16,
+      "y": 386,
+      "right": 751.3333129882812,
+      "bottom": 514,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 767,
+      "tag": "A",
+      "text": "长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷",
+      "x": 16,
+      "y": 688,
+      "right": 751.3333129882812,
+      "bottom": 816,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 768,
+      "tag": "A",
+      "text": "工作台",
+      "x": 16,
+      "y": 100.66667175292969,
+      "right": 183.3333282470703,
+      "bottom": 144.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 768,
+      "tag": "A",
+      "text": "资料",
+      "x": 16,
+      "y": 152.6666717529297,
+      "right": 183.3333282470703,
+      "bottom": 196.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 768,
+      "tag": "A",
+      "text": "账号与班级",
+      "x": 16,
+      "y": 204.6666717529297,
+      "right": 183.3333282470703,
+      "bottom": 248.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 768,
+      "tag": "A",
+      "text": "文本资料",
+      "x": 248,
+      "y": 132.6666717529297,
+      "right": 344,
+      "bottom": 176.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 768,
+      "tag": "A",
+      "text": "PDF与Word资料",
+      "x": 360,
+      "y": 132.6666717529297,
+      "right": 516.75,
+      "bottom": 176.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 768,
+      "tag": "A",
+      "text": "上传资料",
+      "x": 622.6666870117188,
+      "y": 221.3333282470703,
+      "right": 736.0000152587891,
+      "bottom": 265.3333282470703,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 768,
+      "tag": "INPUT",
+      "text": "document-query",
+      "x": 232,
+      "y": 352.5333251953125,
+      "right": 549.3333129882812,
+      "bottom": 396.5333251953125,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 768,
+      "tag": "BUTTON",
+      "text": "搜索",
+      "x": 565.3333129882812,
+      "y": 352.5333251953125,
+      "right": 646.6666564941406,
+      "bottom": 396.5333251953125,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 768,
+      "tag": "BUTTON",
+      "text": "清除",
+      "x": 654.6666870117188,
+      "y": 352.5333251953125,
+      "right": 736.0000152587891,
+      "bottom": 396.5333251953125,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 768,
+      "tag": "A",
+      "text": "修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料",
+      "x": 232,
+      "y": 521.2000122070312,
+      "right": 640,
+      "bottom": 751.6000213623047,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 768,
+      "tag": "A",
+      "text": "断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料",
+      "x": 232,
+      "y": 669.5999755859375,
+      "right": 640,
+      "bottom": 899.9999694824219,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 768,
+      "tag": "A",
+      "text": "长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷",
+      "x": 232,
+      "y": 334.79998779296875,
+      "right": 640,
+      "bottom": 565.1999816894531,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 1440,
+      "tag": "A",
+      "text": "工作台",
+      "x": 16,
+      "y": 100.66667175292969,
+      "right": 183.3333282470703,
+      "bottom": 144.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 1440,
+      "tag": "A",
+      "text": "资料",
+      "x": 16,
+      "y": 152.6666717529297,
+      "right": 183.3333282470703,
+      "bottom": 196.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 1440,
+      "tag": "A",
+      "text": "账号与班级",
+      "x": 16,
+      "y": 204.6666717529297,
+      "right": 183.3333282470703,
+      "bottom": 248.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 1440,
+      "tag": "A",
+      "text": "文本资料",
+      "x": 308,
+      "y": 132.6666717529297,
+      "right": 404,
+      "bottom": 176.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 1440,
+      "tag": "A",
+      "text": "PDF与Word资料",
+      "x": 420,
+      "y": 132.6666717529297,
+      "right": 576.75,
+      "bottom": 176.6666717529297,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 1440,
+      "tag": "A",
+      "text": "上传资料",
+      "x": 1234.6666259765625,
+      "y": 221.3333282470703,
+      "right": 1347.9999542236328,
+      "bottom": 265.3333282470703,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 1440,
+      "tag": "INPUT",
+      "text": "document-query",
+      "x": 292,
+      "y": 352.5333251953125,
+      "right": 1161.3333129882812,
+      "bottom": 396.5333251953125,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 1440,
+      "tag": "BUTTON",
+      "text": "搜索",
+      "x": 1177.3333740234375,
+      "y": 352.5333251953125,
+      "right": 1258.6667175292969,
+      "bottom": 396.5333251953125,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 1440,
+      "tag": "BUTTON",
+      "text": "清除",
+      "x": 1266.6666259765625,
+      "y": 352.5333251953125,
+      "right": 1347.9999542236328,
+      "bottom": 396.5333251953125,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 1440,
+      "tag": "A",
+      "text": "修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料修复断点𠮷😀课程资料",
+      "x": 292,
+      "y": 521.2000122070312,
+      "right": 1012,
+      "bottom": 649.2000122070312,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 1440,
+      "tag": "A",
+      "text": "断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料断点验收𠮷😀课程资料",
+      "x": 292,
+      "y": 726.86669921875,
+      "right": 1012,
+      "bottom": 854.86669921875,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    {
+      "width": 1440,
+      "tag": "A",
+      "text": "长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷😀课程资料长标题𠮷",
+      "x": 292,
+      "y": 386,
+      "right": 1012,
+      "bottom": 514,
+      "height": 900,
+      "outline": "solid",
+      "outlineWidth": "2px"
+    }
+  ],
+  "screenshots": [
+    "list-360.png",
+    "keyboard-360.png",
+    "empty-360.png",
+    "loading-360.png",
+    "error-360.png",
+    "recovered-360.png",
+    "upload-360.png",
+    "validation-360.png",
+    "long-word-360.png",
+    "long-end-360.png",
+    "search-360.png",
+    "citation-360.png",
+    "pdf-360.png",
+    "list-767.png",
+    "keyboard-767.png",
+    "empty-767.png",
+    "loading-767.png",
+    "error-767.png",
+    "recovered-767.png",
+    "upload-767.png",
+    "validation-767.png",
+    "long-word-767.png",
+    "long-end-767.png",
+    "search-767.png",
+    "citation-767.png",
+    "pdf-767.png",
+    "list-768.png",
+    "keyboard-768.png",
+    "empty-768.png",
+    "loading-768.png",
+    "error-768.png",
+    "recovered-768.png",
+    "upload-768.png",
+    "validation-768.png",
+    "long-word-768.png",
+    "long-end-768.png",
+    "search-768.png",
+    "citation-768.png",
+    "pdf-768.png",
+    "list-1440.png",
+    "keyboard-1440.png",
+    "empty-1440.png",
+    "loading-1440.png",
+    "error-1440.png",
+    "recovered-1440.png",
+    "upload-1440.png",
+    "validation-1440.png",
+    "long-word-1440.png",
+    "long-end-1440.png",
+    "search-1440.png",
+    "citation-1440.png",
+    "pdf-1440.png"
+  ],
+  "actualHTTPS": true,
+  "mockResponses": false,
+  "nativeZoom": 1,
+  "scope": "responsive viewport sizes; native200 separately bound to identical runtime sources and served asset"
+}

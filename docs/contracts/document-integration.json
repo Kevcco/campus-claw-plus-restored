@@ -168,12 +168,13 @@
     }
   },
   "activation": {
-    "scope": "private_parser_worker_only",
-    "public_document_operations": "frozen",
+    "scope": "private_parser_worker_and_public_documents",
+    "public_document_operations": "current",
     "required_pull_requests": [
       52,
       53,
-      54
+      54,
+      55
     ],
     "approved_contract_commit": "39018c1b8d2555cfebe8fd75fb4a761558edad68",
     "active_config_digest": "de0ab4754c74b33408d5fdec828ab68d308c4190eeffc9fc0fb5b335303b511b",
@@ -183,5 +184,49 @@
       "deploy/service-batches.json": "b44a48647c7ce9e97a7fa2160d26ae41cdf8e7a21d66ccf81939895bb7e4512f",
       "docs/contracts/config-register.json": "0710ff564c52186bef19e2c6f9fe4316e198cfeb3e2cc9ed48fe567e017bb329"
     }
+  },
+  "public_http": {
+    "status": "current",
+    "operations": [
+      [
+        "POST",
+        "/api/v1/documents"
+      ],
+      [
+        "GET",
+        "/api/v1/documents"
+      ],
+      [
+        "GET",
+        "/api/v1/documents/{id}"
+      ],
+      [
+        "GET",
+        "/api/v1/documents/{id}/download"
+      ],
+      [
+        "POST",
+        "/api/v1/documents/{id}/retry"
+      ],
+      [
+        "GET",
+        "/api/v1/document-search"
+      ]
+    ],
+    "current_operations": 28,
+    "approved_contract_commits": [
+      "25484d542278bd5bf65d2ae02688c0de833e8ccc",
+      "39018c1b8d2555cfebe8fd75fb4a761558edad68"
+    ],
+    "files": [
+      {
+        "path": "docs/contracts/endpoint-register.json",
+        "sha256": "14104161194e2581758dd8993ae80d35955b03d6e2f733d25dd98e0b8bad0c72"
+      },
+      {
+        "path": "docs/contracts/openapi.yaml",
+        "sha256": "45f8a7979ffef2fde8f3e858e428beec08f26112b460c262a26489df458d22e1"
+      }
+    ]
   }
 }

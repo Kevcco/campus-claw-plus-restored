@@ -1,0 +1,11 @@
+{
+  "url": "https://campus.test:32773/",
+  "native": {
+    "dpr": 1.5,
+    "width": 1281,
+    "outer": 1296,
+    "height": 832,
+    "scale": 1,
+    "cssZoom": "1"
+  }
+}

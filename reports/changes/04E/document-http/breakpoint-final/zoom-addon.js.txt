@@ -1,0 +1,6 @@
+async function applyNativeZoom(tab){
+  if(!tab.url || new URL(tab.url).origin!=='https://campus.test:32775')return;
+  await browser.tabs.setZoom(tab.id,2);
+}
+browser.tabs.onUpdated.addListener((id,change,tab)=>{if(change.status==='complete')applyNativeZoom(tab).catch(console.error)});
+browser.tabs.query({url:'https://campus.test/*'}).then(tabs=>Promise.all(tabs.map(applyNativeZoom))).catch(console.error);

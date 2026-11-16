@@ -1,0 +1,148 @@
+{
+  "reviewer": "小陈 / Kevcco（AI辅助）",
+  "reviewed_head": "dfc50c0c72b7b511d652ca9e443fe16409c4dbd5",
+  "code_head": "64ea99a0e66748af616c5f08bce10284cd4f430d",
+  "code_ci": 43714084399,
+  "document_ci": 43715317819,
+  "artifact_id": 14162150910,
+  "artifact_sha256": "fe3ea94890179a9c4d3d3576a12c1398a634883982d1feca17a0921ff91860de",
+  "tracked_files": 2215,
+  "all_git_blob_inputs_match": true,
+  "browser_source_files": 429,
+  "browser_originals": 30,
+  "success": {
+    "document_id": "7",
+    "requests": [
+      {
+        "method": "POST",
+        "path": "/api/v1/documents/7/retry"
+      }
+    ],
+    "accepted": {
+      "status": 202,
+      "location": "/api/v1/documents/7",
+      "body_status": "queued",
+      "attempts": 1
+    },
+    "final": {
+      "status": "ready",
+      "attempts": 2,
+      "retry_hidden": true
+    },
+    "keyboard_activation": "Enter",
+    "url": "https://campus.test:32772/app/materials/documents/7",
+    "native": {
+      "dpr": 1.5,
+      "width": 1281,
+      "cssZoom": "1",
+      "scale": 1
+    }
+  },
+  "exhausted": {
+    "document_id": "8",
+    "results": [
+      {
+        "accepted": 202,
+        "location": "/api/v1/documents/8",
+        "queued_attempts": 1,
+        "final_attempts": 2,
+        "retry_button": true
+      },
+      {
+        "accepted": 202,
+        "location": "/api/v1/documents/8",
+        "queued_attempts": 2,
+        "final_attempts": 3,
+        "retry_button": false
+      }
+    ],
+    "events": [
+      {
+        "method": "POST",
+        "path": "/api/v1/documents/8/retry",
+        "time": 1794745575091
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/documents/8",
+        "time": 1794745575122
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/documents/8",
+        "time": 1794745577136
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/documents/8/retry",
+        "time": 1794745577570
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/documents/8",
+        "time": 1794745577594
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/documents/8",
+        "time": 1794745579606
+      }
+    ],
+    "exhausted_notice": true,
+    "retry_hidden": true,
+    "actual_parser_stopped": true,
+    "no_SQL_mutations": true,
+    "url": "https://campus.test:32772/app/materials/documents/8",
+    "native": {
+      "dpr": 1.5,
+      "width": 1281,
+      "cssZoom": "1"
+    }
+  },
+  "terminal": {
+    "cases": [
+      {
+        "file": "scan.pdf",
+        "id": "5",
+        "status": "待文字识别",
+        "retry_hidden": true
+      },
+      {
+        "file": "encrypted.pdf",
+        "id": "6",
+        "status": "解析失败",
+        "retry_hidden": true
+      }
+    ],
+    "actual_parser_results": true,
+    "url": "https://campus.test:32772/app/materials/documents",
+    "native": {
+      "dpr": 1.5,
+      "width": 1281,
+      "cssZoom": "1"
+    }
+  },
+  "copy": {
+    "consistent": true,
+    "url": "https://campus.test:32772/app/materials/documents/4"
+  },
+  "native_200": {
+    "passed": false,
+    "reason": "Awaiting real native 200% at baseline Windows DPI 150%",
+    "native": {
+      "dpr": 1.5,
+      "width": 1281,
+      "outer": 1295,
+      "height": 832,
+      "scale": 1,
+      "cssZoom": "1"
+    }
+  },
+  "scope": "Independent downloaded-evidence and code review; retry browser evidence executed by author. Reviewer has not run local Docker/database or a new real browser session.",
+  "blocking": [
+    "DI-SC-13 actual native 200% keyboard and long-content acceptance remains unverified"
+  ],
+  "approval": false,
+  "merge": false,
+  "exit_code": 0
+}

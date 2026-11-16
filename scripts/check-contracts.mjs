@@ -118,7 +118,7 @@ function checkExamples(value) {
   for (const child of Object.values(value)) checkExamples(child)
 }
 checkExamples(parsed.paths)
-console.log(`Contracts: ${sources.length} schemas; ${fixtures.length} positive/negative fixtures, ${semanticFixtures.length} semantic inputs and ${boundaryFixtures.length} generated boundary cases agree in both paths; ${exampleCount} operation examples; 22 current identity/health/material/assignment operations and six frozen 04E document contracts. OCR/vector/hybrid runtime operations remain absent.`)
+console.log(`Contracts: ${sources.length} schemas; ${fixtures.length} positive/negative fixtures, ${semanticFixtures.length} semantic inputs and ${boundaryFixtures.length} generated boundary cases agree in both paths; ${exampleCount} operation examples;28 current identity/health/material/assignment/document operations. OCR/vector/hybrid runtime operations remain absent.`)
 
 // The backend-only Docker toolchain embeds test goldens. The root fixture stays
 // authoritative, and changing either copy alone must block the normal gate.

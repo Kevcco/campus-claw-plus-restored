@@ -1,0 +1,10 @@
+{
+  "status": 202,
+  "initialStatus": "等待解析",
+  "observedQueued": true,
+  "titleCodepoints": 200,
+  "bodyCodepoints": 5280,
+  "escaped": true,
+  "overflow": false,
+  "url": "https://campus.test:32768/app/materials/documents/6"
+}

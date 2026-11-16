@@ -1,0 +1,42 @@
+{
+  "observer": "小陈 / Kevcco（AI辅助）",
+  "reviewed_head": "74ecfe3bdef74ca4fecf731db4dffb5f9abaee25",
+  "runtime_code": "5cac6dbd314ac0c253d7bbe9de02f6b590f3e4b5",
+  "node": "v24.22.1",
+  "npm": "10.5.0",
+  "go": "go1.27.3 windows/amd64",
+  "npm_ci": 0,
+  "setup": 0,
+  "frontend_groups": 33,
+  "focused_contract_and_evidence_groups": 19,
+  "full_check": {
+    "exit_code": 1,
+    "blocked_at": "check:document-parser; docker executable unavailable (spawn ENOENT)",
+    "prior_groups": "foundation, gate, contracts, service-batches, identity-wiring, 33 frontend, typecheck, build, sample isolation, all Go packages and strict11/11 passed",
+    "later_sql": "not run"
+  },
+  "location_probe": {
+    "exit_code": 1,
+    "subtests": 2,
+    "expected_failures": "Both 202 responses omit advertised Location header",
+    "scope": "Real handler with in-memory authentication/repository doubles, not SQL or production acceptance",
+    "temporary_test_removed": true
+  },
+  "local_database": "not run",
+  "local_verify": "not run",
+  "browser": "downloaded source/file hashes and four existing screenshots inspected; not a new browser session",
+  "artifact_secret_scan": 0,
+  "approved": false,
+  "merged": false,
+  "audit": 0,
+  "review_document_foundation": 0,
+  "review_document_strict_spec": 0,
+  "secret_scan": {
+    "initial_exit_code": 1,
+    "initial_cause": "Windows PowerShell archive module unavailable during Gitleaks bootstrap",
+    "archive_checksum": "d29144deff3a68aa93ced33dddf84b7fdc26070add4aa0f4513094c8332afc4e",
+    "repair": "Verified official archive checksum, expanded using available PowerShell; no scanner/rule modification",
+    "history_exit_code": 0,
+    "staged_exit_code": 0
+  }
+}
