@@ -1,0 +1,30 @@
+{
+  "byte_source": "Git index blobs after text normalization",
+  "evidence": [
+    {
+      "file": "access-status.json",
+      "sha256": "85a3f6dd902d854e1c02f5069af1cde97279ef75691a3944fa5e35700958debf",
+      "bytes": 904
+    },
+    {
+      "file": "contract-entry-check.json",
+      "sha256": "b9f2ca2ce4173d7977fb085cb0acb89b54a00c18278b56ba902eada951e7a9fc",
+      "bytes": 307
+    },
+    {
+      "file": "contract-entry-contracts.txt",
+      "sha256": "7df1e250374b4199ba3b85ed11e54de347ca818deb81a7713af66596139279a8",
+      "bytes": 5825
+    },
+    {
+      "file": "contract-entry-foundation.txt",
+      "sha256": "15ca270bf228ec65c413e512491b23604c2af1dd7e3f408f716a8d35dba8095e",
+      "bytes": 294
+    },
+    {
+      "file": "contract-entry-spec.txt",
+      "sha256": "a3863d315f413e39d5f8ffda1fa08feaed87a8426f800b76ccd70f879776ec4d",
+      "bytes": 528
+    }
+  ]
+}
