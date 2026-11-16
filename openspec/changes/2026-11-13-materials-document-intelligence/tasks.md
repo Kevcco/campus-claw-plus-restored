@@ -1,6 +1,6 @@
 2026-11-16集成状态：PR #57最终head `3fb53ed5363122737622cd5c05f1512e67442ed6` 经Kevcco实际批准后正常合入受保护main `a40b83b3166e3ee2d1d2e753c3b8db40825a6899`；精确main完整CI43804539643成功。六个Document HTTP操作及PDF/Word页面进入主干，公开current操作为28；Target6/15、五服务配置保持。独立Docker完整复验在精确PR head上执行`npm ci`、`npm run setup`、`npm run check`、`npm run audit`、`npm run verify`均退出0，audit无漏洞；verify覆盖MySQL/HTTPS、迁移与恢复、PDF/DOCX、持久worker恢复、容器重建及清理。04E A阶段尚未完成，任务表待办以本文件勾选为准；A4.3收口前不交接B、不启动OCR/语义，也不宣称整个A/B/C完成。#55精确主干收口证据见[收口记录](../../../reports/changes/04E/runtime-main-closeout-2026-11-15.md)。
 
-2026-11-16后续：#58最终head `378f6ce0f080cd32949354fb9cc2ff1d90d48139` 获Kevcco APPROVED 5915431379，完整CI43809266164成功并正常合入main `659393b0ecdaa56b622a10fbb8f999fa198fe1ae`；精确main CI43810841732仍在运行。该修复仅处理测试客户端ENOTCONN竞态，生产行为/合同未改。A阶段及A4.3保持未完成，待精确main门禁完成并由小张核对余项。
+2026-11-16后续：#58最终head `378f6ce0f080cd32949354fb9cc2ff1d90d48139` 获Kevcco APPROVED 5915431379，完整CI43809266164成功并正常合入main `659393b0ecdaa56b622a10fbb8f999fa198fe1ae`；精确main完整CI43810841732成功；原ZIP摘要与GitHub一致，2448个跟踪Git blob、四段门禁/五镜像/三HTTPS/五SQL/九worker/迁移恢复/原回归与清理已独立核验，解包秘密扫描0。该修复仅处理测试客户端ENOTCONN竞态，生产行为/合同未改。A阶段及A4.3仍未勾选，由小张对照现有证据核对A1.2/A1.3/A2.5/A3.1/A3.2/A4.2余项后收口；不虚构新本机或浏览器会话。[本轮原件](../../../reports/changes/04E/main58-integration-2026-11-16.md)。
 
 ## 0. 阶段安排与责任（全部小张）
 - [x] 0.1 [小张] 核对组长2026-11-13明确授权、主干7f0f32f、G2/G3及04/06/05边界，登记仅04E统一负责人例外（DI-SC-01/25）。

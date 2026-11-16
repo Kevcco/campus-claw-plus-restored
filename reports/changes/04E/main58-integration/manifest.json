@@ -1,0 +1,47 @@
+{
+  "checked_at": "2026-11-16T05:59:22.291Z",
+  "head": "659393b0ecdaa56b622a10fbb8f999fa198fe1ae",
+  "run": 43810841732,
+  "files": [
+    {
+      "path": "artifact-secret-scan.txt",
+      "sha256": "b9012cdf9b202fcca9bb32f5278bfd312f04cf0e26863ecfa010824421b8c261"
+    },
+    {
+      "path": "ci-metadata.json",
+      "sha256": "2c5e929396940d5dae25b27ff11d8f05f24a8f9dc0065871f1330e566cff8a98"
+    },
+    {
+      "path": "ci-originals.zip",
+      "sha256": "12d5bd3304dd0881f9141a446bf9594d6ffe8d096bca9032d1e8a428b610765b"
+    },
+    {
+      "path": "ci-verified.json",
+      "sha256": "d36168d587889f7cf4c3272c1f3a86f0709ee87748b59d4b6bed1e1d6b24d0b4"
+    },
+    {
+      "path": "docs-audit.txt",
+      "sha256": "6f37586567164dbaf4a19d2e9608fad2caf2cf5a6afe27bd0cb6b5d741352c1a"
+    },
+    {
+      "path": "docs-check-contracts.txt",
+      "sha256": "2a59fcc490b4e98d7ac47a9f5a984fb7ab21856a9a3340a5b87aa9eb086ca9e5"
+    },
+    {
+      "path": "docs-check-foundation.txt",
+      "sha256": "15ca270bf228ec65c413e512491b23604c2af1dd7e3f408f716a8d35dba8095e"
+    },
+    {
+      "path": "docs-check-spec.txt",
+      "sha256": "a3863d315f413e39d5f8ffda1fa08feaed87a8426f800b76ccd70f879776ec4d"
+    },
+    {
+      "path": "docs-secret-scan.txt",
+      "sha256": "36c34e21f974764a50c3e12c97d39a01c91a3a3856517f6fc185c39536b3e184"
+    },
+    {
+      "path": "merge-facts.json",
+      "sha256": "5c8a11730c2c309358bb558b140ba296816cebec1936bfffd9513b30cdd713ca"
+    }
+  ]
+}
