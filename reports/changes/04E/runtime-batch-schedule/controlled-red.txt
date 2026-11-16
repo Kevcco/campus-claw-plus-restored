@@ -1,0 +1,29 @@
+✖ DI-SC-14 real runtime children wait for images, then must overlap to pass (2342.3281ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2473.3258
+
+✖ failing tests:
+
+test at output\runtime-batch-red\runtime-batch-runner.test.mjs:12:1
+✖ DI-SC-14 real runtime children wait for images, then must overlap to pass (2342.3281ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  13 !== 0
+
+      at TestContext.<anonymous> (file:///C:/Users/lenovo/Desktop/SoftwareDevelopment/group_project/output/04-document-http-pages-2026-11-15/output/runtime-batch-red/runtime-batch-runner.test.mjs:19:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 13,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

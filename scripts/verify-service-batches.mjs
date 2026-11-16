@@ -1,6 +1,6 @@
 import { execFileSync, spawnSync } from 'node:child_process'
 import { mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs'
-import { runSequence } from './gate-runner.mjs'
+import { runRuntimeBatch } from './runtime-batch-runner.mjs'
 import { runtimeSteps, evidencePaths, loadBatchInputs, validateBatch, validateRuntimeEvidence, sha256, retainedImageTags } from './service-batches.mjs'
 import { validateDocumentMigrationEvidence } from './document-migration-evidence.mjs'
 import { validateDocumentHTTP } from './document-http-evidence.mjs'
@@ -23,7 +23,7 @@ try {
   const before = source()
   output.source = before
   const inventory = validateBatch(loadBatchInputs())
-  const stages = await runSequence(runtimeSteps.map((path, i) => ({ name: path, command: process.execPath,
+  const stages = await runRuntimeBatch(runtimeSteps.map((path, i) => ({ name: path, command: process.execPath,
     args: [path, ...(i === 0 ? ['--retain-images'] : i === 1 ? ['--audited-images'] : [])], timeoutMs: 590000 })),
     { signal: controller.signal, onStart: name => console.log('Batch verify: ' + name) })
   output = { ...output, inventory, stages }

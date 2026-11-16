@@ -1,0 +1,11 @@
+✔ DI-SC-14 real runtime children wait for images, then must overlap to pass (249.9004ms)
+✔ DI-SC-14 failed prerequisite blocks both; failed sibling still waits for real cleanup (469.6277ms)
+✔ DI-SC-14 actual timeout and cancellation remain failures; both children terminate (1133.5947ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1974.3546

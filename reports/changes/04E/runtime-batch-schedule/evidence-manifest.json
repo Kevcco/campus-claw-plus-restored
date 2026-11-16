@@ -1,0 +1,44 @@
+{
+  "files": [
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/before-gate.json",
+      "sha256": "8aa917723b507cf50556eedfe9a400bc79067f8f662622b66dc90e3689f358b0"
+    },
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/before-originals.zip",
+      "sha256": "de3f466d9f762dfbe8f55f34523e5434cb19fc7591ce9ca31eeb42796fa2439c"
+    },
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/controlled-red.txt",
+      "sha256": "6f94f1615827f0322e7fd0e5a563c7d986f948df15bd71e1787cf022fbca2071"
+    },
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/originals-secret-scan.txt",
+      "sha256": "cfdf6d9ad73fa3fb8dc6fe6cd1d8d2d93ebdfd98e5a9c4ac4cf682ee65b7a3e2"
+    },
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/README.md",
+      "sha256": "18c502c7395daf09675a8bf9f8bebe1d2bf8c3e26f5242e3d702f053effc1a7a"
+    },
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/restored-green.txt",
+      "sha256": "e1d9a1a5919f8d641b81ebf5e3517788144af3dd6c527c83426951475e9c8c1a"
+    },
+    {
+      "path": "reports/changes/04E/runtime-batch-schedule/service-check.txt",
+      "sha256": "fb9e0aabbc8f7baa259e288707e8123c16837a8d09bff0158d7b858f01328f7a"
+    },
+    {
+      "path": "scripts/runtime-batch-runner.mjs",
+      "sha256": "327db347eeab66a41e6496f910a6807eb4c289cc793c1c8eb9ec088f374e9242"
+    },
+    {
+      "path": "scripts/runtime-batch-runner.test.mjs",
+      "sha256": "5c79369b8fe4efba7c1845f1f7f33844004d729c80fb3d5281eb3b8ae6ce6ea7"
+    },
+    {
+      "path": "scripts/verify-service-batches.mjs",
+      "sha256": "b0c40b9f90dc8ae46a68988472797580075e89a18176c98a275d398c64749550"
+    }
+  ]
+}
