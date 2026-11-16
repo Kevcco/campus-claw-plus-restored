@@ -1,0 +1,45 @@
+{
+  "observer": "小陈 / Kevcco（AI辅助）",
+  "head": "134b2b9059abf26ebb85f78c948e0f4dddd7e9e6",
+  "source_hashes": 27,
+  "actual_image_inputs": 14,
+  "scores": {
+    "all": {
+      "errors": 25,
+      "denominator": 1618,
+      "pages": 4
+    },
+    "zh": {
+      "errors": 23,
+      "denominator": 395,
+      "pages": 2
+    },
+    "en": {
+      "errors": 2,
+      "denominator": 1223,
+      "pages": 2
+    }
+  },
+  "negative_diagnostics": 10,
+  "quote_checks": 1205,
+  "metadata_invariance": 2,
+  "bounded_rejections": 3,
+  "real_mysql_groups": 13,
+  "migration_groups": [
+    "TestOCRMigrationFreshAndUpgrade",
+    "TestOCRMigrationSixInterruptionsAndDrift",
+    "TestOCRMigrationExactStructureAndHistory",
+    "TestOCRMigrationEmptyDownNeverPretendsRollback"
+  ],
+  "backup_stages": [
+    "prepare6",
+    "upgrade7",
+    "restored6",
+    "restored7",
+    "source7"
+  ],
+  "candidate_ocr_image": "sha256:5495f576331e1bb033a1a88b1bd4aea5f7ea6c2576c9a99e40242eae8e11be07",
+  "cleanup": true,
+  "exit_code": 0,
+  "scope": "Actual independent Docker Tesseract/private HTTP/worker/MySQL/migration and restore execution; development inputs only, no production activation or formal blind acceptance"
+}

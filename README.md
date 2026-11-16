@@ -1,5 +1,7 @@
 # CampusClawPlus
 
+2026-11-16小陈独立Docker复验：#62修正134b2b9的完整gate四段0、verify441357ms；14图片/真实PDF-RPC-worker-MySQL/13事务组/prepared7迁移恢复已复跑，2856 Git blob及58原件核对通过，临时授权与密钥清理。最终远端CI/批准/main复验仍因API404未核验，生产及A/B/C前置保持。[独立原件](reports/changes/04E/chen-pr62-docker-2026-11-16.md)。
+
 2026-11-16当前状态：#59/#60/#61已获实际批准正常合入，最新main909eefd；本地PNG/JPEG为后续新候选，不在#61批准范围内。本候选已完成PDF/PNG/JPEG私有OCR、原始词框、租约事务/校对检索和prepared7迁移/恢复实测，14开发图片正例CER1.55%、10负例诊断全中；准确私有OpenAPI已补齐。生产仍Target6/28 current/15空active，持有人未部署；本批最终CI、公开版本API/图片上传/校对页、混合页、native闭包与正式质量验收仍待。
 
 本分支已将MySQL、离线迁移/初始化、身份HTTP服务和同源HTTPS接入默认Compose。身份及真实资料页面已在main合入，提供资料列表、检索、上传、原文及下载；小张已完成独立复验，合入及最终主干复验见[共享进度表](docs/project-status.md)和PR #30实际记录为准。

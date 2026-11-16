@@ -1,0 +1,19 @@
+{
+  "temporary_authorization_removed": true,
+  "removed_entries": 1,
+  "other_authorizations_preserved": true,
+  "candidate_image_cleanup": [
+    {
+      "tag": "campus-pr62-ocr-pdf-134b2b9:research",
+      "ok": true
+    },
+    {
+      "tag": "campus-pr62-ocr-engine-134b2b9:research",
+      "ok": true
+    }
+  ],
+  "exit_code": 0,
+  "removed_key_login_rejected": true,
+  "local_private_key_removed": true,
+  "local_public_key_file_removed": true
+}

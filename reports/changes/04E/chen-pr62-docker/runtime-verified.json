@@ -1,0 +1,182 @@
+{
+  "observer": "小陈 / Kevcco（AI辅助）",
+  "checked_at": "2026-11-16T14:52:43.148Z",
+  "head": "134b2b9059abf26ebb85f78c948e0f4dddd7e9e6",
+  "tracked_files": 2856,
+  "tracked_fingerprint": "44f735f49c1c1dc6243500d42b297104146affa6e732e0a35e369a3e6988083a",
+  "git_blob_match": true,
+  "gate": [
+    {
+      "name": "check",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 150633
+    },
+    {
+      "name": "audit",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 4148
+    },
+    {
+      "name": "secret-scan",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 1896
+    },
+    {
+      "name": "verify",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 441357
+    }
+  ],
+  "images": [
+    {
+      "service": "mysql",
+      "image_id": "sha256:6f93716f1ba8f4b149c2c0e8ba8b77ef040f54554949aabba3d906473650bdc9",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "admin",
+      "image_id": "sha256:e7f604c9afa446fe632c32e68d9697f23e4c780e658bcf336bfe6b1a50bdde7b",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "backend",
+      "image_id": "sha256:2da5f8e6724f58733557580a5eeade0c9cb80d0be1f313679b2de21c00774efd",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "frontend",
+      "image_id": "sha256:2a3c3a760d5426f9dcaa2a1e7325d6490aa58929e42693cff5f86863d3518937",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "document-parser",
+      "image_id": "sha256:d95414e58059808ccb1b6d54c21de8fa1a2aab07efa2fccdf5d8d5341a392e98",
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  ],
+  "cleanup": 5,
+  "migration": {
+    "target": 6,
+    "restored_target": 5,
+    "tests": [
+      "TestDIMigration6FreshUpgradeAndHistory",
+      "TestDIFiveDDLInterruptionAndForwardRepair",
+      "TestDIExactStructureDrift",
+      "TestDIEmptyDisposableDownOnly"
+    ],
+    "interrupted_ddl_steps": 5,
+    "accepted5_commit": "c1ac4213580df1fcc03520b8dddcfbece2a3344d",
+    "binaries": {
+      "pre06-server": "55704b6ad8564f01cbd704460c446e81576435947be0959d55a87e5890206d59",
+      "pre06-admin": "07605b774b31eb62a8ac7ad5855969632315dfe1e9d1c354ec6dca500cfc36d9",
+      "server": "d26f538af9b4c3091fdb1fbd21a70b0ce6150943fbbff78683393c36356e74c7",
+      "identity-admin": "dd3d90cd26820a8b4da899898972fd7db899c1d73ac9604c498685b4e75ffc52"
+    },
+    "dump_sha256": "1c208dd812d0119f5e4a20006532988ba6f30e5159d9deb4c9e75ca794f1e8d5",
+    "backup_utc": "2026-11-16T14:50:24.756Z",
+    "observed_rto_upper_bound_ms": 2303,
+    "separate_preserved_source": "idf_test_63",
+    "isolated_restore": "idf_test_64"
+  },
+  "worker": {
+    "stages": [
+      "corpus",
+      "outage-enqueue",
+      "outage-retry",
+      "restart-enqueue",
+      "restart-verify",
+      "kill-enqueue",
+      "kill-expire",
+      "kill-verify",
+      "database-verify"
+    ],
+    "documents": 40,
+    "locations": 195,
+    "chunks": 196,
+    "actual_worker_sigkill": true,
+    "forced_test_lease_expiry": true,
+    "actual_database_recovery": true,
+    "public_document_http": "separate-required-proof",
+    "parser_image": "sha256:d95414e58059808ccb1b6d54c21de8fa1a2aab07efa2fccdf5d8d5341a392e98",
+    "backend_image": "sha256:2da5f8e6724f58733557580a5eeade0c9cb80d0be1f313679b2de21c00774efd"
+  },
+  "public_http": {
+    "stages": [
+      "main",
+      "outage",
+      "persist"
+    ],
+    "database_tests": [
+      "TestDHExplicitRetryStopsAtThreeAndPreservesOriginal202",
+      "TestDHPublicAuthorizationOriginalsAndCitations",
+      "TestDHConcurrentIdempotencySharedQuotaAndRollback",
+      "TestDHSnapshotConsistencyAndStrictInput",
+      "TestDHSlowBodyUsesWholeFiveSecondBudget"
+    ],
+    "real_formats": 2,
+    "actors": 5,
+    "default_https": true,
+    "real_parser": true,
+    "exact_originals": true,
+    "persistent_quotes": true,
+    "actual_parser_outage": true,
+    "container_recreation": true
+  },
+  "queue": {
+    "groups": [
+      "TestMySQLAcceptanceRollbackAndMixedPayload",
+      "TestMySQLAtomicPublicationAndSource",
+      "TestMySQLClaimAndRetryRollback",
+      "TestMySQLConcurrentAcceptance",
+      "TestMySQLLeaseCASAndExhaustion",
+      "TestMySQLLeaseExpiryDuringPublication",
+      "TestMySQLLongChunksAndRetry",
+      "TestMySQLProcessCrashRecovery",
+      "TestMySQLStorageDeadline",
+      "TestMySQLWorkerSingleFlightAndCancellation"
+    ],
+    "log_sha256": "355e59c1704e111a53d458f57752753589a59238f7d7f7ba6345704abe9b630d",
+    "source_files": {
+      "mysql_test.go": "0ba9253ce5c152f321b05c440646d15197add4d9b0c517ca094751ac0f21b456",
+      "result_test.go": "8e163dccfd43edcfac61df5c23921da70cae7887c3701625358e217f87d80663",
+      "reviewer_test.go": "5a85e2e9953270ce51c549a847afc9189316a9911cc44fe50657575f377e400a",
+      "store.go": "d81dccc98d3a4950bdd2b26274ded6f73e076d177911b32af7014c89bc821444",
+      "worker.go": "7780d64666c8e64cd87efafb5db2ddea9bd24ddccfde9183ec0e48df9e6a46cf"
+    }
+  },
+  "parser": [
+    {
+      "mode": "check",
+      "documents": 40,
+      "negatives": 25,
+      "locations": 195,
+      "rpc_groups": 7,
+      "private_health_groups": 3,
+      "actual_client_outage": true
+    },
+    {
+      "mode": "scan",
+      "documents": 40,
+      "negatives": 25,
+      "locations": 195,
+      "rpc_groups": 7,
+      "private_health_groups": 3,
+      "actual_client_outage": true
+    }
+  ],
+  "exit_code": 0,
+  "scope": "Independent Docker execution and verification of exact review head; no remote CI, browser session or holder deployment claimed"
+}
