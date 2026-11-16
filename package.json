@@ -33,7 +33,7 @@
     "check:document-parser": "node --test scripts/independent-checks.test.mjs && node scripts/check-document-parser.mjs",
     "check:document-storage-contract": "node scripts/check-document-storage-contract.mjs",
     "check:ocr-corpus": "node scripts/check-ocr-corpus.mjs && node --test scripts/ocr-corpus.test.mjs",
-    "check:ocr-draft": "node --test scripts/ocr-draft-contract.test.mjs"
+    "check:ocr-draft": "node --test scripts/ocr-draft-contract.test.mjs && node --test scripts/ocr-tsv.test.mjs"
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "13.1.0",
