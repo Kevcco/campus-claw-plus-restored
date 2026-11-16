@@ -10,3 +10,5 @@ red-mysql-tests/results 是修复前新增测试真实失败；green-* 是修复
 本轮完整门禁先为这两条意见主动中断，停止原门禁进程后确认没有活动门禁，再删除其残留锁；首次锁拒绝与中断输出保留在 ocr-migration7。最终完整门禁重新从check开始，不把中断或锁拒绝计为成功。新的真实RPC/默认检查/备份恢复和最终CI另按最终原件核对。
 
 本批最终完整check退出0，修订后的13组MySQL、4组迁移和5阶段备份恢复通过；同代码真实RPC重跑仍4页437词框、CER35/1618=2.16%，Schema/取消释放/清理0。完整gate在check通过后因npm审计TLS连接中断退出1，原件保留；原命令重试audit两树0。secret-scan和干净提交完整gate/本机verify待，不把前序CI冒称本head。#61前序e924fd1完整CI43852860415成功，本批未获新批准。
+
+2026-11-16最终复验：功能head51464ad完整CI43858652543成功；原artifact14221544062/ZIP SHA ad58ea7cdeebc71a805ddfacc9d491d450afc35d91504e58b97047f8abac5fba已下载独立核对，预演0a57792与head整树一致，18原件/源码指纹/四段0/verify366136ms/五镜像与真实运行恢复通过、解包秘密扫描0。本机同head干净完整check0，一键gate仍因审计TLS网络退出1；原命令单独重跑audit两树0、261历史提交秘密扫描0，实际verify在原600秒内562472ms通过，21原件/同次源码/五镜像/HTTPS/SQL/九worker/迁移6恢复及清理均核验，解包扫描0。修订后的13组OCR MySQL、4组prepared7迁移及5阶段独立恢复6/7均0，准确原件更新。两条Kevcco行为意见已修复并凭证据解决线程，已请求复查；正常合并51464ad被GitHub405拒绝，原因为仍有一项write审查CHANGES_REQUESTED，未合并/未冒称批准或main通过。本提交仅证据和进度，新文档head CI另跟进，生产仍Target6/28 current/15空active；公开OCR/校对页及B整体待，继续开发不等待人员反馈。

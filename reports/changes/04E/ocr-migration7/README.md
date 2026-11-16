@@ -25,3 +25,7 @@ results.json 和 migration/prepare6/upgrade7/restored6/restored7/source7-tests.t
 本批最终完整check退出0，修订后的13组MySQL、4组迁移和5阶段备份恢复通过；同代码真实RPC重跑仍4页437词框、CER35/1618=2.16%，Schema/取消释放/清理0。完整gate在check通过后因npm审计TLS连接中断退出1，原件保留；原命令重试audit两树0。secret-scan和干净提交完整gate/本机verify待，不把前序CI冒称本head。#61前序e924fd1完整CI43852860415成功，本批未获新批准。
 
 提交前补记：audit原命令重试两树0，260历史提交及暂存内容秘密扫描0；首次扫描误命中原有公开SQL摘要的diff上下文，已保留旧manifest格式、仅追加prepared7，未加任何扫描豁免。该格式调整只改变manifest及合同绑定摘要，干净提交完整gate仍待。
+
+2026-11-16最终复验：功能head51464ad完整CI43858652543成功；原artifact14221544062/ZIP SHA ad58ea7cdeebc71a805ddfacc9d491d450afc35d91504e58b97047f8abac5fba已下载独立核对，预演0a57792与head整树一致，18原件/源码指纹/四段0/verify366136ms/五镜像与真实运行恢复通过、解包秘密扫描0。本机同head干净完整check0，一键gate仍因审计TLS网络退出1；原命令单独重跑audit两树0、261历史提交秘密扫描0，实际verify在原600秒内562472ms通过，21原件/同次源码/五镜像/HTTPS/SQL/九worker/迁移6恢复及清理均核验，解包扫描0。修订后的13组OCR MySQL、4组prepared7迁移及5阶段独立恢复6/7均0，准确原件更新。两条Kevcco行为意见已修复并凭证据解决线程，已请求复查；正常合并51464ad被GitHub405拒绝，原因为仍有一项write审查CHANGES_REQUESTED，未合并/未冒称批准或main通过。本提交仅证据和进度，新文档head CI另跟进，生产仍Target6/28 current/15空active；公开OCR/校对页及B整体待，继续开发不等待人员反馈。
+
+证据元数据补记：路径名含token/secret等词时，将公开源码SHA作为JSON键值会触发通用扫描误报。已保留独立核验的全源码聚合指纹和文件数，证据清单改用分离path/sha256字段；不加扫描豁免，初次扫描日志和114项定位数量保留。
