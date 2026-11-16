@@ -49,3 +49,32 @@ CREATE TABLE document_ocr_chunks (
  CONSTRAINT fk_ocr_chunk_revision FOREIGN KEY(document_id,class_id,revision) REFERENCES document_ocr_revisions(document_id,class_id,revision),
  CONSTRAINT ck_ocr_chunk CHECK(ordinal>0 AND page BETWEEN 1 AND 100 AND char_end>char_start AND char_end<=2097152 AND CHAR_LENGTH(quote)=char_end-char_start)
 );
+CREATE TABLE document_ocr_sources (
+ document_id BIGINT UNSIGNED NOT NULL,
+ class_id BIGINT UNSIGNED NOT NULL,
+ revision INT UNSIGNED NOT NULL DEFAULT 1,
+ source_bytes MEDIUMBLOB NOT NULL,
+ source_digest BINARY(32) NOT NULL,
+ original_digest BINARY(32) NOT NULL,
+ PRIMARY KEY(document_id,class_id),
+ CONSTRAINT fk_ocr_source_revision FOREIGN KEY(document_id,class_id,revision) REFERENCES document_ocr_revisions(document_id,class_id,revision),
+ CONSTRAINT ck_ocr_source CHECK(revision=1 AND OCTET_LENGTH(source_bytes) BETWEEN 1 AND 8388608)
+);
+CREATE TABLE document_ocr_jobs (
+ document_id BIGINT UNSIGNED NOT NULL,
+ class_id BIGINT UNSIGNED NOT NULL,
+ original_version INT UNSIGNED NOT NULL DEFAULT 1,
+ state ENUM('queued','processing','succeeded','failed') NOT NULL,
+ original_digest BINARY(32) NOT NULL,
+ attempts TINYINT UNSIGNED NOT NULL DEFAULT 0,
+ execution_epoch BIGINT UNSIGNED NOT NULL DEFAULT 0,
+ worker_owner BINARY(32) NULL,
+ lease_until DATETIME(3) NULL,
+ PRIMARY KEY(document_id,class_id),
+ KEY ix_ocr_job_claim(state,lease_until,document_id),
+ CONSTRAINT fk_ocr_job_original FOREIGN KEY(document_id,class_id,original_version) REFERENCES documents(id,class_id,version),
+ CONSTRAINT ck_ocr_job CHECK(original_version=1 AND attempts<=3 AND
+ ((state='queued' AND attempts=0 AND execution_epoch=0 AND worker_owner IS NULL AND lease_until IS NULL) OR
+  (state='processing' AND attempts BETWEEN 1 AND 3 AND execution_epoch>0 AND worker_owner IS NOT NULL AND lease_until IS NOT NULL) OR
+  (state IN('succeeded','failed') AND attempts BETWEEN 1 AND 3 AND execution_epoch>0 AND worker_owner IS NULL AND lease_until IS NULL)))
+);

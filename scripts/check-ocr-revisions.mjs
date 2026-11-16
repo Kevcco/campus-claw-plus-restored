@@ -1,8 +1,9 @@
 import assert from'node:assert/strict'
 import{spawnSync}from'node:child_process'
-import{readFileSync,writeFileSync,mkdirSync,readdirSync,unlinkSync,existsSync}from'node:fs'
+import{readFileSync,writeFileSync,mkdirSync,readdirSync,unlinkSync,existsSync,copyFileSync}from'node:fs'
 import{resolve}from'node:path'
 import{randomBytes,createHash}from'node:crypto'
+import{ocrResultFromTSV}from'./ocr-tsv.mjs'
 const name='campus-ocr-revisions-'+randomBytes(6).toString('hex'),tag=name+':probe',dir=resolve('output/ocr-revisions');mkdirSync(dir,{recursive:true})
 const password=randomBytes(32).toString('base64url'),envfile=dir+'/'+name+'.env',results=[]
 const report={exit_code:1,scope:'Isolated candidate revision DDL and actual Go transactions; production Target6 unchanged',run_id:name}
@@ -11,6 +12,11 @@ function docker(args,input,timeout=180000){return spawnSync('docker',args,{input
 function run(label,args,input,timeout){const r=docker(args,input,timeout);results.push({label,exit_code:r.status});assert.equal(r.status,0,label+': '+(r.stderr??'').replaceAll(password,'<redacted>').slice(-1200));return r.stdout.trim()}
 function sql(label,input,database='ocr_probe'){return run(label,['exec','-i','-e','MYSQL_PWD',name,'mysql','--protocol=TCP','-h127.0.0.1','-uroot','--batch','--raw','--skip-column-names','--default-character-set=utf8mb4',...(database?[database]:[])],input,30000)}
 try{
+ const fixtures=dir+'/fixtures';mkdirSync(fixtures,{recursive:true})
+ const actual=JSON.parse(readFileSync('reports/changes/04E/ocr-pdf-development/positive-raw.json'))
+ const source=ocrResultFromTSV(actual.pages.map(p=>p.tsv));writeFileSync(fixtures+'/real-source.json',JSON.stringify(source))
+ copyFileSync('document-parser/testdata/ocr-v1/pdf/development-positive.pdf',fixtures+'/development-positive.pdf')
+ report.real_ocr_fixture={engine_output_sha256:sha('reports/changes/04E/ocr-pdf-development/positive-raw.json'),source_sha256:sha(fixtures+'/real-source.json'),original_sha256:sha(fixtures+'/development-positive.pdf'),pages:source.pages.length,words:source.pages.reduce((n,p)=>n+p.words.length,0)}
  writeFileSync(envfile,'MYSQL_ROOT_PASSWORD='+password+'\n',{mode:0o600})
  run('build pinned MySQL probe',['build','-t',tag,'deploy/identity/mysql']);report.image_id=run('immutable MySQL image',['image','inspect','--format','{{.Id}}',tag])
  run('start owned isolated MySQL',['run','-d','--name',name,'--network','none','--memory','1g','--memory-swap','1g','--cpus','1','--mount','type=tmpfs,destination=/var/lib/mysql','--env-file',envfile,report.image_id])
@@ -20,10 +26,10 @@ try{
  const old=readdirSync('backend/internal/migrations/sql').filter(n=>n.endsWith('.up.sql')).sort();assert.equal(old.length,6);for(const n of old)sql('baseline '+n,readFileSync('backend/internal/migrations/sql/'+n,'utf8'))
  sql('identity fixtures',"INSERT INTO users(id,username,password_hash,role) VALUES(1,'ocr_fixture_teacher','unusable','teacher');INSERT INTO classes(id,stable_key,name) VALUES(1,'ocr_1','班一'),(2,'ocr_2','班二');")
  const candidate='docs/contracts/ocr-draft/000007_ocr_revisions.up.sql';report.candidate_sql_sha256=sha(candidate);sql('candidate append-only revision DDL',readFileSync(candidate,'utf8'))
- const tc=JSON.parse(readFileSync('scripts/toolchain.json'));const child=docker(['run','--rm','--network','container:'+name,'--memory','512m','--cpus','1','-e','MYSQL_PWD','-e','GOTOOLCHAIN=local','--mount',`type=bind,source=${resolve('backend')},target=/src,readonly`,'-v','campus-claw-plus-go-cache:/root/.cache/go-build','-w','/src',tc.goImage,'go','test','-tags=ocrreview','-shuffle=on','-count=1','-timeout=60s','-v','./internal/ocrreview'],undefined,150000)
+ const tc=JSON.parse(readFileSync('scripts/toolchain.json'));const child=docker(['run','--rm','--network','container:'+name,'--memory','512m','--cpus','1','-e','MYSQL_PWD','-e','GOTOOLCHAIN=local','--mount',`type=bind,source=${resolve('backend')},target=/src,readonly`,'--mount',`type=bind,source=${fixtures},target=/fixtures,readonly`,'-v','campus-claw-plus-go-cache:/root/.cache/go-build','-w','/src',tc.goImage,'go','test','-tags=ocrreview','-shuffle=on','-count=1','-timeout=60s','-v','./internal/ocrreview'],undefined,150000)
  const output=((child.stdout??'')+(child.stderr??'')).replaceAll(password,'<redacted>');writeFileSync(dir+'/mysql-tests.txt',output);assert.equal(child.status,0,'real revision transactions failed; see mysql-tests.txt')
- const groups=[...output.matchAll(/^--- PASS: (TestMySQL\w+) /gm)].map(x=>x[1]);assert.equal(groups.length,5);assert.ok(!output.includes('--- SKIP:'));report.groups=groups
- sql('remove owned candidate rows','DELETE FROM document_ocr_review_keys;DELETE FROM document_ocr_chunks;DELETE FROM document_ocr_heads;DELETE FROM document_ocr_revisions;')
+ const groups=[...output.matchAll(/^--- PASS: (TestMySQL\w+) /gm)].map(x=>x[1]);assert.equal(groups.length,9);assert.ok(!output.includes('--- SKIP:'));report.groups=groups
+ sql('remove owned candidate rows','DELETE FROM document_ocr_jobs;DELETE FROM document_ocr_sources;DELETE FROM document_ocr_review_keys;DELETE FROM document_ocr_chunks;DELETE FROM document_ocr_heads;DELETE FROM document_ocr_revisions;')
  sql('candidate reverse DDL',readFileSync('docs/contracts/ocr-draft/000007_ocr_revisions.down.sql','utf8'));assert.equal(Number(sql('baseline tables preserved',"SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='ocr_probe'")),19)
  report.source_files=Object.fromEntries(readdirSync('backend/internal/ocrreview').map(n=>['backend/internal/ocrreview/'+n,sha('backend/internal/ocrreview/'+n)]));report.exit_code=0
 }catch(e){report.error=e.message.replaceAll(password,'<redacted>');console.error(report.error)}finally{

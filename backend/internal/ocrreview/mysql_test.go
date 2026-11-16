@@ -30,7 +30,7 @@ func db(t *testing.T) *sql.DB {
 func setup(t *testing.T) (*Store, identity.Principal, Review) {
 	t.Helper()
 	d := db(t)
-	for _, table := range []string{"document_ocr_review_keys", "document_ocr_chunks", "document_ocr_heads", "document_ocr_revisions", "document_idempotency", "document_parse_jobs", "document_chunks", "document_locations", "documents"} {
+	for _, table := range []string{"document_ocr_jobs", "document_ocr_sources", "document_ocr_review_keys", "document_ocr_chunks", "document_ocr_heads", "document_ocr_revisions", "document_idempotency", "document_parse_jobs", "document_chunks", "document_locations", "documents"} {
 		if _, e := d.Exec("DELETE FROM " + table); e != nil {
 			t.Fatal(e)
 		}
@@ -40,7 +40,7 @@ func setup(t *testing.T) (*Store, identity.Principal, Review) {
 		t.Fatal(e)
 	}
 	s := &Store{DB: d}
-	if e = s.SeedDraft(context.Background(), "1", "91", []Page{{1, "OCR原稿😀"}, {2, "第二页"}}); e != nil {
+	if e = s.seedDraft(context.Background(), "1", "91", []Page{{1, "OCR原稿😀"}, {2, "第二页"}}); e != nil {
 		t.Fatal(e)
 	}
 	return s, identity.Principal{UserID: "1", ClassID: "1", SessionID: "trusted", Role: "teacher"}, Review{1, true, []Page{{1, "教师校对😀"}, {2, "新第二页"}}}

@@ -1,0 +1,112 @@
+{
+  "exit_code": 0,
+  "scope": "Isolated candidate revision DDL and actual Go transactions; production Target6 unchanged",
+  "run_id": "campus-ocr-revisions-cdc9f54fe62f",
+  "real_ocr_fixture": {
+    "engine_output_sha256": "e0737982ca3e10b910e40ae7f59ae859c7d5e1da75071e906e50eba895e5da71",
+    "source_sha256": "e23ba3b7ffbf2ea74e6993f0340b007a647cf1501aab3a91d027af36a82ae0ed",
+    "original_sha256": "bfb8a3728453b52a80a254e872b6d417fe0ee4314310e28045b5f81a079e2135",
+    "pages": 4,
+    "words": 437
+  },
+  "image_id": "sha256:cb8356e2069f9018e6ab0cb2ec52ce5393edccc4dcda0fabd8719f19895d5766",
+  "mysql_version": "8.4.13",
+  "candidate_sql_sha256": "717093800db6f518aec97e21d07cc00bb45a62a2ca0edd61d742a8114a4a5ab8",
+  "groups": [
+    "TestMySQLOCRSourceRollbackAndFinalLeaseExpiry",
+    "TestMySQLReviewCASRaceAndAuthorization",
+    "TestMySQLOCRTakeoverAndExhaustion",
+    "TestMySQLReviewPublishedKeywordIsolation",
+    "TestMySQLOCRRealSourceAndReview",
+    "TestMySQLReviewForeignClassAndRevisionBounds",
+    "TestMySQLReviewIdempotentRaceAndOldSource",
+    "TestMySQLOCRKilledWorkerTakeover",
+    "TestMySQLReviewRollbackAndPageCount"
+  ],
+  "source_files": {
+    "backend/internal/ocrreview/jobs.go": "0b5b8837e0aaadd69e95e9cb41a35ea1053aaaf31183d6494e31418e96a1b4de",
+    "backend/internal/ocrreview/mysql_test.go": "07a9ef7a266bff8da12bcfcd485deb7ecee06c26ceb688584d55d1505bf99f21",
+    "backend/internal/ocrreview/source.go": "9ed54bcd2d0e225fd8fc5a1c167a74d72d7de3bfaab1fc82ae7b581ab820a596",
+    "backend/internal/ocrreview/source_mysql_test.go": "a69ab4f5f091b7327d5dcba4e8890e505aa8f0365c5e77eb4bb9e360e6e77966",
+    "backend/internal/ocrreview/source_test.go": "09eb85c0d5fd62aedf04997e40de7f2bf208e8f64f24684f4a91c1ca66190131",
+    "backend/internal/ocrreview/store.go": "3b0a7874efee94745efd10f4ec38f51dfb16e784dffd8bc8c2f7f89a390fff14",
+    "backend/internal/ocrreview/store_test.go": "8f626c8793d3d35599536bf289aab7b407e69af17e51cd88e62a1532fff479ae"
+  },
+  "cleanup": [
+    {
+      "resource": "campus-ocr-revisions-cdc9f54fe62f",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-revisions-cdc9f54fe62f:probe",
+      "ok": true
+    }
+  ],
+  "secret_file_removed": true,
+  "results": [
+    {
+      "label": "build pinned MySQL probe",
+      "exit_code": 0
+    },
+    {
+      "label": "immutable MySQL image",
+      "exit_code": 0
+    },
+    {
+      "label": "start owned isolated MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "database version",
+      "exit_code": 0
+    },
+    {
+      "label": "create isolated schema",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000001_identity_users_classes.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000002_identity_sessions.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000003_identity_auth_audit.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000004_materials_retrieval.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000005_assignment_tasks.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline 000006_documents.up.sql",
+      "exit_code": 0
+    },
+    {
+      "label": "identity fixtures",
+      "exit_code": 0
+    },
+    {
+      "label": "candidate append-only revision DDL",
+      "exit_code": 0
+    },
+    {
+      "label": "remove owned candidate rows",
+      "exit_code": 0
+    },
+    {
+      "label": "candidate reverse DDL",
+      "exit_code": 0
+    },
+    {
+      "label": "baseline tables preserved",
+      "exit_code": 0
+    }
+  ]
+}

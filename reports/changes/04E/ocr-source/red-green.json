@@ -1,0 +1,6 @@
+{
+  "scenario": "DI-SC-19 final database-time lease guard",
+  "mutation": "Remove final lease-expiry condition after inserting OCR source and draft rows",
+  "red": 1,
+  "restored_green": 0
+}

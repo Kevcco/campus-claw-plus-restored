@@ -117,9 +117,9 @@ func (s *Store) transact(ctx context.Context, fn func(context.Context, *sql.Tx) 
 	return failure(ctx, tx.Commit())
 }
 
-// SeedDraft is an internal component boundary after engine validation. Full raw
+// seedDraft is an internal component boundary after engine validation. Full raw
 // OCR word anchors remain the worker's responsibility, not teacher text fields.
-func (s *Store) SeedDraft(ctx context.Context, classID, id string, pages []Page) error {
+func (s *Store) seedDraft(ctx context.Context, classID, id string, pages []Page) error {
 	body, e := content(pages)
 	if e != nil || !materials.ValidID(id) || !materials.ValidID(classID) {
 		return identity.ErrInvalid

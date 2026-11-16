@@ -1,0 +1,27 @@
+-test.shuffle 1794821336963849846
+=== RUN   TestMySQLOCRSourceRollbackAndFinalLeaseExpiry
+--- PASS: TestMySQLOCRSourceRollbackAndFinalLeaseExpiry (0.23s)
+=== RUN   TestMySQLReviewCASRaceAndAuthorization
+--- PASS: TestMySQLReviewCASRaceAndAuthorization (0.02s)
+=== RUN   TestMySQLOCRTakeoverAndExhaustion
+--- PASS: TestMySQLOCRTakeoverAndExhaustion (0.06s)
+=== RUN   TestMySQLReviewPublishedKeywordIsolation
+--- PASS: TestMySQLReviewPublishedKeywordIsolation (0.01s)
+=== RUN   TestOCRClaimHelper
+--- PASS: TestOCRClaimHelper (0.00s)
+=== RUN   TestContentCodepointsAndBounds
+--- PASS: TestContentCodepointsAndBounds (0.00s)
+=== RUN   TestMySQLOCRRealSourceAndReview
+--- PASS: TestMySQLOCRRealSourceAndReview (0.14s)
+=== RUN   TestSourceStrictCodepointsAndBounds
+--- PASS: TestSourceStrictCodepointsAndBounds (0.00s)
+=== RUN   TestMySQLReviewForeignClassAndRevisionBounds
+--- PASS: TestMySQLReviewForeignClassAndRevisionBounds (0.01s)
+=== RUN   TestMySQLReviewIdempotentRaceAndOldSource
+--- PASS: TestMySQLReviewIdempotentRaceAndOldSource (0.02s)
+=== RUN   TestMySQLOCRKilledWorkerTakeover
+--- PASS: TestMySQLOCRKilledWorkerTakeover (0.07s)
+=== RUN   TestMySQLReviewRollbackAndPageCount
+--- PASS: TestMySQLReviewRollbackAndPageCount (0.02s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/ocrreview	0.589s

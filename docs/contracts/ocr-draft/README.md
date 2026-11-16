@@ -26,4 +26,8 @@
 
 ## 2026-11-16版本事务候选实测
 
-本目录000007_ocr_revisions.up/down.sql已在独占MySQL8.4.13真实执行，追加revision/head/idempotency/chunk四表，不改变documents.version=1。Go ocrreview组件的CAS、20并发幂等、跨班与学生限制、事务回滚和仅当前发布索引已通过五组真实测试及班级过滤红1→绿0。此为准确候选SQL，不是runtime已启用迁移7；完整词框来源/owner-epoch绑定、结构manifest/备份/dirty修复/恢复及公开接口兼容仍待。表名前缀不自动授予公开调用能力。
+本目录000007_ocr_revisions.up/down.sql已在独占MySQL8.4.13真实执行，追加revision/head/idempotency/chunk四表，不改变documents.version=1。Go ocrreview组件的CAS、20并发幂等、跨班与学生限制、事务回滚和仅当前发布索引已通过五组真实测试及班级过滤红1→绿0。此为准确候选SQL，不是runtime已启用迁移7；完整词框来源及owner-epoch绑定后续已实现并经九组真实MySQL验证；结构manifest/备份/dirty修复/恢复及公开接口兼容仍待。表名前缀不自动授予公开调用能力。
+
+## 原始词框来源与作业候选
+
+本轮追加document_ocr_sources和document_ocr_jobs，准确候选SQL共六表。来源保存原始OCRResult字节/SHA和原件摘要，校对不会覆盖词框；提交严格解码并绑定owner/epoch/数据库租约，最终SQL再次核对到期时间，来源/草稿/head/作业同事务。独占MySQL九组和最终租约保护红1→绿0通过，包含实际杀死持有人与接管。仍需私有RPC/默认worker、显式失败分类重试、结构manifest/Target6备份恢复及公开接口接线。机器候选见source-jobs.json，不改变runtime activation。

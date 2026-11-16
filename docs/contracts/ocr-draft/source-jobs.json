@@ -1,0 +1,27 @@
+{
+  "status": "draft",
+  "runtime_activation": false,
+  "lease_seconds": 60,
+  "heartbeat_seconds": 20,
+  "max_attempts": 3,
+  "sql_budget_ms": 5000,
+  "commit_guard": [
+    "document_id",
+    "class_id",
+    "original_digest",
+    "worker_owner",
+    "execution_epoch",
+    "processing",
+    "database_utc_lease_live_at_final_update"
+  ],
+  "source_bytes": 8388608,
+  "body_utf8_bytes": 2097152,
+  "max_words": 100000,
+  "source_visibility": "same-class teacher",
+  "source_immutable": true,
+  "sql": {
+    "docs/contracts/ocr-draft/000007_ocr_revisions.up.sql": "717093800db6f518aec97e21d07cc00bb45a62a2ca0edd61d742a8114a4a5ab8",
+    "docs/contracts/ocr-draft/000007_ocr_revisions.down.sql": "3c13e03c8d8b4378db943a1d05ed47d684db105a3634f15601d10b2bdec410bc"
+  },
+  "runtime_target": 6
+}
