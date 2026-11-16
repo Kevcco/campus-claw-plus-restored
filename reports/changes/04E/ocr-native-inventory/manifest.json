@@ -1,0 +1,22 @@
+{
+  "image": "sha256:543c3ae8067ff6d1f3ba32a80a502dc1b2ca13b8a8c6656b1dc4605bf5b8f381",
+  "scope": "inventory only; not native security/production closure",
+  "files": [
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/runtime.json",
+      "sha256": "142a7e2275042a2d654fee675fbbe52009fc2435ae783d60e49bd94a2066c250"
+    },
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/wheel-files.json",
+      "sha256": "0739936d6f7de366301d9c75f45237c8bf412adda0579b6e768f8d191bff4454"
+    },
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/inventory.py",
+      "sha256": "9d0c942b753bb3515afc3e5c5ba5ba9e1e7a0382ec59841d0c75d016636dffdd"
+    },
+    {
+      "path": "reports/changes/04E/ocr-native-inventory/README.md",
+      "sha256": "b9bb8a9a7067579a219ca0258e66430b4ed1b2b5d61fb8ad0ee95f05c86a58fd"
+    }
+  ]
+}
