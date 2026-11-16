@@ -1,0 +1,18 @@
+
+> campus-claw-plus@0.0.1 check:ocr-corpus
+> node scripts/check-ocr-corpus.mjs && node --test scripts/ocr-corpus.test.mjs
+
+DI-SC-16/17 frozen inputs: {"pages":64,"blind":50,"negative":10,"development_positive":4,"boxes":100,"pdfs":3,"quality_measured":false}
+✔ DI-SC-16/17 fixed 50 blind, 10 negatives, independent development and 100 boxes (92.5551ms)
+✔ DI-SC-16 sample loss, split leakage, digest changes and relaxed limits are rejected (79.8817ms)
+✔ DI-SC-17 wrong coordinate frame, area, quote and PDF page binding cannot pass (7.8323ms)
+✔ DI-SC-16 scoring retains case/punctuation and uses codepoints and micro denominators (0.3811ms)
+✔ DI-SC-17 IoU handles overlap boundaries and rejects malformed boxes (0.2136ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 298.8529

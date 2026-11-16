@@ -1,0 +1,37 @@
+{
+  "scope": "DI-SC-16/17 input preparation, no OCR invocation",
+  "base": "659393b0ecdaa56b622a10fbb8f999fa198fe1ae",
+  "commands": [
+    {
+      "command": "npm run check",
+      "exit": 0,
+      "note": "Complete original check plus new corpus; final generator-only LF/content-identity corrections checked again with check:ocr-corpus and two full regenerations"
+    },
+    {
+      "command": "npm run audit",
+      "exit": 0
+    },
+    {
+      "command": "npm run secret-scan",
+      "exit": 0
+    },
+    {
+      "command": "npm run check:ocr-corpus (final frozen bytes)",
+      "exit": 0
+    }
+  ],
+  "full_local_gate_not_passed": true,
+  "local_main_verify_exit": 124,
+  "final_pdf_contacts_byte_identical_to_visually_inspected": 8,
+  "production_or_config_changed": false,
+  "ocr_quality_measured": false,
+  "source_sha256": {
+    "package.json": "5fcebaa26227adab6d88de87aac661a3a108a00c117445bfd95d95c32672d788",
+    "scripts/generate-ocr-fixtures.py": "4cb1372c8ab4b5dbf428680882c12d2a70191442023959b17d5bff5751ad4f44",
+    "scripts/check-ocr-corpus.mjs": "0bf29d9eed8717803dbe2a7b9c8dce348b140a1e30b84ee2576ba42ad0943e36",
+    "scripts/ocr-corpus.mjs": "206a065d4873b05cc223a2034833b49d92178e2bbb9e10ccced32a2414a636a9",
+    "scripts/ocr-corpus.test.mjs": "a681cbe2cd7d35aaaa1646a116dbb8d391374ed53aa42031ee21a2543eab5288",
+    "document-parser/testdata/ocr-v1/manifest.json": "ac75dcf41ed40834a108ac488601a0df7b3145da84d6318a97682ec66592514b",
+    "document-parser/testdata/ocr-v1/corpus-lock.json": "ae436a5bf28a59cea31d7691f15abd698aafc1a04a037ded72a4875da0386144"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "main": "659393b0ecdaa56b622a10fbb8f999fa198fe1ae",
+  "merged_pr": 58,
+  "approved_by": "Kevcco",
+  "approved_head": "378f6ce0f080cd32949354fb9cc2ff1d90d48139",
+  "approved_at": "2026-11-16T05:30:22Z",
+  "merged_at": "2026-11-16T05:31:53Z",
+  "ci_run": 43810841732,
+  "artifact": 14200457586,
+  "ci_zip_sha256": "12d5bd3304dd0881f9141a446bf9594d6ffe8d096bca9032d1e8a428b610765b",
+  "ci_complete": true,
+  "local_complete": false,
+  "local_verify_exit": 124,
+  "budget_ms": 600000,
+  "local_stale_parser_scan_not_used": true,
+  "stage_A_closed": false
+}

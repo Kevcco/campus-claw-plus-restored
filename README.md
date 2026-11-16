@@ -1,6 +1,6 @@
 # CampusClawPlus
 
-2026-11-16当前状态：#57已获Kevcco实际批准并正常合入main a40b83b，精确主干CI43804539643完整门禁通过。文本PDF/普通.docx真实上传、异步解析、关键词出处、原文/原件下载与受限重试已在主干接线；28 current、Target6、15个空值active键，四常驻服务及离线admin工具。本机主干复验发现私有HTTP测试客户端shutdown竞态，修复待审，A阶段暂不标完整验收。持有人环境未自动升级/部署；OCR和语义仍待B/C。[本轮复验](reports/changes/04E/main57-followup-2026-11-16.md)。下文较早日期段落为历史快照。
+2026-11-16当前状态：#57真实PDF/Word页面及#58夹具修复均已获Kevcco实际批准并正常合入main659393b，精确main完整CI43810841732成功。28 current、Target6、15个空值active键保持；持有人环境未自动部署。本机完整gate前三段0、verify超600秒退出124，A4.3仍待验收。当前准备OCR64页输入/100框/金标准与评分工具，B服务/机器合同/迁移及C语义尚未实施；下一步完成开发集选型和准确B合同。[本轮复验](reports/changes/04E/main58-followup/README.md)。下文较早日期段落为历史快照。
 
 本分支已将MySQL、离线迁移/初始化、身份HTTP服务和同源HTTPS接入默认Compose。身份及真实资料页面已在main合入，提供资料列表、检索、上传、原文及下载；小张已完成独立复验，合入及最终主干复验见[共享进度表](docs/project-status.md)和PR #30实际记录为准。
 

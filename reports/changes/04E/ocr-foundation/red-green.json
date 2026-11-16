@@ -1,0 +1,9 @@
+{
+  "scenario": "DI-SC-16",
+  "mutation": "replace microCER gold-codepoint denominator with page count",
+  "red_exit": 1,
+  "green_exit": 0,
+  "restored_exactly": true,
+  "sha256": "206a065d4873b05cc223a2034833b49d92178e2bbb9e10ccced32a2414a636a9",
+  "check_exit": 0
+}
