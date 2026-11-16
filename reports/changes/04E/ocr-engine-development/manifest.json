@@ -1,0 +1,152 @@
+{
+  "date": "2026-11-16",
+  "corpus_commit": "c1d4ec9da52df14eb06a63bdd9c609ea9b02c948",
+  "image_id": "sha256:c8588931337197969ade98805f5ec2a1e8d12b445a9dd6fa8670316866dd930c",
+  "inputs": [
+    {
+      "path": "scripts/benchmark-ocr-development.mjs",
+      "actual_sha256": "eef2846cbca4a0b4011781b6c5059a298a3232df0e29a8cd4af08112d972ac61",
+      "repository_sha256": "eef2846cbca4a0b4011781b6c5059a298a3232df0e29a8cd4af08112d972ac61"
+    },
+    {
+      "path": "scripts/ocr-development-driver.py",
+      "actual_sha256": "721b69c4c4735b444cfaef31ed1f8d48b789d7bd4598e0f483701ad5a49cf658",
+      "repository_sha256": "721b69c4c4735b444cfaef31ed1f8d48b789d7bd4598e0f483701ad5a49cf658"
+    },
+    {
+      "path": "scripts/ocr-contract-semantics.mjs",
+      "actual_sha256": "04b5d53b4a98faa1eeeb499b3b22b6b553950f828faf7ccca3d653d24d7e7715",
+      "repository_sha256": "04b5d53b4a98faa1eeeb499b3b22b6b553950f828faf7ccca3d653d24d7e7715"
+    },
+    {
+      "path": "scripts/ocr-draft-contract.test.mjs",
+      "actual_sha256": "2ee97cf42748d48c9bc442913aecaa680ffd936d74e837c2e08cc7deac43956e",
+      "repository_sha256": "2ee97cf42748d48c9bc442913aecaa680ffd936d74e837c2e08cc7deac43956e"
+    },
+    {
+      "path": "docs/contracts/ocr-draft/limits.json",
+      "actual_sha256": "7192ff3e9a327cdac8ef42b0857e9e8f060cd0bc2ac34b31409c202c25826df0",
+      "repository_sha256": "7192ff3e9a327cdac8ef42b0857e9e8f060cd0bc2ac34b31409c202c25826df0"
+    },
+    {
+      "path": "docs/contracts/ocr-draft/OCRResult.schema.json",
+      "actual_sha256": "c79778405ee8742a97e308fe9cd3c8603521430345303e221ac55d7dbc8ee7b5",
+      "repository_sha256": "c79778405ee8742a97e308fe9cd3c8603521430345303e221ac55d7dbc8ee7b5"
+    },
+    {
+      "path": "docs/contracts/ocr-draft/OCRReview.schema.json",
+      "actual_sha256": "2e16bc1f43f220856a84ecfe3ab0d1114dfcaf1e6f6b72e38e6c154d82cf743f",
+      "repository_sha256": "2e16bc1f43f220856a84ecfe3ab0d1114dfcaf1e6f6b72e38e6c154d82cf743f"
+    },
+    {
+      "path": "docs/contracts/ocr-draft/OCRReviewReceipt.schema.json",
+      "actual_sha256": "6e8215f35373d8164690eaa89598a2ed004b604ced04527ffc85cfdc3b69c273",
+      "repository_sha256": "6e8215f35373d8164690eaa89598a2ed004b604ced04527ffc85cfdc3b69c273"
+    },
+    {
+      "path": "docs/contracts/ocr-draft/openapi.json",
+      "actual_sha256": "dd12b14e92e46a20e7361349ad2b7d274f72abd60dca0c7adbe29317bf3a0231",
+      "repository_sha256": "dd12b14e92e46a20e7361349ad2b7d274f72abd60dca0c7adbe29317bf3a0231"
+    },
+    {
+      "path": "docs/contracts/ocr-draft/README.md",
+      "actual_sha256": "6063ca4abf7d788d10efa8c012aa8aa59c7fb05406e8153e0791a8dbef663829",
+      "repository_sha256": "6063ca4abf7d788d10efa8c012aa8aa59c7fb05406e8153e0791a8dbef663829"
+    }
+  ],
+  "originals": [
+    {
+      "file": "development-summary.json",
+      "source": "output/campus-ocr-dev-bcf41b5c4956/summary.json",
+      "sha256": "d7835a758de33f54a48f813779cda52a83748d30b69ac2157b817672aac4637b",
+      "repository_sha256": "d7835a758de33f54a48f813779cda52a83748d30b69ac2157b817672aac4637b"
+    },
+    {
+      "file": "engine-raw.json",
+      "source": "output/campus-ocr-dev-bcf41b5c4956/raw-stdout.json",
+      "sha256": "2e1c09516663c53c14655825ae536dee7d9801f0a653ca7204ccf0fd39ccd9cc",
+      "repository_sha256": "2e1c09516663c53c14655825ae536dee7d9801f0a653ca7204ccf0fd39ccd9cc"
+    },
+    {
+      "file": "input-mapping.json",
+      "source": "output/campus-ocr-dev-bcf41b5c4956/mapping.json",
+      "sha256": "1bc710c011898b7a6e22e76e2095ff060c935573225f2db9551e3e73af1328cd",
+      "repository_sha256": "1bc710c011898b7a6e22e76e2095ff060c935573225f2db9551e3e73af1328cd"
+    },
+    {
+      "file": "driver-stderr.txt",
+      "source": "output/campus-ocr-dev-bcf41b5c4956/driver-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "candidate.Dockerfile",
+      "source": "output/ocr-candidate-build/Dockerfile",
+      "sha256": "0b5577d979ada9035161a6c8503c3c2b710371e9d377dba242c41a2ed7dce7f4",
+      "repository_sha256": "0b5577d979ada9035161a6c8503c3c2b710371e9d377dba242c41a2ed7dce7f4"
+    },
+    {
+      "file": "build-first-failure.txt",
+      "source": "output/ocr-candidate-build.txt",
+      "sha256": "bd68b53df91558aa5e8dc8e3cfa1b71e4796f5d9c892a4d8bf0a2f762ac0cd06",
+      "repository_sha256": "d87a579b72cd206bd296793668736356bfe61401983bc28a9b85f545ae10e4d4"
+    },
+    {
+      "file": "build-final.txt",
+      "source": "output/ocr-candidate-build-final.txt",
+      "sha256": "f260e053a6f0b5d39b5e4f3d7599fa033dde8ee584b745abb992f8505254be63",
+      "repository_sha256": "4f8902d8bd7176c79a114702887d5e325115938e0c47ae6e4c3e8edf924a7190"
+    },
+    {
+      "file": "build-dependency-packages.txt",
+      "source": "output/ocr-build-dependency-packages.txt",
+      "sha256": "0e44b381b67842d2586ad6cfd34638a7767f227ebdeef75b83bd38c5dcb11cfe",
+      "repository_sha256": "918feec9b3138844ae56f9a0bd351c617a6645e0ead607340287d860e46e6a1c"
+    },
+    {
+      "file": "engine-inventory.txt",
+      "source": "output/ocr-engine-inventory.txt",
+      "sha256": "5496ec35447e4e3c7458aca9e9bbeb556096a1388520ecd5c00968334ceb2f8d",
+      "repository_sha256": "b67b7b642ce5a73089ba06a45e8c4ebbe4c4bb403d9b4666dd34213f732bbacf"
+    },
+    {
+      "file": "scan-summary.json",
+      "source": "output/ocr-candidate-scan/summary.json",
+      "sha256": "4af906c576e0f7c5d276493aaa51f1e2f85e062172d539d8fb53be76cbfcfbe0",
+      "repository_sha256": "4af906c576e0f7c5d276493aaa51f1e2f85e062172d539d8fb53be76cbfcfbe0"
+    },
+    {
+      "file": "scan-raw.json",
+      "source": "output/ocr-candidate-scan/trivy.json",
+      "sha256": "9a11a6f6e3029f582fccc7226121db88492e3952b18479cce24d4f6d31d660c6",
+      "repository_sha256": "9a11a6f6e3029f582fccc7226121db88492e3952b18479cce24d4f6d31d660c6"
+    },
+    {
+      "file": "check.txt",
+      "source": "output/ocr-next-check.txt",
+      "sha256": "90cce57d2939a0c0391902aa2a4b9c82e585933964e8ce8187850609ab44bd6c",
+      "repository_sha256": "9493e0c3771b00260a44a08feedfd37a684ae170a6b5732ab97a95e262607e5b"
+    },
+    {
+      "file": "contract-red.txt",
+      "source": "output/ocr-next-stage/reports/changes/04E/ocr-engine-development/contract-red.txt",
+      "sha256": "627718bd1c74fee11b0f99ff9c0350c0c895b5f246e8156b6677c16e0e993402",
+      "repository_sha256": "627718bd1c74fee11b0f99ff9c0350c0c895b5f246e8156b6677c16e0e993402"
+    },
+    {
+      "file": "contract-green.txt",
+      "source": "output/ocr-next-stage/reports/changes/04E/ocr-engine-development/contract-green.txt",
+      "sha256": "95c312952e1ebd32954114ecb309abe57adcec0e8688e33a435c0a8a2fa95d35",
+      "repository_sha256": "95c312952e1ebd32954114ecb309abe57adcec0e8688e33a435c0a8a2fa95d35"
+    },
+    {
+      "file": "contract-red-green.json",
+      "source": "output/ocr-next-stage/reports/changes/04E/ocr-engine-development/contract-red-green.json",
+      "sha256": "51fbb5a7597cbba36230bcb776065c9ae220297960dc703877164a99fabafab1",
+      "repository_sha256": "51fbb5a7597cbba36230bcb776065c9ae220297960dc703877164a99fabafab1"
+    }
+  ],
+  "scope": "14 development PNG/JPEG pages only; no blind OCR, PDF rasterizer or production acceptance",
+  "originals_zip_sha256": "9f7b8160c3789bc229d08a64ac5a9c3e46825a2e69ce62809ef1f872cf7bb8c5",
+  "originals_zip_note": "Preserves actual raw bytes including original manifest. Expanded files use repository LF/trailing-space rules; SHA values below distinguish these."
+}

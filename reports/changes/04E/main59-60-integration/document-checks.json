@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-11-16T09:36:04.774Z",
+  "node": "24.22.1",
+  "scope": "Documents/evidence delta against main8ddd8f4; no new Docker run",
+  "checks": {
+    "foundation": 0,
+    "strict": {
+      "passed": 11,
+      "failed": 0
+    },
+    "full_history_secrets": {
+      "commits": 260,
+      "exit_code": 0
+    },
+    "staged_secrets": 0,
+    "local_links": 261,
+    "staged_evidence_hashes": 19,
+    "original_user_untracked_files_preserved": 4
+  },
+  "originals": [
+    {
+      "path": "pr56-final-foundation.txt",
+      "sha256": "144aee2f09b9f05f933b7dd5e6326fdd559ee37c7d512c4289725f4b64fe01eb"
+    },
+    {
+      "path": "pr56-final-spec.txt",
+      "sha256": "8de060d6d2e4522894e1ff3b13df71c63d066a2124a9d1caa93542d592cfc331"
+    },
+    {
+      "path": "pr56-final-secret.txt",
+      "sha256": "5ec3c8f896a92ddbc0bb635c8a23e308b0adc85c816419059e549589332544bb"
+    }
+  ]
+}

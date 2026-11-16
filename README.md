@@ -1,5 +1,7 @@
 # CampusClawPlus
 
+2026-11-16小陈本轮收口：#59获实际APPROVED5917087195正常合入main945a6ce，精确main完整CI43832496190及原artifact14210616010/2558 Git blob/四段0/五镜像与运行恢复原件已核验，秘密扫描0。#60最终881da2d完整CI43833339498/原artifact14209478925/2626 Git blob核验通过，获APPROVED5917623027后正常合入main8ddd8f4；精确main完整CI43839166700成功，原artifact14212572958/2626 Git blob/四段0/五镜像/运行恢复与清理已独立核验，秘密扫描0。#56逐块同步主干和双方原件，不改生产/测试/配置/合同；当前head门禁与小张审查另核，A余项/B1.2/盲测/C不提前完成。 [本轮原件](reports/changes/04E/main59-60-integration-2026-11-16.md)。
+
 2026-11-16小陈推进：#59最终c1d4ec9获实际APPROVED5917087195，正常合入main945a6ce；精确main CI43832496190仍在运行。#60已改为main并推881da2d同步主干和独立审查记录，完整CI43833339498执行中。#56本次逐块合并主干进度与原件，不改main的运行/合同/测试；A余项仍小张收口，OCR生产及C未放行。
 
 以下为各次实际记录，当前总览以共享表为准。
@@ -7,6 +9,8 @@
 2026-11-16当前状态：#57已获Kevcco批准并正常合入main `a40b83b`，精确主干CI43804539643通过；#58的HTTP测试客户端半关闭竞态修复已获批准并正常合入main `659393b`，其PR CI43809266164通过，精确新主干完整CI43810841732已通过，原件及2448个Git blob指纹已独立核验，解包秘密扫描0；见[主干复验](reports/changes/04E/main58-integration-2026-11-16.md)。生产行为和合同未变；Document接线为28 current、Target6、15个空值active键及五服务配置。A阶段仍有验收待办，持有人环境未自动升级/部署；OCR和语义仍待B/C。[#58复验记录](reports/changes/04E/main57-followup-2026-11-16.md) · [#55收口原件](reports/changes/04E/runtime-main-closeout-2026-11-15.md)。下文较早日期段落为历史快照。
 
 2026-11-16当前状态：#57真实PDF/Word页面及#58夹具修复均已获Kevcco实际批准并正常合入main659393b，精确main完整CI43810841732成功。28 current、Target6、15个空值active键保持；持有人环境未自动部署。本机完整gate前三段0、verify超600秒退出124，A4.3仍待验收。当前准备OCR64页输入/100框/金标准与评分工具，B服务/机器合同/迁移及C语义尚未实施；下一步完成开发集选型和准确B合同。[本轮复验](reports/changes/04E/main58-followup/README.md)。下文较早日期段落为历史快照。
+
+2026-11-16当前状态：#57真实PDF/Word页面与#58夹具修复已获批合入main659393b，精确main完整CI通过。#59完整CI通过、Kevcco实际审查待。超时优化候选fd67834本机原完整gate四段0（verify590105ms/600秒），获审合入后的精确main复验仍待，A4.3不勾。真实OCR14页开发实验完成（4正例合并CER1.55%、10负例暂定诊断10/10），独立接口草案4组检查通过；50盲测/100框/PDF栅格、准确B合同/迁移和生产接线仍待。28 current、Target6、15空active键与生产服务保持，持有人环境未自动部署。 [本轮实测](reports/changes/04E/ocr-engine-development/README.md)。下文较早日期为历史快照。
 
 本分支已将MySQL、离线迁移/初始化、身份HTTP服务和同源HTTPS接入默认Compose。身份及真实资料页面已在main合入，提供资料列表、检索、上传、原文及下载；小张已完成独立复验，合入及最终主干复验见[共享进度表](docs/project-status.md)和PR #30实际记录为准。
 

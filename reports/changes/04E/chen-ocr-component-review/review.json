@@ -1,0 +1,22 @@
+{
+  "id": 5917719926,
+  "head": "7fe97a90149fd3938883a0337a5517eb9316503a",
+  "user": "Kevcco",
+  "state": "CHANGES_REQUESTED",
+  "url": "https://github.com/zwh9616/campus-claw-plus/pull/61#pullrequestreview-5917719926",
+  "body": "小陈 / Kevcco（AI辅助）审查最终7fe97a9：发现两项可复现的行为问题，详见行内意见，暂不批准。Node24独立TSV4组、Python栅格纯逻辑2组通过；SQL问题依据准确DDL与Go语句、512边界按源码切片机械复现，本轮未另起数据库/OCR会话，未将作者或CI结果冒称独立复测。请在原PR修订并同提交同步共享表，绑定新head完整检查后复审。\n\n#60已由Kevcco实际批准5917623027并正常合入main8ddd8f4，前序405拒绝保留为历史，不再是当前卡点；#61应在依赖合入后改为main并正常同步。A余项/B1.2准确合同冻结及生产接线仍按前置推进。本会话最新工程约定仍保留真实批准、合同先合入再apply及仅04E统一负责人例外；本次不采用本PR取消成员批准/恢复所有暂停项的新流程文字，需先与现行明确约定对齐，不能据该段推定当前审查门禁已取消。",
+  "comments": [
+    {
+      "path": "backend/internal/ocrreview/store.go",
+      "line": 280,
+      "side": "RIGHT",
+      "body": "[P2] 检索不能漏掉跨512码点分片的关键词。Save把每页正文按512码点无重叠切开，这里只对c.quote做INSTR。单页正文为511个a后接“合同”时，第一片以“合”结尾，第二片为“同”；完整已发布正文包含合法查询“合同”，却没有任何一片命中。请采用能覆盖边界的索引/匹配策略，并补真实MySQL用例，覆盖512边界、非BMP码点和持久出处回查；保留当前班级及已发布revision过滤。"
+    },
+    {
+      "path": "docs/contracts/ocr-draft/000007_ocr_revisions.up.sql",
+      "line": 34,
+      "side": "RIGHT",
+      "body": "[P2] 幂等键约束与候选合同的文档作用域不一致。README明确同一用户/当前班/文档/幂等键重放，但此主键只有user_id,class_id,idem_key，Save的回查也没有document_id。教师对文档91成功使用一个键后，对同班文档92使用相同键会读到91的记录；digest包含id，结果必然409，两个独立文档不能按约定各自提交。请在准确合同冻结前统一DDL、查询和幂等作用域，并补同用户同班两个文档同键各自成功、同文档重放仍只建一版的真实并发/事务测试。"
+    }
+  ]
+}

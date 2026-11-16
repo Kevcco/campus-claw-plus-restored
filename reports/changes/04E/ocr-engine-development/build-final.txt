@@ -1,0 +1,949 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.87kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [build-dependencies 2/2] RUN apk add --no-cache build-base cmake leptonica-dev
+#4 CACHED
+
+#5 [build-dependencies 1/2] FROM docker.io/library/python@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67
+#5 resolve docker.io/library/python@sha256:5862d971d1f0ae26b258cefa4e893556b1d3aba81bd2ff30888704ad378bab67 0.0s done
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 160B done
+#6 DONE 0.0s
+
+#7 [build 1/3] WORKDIR /build
+#7 DONE 0.0s
+
+#8 [stage-2 2/7] RUN apk add --no-cache leptonica=1.87.0-r0 libstdc++=15.2.0-r5     && apk --no-network info -v > /opt/apk-packages.txt     && rm -rf /usr/local/lib/python3.14/ensurepip /usr/local/lib/python3.14/site-packages/pip /usr/local/lib/python3.14/site-packages/pip-*.dist-info /usr/local/bin/pip*
+#8 ...
+
+#9 [build 2/3] COPY tesseract-5.5.4.tar.gz .
+#9 DONE 0.0s
+
+#10 [build 3/3] RUN echo '445603ab1d0a63df552e193a600d9d5c4021aff36e144f3091af149e5efb381a  tesseract-5.5.4.tar.gz' | sha256sum -c -     && mkdir source && tar -xzf tesseract-5.5.4.tar.gz --strip-components=1 -C source     && cmake -S source -B obj -DCMAKE_BUILD_TYPE=Release -DBUILD_TRAINING_TOOLS=OFF -DBUILD_TESTS=OFF -DOPENMP_BUILD=OFF -DDISABLE_ARCHIVE=ON -DDISABLE_CURL=ON     && cmake --build obj --parallel 2 && cmake --install obj
+#10 0.263 tesseract-5.5.4.tar.gz: OK
+#10 0.458 -- The C compiler identification is GNU 15.2.0
+#10 0.512 -- The CXX compiler identification is GNU 15.2.0
+#10 0.521 -- Detecting C compiler ABI info
+#10 0.579 -- Detecting C compiler ABI info - done
+#10 0.591 -- Check for working C compiler: /usr/bin/cc - skipped
+#10 0.591 -- Detecting C compile features
+#10 0.592 -- Detecting C compile features - done
+#10 0.602 -- Detecting CXX compiler ABI info
+#10 0.663 -- Detecting CXX compiler ABI info - done
+#10 0.677 -- Check for working CXX compiler: /usr/bin/c++ - skipped
+#10 0.677 -- Detecting CXX compile features
+#10 0.678 -- Detecting CXX compile features - done
+#10 0.684 -- Configuring tesseract version 5.5.4...
+#10 1.011 -- IPO / LTO supported
+#10 1.011 -- CMAKE_SYSTEM_PROCESSOR=<x86_64>
+#10 1.012 -- Performing Test HAVE_AVX
+#10 1.065 -- Performing Test HAVE_AVX - Success
+#10 1.066 -- Performing Test HAVE_AVX2
+#10 1.119 -- Performing Test HAVE_AVX2 - Success
+#10 1.120 -- Performing Test HAVE_AVX512F
+#10 1.174 -- Performing Test HAVE_AVX512F - Success
+#10 1.175 -- Performing Test HAVE_FMA
+#10 1.231 -- Performing Test HAVE_FMA - Success
+#10 1.232 -- Performing Test HAVE_SSE4_1
+#10 1.284 -- Performing Test HAVE_SSE4_1 - Success
+#10 1.285 -- Performing Test OPENMP_SIMD
+#10 1.338 -- Performing Test OPENMP_SIMD - Success
+#10 1.339 -- ccache not found, disabling ccache support
+#10 1.346 -- Found PkgConfig: /usr/bin/pkg-config (found version "2.5.1")
+#10 1.349 -- Could NOT find Leptonica (missing: Leptonica_DIR)
+#10 1.349 -- Checking for module 'lept>=1.80'
+#10 1.358 --   Found lept, version 1.87.0
+#10 1.376 -- Found leptonica version: 1.87.0
+#10 1.474 -- Leptonica was build with TIFF support.
+#10 1.480 -- Could NOT find TIFF (missing: TIFF_LIBRARY TIFF_INCLUDE_DIR)
+#10 1.481 -- Checking for module 'libtiff-4'
+#10 1.484 --   Package 'libtiff-4' not found
+#10 1.484 -- LibArchive support disabled.
+#10 1.484 -- CURL support disabled.
+#10 1.496 -- Looking for feenableexcept
+#10 1.548 -- Looking for feenableexcept - not found
+#10 1.555 --
+#10 1.555 -- General configuration for Tesseract 5.5.4
+#10 1.555 -- --------------------------------------------------------
+#10 1.555 -- Build type: Release 64 bits
+#10 1.555 -- Compiler: GNU
+#10 1.555 -- Compiler version: 15.2.0
+#10 1.555 -- Used standard: C++20
+#10 1.555 -- CXX compiler options:  -O3 -DNDEBUG
+#10 1.555 -- Compile definitions = HAVE_AVX;HAVE_AVX2;HAVE_AVX512F;HAVE_FMA;HAVE_SSE4_1;OPENMP_SIMD;CMAKE_BUILD;HAVE_CONFIG_H
+#10 1.555 -- Linker options:
+#10 1.555 -- Install directory: /usr/local
+#10 1.555 -- HAVE_AVX: 1
+#10 1.555 -- HAVE_AVX2: 1
+#10 1.555 -- HAVE_AVX512F: 1
+#10 1.555 -- HAVE_FMA: 1
+#10 1.555 -- HAVE_SSE4_1: 1
+#10 1.555 -- MARCH_NATIVE_OPT: OFF
+#10 1.555 -- HAVE_NEON: FALSE
+#10 1.555 -- Link-time optimization: FALSE
+#10 1.555 -- --------------------------------------------------------
+#10 1.555 -- Build with openmp support [OPENMP_BUILD]: OFF
+#10 1.555 -- Build with libarchive support [HAVE_LIBARCHIVE]: OFF
+#10 1.555 -- Build with libcurl support [HAVE_LIBCURL]: OFF
+#10 1.555 -- Enable float for LSTM [FAST_FLOAT]: ON
+#10 1.555 -- Enable optimization for host CPU (could break HW compatibility) [ENABLE_NATIVE]: OFF
+#10 1.555 -- Disable disable graphics (ScrollView) [GRAPHICS_DISABLED]: OFF
+#10 1.555 -- Disable the legacy OCR engine [DISABLED_LEGACY_ENGINE]: OFF
+#10 1.555 -- Build training tools [BUILD_TRAINING_TOOLS]: OFF
+#10 1.555 -- Build tests [BUILD_TESTS]: OFF
+#10 1.555 -- Use system GoogleTest [USE_SYSTEM_GTEST]: OFF
+#10 1.555 -- Use system ICU Library [USE_SYSTEM_ICU]: OFF
+#10 1.555 -- Install tesseract configs [INSTALL_CONFIGS]: ON
+#10 1.555 -- --------------------------------------------------------
+#10 1.555 -- Modern build optimizations:
+#10 1.555 -- Unity build [ENABLE_UNITY_BUILD]: OFF
+#10 1.555 -- Precompiled headers [ENABLE_PRECOMPILED_HEADERS]: ON
+#10 1.555 -- ccache [ENABLE_CCACHE]: OFF
+#10 1.555 -- Ninja job pools [ENABLE_NINJA_POOL]: Disabled (not using Ninja)
+#10 1.555 -- --------------------------------------------------------
+#10 1.555 --
+#10 1.559 -- Precompiled headers enabled for libtesseract (excluding architecture-specific files)
+#10 1.561 -- Configuring done (1.2s)
+#10 1.598 -- Generating done (0.0s)
+#10 1.599 -- Build files have been written to: /build/obj
+#10 1.647 [  0%] Building CXX object CMakeFiles/libtesseract.dir/cmake_pch.hxx.gch
+#10 1.647 [  0%] Building CXX object CMakeFiles/libtesseract.dir/src/arch/dotproduct.cpp.o
+#10 1.685 [  0%] Building CXX object CMakeFiles/libtesseract.dir/src/arch/dotproductavx.cpp.o
+#10 2.301 [  1%] Building CXX object CMakeFiles/libtesseract.dir/src/arch/intsimdmatrixavx2.cpp.o
+#10 2.877 [  1%] Building CXX object CMakeFiles/libtesseract.dir/src/arch/dotproductavx512.cpp.o
+#10 3.078 [  2%] Building CXX object CMakeFiles/libtesseract.dir/src/arch/dotproductfma.cpp.o
+#10 3.336 [  2%] Building CXX object CMakeFiles/libtesseract.dir/src/arch/dotproductsse.cpp.o
+#10 3.437 [  3%] Building CXX object CMakeFiles/libtesseract.dir/src/arch/intsimdmatrixsse.cpp.o
+#10 3.573 [  3%] Building CXX object CMakeFiles/libtesseract.dir/src/api/altorenderer.cpp.o
+#10 3.667 [  4%] Building CXX object CMakeFiles/libtesseract.dir/src/api/baseapi.cpp.o
+#10 4.098 [  4%] Building CXX object CMakeFiles/libtesseract.dir/src/api/capi.cpp.o
+#10 5.214 [  5%] Building CXX object CMakeFiles/libtesseract.dir/src/api/hocrrenderer.cpp.o
+#10 6.391 [  5%] Building CXX object CMakeFiles/libtesseract.dir/src/api/lstmboxrenderer.cpp.o
+#10 7.780 [  6%] Building CXX object CMakeFiles/libtesseract.dir/src/api/pagerenderer.cpp.o
+#10 7.875 [  6%] Building CXX object CMakeFiles/libtesseract.dir/src/api/pdfrenderer.cpp.o
+#10 ...
+
+#8 [stage-2 2/7] RUN apk add --no-cache leptonica=1.87.0-r0 libstdc++=15.2.0-r5     && apk --no-network info -v > /opt/apk-packages.txt     && rm -rf /usr/local/lib/python3.14/ensurepip /usr/local/lib/python3.14/site-packages/pip /usr/local/lib/python3.14/site-packages/pip-*.dist-info /usr/local/bin/pip*
+#8 9.460 ( 1/10) Installing giflib (5.2.2-r2)
+#8 10.01 ( 2/10) Installing libjpeg-turbo (3.1.3-r0)
+#8 10.43 ( 3/10) Installing libpng (1.6.59-r0)
+#8 10.74 ( 4/10) Installing libsharpyuv (1.6.0-r0)
+#8 11.50 ( 5/10) Installing libwebp (1.6.0-r0)
+#8 12.08 ( 6/10) Installing tiff (4.7.2-r0)
+#8 12.77 ( 7/10) Installing libwebpmux (1.6.0-r0)
+#8 13.20 ( 8/10) Installing leptonica (1.87.0-r0)
+#8 14.51 ( 9/10) Installing libgcc (15.2.0-r5)
+#8 14.94 (10/10) Installing libstdc++ (15.2.0-r5)
+#8 16.29 Executing busybox-1.37.0-r31.trigger
+#8 16.30 OK: 19.3 MiB in 40 packages
+#8 16.33 WARNING: opening from cache https://dl-cdn.alpinelinux.org/alpine/v3.24/main/x86_64/APKINDEX.tar.gz: No such file or directory
+#8 16.33 WARNING: opening from cache https://dl-cdn.alpinelinux.org/alpine/v3.24/community/x86_64/APKINDEX.tar.gz: No such file or directory
+#8 DONE 16.5s
+
+#10 [build 3/3] RUN echo '445603ab1d0a63df552e193a600d9d5c4021aff36e144f3091af149e5efb381a  tesseract-5.5.4.tar.gz' | sha256sum -c -     && mkdir source && tar -xzf tesseract-5.5.4.tar.gz --strip-components=1 -C source     && cmake -S source -B obj -DCMAKE_BUILD_TYPE=Release -DBUILD_TRAINING_TOOLS=OFF -DBUILD_TESTS=OFF -DOPENMP_BUILD=OFF -DDISABLE_ARCHIVE=ON -DDISABLE_CURL=ON     && cmake --build obj --parallel 2 && cmake --install obj
+#10 9.471 [  7%] Building CXX object CMakeFiles/libtesseract.dir/src/api/renderer.cpp.o
+#10 9.894 [  7%] Building CXX object CMakeFiles/libtesseract.dir/src/api/wordstrboxrenderer.cpp.o
+#10 11.14 [  8%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/adaptions.cpp.o
+#10 11.85 [  8%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/applybox.cpp.o
+#10 12.70 [  8%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/control.cpp.o
+#10 13.80 [  9%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/docqual.cpp.o
+#10 14.98 [  9%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/equationdetect.cpp.o
+#10 16.81 [ 10%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/fixspace.cpp.o
+#10 18.43 [ 10%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/fixxht.cpp.o
+#10 18.89 [ 11%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/linerec.cpp.o
+#10 19.23 [ 11%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/ltrresultiterator.cpp.o
+#10 20.10 [ 12%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/mutableiterator.cpp.o
+#10 20.25 [ 12%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/osdetect.cpp.o
+#10 20.33 [ 13%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/output.cpp.o
+#10 21.32 [ 13%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/pageiterator.cpp.o
+#10 21.39 [ 14%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/pagesegmain.cpp.o
+#10 22.31 [ 14%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/pagewalk.cpp.o
+#10 22.42 [ 14%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/par_control.cpp.o
+#10 22.99 [ 15%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/paragraphs.cpp.o
+#10 23.15 [ 15%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/paramsd.cpp.o
+#10 24.85 [ 16%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/pgedit.cpp.o
+#10 26.14 [ 16%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/recogtraining.cpp.o
+#10 27.12 [ 17%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/reject.cpp.o
+#10 27.12 [ 17%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/resultiterator.cpp.o
+#10 28.44 [ 18%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/superscript.cpp.o
+#10 28.51 [ 18%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/tessbox.cpp.o
+#10 29.20 [ 19%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/tessedit.cpp.o
+#10 29.46 [ 19%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/tesseractclass.cpp.o
+#10 30.59 [ 20%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/tessvars.cpp.o
+#10 30.71 [ 20%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/tfacepp.cpp.o
+#10 31.83 [ 20%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/thresholder.cpp.o
+#10 32.13 [ 21%] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/werdit.cpp.o
+#10 32.28 [ 21%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/blamer.cpp.o
+#10 32.72 [ 22%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/blobbox.cpp.o
+#10 33.70 [ 22%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/blobs.cpp.o
+#10 35.00 [ 23%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/blread.cpp.o
+#10 35.35 [ 23%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/boxread.cpp.o
+#10 35.38 [ 24%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/boxword.cpp.o
+#10 36.14 [ 24%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/coutln.cpp.o
+#10 36.52 [ 25%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/detlinefit.cpp.o
+#10 37.19 [ 25%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/dppoint.cpp.o
+#10 37.35 [ 26%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/fontinfo.cpp.o
+#10 37.39 [ 26%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/image.cpp.o
+#10 37.56 [ 26%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/imagedata.cpp.o
+#10 37.97 [ 27%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/linlsq.cpp.o
+#10 38.17 [ 27%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/matrix.cpp.o
+#10 38.80 [ 28%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/mod128.cpp.o
+#10 38.89 [ 28%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/normalis.cpp.o
+#10 38.97 [ 29%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/ocrblock.cpp.o
+#10 39.68 [ 29%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/ocrpara.cpp.o
+#10 39.87 [ 30%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/ocrrow.cpp.o
+#10 39.88 [ 30%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/otsuthr.cpp.o
+#10 40.17 [ 31%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/pageres.cpp.o
+#10 40.49 [ 31%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/params_training_featdef.cpp.o
+#10 40.63 [ 32%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/pdblock.cpp.o
+#10 41.15 [ 32%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/points.cpp.o
+#10 41.39 [ 32%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/polyblk.cpp.o
+#10 42.08 [ 33%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/quadlsq.cpp.o
+#10 42.32 [ 33%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/quspline.cpp.o
+#10 42.77 [ 34%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/ratngs.cpp.o
+#10 43.36 [ 34%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/rect.cpp.o
+#10 44.02 [ 35%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/rejctmap.cpp.o
+#10 44.28 [ 35%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/seam.cpp.o
+#10 44.51 [ 36%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/split.cpp.o
+#10 44.79 [ 36%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/statistc.cpp.o
+#10 45.00 [ 37%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/stepblob.cpp.o
+#10 45.54 [ 37%] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/werd.cpp.o
+#10 45.67 [ 38%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/ambigs.cpp.o
+#10 46.48 [ 38%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/bitvector.cpp.o
+#10 46.60 [ 38%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/ccutil.cpp.o
+#10 46.97 [ 39%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/errcode.cpp.o
+#10 47.20 [ 39%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/indexmapbidi.cpp.o
+#10 47.26 [ 40%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/params.cpp.o
+#10 47.91 [ 40%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/scanutils.cpp.o
+#10 48.01 [ 41%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/serialis.cpp.o
+#10 48.26 [ 41%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/tessdatamanager.cpp.o
+#10 48.41 In file included from /build/source/src/ccutil/serialis.cpp:23:
+#10 48.41 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.41     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(std::string&)' at /build/source/src/ccutil/serialis.cpp:100:19:
+#10 48.41 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 4 [-Wstringop-overflow=]
+#10 48.41   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.41       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::string&)':
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: destination object 'size' of size 4
+#10 48.41    99 |   uint32_t size;
+#10 48.41       |            ^~~~
+#10 48.41 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.41     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(std::string&)' at /build/source/src/ccutil/serialis.cpp:100:19:
+#10 48.41 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.41   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.41       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::string&)':
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset [8, 12] into destination object 'size' of size 4
+#10 48.41    99 |   uint32_t size;
+#10 48.41       |            ^~~~
+#10 48.41 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.41     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(std::string&)' at /build/source/src/ccutil/serialis.cpp:100:19:
+#10 48.41 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.41   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.41       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::string&)':
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset [16, 20] into destination object 'size' of size 4
+#10 48.41    99 |   uint32_t size;
+#10 48.41       |            ^~~~
+#10 48.41 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.41     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(std::string&)' at /build/source/src/ccutil/serialis.cpp:100:19:
+#10 48.41 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.41   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.41       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::string&)':
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset [24, 28] into destination object 'size' of size 4
+#10 48.41    99 |   uint32_t size;
+#10 48.41       |            ^~~~
+#10 48.41 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.41     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(std::string&)' at /build/source/src/ccutil/serialis.cpp:100:19:
+#10 48.41 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.41   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.41       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::string&)':
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 4 into destination object 'size' of size 4
+#10 48.41    99 |   uint32_t size;
+#10 48.41       |            ^~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 4 into destination object 'size' of size 4
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 4 into destination object 'size' of size 4
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 4 into destination object 'size' of size 4
+#10 48.41 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.41     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(std::string&)' at /build/source/src/ccutil/serialis.cpp:100:19:
+#10 48.41 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.41   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.41       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::string&)':
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset [8, 12] into destination object 'size' of size 4
+#10 48.41    99 |   uint32_t size;
+#10 48.41       |            ^~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 8 into destination object 'size' of size 4
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset [8, 12] into destination object 'size' of size 4
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 8 into destination object 'size' of size 4
+#10 48.41 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.41     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(std::string&)' at /build/source/src/ccutil/serialis.cpp:100:19:
+#10 48.41 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.41   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.41       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::string&)':
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset [12, 16] into destination object 'size' of size 4
+#10 48.41    99 |   uint32_t size;
+#10 48.41       |            ^~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 12 into destination object 'size' of size 4
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset [12, 16] into destination object 'size' of size 4
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 12 into destination object 'size' of size 4
+#10 48.41 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.41     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(std::string&)' at /build/source/src/ccutil/serialis.cpp:100:19:
+#10 48.41 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.41   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.41       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::string&)':
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset [16, 20] into destination object 'size' of size 4
+#10 48.41    99 |   uint32_t size;
+#10 48.41       |            ^~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 16 into destination object 'size' of size 4
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset [16, 20] into destination object 'size' of size 4
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 16 into destination object 'size' of size 4
+#10 48.41 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.41     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(std::string&)' at /build/source/src/ccutil/serialis.cpp:100:19:
+#10 48.41 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.41   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.41       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::string&)':
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset [20, 24] into destination object 'size' of size 4
+#10 48.41    99 |   uint32_t size;
+#10 48.41       |            ^~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 20 into destination object 'size' of size 4
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset [20, 24] into destination object 'size' of size 4
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 20 into destination object 'size' of size 4
+#10 48.41 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.41     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.41     inlined from 'bool tesseract::TFile::DeSerialize(std::string&)' at /build/source/src/ccutil/serialis.cpp:100:19:
+#10 48.41 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.41   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.41       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::string&)':
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset [24, 28] into destination object 'size' of size 4
+#10 48.41    99 |   uint32_t size;
+#10 48.41       |            ^~~~
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 24 into destination object 'size' of size 4
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset [24, 28] into destination object 'size' of size 4
+#10 48.41 /build/source/src/ccutil/serialis.cpp:99:12: note: at offset 24 into destination object 'size' of size 4
+#10 48.44 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.44     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.44     inlined from 'bool tesseract::TFile::DeSerializeSize(int32_t*)' at /build/source/src/ccutil/serialis.cpp:74:18:
+#10 48.44 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 4 [-Wstringop-overflow=]
+#10 48.44   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.44       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSize(int32_t*)':
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: destination object 'size' of size 4
+#10 48.44    73 |   uint32_t size;
+#10 48.44       |            ^~~~
+#10 48.44 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.44     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.44     inlined from 'bool tesseract::TFile::DeSerializeSize(int32_t*)' at /build/source/src/ccutil/serialis.cpp:74:18:
+#10 48.44 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.44   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.44       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSize(int32_t*)':
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset [8, 12] into destination object 'size' of size 4
+#10 48.44    73 |   uint32_t size;
+#10 48.44       |            ^~~~
+#10 48.44 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.44     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.44     inlined from 'bool tesseract::TFile::DeSerializeSize(int32_t*)' at /build/source/src/ccutil/serialis.cpp:74:18:
+#10 48.44 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.44   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.44       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSize(int32_t*)':
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset [16, 20] into destination object 'size' of size 4
+#10 48.44    73 |   uint32_t size;
+#10 48.44       |            ^~~~
+#10 48.44 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.44     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.44     inlined from 'bool tesseract::TFile::DeSerializeSize(int32_t*)' at /build/source/src/ccutil/serialis.cpp:74:18:
+#10 48.44 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.44   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.44       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSize(int32_t*)':
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset [24, 28] into destination object 'size' of size 4
+#10 48.44    73 |   uint32_t size;
+#10 48.44       |            ^~~~
+#10 48.44 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.44     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.44     inlined from 'bool tesseract::TFile::DeSerializeSize(int32_t*)' at /build/source/src/ccutil/serialis.cpp:74:18:
+#10 48.44 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.44   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.44       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSize(int32_t*)':
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 4 into destination object 'size' of size 4
+#10 48.44    73 |   uint32_t size;
+#10 48.44       |            ^~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 4 into destination object 'size' of size 4
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 4 into destination object 'size' of size 4
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 4 into destination object 'size' of size 4
+#10 48.44 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.44     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.44     inlined from 'bool tesseract::TFile::DeSerializeSize(int32_t*)' at /build/source/src/ccutil/serialis.cpp:74:18:
+#10 48.44 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.44   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.44       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSize(int32_t*)':
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset [8, 12] into destination object 'size' of size 4
+#10 48.44    73 |   uint32_t size;
+#10 48.44       |            ^~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 8 into destination object 'size' of size 4
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset [8, 12] into destination object 'size' of size 4
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 8 into destination object 'size' of size 4
+#10 48.44 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.44     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.44     inlined from 'bool tesseract::TFile::DeSerializeSize(int32_t*)' at /build/source/src/ccutil/serialis.cpp:74:18:
+#10 48.44 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.44   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.44       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSize(int32_t*)':
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset [12, 16] into destination object 'size' of size 4
+#10 48.44    73 |   uint32_t size;
+#10 48.44       |            ^~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 12 into destination object 'size' of size 4
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset [12, 16] into destination object 'size' of size 4
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 12 into destination object 'size' of size 4
+#10 48.44 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.44     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.44     inlined from 'bool tesseract::TFile::DeSerializeSize(int32_t*)' at /build/source/src/ccutil/serialis.cpp:74:18:
+#10 48.44 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.44   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.44       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSize(int32_t*)':
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset [16, 20] into destination object 'size' of size 4
+#10 48.44    73 |   uint32_t size;
+#10 48.44       |            ^~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 16 into destination object 'size' of size 4
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset [16, 20] into destination object 'size' of size 4
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 16 into destination object 'size' of size 4
+#10 48.44 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.44     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.44     inlined from 'bool tesseract::TFile::DeSerializeSize(int32_t*)' at /build/source/src/ccutil/serialis.cpp:74:18:
+#10 48.44 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.44   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.44       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSize(int32_t*)':
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset [20, 24] into destination object 'size' of size 4
+#10 48.44    73 |   uint32_t size;
+#10 48.44       |            ^~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 20 into destination object 'size' of size 4
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset [20, 24] into destination object 'size' of size 4
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 20 into destination object 'size' of size 4
+#10 48.44 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.44     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.44     inlined from 'bool tesseract::TFile::DeSerializeSize(int32_t*)' at /build/source/src/ccutil/serialis.cpp:74:18:
+#10 48.44 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.44   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.44       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSize(int32_t*)':
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset [24, 28] into destination object 'size' of size 4
+#10 48.44    73 |   uint32_t size;
+#10 48.44       |            ^~~~
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 24 into destination object 'size' of size 4
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset [24, 28] into destination object 'size' of size 4
+#10 48.44 /build/source/src/ccutil/serialis.cpp:73:12: note: at offset 24 into destination object 'size' of size 4
+#10 48.47 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.47     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(std::vector<char>&)' at /build/source/src/ccutil/serialis.cpp:121:19:
+#10 48.47 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 4 [-Wstringop-overflow=]
+#10 48.47   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.47       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::vector<char>&)':
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: destination object 'size' of size 4
+#10 48.47   120 |   uint32_t size;
+#10 48.47       |            ^~~~
+#10 48.47 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.47     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(std::vector<char>&)' at /build/source/src/ccutil/serialis.cpp:121:19:
+#10 48.47 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.47   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.47       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::vector<char>&)':
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset [8, 12] into destination object 'size' of size 4
+#10 48.47   120 |   uint32_t size;
+#10 48.47       |            ^~~~
+#10 48.47 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.47     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(std::vector<char>&)' at /build/source/src/ccutil/serialis.cpp:121:19:
+#10 48.47 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.47   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.47       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::vector<char>&)':
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset [16, 20] into destination object 'size' of size 4
+#10 48.47   120 |   uint32_t size;
+#10 48.47       |            ^~~~
+#10 48.47 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.47     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(std::vector<char>&)' at /build/source/src/ccutil/serialis.cpp:121:19:
+#10 48.47 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.47   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.47       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::vector<char>&)':
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset [24, 28] into destination object 'size' of size 4
+#10 48.47   120 |   uint32_t size;
+#10 48.47       |            ^~~~
+#10 48.47 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.47     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(std::vector<char>&)' at /build/source/src/ccutil/serialis.cpp:121:19:
+#10 48.47 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.47   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.47       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::vector<char>&)':
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 4 into destination object 'size' of size 4
+#10 48.47   120 |   uint32_t size;
+#10 48.47       |            ^~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 4 into destination object 'size' of size 4
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 4 into destination object 'size' of size 4
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 4 into destination object 'size' of size 4
+#10 48.47 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.47     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(std::vector<char>&)' at /build/source/src/ccutil/serialis.cpp:121:19:
+#10 48.47 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.47   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.47       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::vector<char>&)':
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset [8, 12] into destination object 'size' of size 4
+#10 48.47   120 |   uint32_t size;
+#10 48.47       |            ^~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 8 into destination object 'size' of size 4
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset [8, 12] into destination object 'size' of size 4
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 8 into destination object 'size' of size 4
+#10 48.47 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.47     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(std::vector<char>&)' at /build/source/src/ccutil/serialis.cpp:121:19:
+#10 48.47 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.47   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.47       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::vector<char>&)':
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset [12, 16] into destination object 'size' of size 4
+#10 48.47   120 |   uint32_t size;
+#10 48.47       |            ^~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 12 into destination object 'size' of size 4
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset [12, 16] into destination object 'size' of size 4
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 12 into destination object 'size' of size 4
+#10 48.47 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.47     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(std::vector<char>&)' at /build/source/src/ccutil/serialis.cpp:121:19:
+#10 48.47 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.47   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.47       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::vector<char>&)':
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset [16, 20] into destination object 'size' of size 4
+#10 48.47   120 |   uint32_t size;
+#10 48.47       |            ^~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 16 into destination object 'size' of size 4
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset [16, 20] into destination object 'size' of size 4
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 16 into destination object 'size' of size 4
+#10 48.47 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.47     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(std::vector<char>&)' at /build/source/src/ccutil/serialis.cpp:121:19:
+#10 48.47 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.47   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.47       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::vector<char>&)':
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset [20, 24] into destination object 'size' of size 4
+#10 48.47   120 |   uint32_t size;
+#10 48.47       |            ^~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 20 into destination object 'size' of size 4
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset [20, 24] into destination object 'size' of size 4
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 20 into destination object 'size' of size 4
+#10 48.47 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.47     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.47     inlined from 'bool tesseract::TFile::DeSerialize(std::vector<char>&)' at /build/source/src/ccutil/serialis.cpp:121:19:
+#10 48.47 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.47   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.47       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerialize(std::vector<char>&)':
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset [24, 28] into destination object 'size' of size 4
+#10 48.47   120 |   uint32_t size;
+#10 48.47       |            ^~~~
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 24 into destination object 'size' of size 4
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset [24, 28] into destination object 'size' of size 4
+#10 48.47 /build/source/src/ccutil/serialis.cpp:120:12: note: at offset 24 into destination object 'size' of size 4
+#10 48.50 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.50     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerializeSkip(size_t)' at /build/source/src/ccutil/serialis.cpp:88:19:
+#10 48.50 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 4 [-Wstringop-overflow=]
+#10 48.50   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.50       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSkip(size_t)':
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: destination object 'len' of size 4
+#10 48.50    87 |   uint32_t len;
+#10 48.50       |            ^~~
+#10 48.50 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.50     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerializeSkip(size_t)' at /build/source/src/ccutil/serialis.cpp:88:19:
+#10 48.50 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.50   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.50       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSkip(size_t)':
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset [8, 12] into destination object 'len' of size 4
+#10 48.50    87 |   uint32_t len;
+#10 48.50       |            ^~~
+#10 48.50 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.50     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerializeSkip(size_t)' at /build/source/src/ccutil/serialis.cpp:88:19:
+#10 48.50 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.50   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.50       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSkip(size_t)':
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset [16, 20] into destination object 'len' of size 4
+#10 48.50    87 |   uint32_t len;
+#10 48.50       |            ^~~
+#10 48.50 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.50     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerializeSkip(size_t)' at /build/source/src/ccutil/serialis.cpp:88:19:
+#10 48.50 /build/source/src/ccutil/helpers.h:205:13: warning: writing 8 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.50   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.50       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSkip(size_t)':
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset [24, 28] into destination object 'len' of size 4
+#10 48.50    87 |   uint32_t len;
+#10 48.50       |            ^~~
+#10 48.50 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.50     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerializeSkip(size_t)' at /build/source/src/ccutil/serialis.cpp:88:19:
+#10 48.50 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.50   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.50       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSkip(size_t)':
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 4 into destination object 'len' of size 4
+#10 48.50    87 |   uint32_t len;
+#10 48.50       |            ^~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 4 into destination object 'len' of size 4
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 4 into destination object 'len' of size 4
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 4 into destination object 'len' of size 4
+#10 48.50 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.50     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerializeSkip(size_t)' at /build/source/src/ccutil/serialis.cpp:88:19:
+#10 48.50 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.50   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.50       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSkip(size_t)':
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset [8, 12] into destination object 'len' of size 4
+#10 48.50    87 |   uint32_t len;
+#10 48.50       |            ^~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 8 into destination object 'len' of size 4
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset [8, 12] into destination object 'len' of size 4
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 8 into destination object 'len' of size 4
+#10 48.50 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.50     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerializeSkip(size_t)' at /build/source/src/ccutil/serialis.cpp:88:19:
+#10 48.50 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.50   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.50       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSkip(size_t)':
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset [12, 16] into destination object 'len' of size 4
+#10 48.50    87 |   uint32_t len;
+#10 48.50       |            ^~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 12 into destination object 'len' of size 4
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset [12, 16] into destination object 'len' of size 4
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 12 into destination object 'len' of size 4
+#10 48.50 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.50     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerializeSkip(size_t)' at /build/source/src/ccutil/serialis.cpp:88:19:
+#10 48.50 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.50   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.50       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSkip(size_t)':
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset [16, 20] into destination object 'len' of size 4
+#10 48.50    87 |   uint32_t len;
+#10 48.50       |            ^~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 16 into destination object 'len' of size 4
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset [16, 20] into destination object 'len' of size 4
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 16 into destination object 'len' of size 4
+#10 48.50 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.50     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerializeSkip(size_t)' at /build/source/src/ccutil/serialis.cpp:88:19:
+#10 48.50 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.50   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.50       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSkip(size_t)':
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset [20, 24] into destination object 'len' of size 4
+#10 48.50    87 |   uint32_t len;
+#10 48.50       |            ^~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 20 into destination object 'len' of size 4
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset [20, 24] into destination object 'len' of size 4
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 20 into destination object 'len' of size 4
+#10 48.50 In function 'void tesseract::ReverseN(void*, int)',
+#10 48.50     inlined from 'size_t tesseract::TFile::FReadEndian(void*, size_t, size_t)' at /build/source/src/ccutil/serialis.cpp:233:15,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerialize(T*, size_t) [with T = unsigned int]' at /build/source/src/ccutil/serialis.h:91:23,
+#10 48.50     inlined from 'bool tesseract::TFile::DeSerializeSkip(size_t)' at /build/source/src/ccutil/serialis.cpp:88:19:
+#10 48.50 /build/source/src/ccutil/helpers.h:205:13: warning: writing 4 bytes into a region of size 0 [-Wstringop-overflow=]
+#10 48.50   205 |     cptr[i] = cptr[num_bytes - 1 - i];
+#10 48.50       |     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp: In member function 'bool tesseract::TFile::DeSerializeSkip(size_t)':
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset [24, 28] into destination object 'len' of size 4
+#10 48.50    87 |   uint32_t len;
+#10 48.50       |            ^~~
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 24 into destination object 'len' of size 4
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset [24, 28] into destination object 'len' of size 4
+#10 48.50 /build/source/src/ccutil/serialis.cpp:87:12: note: at offset 24 into destination object 'len' of size 4
+#10 48.58 [ 42%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/tprintf.cpp.o
+#10 49.00 [ 42%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/unichar.cpp.o
+#10 49.03 [ 43%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/unicharcompress.cpp.o
+#10 49.47 [ 43%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/unicharmap.cpp.o
+#10 49.68 [ 44%] Building CXX object CMakeFiles/libtesseract.dir/src/ccutil/unicharset.cpp.o
+#10 51.07 [ 44%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/adaptive.cpp.o
+#10 51.93 [ 44%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/adaptmatch.cpp.o
+#10 51.99 [ 45%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/blobclass.cpp.o
+#10 52.79 [ 45%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/classify.cpp.o
+#10 54.10 [ 46%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/cluster.cpp.o
+#10 54.82 [ 46%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/clusttool.cpp.o
+#10 55.42 [ 47%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/cutoffs.cpp.o
+#10 55.87 [ 47%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/featdefs.cpp.o
+#10 56.10 [ 48%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/float2int.cpp.o
+#10 56.41 [ 48%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/fpoint.cpp.o
+#10 56.53 [ 49%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/intfeaturespace.cpp.o
+#10 56.69 [ 49%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/intfx.cpp.o
+#10 57.23 [ 50%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/intmatcher.cpp.o
+#10 57.87 [ 50%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/intproto.cpp.o
+#10 58.90 [ 50%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/kdtree.cpp.o
+#10 59.58 [ 51%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/mfoutline.cpp.o
+#10 59.91 [ 51%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/mfx.cpp.o
+#10 60.30 [ 52%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/normfeat.cpp.o
+#10 60.49 [ 52%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/normmatch.cpp.o
+#10 60.73 [ 53%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/ocrfeatures.cpp.o
+#10 61.31 [ 53%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/outfeat.cpp.o
+#10 61.36 [ 54%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/picofeat.cpp.o
+#10 61.96 [ 54%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/protos.cpp.o
+#10 62.13 [ 55%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/shapeclassifier.cpp.o
+#10 62.81 [ 55%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/shapetable.cpp.o
+#10 63.00 [ 55%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/tessclassifier.cpp.o
+#10 63.64 [ 56%] Building CXX object CMakeFiles/libtesseract.dir/src/classify/trainingsample.cpp.o
+#10 64.62 [ 56%] Building CXX object CMakeFiles/libtesseract.dir/src/cutil/oldlist.cpp.o
+#10 64.77 [ 57%] Building CXX object CMakeFiles/libtesseract.dir/src/dict/context.cpp.o
+#10 65.55 [ 57%] Building CXX object CMakeFiles/libtesseract.dir/src/dict/dawg.cpp.o
+#10 66.30 [ 58%] Building CXX object CMakeFiles/libtesseract.dir/src/dict/dawg_cache.cpp.o
+#10 66.90 [ 58%] Building CXX object CMakeFiles/libtesseract.dir/src/dict/dict.cpp.o
+#10 67.19 [ 59%] Building CXX object CMakeFiles/libtesseract.dir/src/dict/hyphen.cpp.o
+#10 67.96 [ 59%] Building CXX object CMakeFiles/libtesseract.dir/src/dict/permdawg.cpp.o
+#10 69.16 [ 60%] Building CXX object CMakeFiles/libtesseract.dir/src/dict/stopper.cpp.o
+#10 69.70 [ 60%] Building CXX object CMakeFiles/libtesseract.dir/src/dict/trie.cpp.o
+#10 70.41 [ 61%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/convolve.cpp.o
+#10 71.38 [ 61%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/fullyconnected.cpp.o
+#10 72.33 [ 61%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/functions.cpp.o
+#10 72.52 [ 62%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/input.cpp.o
+#10 73.39 [ 62%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/lstm.cpp.o
+#10 73.70 [ 63%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/lstmrecognizer.cpp.o
+#10 75.34 [ 63%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/maxpool.cpp.o
+#10 75.99 [ 64%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/network.cpp.o
+#10 76.67 [ 64%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/networkio.cpp.o
+#10 76.78 [ 65%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/parallel.cpp.o
+#10 78.31 [ 65%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/plumbing.cpp.o
+#10 78.43 [ 66%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/recodebeam.cpp.o
+#10 79.15 [ 66%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/reconfig.cpp.o
+#10 79.80 [ 67%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/reversed.cpp.o
+#10 80.84 [ 67%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/series.cpp.o
+#10 82.05 [ 67%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/stridemap.cpp.o
+#10 82.07 [ 68%] Building CXX object CMakeFiles/libtesseract.dir/src/lstm/weightmatrix.cpp.o
+#10 82.36 [ 68%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/alignedblob.cpp.o
+#10 83.29 [ 69%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/baselinedetect.cpp.o
+#10 83.59 [ 69%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/bbgrid.cpp.o
+#10 84.23 [ 70%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/blkocc.cpp.o
+#10 84.76 [ 70%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/blobgrid.cpp.o
+#10 84.85 [ 71%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/ccnontextdetect.cpp.o
+#10 85.26 [ 71%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/cjkpitch.cpp.o
+#10 85.74 [ 72%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/colfind.cpp.o
+#10 87.35 [ 72%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/colpartition.cpp.o
+#10 88.14 [ 73%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/colpartitiongrid.cpp.o
+#10 90.12 [ 73%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/colpartitionset.cpp.o
+#10 90.79 [ 73%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/devanagari_processing.cpp.o
+#10 91.23 [ 74%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/drawtord.cpp.o
+#10 91.59 [ 74%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/edgblob.cpp.o
+#10 91.89 [ 75%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/edgloop.cpp.o
+#10 92.25 [ 75%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/equationdetectbase.cpp.o
+#10 92.41 [ 76%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/fpchop.cpp.o
+#10 92.58 [ 76%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/gap_map.cpp.o
+#10 93.10 [ 77%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/imagefind.cpp.o
+#10 93.33 [ 77%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/linefind.cpp.o
+#10 94.40 [ 78%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/makerow.cpp.o
+#10 94.95 [ 78%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/oldbasel.cpp.o
+#10 96.74 [ 79%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/pithsync.cpp.o
+#10 97.86 [ 79%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/pitsync1.cpp.o
+#10 98.52 [ 79%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/scanedg.cpp.o
+#10 98.68 [ 80%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/sortflts.cpp.o
+#10 98.94 [ 80%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/strokewidth.cpp.o
+#10 99.13 [ 81%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/tabfind.cpp.o
+#10 102.1 [ 81%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/tablefind.cpp.o
+#10 102.3 [ 82%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/tablerecog.cpp.o
+#10 104.7 [ 82%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/tabvector.cpp.o
+#10 105.5 [ 83%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/textlineprojection.cpp.o
+#10 106.4 [ 83%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/textord.cpp.o
+#10 106.6 [ 84%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/topitch.cpp.o
+#10 107.7 [ 84%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/tordmain.cpp.o
+#10 108.2 [ 85%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/tospace.cpp.o
+#10 109.8 [ 85%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/tovars.cpp.o
+#10 109.8 [ 85%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/underlin.cpp.o
+#10 110.1 [ 86%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/wordseg.cpp.o
+#10 110.6 [ 86%] Building CXX object CMakeFiles/libtesseract.dir/src/textord/workingpartset.cpp.o
+#10 111.2 [ 87%] Building CXX object CMakeFiles/libtesseract.dir/src/viewer/scrollview.cpp.o
+#10 111.3 [ 87%] Building CXX object CMakeFiles/libtesseract.dir/src/viewer/svmnode.cpp.o
+#10 111.6 [ 88%] Building CXX object CMakeFiles/libtesseract.dir/src/viewer/svutil.cpp.o
+#10 112.3 [ 88%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/associate.cpp.o
+#10 112.8 [ 89%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/chop.cpp.o
+#10 113.1 [ 89%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/chopper.cpp.o
+#10 113.8 [ 90%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/drawfx.cpp.o
+#10 114.2 [ 90%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/findseam.cpp.o
+#10 114.9 [ 91%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/gradechop.cpp.o
+#10 115.7 [ 91%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/language_model.cpp.o
+#10 115.9 [ 91%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/lm_consistency.cpp.o
+#10 116.6 [ 92%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/lm_pain_points.cpp.o
+#10 118.5 [ 92%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/lm_state.cpp.o
+#10 119.8 [ 93%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/outlines.cpp.o
+#10 120.0 [ 93%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/params_model.cpp.o
+#10 120.9 [ 94%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/pieces.cpp.o
+#10 121.1 [ 94%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/plotedges.cpp.o
+#10 121.6 [ 95%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/render.cpp.o
+#10 122.1 [ 95%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/segsearch.cpp.o
+#10 122.2 [ 96%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/tface.cpp.o
+#10 123.2 [ 96%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/wordclass.cpp.o
+#10 123.6 [ 97%] Building CXX object CMakeFiles/libtesseract.dir/src/wordrec/wordrec.cpp.o
+#10 124.4 [ 97%] Building CXX object CMakeFiles/libtesseract.dir/src/arch/simddetect.cpp.o
+#10 124.8 [ 98%] Building CXX object CMakeFiles/libtesseract.dir/src/arch/intsimdmatrix.cpp.o
+#10 125.6 [ 98%] Linking CXX static library libtesseract.a
+#10 125.8 [ 98%] Built target libtesseract
+#10 125.8 [100%] Building CXX object CMakeFiles/tesseract.dir/src/tesseract.cpp.o
+#10 128.5 [100%] Linking CXX executable bin/tesseract
+#10 128.6 [100%] Built target tesseract
+#10 128.6 -- Install configuration: "Release"
+#10 128.6 -- Installing: /usr/local/lib/pkgconfig/tesseract.pc
+#10 128.6 -- Installing: /usr/local/bin/tesseract
+#10 128.6 -- Installing: /usr/local/lib/libtesseract.a
+#10 128.6 -- Installing: /usr/local/lib/cmake/tesseract/TesseractTargets.cmake
+#10 128.6 -- Installing: /usr/local/lib/cmake/tesseract/TesseractTargets-release.cmake
+#10 128.6 -- Up-to-date: /usr/local/lib/cmake
+#10 128.6 -- Up-to-date: /usr/local/lib/cmake/tesseract
+#10 128.6 -- Installing: /usr/local/lib/cmake/tesseract/TesseractConfig.cmake
+#10 128.6 -- Installing: /usr/local/lib/cmake/tesseract/TesseractConfigVersion.cmake
+#10 128.6 -- Installing: /usr/local/include/tesseract/baseapi.h
+#10 128.6 -- Installing: /usr/local/include/tesseract/capi.h
+#10 128.6 -- Installing: /usr/local/include/tesseract/renderer.h
+#10 128.6 -- Installing: /usr/local/include/tesseract/version.h
+#10 128.6 -- Installing: /usr/local/include/tesseract/ltrresultiterator.h
+#10 128.6 -- Installing: /usr/local/include/tesseract/pageiterator.h
+#10 128.6 -- Installing: /usr/local/include/tesseract/resultiterator.h
+#10 128.6 -- Installing: /usr/local/include/tesseract/osdetect.h
+#10 128.6 -- Installing: /usr/local/include/tesseract/publictypes.h
+#10 128.6 -- Installing: /usr/local/include/tesseract/ocrclass.h
+#10 128.6 -- Installing: /usr/local/include/tesseract/export.h
+#10 128.6 -- Installing: /usr/local/include/tesseract/unichar.h
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/alto
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/ambigs.train
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/api_config
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/bazaar
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/bigram
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/box.train
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/box.train.stderr
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/digits
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/get.images
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/hocr
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/inter
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/kannada
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/linebox
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/logfile
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/lstm.train
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/lstmbox
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/lstmdebug
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/makebox
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/page
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/pdf
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/quiet
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/rebox
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/strokewidth
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/tsv
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/txt
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/unlv
+#10 128.6 -- Installing: /usr/local/share/tessdata/configs/wordstrbox
+#10 128.6 -- Installing: /usr/local/share/tessdata/tessconfigs/batch
+#10 128.6 -- Installing: /usr/local/share/tessdata/tessconfigs/batch.nochop
+#10 128.6 -- Installing: /usr/local/share/tessdata/tessconfigs/matdemo
+#10 128.6 -- Installing: /usr/local/share/tessdata/tessconfigs/msdemo
+#10 128.6 -- Installing: /usr/local/share/tessdata/tessconfigs/nobatch
+#10 128.6 -- Installing: /usr/local/share/tessdata/tessconfigs/segdemo
+#10 DONE 128.7s
+
+#11 [stage-2 3/7] COPY --from=build /usr/local/bin/tesseract /usr/local/bin/tesseract
+#11 DONE 0.0s
+
+#12 [stage-2 4/7] COPY --from=build /usr/local/lib/libtesseract* /usr/local/lib/
+#12 DONE 0.1s
+
+#13 [stage-2 5/7] COPY --from=build /usr/local/share/tessdata/configs /opt/tessdata/configs
+#13 DONE 0.0s
+
+#14 [stage-2 6/7] COPY eng.traineddata chi_sim.traineddata osd.traineddata /opt/tessdata/
+#14 DONE 0.1s
+
+#15 [stage-2 7/7] RUN echo '7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2  /opt/tessdata/eng.traineddata' | sha256sum -c -     && echo 'a5fcb6f0db1e1d6d8522f39db4e848f05984669172e584e8d76b6b3141e1f730  /opt/tessdata/chi_sim.traineddata' | sha256sum -c -     && echo '9cf5d576fcc47564f11265841e5ca839001e7e6f38ff7f7aacf46d15a96b00ff  /opt/tessdata/osd.traineddata' | sha256sum -c -
+#15 0.261 /opt/tessdata/eng.traineddata: OK
+#15 0.272 /opt/tessdata/chi_sim.traineddata: OK
+#15 0.319 /opt/tessdata/osd.traineddata: OK
+#15 DONE 0.3s
+
+#16 exporting to image
+#16 exporting layers
+#16 exporting layers 0.9s done
+#16 exporting manifest sha256:99988d0ee5056a8a716659c6fb2c923d113f9d075dc77df01c3cf22d8efaf0cf 0.0s done
+#16 exporting config sha256:abee6b49f541242a8c89cae33940eaef6fa2ab4b23d537c260d6410d86c76e44 done
+#16 exporting attestation manifest sha256:5917bf9a402211fac6045ed1541399da5e690c29cabb0588b3e4d69e21d693da 0.0s done
+#16 exporting manifest list sha256:c8588931337197969ade98805f5ec2a1e8d12b445a9dd6fa8670316866dd930c 0.0s done
+#16 naming to docker.io/library/campus-ocr-dev-20261116:research done
+#16 unpacking to docker.io/library/campus-ocr-dev-20261116:research
+#16 unpacking to docker.io/library/campus-ocr-dev-20261116:research 0.3s done
+#16 DONE 1.3s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/52qra056gyv4sygho6sw0qvsh
