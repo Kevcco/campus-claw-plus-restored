@@ -1,0 +1,118 @@
+{
+  "run_id": "campus-ocr-migration-7d9d73013e1a",
+  "exit_code": 0,
+  "scope": "actual embedded migration7, six DDL interruptions/repair, and isolated source6/source7 dump restores; production Target6 unchanged",
+  "image_id": "sha256:8b8f76b76556f85826a9a318d36eb6d52bfe7f82f7521a0e392a98de6a1ee293",
+  "mysql_version": "8.4.13",
+  "migration_groups": [
+    "TestOCRMigrationFreshAndUpgrade",
+    "TestOCRMigrationSixInterruptionsAndDrift",
+    "TestOCRMigrationExactStructureAndHistory",
+    "TestOCRMigrationEmptyDownNeverPretendsRollback"
+  ],
+  "backup6": {
+    "path": "C:\\Users\\lenovo\\Desktop\\SoftwareDevelopment\\group_project\\output\\04-document-http-pages-2026-11-15\\output\\ocr-migration/backup6.sql",
+    "bytes": 1542353,
+    "sha256": "9d771875317939961dcf283ad7c31c6e07ae38094051156716357d749957b002"
+  },
+  "backup7": {
+    "path": "C:\\Users\\lenovo\\Desktop\\SoftwareDevelopment\\group_project\\output\\04-document-http-pages-2026-11-15\\output\\ocr-migration/backup7.sql",
+    "bytes": 1714734,
+    "sha256": "6b159cd06826e71ab5261117883b2f49e4ab80daf1f1984992389125596d0827"
+  },
+  "restore_ms": 9823,
+  "backup_stages": [
+    "prepare6",
+    "upgrade7",
+    "restored6",
+    "restored7",
+    "source7"
+  ],
+  "sources": {
+    "backend/internal/migrations/migrations.go": "f0d7b51887263e38f1bf5dd0d28574a3f8edd4e9451577e88bde0654173cabf5",
+    "backend/internal/migrations/ocr.go": "0c3037da2354314761ba8942ad732f595763b27e0e8aba2fd2a77271ba1a1a7e",
+    "backend/internal/migrations/structure.go": "fb2e11bb23ac5f196300b8c762d292bd572a90042ef0c5c13e12d0d716038a31",
+    "backend/internal/migrations/manifest.json": "c8ddc6c38d28971e761bbb8c1e0e68d51cbe4bd451c1ebf11a0f5fc5c9758dbf",
+    "backend/internal/migrations/ocr-structure.json": "e1244d0a5e4d3e9891ff06fa8fb99b80b115bfb1b6d45bc439e2a82bf67a79fa",
+    "backend/internal/integration/ocrmigration/migration_test.go": "953f19d2d64834b692d7699f6df0cdace0c4b11abaca760fea695a67e82ead87",
+    "backend/internal/migrations/sql/000007_ocr_revisions.up.sql": "d89b754dc5b93718b2bcb0fcc3891dcaff96274d38e2a5d04026e061870c7ba0",
+    "backend/internal/migrations/sql/000007_ocr_revisions.down.sql": "3c13e03c8d8b4378db943a1d05ed47d684db105a3634f15601d10b2bdec410bc"
+  },
+  "cleanup": [
+    {
+      "resource": "campus-ocr-migration-7d9d73013e1a",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-migration-7d9d73013e1a:probe",
+      "ok": true
+    }
+  ],
+  "private_files_removed": true,
+  "results": [
+    {
+      "label": "build pinned MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "exact MySQL image",
+      "exit_code": 0
+    },
+    {
+      "label": "start owned temporary MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "actual MySQL version",
+      "exit_code": 0
+    },
+    {
+      "label": "embedded7 migration/interruptions/strict drift/empty down",
+      "exit_code": 0
+    },
+    {
+      "label": "create actual populated source6",
+      "exit_code": 0
+    },
+    {
+      "label": "real mysqldump source6",
+      "exit_code": 0
+    },
+    {
+      "label": "upgrade source6 to7 and publish real source/review",
+      "exit_code": 0
+    },
+    {
+      "label": "real mysqldump source7",
+      "exit_code": 0
+    },
+    {
+      "label": "create isolated restore6",
+      "exit_code": 0
+    },
+    {
+      "label": "restore actual SQL dump6",
+      "exit_code": 0
+    },
+    {
+      "label": "verify actual restored6",
+      "exit_code": 0
+    },
+    {
+      "label": "create isolated restore7",
+      "exit_code": 0
+    },
+    {
+      "label": "restore actual SQL dump7",
+      "exit_code": 0
+    },
+    {
+      "label": "verify actual restored7",
+      "exit_code": 0
+    },
+    {
+      "label": "source7 remains intact after both independent restores",
+      "exit_code": 0
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "scenario": "DI-SC-19 exact OCR structure check before dirty repair and startup",
+  "mutation": "disable SHOW CREATE TABLE comparison while preserving engine/row-format checks",
+  "red": 1,
+  "restored_green": 0
+}

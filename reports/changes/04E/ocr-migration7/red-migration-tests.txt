@@ -1,0 +1,30 @@
+=== RUN   TestOCRMigrationFreshAndUpgrade
+--- PASS: TestOCRMigrationFreshAndUpgrade (1.49s)
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift/1
+    migration_test.go:171: drift force-cleaned
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift/2
+    migration_test.go:171: drift force-cleaned
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift/3
+    migration_test.go:171: drift force-cleaned
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift/4
+    migration_test.go:171: drift force-cleaned
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift/5
+    migration_test.go:171: drift force-cleaned
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift/6
+    migration_test.go:171: drift force-cleaned
+--- FAIL: TestOCRMigrationSixInterruptionsAndDrift (4.47s)
+    --- FAIL: TestOCRMigrationSixInterruptionsAndDrift/1 (0.77s)
+    --- FAIL: TestOCRMigrationSixInterruptionsAndDrift/2 (0.72s)
+    --- FAIL: TestOCRMigrationSixInterruptionsAndDrift/3 (0.76s)
+    --- FAIL: TestOCRMigrationSixInterruptionsAndDrift/4 (0.73s)
+    --- FAIL: TestOCRMigrationSixInterruptionsAndDrift/5 (0.75s)
+    --- FAIL: TestOCRMigrationSixInterruptionsAndDrift/6 (0.75s)
+=== RUN   TestOCRMigrationExactStructureAndHistory
+    migration_test.go:198: structure drift accepted
+--- FAIL: TestOCRMigrationExactStructureAndHistory (0.47s)
+=== RUN   TestOCRMigrationEmptyDownNeverPretendsRollback
+--- PASS: TestOCRMigrationEmptyDownNeverPretendsRollback (0.68s)
+FAIL
+FAIL	github.com/zwh9616/campus-claw-plus/backend/internal/integration/ocrmigration	7.124s
+FAIL

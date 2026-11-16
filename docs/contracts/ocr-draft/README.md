@@ -35,3 +35,7 @@
 ## 私有RPC与worker候选已互通
 
 准确隔离组件profile见private-rpc.json。独立服务http://document-ocr:8092/internal/ocr，当前实现PDF，PNG/JPEG仍计划；190秒客户端总预算独立于原A解析器35秒。沿用既有令牌格式在隔离进程传入DOCUMENT_PARSER_TOKEN，不代表该键已登记新生产消费者；生产服务/密钥消费者须随正式接线原子更新。实际4页PDF→私有RPC→顺序worker→11组MySQL候选→教师校对→学生检索及请求取消释放进程已通过。显式失败原因保存，只有超时/中断/内部失败可在attempts<3时教师重试，不自动消耗三次。候选六表DDL已同步状态约束与摘要；结构manifest/备份恢复/公开接口及最终质量仍待。
+
+## 迁移7真实嵌入式执行和恢复已验证
+
+六表SQL已按SHA加入migrations目录，执行器显式Up(7)/Check(7)/Repair(7)和测试专用空库down可用；生产Target6和identity-admin默认目标保持，不会启动自动DDL。固定结构快照仅从已知SHA候选SQL首次生成并提交，校验器不从待检查库学习。旧合同登记12个当前SQL+2个prepared SQL，准确SHA/快照路径白名单仍强校验。实际6→7/六DDL中断/严格结构/真实dump恢复6和7全部通过，原件见ocr-migration7报告。公开接口与服务消费者/Target7的原子正式激活待下一批。

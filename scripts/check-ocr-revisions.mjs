@@ -29,12 +29,14 @@ try{
  let ready=false;for(let i=0;i<120;i++){const r=docker(['exec','-e','MYSQL_PWD',name,'mysql','--protocol=TCP','-h127.0.0.1','-uroot','--batch','--skip-column-names','-e','SELECT 1'],undefined,2000);if(r.status===0&&r.stdout.trim()==='1'){ready=true;break}await new Promise(r=>setTimeout(r,500))}assert.ok(ready)
  report.mysql_version=sql('database version','SELECT VERSION()',null);assert.match(report.mysql_version,/^8\.4\.13/)
  sql('create isolated schema','CREATE DATABASE ocr_probe CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_bin',null)
- const old=readdirSync('backend/internal/migrations/sql').filter(n=>n.endsWith('.up.sql')).sort();assert.equal(old.length,6);for(const n of old)sql('baseline '+n,readFileSync('backend/internal/migrations/sql/'+n,'utf8'))
+ const old=readdirSync('backend/internal/migrations/sql').filter(n=>n.endsWith('.up.sql')&&Number(n.slice(0,6))<=6).sort();assert.equal(old.length,6);for(const n of old)sql('baseline '+n,readFileSync('backend/internal/migrations/sql/'+n,'utf8'))
  sql('identity fixtures',"INSERT INTO users(id,username,password_hash,role) VALUES(1,'ocr_fixture_teacher','unusable','teacher');INSERT INTO classes(id,stable_key,name) VALUES(1,'ocr_1','班一'),(2,'ocr_2','班二');")
  const candidate='docs/contracts/ocr-draft/000007_ocr_revisions.up.sql';report.candidate_sql_sha256=sha(candidate);sql('candidate append-only revision DDL',readFileSync(candidate,'utf8'))
+ const definitions={};for(const table of ['document_ocr_revisions','document_ocr_heads','document_ocr_review_keys','document_ocr_chunks','document_ocr_sources','document_ocr_jobs']){const value=sql('record candidate structure '+table,'SHOW CREATE TABLE `'+table+'`');assert.ok(value.startsWith(table+'\t'));definitions[table]=value.slice(table.length+1)}
+ writeFileSync(dir+'/ocr-structure.json',JSON.stringify(definitions,null,2)+'\n')
  const tc=JSON.parse(readFileSync('scripts/toolchain.json'));const child=docker(['run','--rm','--network','container:'+name,'--memory','512m','--cpus','1','-e','MYSQL_PWD','-e','GOTOOLCHAIN=local','--mount',`type=bind,source=${resolve('backend')},target=/src,readonly`,'--mount',`type=bind,source=${fixtures},target=/fixtures,readonly`,'-v','campus-claw-plus-go-cache:/root/.cache/go-build','-w','/src',tc.goImage,'go','test','-tags=ocrreview','-shuffle=on','-count=1','-timeout=60s','-v','./internal/ocrreview'],undefined,150000)
  const output=((child.stdout??'')+(child.stderr??'')).replaceAll(password,'<redacted>');writeFileSync(dir+'/mysql-tests.txt',output);assert.equal(child.status,0,'real revision transactions failed; see mysql-tests.txt')
- const groups=[...output.matchAll(/^--- PASS: (TestMySQL\w+) /gm)].map(x=>x[1]);assert.equal(groups.length,11);assert.ok(!output.includes('--- SKIP:'));report.groups=groups
+ const groups=[...output.matchAll(/^--- PASS: (TestMySQL\w+) /gm)].map(x=>x[1]);assert.equal(groups.length,13);assert.ok(!output.includes('--- SKIP:'));report.groups=groups
  if(rpcImage){
   const rpcEvidence=dir+'/rpc-evidence';mkdirSync(rpcEvidence,{recursive:true})
   const engine=dir+'/engine',engineFiles=['server.py','runner.py','ocr_server.py','ocr_process.py','ocr_pdf.py','ocr_result.py'].sort();mkdirSync(engine,{recursive:true})

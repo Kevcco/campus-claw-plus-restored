@@ -166,7 +166,7 @@ func (s *Store) Save(ctx context.Context, p identity.Principal, id, key string, 
 			return e
 		}
 		var priorDigest, priorBody []byte
-		e := tx.QueryRowContext(ctx, "SELECT payload_digest,response_bytes FROM document_ocr_review_keys WHERE user_id=? AND class_id=? AND idem_key=?", p.UserID, p.ClassID, key).Scan(&priorDigest, &priorBody)
+		e := tx.QueryRowContext(ctx, "SELECT payload_digest,response_bytes FROM document_ocr_review_keys WHERE user_id=? AND class_id=? AND document_id=? AND idem_key=?", p.UserID, p.ClassID, id, key).Scan(&priorDigest, &priorBody)
 		if e == nil {
 			if string(priorDigest) != string(digest[:]) {
 				return identity.ErrConflict
@@ -197,11 +197,16 @@ func (s *Store) Save(ctx context.Context, p identity.Principal, id, key string, 
 				offset += 2
 			}
 			runes := []rune(page.Text)
-			for start := 0; start < len(runes); start += 512 {
+			// Queries contain at most 200 codepoints. A 199-codepoint
+			// overlap ensures every legal match fits in a persisted chunk.
+			for start := 0; start < len(runes); start += 313 {
 				end := min(start+512, len(runes))
 				ordinal++
 				if _, e = tx.ExecContext(ctx, "INSERT INTO document_ocr_chunks(document_id,class_id,revision,ordinal,page,char_start,char_end,quote) VALUES(?,?,?,?,?,?,?,?)", id, p.ClassID, next, ordinal, page.Page, offset+start, offset+end, string(runes[start:end])); e != nil {
 					return e
+				}
+				if end == len(runes) {
+					break
 				}
 			}
 			offset += len(runes)

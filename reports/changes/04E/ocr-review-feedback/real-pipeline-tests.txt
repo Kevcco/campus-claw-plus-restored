@@ -1,0 +1,8 @@
+=== RUN   TestRealPDFOCRWorkerAndReviewedSearch
+    pipeline_test.go:144: PIPELINE {"citations":2,"cross_class_results":0,"original_sha256":[191,184,163,114,132,83,181,42,128,162,84,232,114,182,212,23,254,14,228,49,67,16,226,128,69,181,248,26,7,158,33,53],"pages":4,"review_revision":2,"source_sha256":[110,137,221,184,122,172,59,79,183,221,194,115,171,239,4,108,247,249,11,157,107,67,175,167,46,16,64,44,145,176,132,191],"source_unchanged":true,"words":437,"worker_state":"succeeded"}
+--- PASS: TestRealPDFOCRWorkerAndReviewedSearch (10.27s)
+=== RUN   TestRealOCRCancellationReleasesService
+    pipeline_test.go:202: CANCEL observed_busy=true request_canceled=true subprocess_reaped=true service_reusable=true
+--- PASS: TestRealOCRCancellationReleasesService (0.77s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/integration/ocrpipeline	11.056s

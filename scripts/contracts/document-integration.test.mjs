@@ -7,6 +7,10 @@ import { validateIntegrationProfile, validatePrivateConfigExample, validateDocum
 const json = p => JSON.parse(readFileSync(p, 'utf8'))
 const contract = () => json('docs/contracts/document-integration.json')
 const register = () => json('docs/contracts/config-register.json')
+test('DI-SC-19 prepared migration7 binds both SQL files and one exact structure snapshot without activating Target7',()=>{
+ validateIntegrationProfile(contract(),register())
+ for(const mutate of [c=>c.migration.prepared_files['000007_ocr_revisions.up.sql']='0'.repeat(64),c=>c.migration.prepared_files['unexpected.sql']='0'.repeat(64),c=>c.migration.prepared_structure.path='.env',c=>c.migration.prepared_structure.sha256='0'.repeat(64),c=>c.migration.current_target=7]){const c=contract();mutate(c);assert.throws(()=>validateIntegrationProfile(c,register()))}
+})
 
 test('DI-SC-01/11 public activation cannot read unknown files or rehash away auth and original operations', () => {
   const unknown=contract();unknown.public_http.files.push({path:'.env',sha256:'0'.repeat(64)})

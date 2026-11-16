@@ -1,0 +1,22 @@
+=== RUN   TestOCRMigrationFreshAndUpgrade
+--- PASS: TestOCRMigrationFreshAndUpgrade (1.52s)
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift/1
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift/2
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift/3
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift/4
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift/5
+=== RUN   TestOCRMigrationSixInterruptionsAndDrift/6
+--- PASS: TestOCRMigrationSixInterruptionsAndDrift (6.29s)
+    --- PASS: TestOCRMigrationSixInterruptionsAndDrift/1 (1.07s)
+    --- PASS: TestOCRMigrationSixInterruptionsAndDrift/2 (1.09s)
+    --- PASS: TestOCRMigrationSixInterruptionsAndDrift/3 (1.09s)
+    --- PASS: TestOCRMigrationSixInterruptionsAndDrift/4 (1.00s)
+    --- PASS: TestOCRMigrationSixInterruptionsAndDrift/5 (1.01s)
+    --- PASS: TestOCRMigrationSixInterruptionsAndDrift/6 (1.04s)
+=== RUN   TestOCRMigrationExactStructureAndHistory
+--- PASS: TestOCRMigrationExactStructureAndHistory (1.34s)
+=== RUN   TestOCRMigrationEmptyDownNeverPretendsRollback
+--- PASS: TestOCRMigrationEmptyDownNeverPretendsRollback (0.71s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/integration/ocrmigration	9.880s
