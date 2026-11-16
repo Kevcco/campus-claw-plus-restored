@@ -1,0 +1,46 @@
+{
+  "approved_head": "d14967e5ee774b85e594635b5fa84059c6394e56",
+  "main": "909eefd7e296d72cedeabde7b80547a66d893516",
+  "files": [
+    {
+      "path": "access-status.json",
+      "sha256": "2a6b0c79b9e621d35bb07dd2aad40aa41fbe45701612f72662f8af5ebd638944"
+    },
+    {
+      "path": "approval.json",
+      "sha256": "4185e309daf8848e2315fbaa3e81d8b16833c2f6408da2b0e0c4f4bed7920a73"
+    },
+    {
+      "path": "backend-all-tests.txt",
+      "sha256": "9f09a89d2af3c442770f976d442b532ad9e1d3a996f6ff84edff22d61c517550"
+    },
+    {
+      "path": "backend-vet.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "document-checks.zip",
+      "sha256": "5408d9177649200440652def7b0e240acb348d6a591485442b7b410c5ad56169"
+    },
+    {
+      "path": "merge.json",
+      "sha256": "e05bb10f536a4fe770b6a80f4eebc47f52c1381fe29cab9612d68197ef537d88"
+    },
+    {
+      "path": "pr61-ci-metadata.json",
+      "sha256": "6e9d18187d85679413dca36805118a76a610e70560636023bd7f5a1f910e963d"
+    },
+    {
+      "path": "pr61-ci-originals.zip",
+      "sha256": "a6d11dd6a3500fda37e1cc6980adbae5592e99d07f8276150174ea4235eab9d9"
+    },
+    {
+      "path": "pr61-ci-verified.json",
+      "sha256": "0dd48e67e08563049eddc9bb8e3e12950a7c35292ffb7818cff1bb8ccc0e89d5"
+    },
+    {
+      "path": "pr61-secret-scan.txt",
+      "sha256": "36ab5801597295605c52b81f00f944bd197baef76d5420faae59eeb805a2570b"
+    }
+  ]
+}

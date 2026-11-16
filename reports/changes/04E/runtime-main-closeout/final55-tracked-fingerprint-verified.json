@@ -1,0 +1,10 @@
+{
+  "observer": "小陈 / Kevcco (AI辅助)",
+  "run": 43674335158,
+  "git_commit": "6ff53ae1bb66eded6d9346f9f6c5e42bbdb93114",
+  "reported_source": "be735e24af937a3123b07d8575c08b81c1247d43",
+  "tracked_files": 2041,
+  "fingerprint": "72be33f991fcbdc91c32f39600face215c7eb18ab2a0c652131301ab203c5da5",
+  "matched": true,
+  "scope": "All tracked Git blob bytes, not runtime-input-only fingerprint; CI preview/head tree equality checked separately"
+}

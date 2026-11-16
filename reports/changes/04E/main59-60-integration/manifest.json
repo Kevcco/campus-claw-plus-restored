@@ -1,0 +1,91 @@
+{
+  "observer": "Kevcco / 小陈（AI辅助）",
+  "checked_at": "2026-11-16T09:34:24.235Z",
+  "files": [
+    {
+      "path": "main59-ci-originals.zip",
+      "sha256": "4d8cad4c044b5364ed4c1286e021ccd08df8dc6e4ab392297e7a87f22f3c933d"
+    },
+    {
+      "path": "main59-ci-metadata.json",
+      "sha256": "2edafb793d91c3c13db99f25c36f71bd3db4438780f9074dd62635809823d670"
+    },
+    {
+      "path": "main59-ci-verified.json",
+      "sha256": "bfdcb1e8bf313208a63fea98c3697d1bb19cda5fd53810e6f97ad56e1e656e0d"
+    },
+    {
+      "path": "main59-secret-scan.txt",
+      "sha256": "5cf9cdd78c168e9732bea4f51798ae1c2dda486eacb31653df5d10084ad61e4a"
+    },
+    {
+      "path": "pr59-approval.json",
+      "sha256": "c3606aa3a128a806ea6bbfe8254f3c59ad6f00c24e05b4116b6921bd10e607b5"
+    },
+    {
+      "path": "pr59-merge.json",
+      "sha256": "bda8ba9ab4acd7b9adb470c4cb73f645682ef8f28a7a8f9f26a11cebcf1e5951"
+    },
+    {
+      "path": "pr60-ci-originals.zip",
+      "sha256": "368f26f3aac4dc2bdd8e518ab84a1fd0dc5880db77b6d49234711d3183c57bcc"
+    },
+    {
+      "path": "pr60-ci-metadata.json",
+      "sha256": "09ef5fd260486d45873ca29d8008c5443d401899f5289434465c2c04dd28062c"
+    },
+    {
+      "path": "pr60-ci-verified.json",
+      "sha256": "806836dc2e23b09fb33f87f86f646d81714e9e0a70d2ce2144c671cb39ea5b40"
+    },
+    {
+      "path": "pr60-secret-scan.txt",
+      "sha256": "ca100b4908df9f34cdd6ab6f231df983765dad52441e0cdff64e667b96d3ee10"
+    },
+    {
+      "path": "pr60-approval.json",
+      "sha256": "0898d46a004b5f80a3235e1fc4a3c5e521665935e85c282d29c93d432cb51bfd"
+    },
+    {
+      "path": "pr60-merge.json",
+      "sha256": "94670cb208bdb350177ba2690becbf7c05a60961c5ec005c78627bce6c357578"
+    },
+    {
+      "path": "engine-originals-verified.json",
+      "sha256": "87f17dc046449942f0ceb9e7cbd3f7a82d74e7a514da8800ed040e7e6903b1d8"
+    },
+    {
+      "path": "secret-scan-raw-originals.zip",
+      "sha256": "3ea25f6f3d85057841a96171c75cd2688a060894e7481ed61c76bb2bfd4e08db"
+    },
+    {
+      "path": "main60-ci-originals.zip",
+      "sha256": "cd95a3703f16e3abd8f070e081bd94e78e9d024b14363f4287bbc51eebbca97b"
+    },
+    {
+      "path": "main60-ci-metadata.json",
+      "sha256": "935b9f31cfd3bc50d038096581a2dc4a30726a07285cae9dfe6db772d49dc4c6"
+    },
+    {
+      "path": "main60-ci-verified.json",
+      "sha256": "d6d1dd021182e286eff3e8398d49f489bdd632ad3f482685ef97bd731b2cec8f"
+    },
+    {
+      "path": "main60-secret-scan.txt",
+      "sha256": "be3359e5b1cc2a1d80432a2cdf47aac2b12032dd51ba06dc87fb06a99b064302"
+    },
+    {
+      "path": "main60-secret-scan-original.zip",
+      "sha256": "cc69b7de79108b1e63ebbaa98653250c8d89ee66697c42961cc66988c4f7a8a8"
+    },
+    {
+      "path": "document-checks-originals.zip",
+      "sha256": "62aabdd8c08d27c2b649db2529f44c8e367844e945ed65ae7d4659b95279fcce"
+    },
+    {
+      "path": "document-checks.json",
+      "sha256": "a7b65f78534b98840ed1119fa08cdfe00c7629fd5710190e11d71e20c3386382"
+    }
+  ],
+  "note": "Text scan displays use repository LF; exact raw scan logs are retained in secret-scan-raw-originals.zip."
+}

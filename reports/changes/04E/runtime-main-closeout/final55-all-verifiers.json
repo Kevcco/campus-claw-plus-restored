@@ -1,0 +1,47 @@
+{
+  "run": "43674335158",
+  "head": "6ff53ae1bb66eded6d9346f9f6c5e42bbdb93114",
+  "results": [
+    {
+      "name": "verify55-generic.mjs",
+      "exit_code": 0
+    },
+    {
+      "name": "verify55-assignment.mjs",
+      "exit_code": 0
+    },
+    {
+      "name": "verify55-parser-evidence.mjs",
+      "exit_code": 0
+    },
+    {
+      "name": "verify51-http-evidence.mjs",
+      "exit_code": 0
+    },
+    {
+      "name": "verify52-client-evidence.mjs",
+      "exit_code": 0
+    },
+    {
+      "name": "verify54-storage-evidence.mjs",
+      "exit_code": 0
+    },
+    {
+      "name": "verify53-queue-evidence.mjs",
+      "exit_code": 0
+    },
+    {
+      "name": "verify-tracked-fingerprint.mjs",
+      "exit_code": 0
+    },
+    {
+      "name": "verify54-migration-evidence.mjs",
+      "exit_code": 0
+    },
+    {
+      "name": "verify55-runtime-evidence.mjs",
+      "exit_code": 0
+    }
+  ],
+  "artifact_secret_exit": 0
+}

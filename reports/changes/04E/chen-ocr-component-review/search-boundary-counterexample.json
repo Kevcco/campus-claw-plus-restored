@@ -1,0 +1,23 @@
+{
+  "head": "7fe97a90149fd3938883a0337a5517eb9316503a",
+  "scope": "Source-level counterexample; no database execution claimed",
+  "body_codepoints": 513,
+  "query": "合同",
+  "body_contains_query": true,
+  "stored_chunks": [
+    {
+      "ordinal": 1,
+      "length": 512,
+      "tail": "aaa合",
+      "contains_query": false
+    },
+    {
+      "ordinal": 2,
+      "length": 1,
+      "tail": "同",
+      "contains_query": false
+    }
+  ],
+  "search_sql_checks_chunks_only": true,
+  "source_sha256": "41ed1f8b6de4ad2ce0a8c6d7bc2c33b761a0cd9152a7b0ef6d0824373c724979"
+}

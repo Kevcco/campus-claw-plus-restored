@@ -1,0 +1,27 @@
+{
+  "reviewer": "小陈 / Kevcco (AI辅助)",
+  "checked_at": "2026-11-15T04:18:15.071Z",
+  "pr": 55,
+  "head": "6ff53ae1bb66eded6d9346f9f6c5e42bbdb93114",
+  "approval": {
+    "id": 5908959859,
+    "user": "Kevcco",
+    "head": "6ff53ae1bb66eded6d9346f9f6c5e42bbdb93114",
+    "url": "https://github.com/zwh9616/campus-claw-plus/pull/55#pullrequestreview-5908959859"
+  },
+  "merge": "d874b663991730474e2360944ba1587a1e7c1d65",
+  "main_protected": true,
+  "tree": "184aa5add59a663d3e86b49daacb426f326ee310",
+  "ci": {
+    "id": 43675360843,
+    "url": "https://github.com/zwh9616/campus-claw-plus/actions/runs/43675360843",
+    "head": "d874b663991730474e2360944ba1587a1e7c1d65",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "id": 14145922538,
+    "digest": "sha256:f0bd2ef24a5c74f33a0dba06249594aaa1bf68d0b96474c9c53f1a96f583068a"
+  },
+  "scope": "Private parser and durable worker wiring only; six Document HTTP operations frozen, no holder database deployment, UI or whole A/B/C acceptance"
+}

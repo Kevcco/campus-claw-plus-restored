@@ -1,3 +1,9 @@
+2026-11-16集成状态：PR #57最终head `3fb53ed5363122737622cd5c05f1512e67442ed6` 经Kevcco实际批准后正常合入受保护main `a40b83b3166e3ee2d1d2e753c3b8db40825a6899`；精确main完整CI43804539643成功。六个Document HTTP操作及PDF/Word页面进入主干，公开current操作为28；Target6/15、五服务配置保持。独立Docker完整复验在精确PR head上执行`npm ci`、`npm run setup`、`npm run check`、`npm run audit`、`npm run verify`均退出0，audit无漏洞；verify覆盖MySQL/HTTPS、迁移与恢复、PDF/DOCX、持久worker恢复、容器重建及清理。04E A阶段尚未完成，任务表待办以本文件勾选为准；A4.3收口前不交接B、不启动OCR/语义，也不宣称整个A/B/C完成。#55精确主干收口证据见[收口记录](../../../reports/changes/04E/runtime-main-closeout-2026-11-15.md)。
+
+2026-11-16小陈收口#61：最终d14967e完整CI43863915253及原artifact14225021603/2811 Git blob/四段0/五镜像与运行恢复/清理核验通过，获实际APPROVED5919841584后正常合入main909eefd，获批树与main逐字一致；精确main CI43865539691最后可读为执行中。 精确main CI最终结果因仓库/Actions实时读取404暂未核验，用户确认未调整权限；不把PR通过当main通过。两项行为修复已复审核验，非04E原分工/暂停、真实批准及合同先合入再apply保持。生产Target6/28 current/15 active，A余项/B1.2完整冻结/正式质量/C与持有人部署未放行。#56已同步主干并保留双方原件，最终head门禁与小张审查另核。 [本轮核对](../../../reports/changes/04E/main61-integration-2026-11-16.md)。
+
+2026-11-16后续：#58最终head `378f6ce0f080cd32949354fb9cc2ff1d90d48139` 获Kevcco APPROVED 5915431379，完整CI43809266164成功并正常合入main `659393b0ecdaa56b622a10fbb8f999fa198fe1ae`；精确main完整CI43810841732成功；原ZIP摘要与GitHub一致，2448个跟踪Git blob、四段门禁/五镜像/三HTTPS/五SQL/九worker/迁移恢复/原回归与清理已独立核验，解包秘密扫描0。该修复仅处理测试客户端ENOTCONN竞态，生产行为/合同未改。A阶段及A4.3仍未勾选，由小张对照现有证据核对A1.2/A1.3/A2.5/A3.1/A3.2/A4.2余项后收口；不虚构新本机或浏览器会话。[本轮原件](../../../reports/changes/04E/main58-integration-2026-11-16.md)。
+
 ## 0. 阶段安排与责任（全部小张）
 - [x] 0.1 [小张] 核对组长2026-11-13明确授权、主干7f0f32f、G2/G3及04/06/05边界，登记仅04E统一负责人例外（DI-SC-01/25）。
 - [x] 0.2 [小张] 编写A/B/C任务、8项需求25场景及量化验收；A优先，B/C列出具体依赖与退出条件，更新共享表/依赖（DI-SC-01..25）。
@@ -147,6 +153,8 @@ A1.2b组件补证#51：9aa2f86原check0、7组HTTP/40实际文件/慢头慢体�
 
 2026-11-16：#57已获Kevcco实际批准并合入main a40b83b，精确main CI43804539643完整通过及原件核验。本人本机完整gate首次verify超600秒124、第二次最后私有HTTP夹具shutdown ENOTCONN退出1，均保留。测试客户端竞态已增加真实HTTP红1→绿0回归，仅ENOTCONN后继续读取严格响应断言，其他错误仍失败；本修复完整门禁/实际批准/合入后主干复验待，A4.3及父项暂不勾完。见[本轮报告](../../../reports/changes/04E/main57-followup-2026-11-16.md)。
 
+2026-11-16 #58前序代码73cdd35的独立Docker完整gate与CI43807691548通过；精确修复head及合入后状态以上方后续记录为准，不提前勾A阶段。
+
 2026-11-16 #58代码73cdd35干净本机完整gate四段0（verify 579267ms）和完整CI43807691548通过，两套原件独立核验及秘密扫描0；本次仅补证，最终head实际审查/门禁/合入后主干复验仍由A4.3收口，不提前勾完。
 
 2026-11-16本轮：2026-11-16本轮加速推进：#58已获Kevcco对378f6ce实际批准，正常合入main659393b；精确main完整CI43810841732成功，18原件/2448 Git blob/五镜像/真实HTTPS与SQL/迁移恢复独立核验。本机原完整gate前三段0，verify600513ms超原600秒退出124，失败原件保留，A4.3继续未完成。等待验收时已实际准备OCR 50页盲测+10页低质开发负例+4独立开发正例、三份扫描PDF、100框和金标准/SHA；64页Poppler渲染与图像核对、5组输入/评分检查及错误CER分母受控红1→恢复绿0通过。Tesseract5.5.4源码及固定中英/方向模型已下载核对SHA/许可，仅为候选；OCR质量、引擎镜像扫描、B机器合同/迁移/接线未完成。当前分支codex/04e-ocr-foundation-2026-11-16，新增代码完整check/audit/历史与暂存秘密扫描0，最终语料检查与异目录二次生成一致；已提交[PR #59](https://github.com/zwh9616/campus-claw-plus/pull/59)，最终head CI与实际批准以该PR最新记录为准；全部04E仍小张负责。 详见reports/changes/04E/main58-followup/及ocr-foundation/；历史“待#58批准”不再是当前卡点。
@@ -170,6 +178,10 @@ A1.2b组件补证#51：9aa2f86原check0、7组HTTP/40实际文件/慢头慢体�
 
 2026-11-16 本轮迁移7已接入真实嵌入式执行器：六表准确SQL/固定SHOW CREATE快照与SHA、6→7/空库7/六DDL中断dirty保留及严格前向repair、结构/历史篡改拒绝和空库逆向已实测；实际mysqldump的源6与源7分别恢复到两个独立库，原PDF/TXT/真实原202重放、OCR来源/校对版本与回执逐字保持，源7复核不变。修复了恢复后枚举显式冗余utf8mb4声明导致的误拒；只归一化该等价语法，错误字符集/排序规则等仍拒绝。结构保护红1→恢复绿0，首次失败保留。此为prepared migration7，生产Target6保持，公开接口/默认服务/页面仍待。 B整体和真实页面不提前勾完。
 
-2026-11-16审查返修：Kevcco在#61对7fe97a9提出的跨512码点关键词漏搜和幂等缺文档作用域均用真实MySQL新增测试复现；原分支修复为512窗口/199重叠及用户-班级-文档-键作用域，13组真实MySQL已通过。原1—6 SQL保持，prepared7准确SQL/结构/SHA同步；新完整gate及真实RPC复验进行中，未把旧批准或中断门禁当作通过。详见[返修原件](../reports/changes/04E/ocr-review-feedback/README.md)。 B整体/公开页面仍待。
+2026-11-16审查返修：Kevcco在#61对7fe97a9提出的跨512码点关键词漏搜和幂等缺文档作用域均用真实MySQL新增测试复现；原分支修复为512窗口/199重叠及用户-班级-文档-键作用域，13组真实MySQL已通过。原1—6 SQL保持，prepared7准确SQL/结构/SHA同步；新完整gate及真实RPC复验进行中，未把旧批准或中断门禁当作通过。详见[返修原件](../../../reports/changes/04E/ocr-review-feedback/README.md)。 B整体/公开页面仍待。
 
 2026-11-16最终复验：功能head51464ad完整CI43858652543成功；原artifact14221544062/ZIP SHA ad58ea7cdeebc71a805ddfacc9d491d450afc35d91504e58b97047f8abac5fba已下载独立核对，预演0a57792与head整树一致，18原件/源码指纹/四段0/verify366136ms/五镜像与真实运行恢复通过、解包秘密扫描0。本机同head干净完整check0，一键gate仍因审计TLS网络退出1；原命令单独重跑audit两树0、261历史提交秘密扫描0，实际verify在原600秒内562472ms通过，21原件/同次源码/五镜像/HTTPS/SQL/九worker/迁移6恢复及清理均核验，解包扫描0。修订后的13组OCR MySQL、4组prepared7迁移及5阶段独立恢复6/7均0，准确原件更新。两条Kevcco行为意见已修复并凭证据解决线程，已请求复查；正常合并51464ad被GitHub405拒绝，原因为仍有一项write审查CHANGES_REQUESTED，未合并/未冒称批准或main通过。本提交仅证据和进度，新文档head CI另跟进，生产仍Target6/28 current/15空active；公开OCR/校对页及B整体待，继续开发不等待人员反馈。
+
+以下较早的本分支记录保留当时事实，当前状态以上方和共享表最新记录为准。
+
+2026-11-16小陈本轮收口：#59获实际APPROVED5917087195正常合入main945a6ce，精确main完整CI43832496190及原artifact14210616010/2558 Git blob/四段0/五镜像与运行恢复原件已核验，秘密扫描0。#60最终881da2d完整CI43833339498/原artifact14209478925/2626 Git blob核验通过，获APPROVED5917623027后正常合入main8ddd8f4；精确main完整CI43839166700成功，原artifact14212572958/2626 Git blob/四段0/五镜像/运行恢复与清理已独立核验，秘密扫描0。#56逐块同步主干和双方原件，不改生产/测试/配置/合同；当前head门禁与小张审查另核，A余项/B1.2/盲测/C不提前完成。 [本轮原件](../../../reports/changes/04E/main59-60-integration-2026-11-16.md)。

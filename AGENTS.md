@@ -1,8 +1,26 @@
 # CampusClawPlus 工程约定
 
+2026-11-16小陈收口#61：最终d14967e完整CI43863915253及原artifact14225021603/2811 Git blob/四段0/五镜像与运行恢复/清理核验通过，获实际APPROVED5919841584后正常合入main909eefd，获批树与main逐字一致；精确main CI43865539691最后可读为执行中。 精确main CI最终结果因仓库/Actions实时读取404暂未核验，用户确认未调整权限；不把PR通过当main通过。两项行为修复已复审核验，非04E原分工/暂停、真实批准及合同先合入再apply保持。生产Target6/28 current/15 active，A余项/B1.2完整冻结/正式质量/C与持有人部署未放行。#56已同步主干并保留双方原件，最终head门禁与小张审查另核。 [本轮核对](reports/changes/04E/main61-integration-2026-11-16.md)。
+
 2026-11-16审查范围对齐：依据本次用户明确提供的工程约定，仅04E由小张统一负责规约、合同、实现、测试及收口；其他变更负责人和暂停安排保持。公共合同仍须获审正常合入后才apply，G2/G3及远端真实批准保留，不伪造成员批准或独立复测。本PR只交付隔离候选组件和prepared迁移7，不放行生产OCR、公开接线或其他暂停模块。
 
 2026-11-16当前状态：#59/#60均已实际批准正常合入，最新main8ddd8f4；#61已转main并同步主干，当前连接仍无保护规则管理权限。#61候选已完成扫描PDF开发实测、不可变校对版本/检索、原始OCR词框快照及租约事务，隔离私有OCR RPC/顺序worker/校对检索及取消释放已实测；prepared迁移7、六DDL中断修复、真实dump隔离恢复6/7通过。Kevcco两条行为意见已真实复现并修复，MySQL扩至13组；功能head51464ad完整CI及本机600秒内verify562472ms通过，正常合并仍被远端CHANGES_REQUESTED阻断；新文档head CI/默认生产装配、公开接口与校对页面及完整质量验收仍待。生产仍Target6/28 current/15空active，持有人环境未部署。仅04E统一小张推进，真实远端批准及合同先合入再apply保持；历史段落以共享表为准。
+
+以下较早的本分支记录保留当时事实，当前状态以上方和共享表最新记录为准。
+
+2026-11-16小陈本轮收口：#59获实际APPROVED5917087195正常合入main945a6ce，精确main完整CI43832496190及原artifact14210616010/2558 Git blob/四段0/五镜像与运行恢复原件已核验，秘密扫描0。#60最终881da2d完整CI43833339498/原artifact14209478925/2626 Git blob核验通过，获APPROVED5917623027后正常合入main8ddd8f4；精确main完整CI43839166700成功，原artifact14212572958/2626 Git blob/四段0/五镜像/运行恢复与清理已独立核验，秘密扫描0。#56逐块同步主干和双方原件，不改生产/测试/配置/合同；当前head门禁与小张审查另核，A余项/B1.2/盲测/C不提前完成。 [本轮原件](reports/changes/04E/main59-60-integration-2026-11-16.md)。
+
+2026-11-16小陈推进：#59最终c1d4ec9获实际APPROVED5917087195，正常合入main945a6ce；精确main CI43832496190仍在运行。#60已改为main并推881da2d同步主干和独立审查记录，完整CI43833339498执行中。#56本次逐块合并主干进度与原件，不改main的运行/合同/测试；A余项仍小张收口，OCR生产及C未放行。
+
+以下为各次实际记录，当前总览以共享表为准。
+
+2026-11-16最新状态：PR #57最终头 `3fb53ed5363122737622cd5c05f1512e67442ed6` 经Kevcco实际批准后按保护规则合入main `a40b83b3166e3ee2d1d2e753c3b8db40825a6899`，精确main完整CI `43804539643` 成功。六个Document HTTP操作及PDF/Word页面已合入，公开current操作为28；目标迁移6/15与五服务配置保持。该PR头的独立Docker复验中，`npm ci`、`npm run setup`、`npm run check`、`npm run audit`、`npm run verify` 均退出0，audit无漏洞；verify覆盖MySQL/HTTPS、迁移与恢复、PDF/DOCX、持久worker恢复及容器重建。04E A阶段仍未完成；任务表中的A1.2、A1.3、A2.5、A3.1、A3.2、A4.2、A4.3仍待收口，OCR/语义不因此启动，也不将整个A/B/C标完成。#55精确主干收口原件见[记录](reports/changes/04E/runtime-main-closeout-2026-11-15.md)。
+
+2026-11-16后续：#58当前head `378f6ce0f080cd32949354fb9cc2ff1d90d48139` 获Kevcco实际批准 `5915431379`，完整PR CI `43809266164` 成功后按保护规则正常合入main `659393b0ecdaa56b622a10fbb8f999fa198fe1ae`。仅修复私有HTTP测试客户端半关闭竞态，生产行为与合同未变；精确主干完整CI `43810841732` 已成功；原artifact14200457586的ZIP摘要、2448个跟踪Git blob、四段门禁/五镜像/HTTP与SQL/队列/迁移恢复及清理已独立核验，解包秘密扫描0。[本轮原件](reports/changes/04E/main58-integration-2026-11-16.md)。A阶段余项仍由小张收口，不自动启动B/C。
+
+2026-11-16当前状态：#57真实PDF/Word页面及#58夹具修复均已获Kevcco实际批准并正常合入main659393b，精确main完整CI43810841732成功。28 current、Target6、15个空值active键保持；持有人环境未自动部署。本机完整gate前三段0、verify超600秒退出124，A4.3仍待验收。当前准备OCR64页输入/100框/金标准与评分工具，B服务/机器合同/迁移及C语义尚未实施；下一步完成开发集选型和准确B合同。新公共合同仍须获审合入才apply，不因输入准备放行B运行；下列旧阶段记录保留历史含义，最新进展见共享表。
+
+2026-11-16当前状态：#57真实PDF/Word页面与#58夹具修复已获批合入main659393b，精确main完整CI通过。#59完整CI通过、Kevcco实际审查待。超时优化候选fd67834本机原完整gate四段0（verify590105ms/600秒），获审合入后的精确main复验仍待，A4.3不勾。真实OCR14页开发实验完成（4正例合并CER1.55%、10负例暂定诊断10/10），独立接口草案4组检查通过；50盲测/100框/PDF栅格、准确B合同/迁移和生产接线仍待。28 current、Target6、15空active键与生产服务保持，持有人环境未自动部署。 新公共合同仍须获审合入才apply；下列旧阶段记录保留历史含义，最新进展见共享表。
 本分支默认运行已接入01身份与MySQL阶段，实际合入/验收状态见共享表。第7课骨架为历史基线，历史主规约见[spec](openspec/specs/project-bootstrap/spec.md)，归档依据见[历史变更](openspec/changes/archive/2026-10-28-project-bootstrap/)。本轮执行[00规约](openspec/changes/2026-11-04-business-contracts/proposal.md)、[design](openspec/changes/2026-11-04-business-contracts/design.md)、[spec](openspec/changes/2026-11-04-business-contracts/specs/business-contracts/spec.md)及[tasks](openspec/changes/2026-11-04-business-contracts/tasks.md)；00只负责公共合同。当前01/02/04已验收，06真实资料页面已随#30合入，测试修复#31及主干完整CI43186361938通过；2026-11-12组长恢复05规约工作，其他暂停项未恢复。PB/SC保留历史含义，新需求使用BC及后续change自己的前缀。
 
 2026-11-13实际状态：05迁移#38、HTTP#40和worker#41已分别由小陈终审并正常合入；实现验收main d06198d完整CI43362518043成功，22 current、精确目标5。生产不绑定批改执行器/结果适配器，任务真实pending；05主规约及完整归档已随#42获小张批准并正常合入main c0f24f3；精确main完整CI43368065979复验通过，原件已核验。06资料归档#37已合入并复验；10-B全量/C、AI、成绩和作业页面仍未验收。

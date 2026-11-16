@@ -1,0 +1,41 @@
+{
+  "checked_at": "2026-11-16T13:46:57.302Z",
+  "results": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "path": "/repositories/1436497792",
+        "http": 404,
+        "message": "Not Found",
+        "status": "404"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "path": "/repositories/1436497792/actions/runs/43865539691",
+        "http": 404,
+        "message": "Not Found",
+        "status": "404"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "path": "/users/zwh9616/repos?per_page=100&sort=updated",
+        "http": 200,
+        "matches": [],
+        "listed": 0
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "path": "/user/repos?per_page=100&sort=updated&affiliation=owner,collaborator,organization_member",
+        "http": 200,
+        "matches": [],
+        "listed": 12
+      }
+    }
+  ]
+}

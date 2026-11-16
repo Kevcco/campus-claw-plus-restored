@@ -1,0 +1,23 @@
+{
+  "observer": "Kevcco / 小陈（AI辅助）",
+  "checked_at": "2026-11-16T08:45:43.939Z",
+  "head": "881da2d807a6dbd2e7d912d185e4cbe37d8e4b50",
+  "originals_zip_sha256": "9f7b8160c3789bc229d08a64ac5a9c3e46825a2e69ce62809ef1f872cf7bb8c5",
+  "source_hashes_verified": 10,
+  "original_hashes_verified": 15,
+  "development_positive": {
+    "pages": 4,
+    "errors": 25,
+    "denominator": 1618,
+    "micro_cer": 0.015451174289245983
+  },
+  "development_negative_diagnostics": 10,
+  "max_ms": 1523,
+  "cumulative_peak_bytes": 171937792,
+  "blind_executed": false,
+  "os_scan_only": true,
+  "full_dependency_scan": false,
+  "production_acceptance": false,
+  "exit_code": 0,
+  "scope": "Independent recomputation and digest verification of author originals; no new OCR/Docker execution"
+}

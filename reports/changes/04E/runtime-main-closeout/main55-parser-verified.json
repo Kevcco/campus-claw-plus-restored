@@ -1,0 +1,77 @@
+{
+  "run_id": 43675360843,
+  "run_url": "https://github.com/zwh9616/campus-claw-plus/actions/runs/43675360843",
+  "event": "push",
+  "head_sha": "d874b663991730474e2360944ba1587a1e7c1d65",
+  "status": "completed",
+  "conclusion": "success",
+  "artifact_id": 14145922538,
+  "artifact_name": "runtime-image-scans-d874b663991730474e2360944ba1587a1e7c1d65",
+  "artifact_digest": "sha256:f0bd2ef24a5c74f33a0dba06249594aaa1bf68d0b96474c9c53f1a96f583068a",
+  "actor": "Kevcco",
+  "zip_sha256": "f0bd2ef24a5c74f33a0dba06249594aaa1bf68d0b96474c9c53f1a96f583068a",
+  "verified_against_head": "d874b663991730474e2360944ba1587a1e7c1d65",
+  "parser_fingerprint": "10ce53806226620bae098e7c6296597430e2510f62df687ae6289ff2096fecf2",
+  "records": [
+    {
+      "mode": "check",
+      "private_health": {
+        "exit_code": 0,
+        "groups": 3,
+        "safe_logs": true,
+        "scope": "actual fixed loopback probe, busy liveness, total timeout and bad startup processes"
+      },
+      "source": {
+        "commit": "d874b663991730474e2360944ba1587a1e7c1d65",
+        "dirty": false,
+        "fingerprint": "10ce53806226620bae098e7c6296597430e2510f62df687ae6289ff2096fecf2"
+      },
+      "image_id": "sha256:071f14d0be882d5c50649d07c97d5994d74f931177b9427bbfa710c15690be5a",
+      "tests_sha256": "213b9411a09091353b58808fe825fa284bd1602881dacb45c750160fe9fb6aea",
+      "documents": 40,
+      "locations": 195,
+      "critical_phrases": 45,
+      "negatives": 25,
+      "groups": 8,
+      "max_cer": 0,
+      "max_document_ms": 799,
+      "cleanup": 2
+    },
+    {
+      "mode": "scan",
+      "private_health": {
+        "exit_code": 0,
+        "groups": 3,
+        "safe_logs": true,
+        "scope": "actual fixed loopback probe, busy liveness, total timeout and bad startup processes"
+      },
+      "source": {
+        "commit": "d874b663991730474e2360944ba1587a1e7c1d65",
+        "dirty": false,
+        "fingerprint": "10ce53806226620bae098e7c6296597430e2510f62df687ae6289ff2096fecf2"
+      },
+      "image_id": "sha256:071f14d0be882d5c50649d07c97d5994d74f931177b9427bbfa710c15690be5a",
+      "tests_sha256": "94112539329c9d4cda70491033e39a1becae648ee80304065afedd66de7f2c1b",
+      "documents": 40,
+      "locations": 195,
+      "critical_phrases": 45,
+      "negatives": 25,
+      "groups": 8,
+      "max_cer": 0,
+      "max_document_ms": 796,
+      "cleanup": 2,
+      "raw_sha256": "39e4135ffdb1added5c2395f64243870fe43b6417d67b0d8464bcc5a28252127",
+      "findings": {
+        "HIGH": 0,
+        "CRITICAL": 0
+      },
+      "database": {
+        "Version": 2,
+        "NextUpdate": "2026-11-16T01:07:39.649898383Z",
+        "UpdatedAt": "2026-11-15T01:07:39.649898494Z",
+        "DownloadedAt": "2026-11-15T04:10:56.528140926Z"
+      }
+    }
+  ],
+  "exit_code": 0
+}

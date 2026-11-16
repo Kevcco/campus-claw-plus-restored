@@ -1,0 +1,152 @@
+{
+  "run_id": 43674335158,
+  "run_url": "https://github.com/zwh9616/campus-claw-plus/actions/runs/43674335158",
+  "event": "pull_request",
+  "head_sha": "6ff53ae1bb66eded6d9346f9f6c5e42bbdb93114",
+  "status": "completed",
+  "conclusion": "success",
+  "artifact_id": 14146301273,
+  "artifact_name": "runtime-image-scans-be735e24af937a3123b07d8575c08b81c1247d43",
+  "artifact_digest": "sha256:b2baab2edafa9f748650f9aca81a9cc68f85a69cf9ac827bc1ea5dcf7ed06fe6",
+  "actor": "Kevcco",
+  "artifact_digest_verified": true,
+  "source": {
+    "commit": "be735e24af937a3123b07d8575c08b81c1247d43",
+    "dirty": false,
+    "fingerprint": "72be33f991fcbdc91c32f39600face215c7eb18ab2a0c652131301ab203c5da5"
+  },
+  "gate": {
+    "exit_code": 0,
+    "results": [
+      {
+        "name": "check",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 211439
+      },
+      {
+        "name": "audit",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 645
+      },
+      {
+        "name": "secret-scan",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 1619
+      },
+      {
+        "name": "verify",
+        "exitCode": 0,
+        "reason": "passed",
+        "signal": null,
+        "durationMs": 451176
+      }
+    ],
+    "notRun": []
+  },
+  "runtime_stages": [
+    {
+      "name": "scripts/verify-image-audits.mjs",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 48412
+    },
+    {
+      "name": "scripts/verify-skeleton.mjs",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 206646
+    },
+    {
+      "name": "scripts/verify-identity.mjs",
+      "exitCode": 0,
+      "reason": "passed",
+      "signal": null,
+      "durationMs": 68534
+    }
+  ],
+  "images": [
+    {
+      "service": "mysql",
+      "image_id": "sha256:096b5ea5974a41fbdd77f1c9c98468f4080824830cc0f2adf085a183290f871b",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "admin",
+      "image_id": "sha256:98debcb34be59df209c58e2f423cc739b8d27327099d4a1b5116064f7eb46e1f",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "backend",
+      "image_id": "sha256:2bed2b6e854bed77f734252b1db7158ac4dc7f2a8b43117c9064a140833fb803",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "frontend",
+      "image_id": "sha256:8389f83c2e017c6c344dbf7c354e03dbc26c178526bafd30cf08dccce8d5ff0e",
+      "HIGH": 0,
+      "CRITICAL": 0
+    },
+    {
+      "service": "document-parser",
+      "image_id": "sha256:f9e74f086dbf2f58d23a0928292e31e925f57b6bf6e03c0273c2cfa042dda1fd",
+      "HIGH": 0,
+      "CRITICAL": 0
+    }
+  ],
+  "cleanup_count": 5,
+  "source_report_hashes": [
+    {
+      "path": "output/mysql-image-verify/results.json",
+      "sha256": "cd420baad5a05ebefc3a20d354cbe016ff716dac97433bd1f5030bf2d3f1e168"
+    },
+    {
+      "path": "output/application-image-verify/results.json",
+      "sha256": "33f7439f2df7c0873c347bdaba2f3a91fb1e7578b873c406c649432ebb51b004"
+    },
+    {
+      "path": "output/identity-wiring/results.json",
+      "sha256": "74d124e47fcec6c7be4eefce651805f1378b24d8176d03cd21898d6ec27b344f"
+    },
+    {
+      "path": "output/identity/results.json",
+      "sha256": "be8b1d5a8653f782c15b54d2f9886a9b14858a149b9e337d8c957d86879e553f"
+    }
+  ],
+  "real_gateway_checks": [
+    {
+      "label": "SC-01/02/03 real same-origin HTTPS, unique health, TLS rejection, login and revoked access",
+      "exit_code": 0,
+      "completed_scenario": "MF-SC-02/12",
+      "request_line_iterations_in_verified_source": 10
+    },
+    {
+      "label": "DI-SC-14 parser outage preserves original HTTPS health TXT and pending tasks",
+      "exit_code": 0,
+      "completed_scenario": "MF-SC-02/12",
+      "request_line_iterations_in_verified_source": 10
+    },
+    {
+      "label": "account and class persist after database restart",
+      "exit_code": 0,
+      "completed_scenario": "MF-SC-02/12",
+      "request_line_iterations_in_verified_source": 10
+    },
+    {
+      "label": "same account and original password after full container recreation",
+      "exit_code": 0,
+      "completed_scenario": "MF-SC-02/12",
+      "request_line_iterations_in_verified_source": 10
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "checked_at": "2026-11-16T13:49:54.720Z",
+  "files": 8,
+  "local_links": 330,
+  "scope_entry_aligned": true,
+  "non04e_rows_preserved": true,
+  "status_table_columns_preserved": true,
+  "branch_changed_files": 94,
+  "production_test_config_machine_contracts": "not changed by this patch",
+  "exit": 0
+}
