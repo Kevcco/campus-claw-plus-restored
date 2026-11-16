@@ -1,0 +1,31 @@
+actual version: passed
+baseline 000001_identity_users_classes.up.sql: passed
+baseline 000002_identity_sessions.up.sql: passed
+baseline 000003_identity_auth_audit.up.sql: passed
+baseline 000004_materials_retrieval.up.sql: passed
+baseline 000005_assignment_tasks.up.sql: passed
+baseline 000006_documents.up.sql: passed
+baseline 000007_ocr_revisions.up.sql: passed
+two classes and synthetic user: passed
+old ready PDF, Word and scanned PDF: passed
+old metadata/raw bytes snapshot: passed
+candidate single atomic ALTER: passed
+old metadata/raw bytes snapshot: passed
+PNG/JPEG needs_ocr admission without fake parse attempt: passed
+image cannot become ready: rejected as required
+image cannot become parse queued: rejected as required
+image cannot consume parse attempt: rejected as required
+image page count is exactly one: rejected as required
+NULL cannot evade image page constraint: rejected as required
+image cannot fabricate original body: rejected as required
+image original version immutable: rejected as required
+raw length still enforced: rejected as required
+old Word still cannot needs_ocr: rejected as required
+old PDF ready requires pages: rejected as required
+old PDF cannot zero-attempt needs_ocr: rejected as required
+old Word ready requires body: rejected as required
+original source cross-class FK: rejected as required
+existing OCR composite FK accepts image original: passed
+old metadata/raw bytes snapshot: passed
+four original CHECK constraints retained: passed
+no parse jobs created: passed

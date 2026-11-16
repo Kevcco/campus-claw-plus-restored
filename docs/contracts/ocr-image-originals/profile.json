@@ -1,0 +1,48 @@
+{
+  "status": "frozen-component",
+  "owner": "小张",
+  "runtime_activation": false,
+  "production_target": 6,
+  "candidate_target": 8,
+  "prepared_target": 7,
+  "formats": [
+    "png",
+    "jpeg"
+  ],
+  "filename_extensions": [
+    ".png",
+    ".jpg",
+    ".jpeg"
+  ],
+  "file_bytes": 10485760,
+  "request_bytes": 10551296,
+  "original_version": 1,
+  "original_status": "needs_ocr",
+  "original_attempts": 0,
+  "original_page_count": 1,
+  "original_body": null,
+  "create_parse_job": false,
+  "create_ocr_job": false,
+  "explicit_ocr_start": true,
+  "student_visibility": "same-class valid published review; same transaction as original read/list count",
+  "download": {
+    "png": {
+      "content_type": "image/png",
+      "extension": ".png"
+    },
+    "jpeg": {
+      "content_type": "image/jpeg",
+      "extension": ".jpg"
+    },
+    "attachment": true,
+    "nosniff": true,
+    "no_store": true,
+    "check_digest": true
+  },
+  "frozen_files": [
+    {
+      "path": "docs/contracts/ocr-image-originals/000008_image_originals.up.sql",
+      "sha256": "199e957668b21a8be09cbc08e92f7c5cf4eacd21f30b4a21f5e4b1649a5c7efd"
+    }
+  ]
+}

@@ -181,3 +181,6 @@ A1.2b组件补证#51：9aa2f86原check0、7组HTTP/40实际文件/慢头慢体�
 2026-11-16最新合入事实：Kevcco于12:19:20Z对d14967e提交实际APPROVED，#61随后正常合入main909eefd7e296d72cedeabde7b80547a66d893516。此前405为当时真实拒绝，当前已解除。其批准范围不包含本地a47f0f6新增PNG/JPEG；本批同步新main后另开后续PR。合并远端复核文档后foundation/46合同/strict11及OCR相关全部通过，运行代码/测试/机器合同与a47f0f6字节保持；主干909复验及新候选CI另跟进。
 
 2026-11-16公开OCR组件推进：已冻结七操作合同、实现显式HTTP处理器及状态查询，不改变默认Target6/28 current/15空active。真实身份SQL会话/受信测试HTTPS/MySQL7四组通过，49响应Schema核对；切班/撤销与跨班、201重放/旧修订、原件v1/原202、2000码点检索、TXT共享配额、回滚及2MiB解码/12MiB转义请求均验证。新增保持连接慢body实测发现并修复OCR/Document/TXT读取截止清零/遗漏，三路红1→绿0、5秒业务截止不变；缺bearer保护同源隔离红1→绿0。完整check0及新增合同锁5组0，固定Node22容器两锁文件audit0，原Windows三次TLS失败保留。当前本地未推送；默认干净候选运行验收将继续，GitHub访问仍403/404，远端任务状态不猜测。图片原件兼容/生产激活/校对页/正式质量及全项目其余模块继续待，不勾B整体。 当前准确公共七操作合同见docs/contracts/ocr-public；原draft无公开path，仅保留共享Schema，不重复冻结。
+
+
+2026-11-16图片原件组件：冻结准确候选000008单原子ALTER，不改已发布1..7 SQL及默认Target6。真实MySQL8.4.13保留旧PDF/Word/扫描PDF元数据与原件，PNG/JPEG的needs_ocr/attempts0/1页准入及13个约束拒绝通过；跨班OCR复合FK仍拒绝，SQL NULL不能绕过页数，没有创建假解析作业。隔离变异准入attempts约束红1，恢复后两轮绿0，专属资源/凭据清理全过。基础、46合同、strict规约通过；仅候选SQL探针，不宣称嵌入迁移8/dirty/备份恢复/生产接线/公开图片页面完成。公开OCR代码已本地提交1d68d73，独立干净工作区完整gate的check/audit/secret已通过，verify尚在执行；GitHub仍不可读，本地后续未推送。

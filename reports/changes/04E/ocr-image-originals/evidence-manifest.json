@@ -1,0 +1,70 @@
+{
+  "files": [
+    {
+      "path": "reports/changes/04E/ocr-image-originals/results.json",
+      "sha256": "6183a1cade34848c3c2c2f809079f541581a163930ccf227b42e6e4c5b0cd305"
+    },
+    {
+      "path": "reports/changes/04E/ocr-image-originals/controlled-red.json",
+      "sha256": "e14e8938faac498f2512b089e63a77e55acf0801e523b689df7573646bc71c15"
+    },
+    {
+      "path": "reports/changes/04E/ocr-image-originals/green.txt",
+      "sha256": "504579129b5ac349d5881c9f18a13599cd03ccc92890c643ea419b8f7ca3f576"
+    },
+    {
+      "path": "reports/changes/04E/ocr-image-originals/red.txt",
+      "sha256": "a2eb596d16e7b05fbc6067d7cb2dba31b98c63eebd2ff19ac722d21d330cb972"
+    },
+    {
+      "path": "reports/changes/04E/ocr-image-originals/foundation.txt",
+      "sha256": "15ca270bf228ec65c413e512491b23604c2af1dd7e3f408f716a8d35dba8095e"
+    },
+    {
+      "path": "reports/changes/04E/ocr-image-originals/contracts.txt",
+      "sha256": "1d3dc8393417329144b35a9cf345032b7c13afaa9bc4204c17c6432e171f37ad"
+    },
+    {
+      "path": "reports/changes/04E/ocr-image-originals/strict-spec.txt",
+      "sha256": "a3863d315f413e39d5f8ffda1fa08feaed87a8426f800b76ccd70f879776ec4d"
+    }
+  ],
+  "actual_sources": [
+    {
+      "path": "docs/contracts/ocr-image-originals/000008_image_originals.up.sql",
+      "sha256": "199e957668b21a8be09cbc08e92f7c5cf4eacd21f30b4a21f5e4b1649a5c7efd"
+    },
+    {
+      "path": "scripts/check-ocr-image-storage.mjs",
+      "sha256": "99079915338b3d65d178a72bdff39cdc09aea6ec6eb8a0ab2eb6617e30df856b"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000001_identity_users_classes.up.sql",
+      "sha256": "07947f4fd66c751eb549c07917266eb65d8e4e9352d26506fb8002b5e65e05c7"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000002_identity_sessions.up.sql",
+      "sha256": "c600e1133f8ace63565fca713e13dd33a187f670d10bc94b028d66db351baeb0"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000003_identity_auth_audit.up.sql",
+      "sha256": "b83195b44f354ba2909b01a5aceb5b18954e04b075a68095039d4849e5f99c1e"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000004_materials_retrieval.up.sql",
+      "sha256": "6bad8d66dbfa671c3bc603467837580ff4336cd3417313b1556920e0299ae830"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000005_assignment_tasks.up.sql",
+      "sha256": "ad2f53dc0e9960b153fa9058c568e22d23150118d134dea5d293fcf1e7acd21c"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000006_documents.up.sql",
+      "sha256": "ae898e2c8166ac8e201102e6077ad5cf71a89259fb16553d3f5a1a0380e022ef"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000007_ocr_revisions.up.sql",
+      "sha256": "2364d2594851940aaeb00a6893bc763a1487243f35dcd87a0fe47c7d93c74849"
+    }
+  ]
+}

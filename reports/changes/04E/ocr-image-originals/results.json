@@ -1,0 +1,264 @@
+{
+  "run_id": "campus-ocr-image-ddl-4820c5ffc1f5",
+  "time": "2026-11-16T13:25:45.028Z",
+  "exit_code": 0,
+  "controlled_mutation": false,
+  "scope": "isolated exact SQL candidate8 against published tables1..7; no migration executor/backup/runtime or holder deployment claim",
+  "sources": [
+    {
+      "path": "docs/contracts/ocr-image-originals/000008_image_originals.up.sql",
+      "sha256": "199e957668b21a8be09cbc08e92f7c5cf4eacd21f30b4a21f5e4b1649a5c7efd"
+    },
+    {
+      "path": "scripts/check-ocr-image-storage.mjs",
+      "sha256": "99079915338b3d65d178a72bdff39cdc09aea6ec6eb8a0ab2eb6617e30df856b"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000001_identity_users_classes.up.sql",
+      "sha256": "07947f4fd66c751eb549c07917266eb65d8e4e9352d26506fb8002b5e65e05c7"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000002_identity_sessions.up.sql",
+      "sha256": "c600e1133f8ace63565fca713e13dd33a187f670d10bc94b028d66db351baeb0"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000003_identity_auth_audit.up.sql",
+      "sha256": "b83195b44f354ba2909b01a5aceb5b18954e04b075a68095039d4849e5f99c1e"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000004_materials_retrieval.up.sql",
+      "sha256": "6bad8d66dbfa671c3bc603467837580ff4336cd3417313b1556920e0299ae830"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000005_assignment_tasks.up.sql",
+      "sha256": "ad2f53dc0e9960b153fa9058c568e22d23150118d134dea5d293fcf1e7acd21c"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000006_documents.up.sql",
+      "sha256": "ae898e2c8166ac8e201102e6077ad5cf71a89259fb16553d3f5a1a0380e022ef"
+    },
+    {
+      "path": "backend/internal/migrations/sql/000007_ocr_revisions.up.sql",
+      "sha256": "2364d2594851940aaeb00a6893bc763a1487243f35dcd87a0fe47c7d93c74849"
+    }
+  ],
+  "image_id": "sha256:04021f7747808164326c53e373d4f608917d9c96fe434e703d4cd20fd0caa96f",
+  "mysql_version": "8.4.13",
+  "negative_cases": 13,
+  "legacy_snapshot_unchanged": true,
+  "cleanup": [
+    {
+      "resource": "campus-ocr-image-ddl-4820c5ffc1f5",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-image-ddl-4820c5ffc1f5:probe",
+      "ok": true
+    }
+  ],
+  "secret_file_removed": true,
+  "results": [
+    {
+      "label": "build pinned MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "exact image",
+      "exit_code": 0
+    },
+    {
+      "label": "start owned isolated MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "create only probe schema",
+      "exit_code": 0
+    },
+    {
+      "label": "actual version",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "baseline 000001_identity_users_classes.up.sql",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "baseline 000002_identity_sessions.up.sql",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "baseline 000003_identity_auth_audit.up.sql",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "baseline 000004_materials_retrieval.up.sql",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "baseline 000005_assignment_tasks.up.sql",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "baseline 000006_documents.up.sql",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "baseline 000007_ocr_revisions.up.sql",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "two classes and synthetic user",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "old ready PDF, Word and scanned PDF",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "old metadata/raw bytes snapshot",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "candidate single atomic ALTER",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "old metadata/raw bytes snapshot",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "PNG/JPEG needs_ocr admission without fake parse attempt",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "image cannot become ready",
+      "exit_code": 1,
+      "expected_error": 3819,
+      "actual_error": 3819
+    },
+    {
+      "label": "image cannot become parse queued",
+      "exit_code": 1,
+      "expected_error": 3819,
+      "actual_error": 3819
+    },
+    {
+      "label": "image cannot consume parse attempt",
+      "exit_code": 1,
+      "expected_error": 3819,
+      "actual_error": 3819
+    },
+    {
+      "label": "image page count is exactly one",
+      "exit_code": 1,
+      "expected_error": 3819,
+      "actual_error": 3819
+    },
+    {
+      "label": "NULL cannot evade image page constraint",
+      "exit_code": 1,
+      "expected_error": 3819,
+      "actual_error": 3819
+    },
+    {
+      "label": "image cannot fabricate original body",
+      "exit_code": 1,
+      "expected_error": 3819,
+      "actual_error": 3819
+    },
+    {
+      "label": "image original version immutable",
+      "exit_code": 1,
+      "expected_error": 3819,
+      "actual_error": 3819
+    },
+    {
+      "label": "raw length still enforced",
+      "exit_code": 1,
+      "expected_error": 3819,
+      "actual_error": 3819
+    },
+    {
+      "label": "old Word still cannot needs_ocr",
+      "exit_code": 1,
+      "expected_error": 3819,
+      "actual_error": 3819
+    },
+    {
+      "label": "old PDF ready requires pages",
+      "exit_code": 1,
+      "expected_error": 3819,
+      "actual_error": 3819
+    },
+    {
+      "label": "old PDF cannot zero-attempt needs_ocr",
+      "exit_code": 1,
+      "expected_error": 3819,
+      "actual_error": 3819
+    },
+    {
+      "label": "old Word ready requires body",
+      "exit_code": 1,
+      "expected_error": 3819,
+      "actual_error": 3819
+    },
+    {
+      "label": "original source cross-class FK",
+      "exit_code": 1,
+      "expected_error": 1452,
+      "actual_error": 1452
+    },
+    {
+      "label": "existing OCR composite FK accepts image original",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "old metadata/raw bytes snapshot",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "four original CHECK constraints retained",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    },
+    {
+      "label": "no parse jobs created",
+      "exit_code": 0,
+      "expected_error": null,
+      "actual_error": null
+    }
+  ]
+}
