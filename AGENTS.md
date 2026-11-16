@@ -2,7 +2,7 @@
 
 2026-11-16组长最新授权：后续整个项目由小张/zwh9616统一负责规约、合同、实现、自检、集成和收口，解除03/07A/07B/07C/08/09/11/12/13原暂停；不再将其他成员批准或独立成员复测作为项目流程前置。历史负责人、真实批准和验收证据保留。新合同由小张明确冻结后实施，保留依赖顺序、真实功能/质量/安全测试、CI、数据库备份恢复与主干复验；不得虚构他人批准或已完成结果。远端若仍强制批准，先尝试正常合并并记录实际拒绝，不伪造review，不擅自修改仓库保护。 本条优先于本文较早的人员审批和暂停约定。
 
-2026-11-16当前状态：#59/#60已正常合入main8ddd8f4；#61前序d540bdc完整CI成功但仍未获新批准/合并。本候选已完成PDF/PNG/JPEG私有OCR、原始词框、租约事务/校对检索和prepared7迁移/恢复实测，14开发图片正例CER1.55%、10负例诊断全中；准确私有OpenAPI已补齐。生产仍Target6/28 current/15空active，持有人未部署；本批最终CI、公开版本API/图片上传/校对页、混合页、native闭包与正式质量验收仍待。
+2026-11-16当前状态：#59/#60/#61已获实际批准正常合入，最新main909eefd；本地PNG/JPEG为后续新候选，不在#61批准范围内。本候选已完成PDF/PNG/JPEG私有OCR、原始词框、租约事务/校对检索和prepared7迁移/恢复实测，14开发图片正例CER1.55%、10负例诊断全中；准确私有OpenAPI已补齐。生产仍Target6/28 current/15空active，持有人未部署；本批最终CI、公开版本API/图片上传/校对页、混合页、native闭包与正式质量验收仍待。
 本分支默认运行已接入01身份与MySQL阶段，实际合入/验收状态见共享表。第7课骨架为历史基线，历史主规约见[spec](openspec/specs/project-bootstrap/spec.md)，归档依据见[历史变更](openspec/changes/archive/2026-10-28-project-bootstrap/)。本轮执行[00规约](openspec/changes/2026-11-04-business-contracts/proposal.md)、[design](openspec/changes/2026-11-04-business-contracts/design.md)、[spec](openspec/changes/2026-11-04-business-contracts/specs/business-contracts/spec.md)及[tasks](openspec/changes/2026-11-04-business-contracts/tasks.md)；00只负责公共合同。当前01/02/04已验收，06真实资料页面已随#30合入，测试修复#31及主干完整CI43186361938通过；2026-11-12组长恢复05规约工作，其他暂停项未恢复。PB/SC保留历史含义，新需求使用BC及后续change自己的前缀。
 
 2026-11-13实际状态：05迁移#38、HTTP#40和worker#41已分别由小陈终审并正常合入；实现验收main d06198d完整CI43362518043成功，22 current、精确目标5。生产不绑定批改执行器/结果适配器，任务真实pending；05主规约及完整归档已随#42获小张批准并正常合入main c0f24f3；精确main完整CI43368065979复验通过，原件已核验。06资料归档#37已合入并复验；10-B全量/C、AI、成绩和作业页面仍未验收。

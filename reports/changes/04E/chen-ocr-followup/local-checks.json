@@ -1,0 +1,57 @@
+{
+  "head": "d540bdc74ed8d3f621c1b286fd0c1fef896fb157",
+  "node": "24.22.1",
+  "npm": "10.5.0",
+  "go": "1.27.3",
+  "python": "3.12.7",
+  "results": [
+    {
+      "command": "npm ci --ignore-scripts --no-fund --loglevel=error",
+      "exit_code": 0
+    },
+    {
+      "command": "npm run check:contracts",
+      "groups": 46,
+      "exit_code": 0
+    },
+    {
+      "command": "node --test scripts/ocr-tsv.test.mjs scripts/ocr-draft-contract.test.mjs scripts/ocr-corpus.test.mjs",
+      "groups": 13,
+      "exit_code": 0
+    },
+    {
+      "command": "go test -shuffle=on -count=1 ./internal/ocrreview ./internal/privateocr ./internal/migrations",
+      "packages": 3,
+      "exit_code": 0
+    },
+    {
+      "command": "python -B -m unittest test_ocr_pdf test_ocr_result test_ocr_server",
+      "groups": 6,
+      "exit_code": 0
+    },
+    {
+      "command": "npm run check:foundation",
+      "exit_code": 0
+    },
+    {
+      "command": "npm run check:spec",
+      "groups": 11,
+      "exit_code": 0
+    }
+  ],
+  "controlled": [
+    {
+      "test": "TestOCRClientStrictSuccessAndFailureMapping",
+      "red_exit": 1,
+      "green_exit": 0,
+      "exact_restoration": true
+    },
+    {
+      "test": "TestDocumentDefinitionComparison",
+      "red_exit": 1,
+      "green_exit": 0,
+      "exact_restoration": true
+    }
+  ],
+  "scope": "Actual independent local checks; no independent MySQL, native OCR or full Docker run"
+}

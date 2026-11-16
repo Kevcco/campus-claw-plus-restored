@@ -33,6 +33,26 @@
       "sha256": "8d0c973eb0298c8c04c18fcadb388a1daaaceb880f7ebd3606b9b5463bc1cc82"
     },
     {
+      "path": "merge-contracts.txt",
+      "sha256": "04c8d0ebe8ffe1c2fe3c6491d2a7c8799ece703b8ed608949994d90209873d29"
+    },
+    {
+      "path": "merge-foundation.txt",
+      "sha256": "144aee2f09b9f05f933b7dd5e6326fdd559ee37c7d512c4289725f4b64fe01eb"
+    },
+    {
+      "path": "merge-ocr.txt",
+      "sha256": "335ba269a2798c7c9aa180f5f3fa6a1a6147dbfa36ea89e529777a1e37785ad6"
+    },
+    {
+      "path": "merge-scope.md",
+      "sha256": "17368d4b1b157f1e870bc3829a124e8ec9f2059d7b5724cf523ae22deb34fa8d"
+    },
+    {
+      "path": "merge-spec.txt",
+      "sha256": "8de060d6d2e4522894e1ff3b13df71c63d066a2124a9d1caa93542d592cfc331"
+    },
+    {
       "path": "mysql-tests.txt",
       "sha256": "6069a6ca115b5d2323d7f86677a2e2adfeeaebfa10327c0a668dbecf8dad8de3"
     },

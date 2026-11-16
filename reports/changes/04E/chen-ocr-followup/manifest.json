@@ -1,0 +1,41 @@
+{
+  "reviewed_head": "d540bdc74ed8d3f621c1b286fd0c1fef896fb157",
+  "files": [
+    {
+      "path": "artifact-secret-scan.txt",
+      "sha256": "38a871e42d7627c0fe97a9f6b08ca9b5258a04e923590f126c78b37ba5d59198"
+    },
+    {
+      "path": "author-source-verified.json",
+      "sha256": "f98baba81a697139d10f84c1ad9b2d5075140eb11708c0d6695938de5f1e144e"
+    },
+    {
+      "path": "ci-metadata.json",
+      "sha256": "15c6f41d3f83149655ec3dd5477c1e99a60f8212494937964dccd487347101b0"
+    },
+    {
+      "path": "ci-originals.zip",
+      "sha256": "1022f4bce036482d93a1a38d6209905a3ddbf9071b23cf15e11beae9220b63af"
+    },
+    {
+      "path": "ci-verified.json",
+      "sha256": "2e2d8f2b58c88ca9f2d4d196145dc138b37c1144127b96d32c2cafba51ef4b77"
+    },
+    {
+      "path": "final-document-checks.json",
+      "sha256": "5f5e89290a95bafb25911751fc35d56081faf720fb33d4a21242914423bf1e89"
+    },
+    {
+      "path": "final-document-checks.zip",
+      "sha256": "601009c72d2269fe36f9b7d6a9a4ad0690fef035391c955d29252c36a12770a1"
+    },
+    {
+      "path": "local-checks-originals.zip",
+      "sha256": "852a8f09fda5e5859e0ac3c3105cfdaff14200ac50e86da1d33240434340d694"
+    },
+    {
+      "path": "local-checks.json",
+      "sha256": "807089c3ee12e3bf41dd3411efe75d708b9436642192617637848e067b7810e6"
+    }
+  ]
+}
