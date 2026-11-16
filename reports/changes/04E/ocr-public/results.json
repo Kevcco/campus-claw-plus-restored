@@ -1,0 +1,115 @@
+{
+  "run_id": "campus-ocr-public-6aaac2d9df4f",
+  "exit_code": 0,
+  "scope": "real identity service sessions, trusted HTTPS, MySQL7 and explicit OCR HTTP component; not production activation",
+  "results": [
+    {
+      "label": "build pinned MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "exact MySQL image",
+      "exit_code": 0
+    },
+    {
+      "label": "start owned MySQL",
+      "exit_code": 0
+    },
+    {
+      "label": "actual MySQL version",
+      "exit_code": 0
+    }
+  ],
+  "image_id": "sha256:82f39baafd59ecf3e30fcd2d3e305a173b9c30bd3ed8bc6f04bf2c1bea35ee0b",
+  "mysql_version": "8.4.13",
+  "groups": [
+    "TestOCRPublicRealIdentityVersionsAndCitations",
+    "TestOCRPublicQueueRetryAndSharedQuota",
+    "TestOCRPublicStrictBodyRollbackAndDependency",
+    "TestOCRPublicExactDecodedAndEscapedBodyBudget"
+  ],
+  "http_schema_responses": 49,
+  "sources": [
+    {
+      "path": "backend/internal/httpserver/ocr.go",
+      "sha256": "4fb64418996b67f3125009c0e62d98cf3cd8be9bf90448ad8ca34b80d3e645f7"
+    },
+    {
+      "path": "backend/internal/httpserver/request.go",
+      "sha256": "82e4a945a2e1d6794056f894b609e54ee02982df3b3b3f29b96ac24904455e05"
+    },
+    {
+      "path": "backend/internal/httpserver/documents.go",
+      "sha256": "4b5eae5f72125284616cab515819bba86362c78c297f6d9e32c0ea9c43da6bc1"
+    },
+    {
+      "path": "backend/internal/httpserver/materials.go",
+      "sha256": "c50dc8f7cf5f4455c8b499f99507c9daa57587a077425e36661b4617f3bd926d"
+    },
+    {
+      "path": "backend/internal/httpserver/ocr_test.go",
+      "sha256": "9e2ec7faf524814ad4668c63b55b935ae1b962dcace080b3152d5f72b29f1adb"
+    },
+    {
+      "path": "backend/internal/ocrreview/status.go",
+      "sha256": "f0c528a2f5ef66ba0acad567068d7d28605275610b4ede3764453be3334dfe1c"
+    },
+    {
+      "path": "backend/internal/ocrreview/store.go",
+      "sha256": "737ee6b8a3f258d4d54fde2df7765c27590f339f00276d32d920775662f65653"
+    },
+    {
+      "path": "backend/internal/integration/ocrpublic/http_test.go",
+      "sha256": "2502546d21ffcc06448edbd63c7cf1857be07fa29a04b68ef6526a0ce327d0f9"
+    },
+    {
+      "path": "docs/contracts/ocr-public/openapi.json",
+      "sha256": "b155d2b5c632f56b23ab83390a2cff1fa77e7e836712949023d8b647edbee1f8"
+    },
+    {
+      "path": "docs/contracts/ocr-public/OCRPublic.schema.json",
+      "sha256": "891472a3e0c7cc3a2af01f8c6171379598ff564621c8a74da92f12075a3f9757"
+    },
+    {
+      "path": "docs/contracts/ocr-public/profile.json",
+      "sha256": "9cbe5cec9ab97b62bb7e5360815c2ff3072852f058cd75cd8b5c5db08645986a"
+    },
+    {
+      "path": "docs/contracts/ocr-public/contract-lock.json",
+      "sha256": "9fc8d5095c9bb83f3377b4cd3da68e9bb55cef31dceaecd8dc2a9e347438df63"
+    },
+    {
+      "path": "scripts/check-ocr-public.mjs",
+      "sha256": "fc6be2c8024cb793233577cec9325e5e87b2dd0e416ac192f6028b8cd34480bf"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "TestOCRPublicRealIdentityVersionsAndCitations.json",
+      "sha256": "fba467c7847e04cb71366c634c8d89d574030f8a42516a603256af12a9c974b9"
+    },
+    {
+      "path": "TestOCRPublicQueueRetryAndSharedQuota.json",
+      "sha256": "cdeec93439b1ec42c0b03b5b388ffe760ef0e74e516ddc3be74c3da9a8b0c77c"
+    },
+    {
+      "path": "TestOCRPublicStrictBodyRollbackAndDependency.json",
+      "sha256": "5796d4c3c816979e4a51fa851a45d38cf99a87507e4e22ac0e9e6c0a0765b030"
+    },
+    {
+      "path": "TestOCRPublicExactDecodedAndEscapedBodyBudget.json",
+      "sha256": "6c39ae34b719a5634986ba9a43f0b8c8989cc4ec8723e4cdc49fab44b3ca3527"
+    }
+  ],
+  "cleanup": [
+    {
+      "resource": "campus-ocr-public-6aaac2d9df4f",
+      "ok": true
+    },
+    {
+      "resource": "campus-ocr-public-6aaac2d9df4f:probe",
+      "ok": true
+    }
+  ],
+  "secret_file_removed": true
+}

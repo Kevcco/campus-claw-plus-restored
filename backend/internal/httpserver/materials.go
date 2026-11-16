@@ -13,7 +13,6 @@ import (
 	"net/url"
 	"strconv"
 	"strings"
-	"time"
 
 	"github.com/zwh9616/campus-claw-plus/backend/internal/identity"
 	"github.com/zwh9616/campus-claw-plus/backend/internal/materials"
@@ -84,7 +83,10 @@ func integerQuery(values url.Values, key string, fallback, maximum int) (int, er
 }
 func emptyMaterialBody(r *http.Request) error {
 	b, err := io.ReadAll(io.LimitReader(r.Body, 1))
-	if err != nil || len(b) != 0 {
+	if err != nil {
+		return requestReadError(r.Context(), err)
+	}
+	if len(b) != 0 {
 		return identity.ErrInvalid
 	}
 	return nil
@@ -99,7 +101,7 @@ func multipartUpload(r *http.Request) (materials.Upload, error) {
 		return materials.Upload{}, materials.ErrTooLarge
 	}
 	if err != nil {
-		return materials.Upload{}, identity.ErrInvalid
+		return materials.Upload{}, requestReadError(r.Context(), err)
 	}
 	reader := multipart.NewReader(bytes.NewReader(b), params["boundary"])
 	var title, filename string
@@ -150,6 +152,9 @@ func MaterialsHandler(logger *slog.Logger, auth materialAuthenticator, service *
 		kind, id, methods := materialRoute(r.URL.Path)
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		w.Header().Set("Cache-Control", "no-store")
+		r, cancel := businessRequest(w, r)
+		defer cancel()
+		ctx := r.Context()
 		if !strings.Contains(","+strings.ReplaceAll(methods, " ", "")+",", ","+r.Method+",") {
 			w.Header().Set("Allow", methods)
 			w.WriteHeader(405)
@@ -191,8 +196,6 @@ func MaterialsHandler(logger *slog.Logger, auth materialAuthenticator, service *
 				return
 			}
 		}
-		ctx, cancel := context.WithTimeout(r.Context(), 5*time.Second)
-		defer cancel()
 		var doc materials.Document
 		if id != "" {
 			if !materials.ValidID(id) {

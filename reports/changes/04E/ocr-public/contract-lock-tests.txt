@@ -1,0 +1,13 @@
+✔ DI-SC-18 public revision/status/citation single-source and OpenAPI agree on closed bounded resources (4.1374ms)
+✔ DI-SC-17/18 semantic Unicode byte budgets and immutable URLs reject valid-schema false claims (20.7544ms)
+✔ DI-SC-19 exact seven operations freeze request/response budgets without production activation (1.8825ms)
+✔ DI-SC-18/19 exact public error envelope, 201/202 Locations and no-store apply (30.7365ms)
+✔ DI-SC-25 frozen public component binds only explicit local single-source files (4.3344ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 697.4481

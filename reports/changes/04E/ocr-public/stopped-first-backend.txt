@@ -1,0 +1,7 @@
+?   	github.com/zwh9616/campus-claw-plus/backend/cmd/identity-admin	[no test files]
+?   	github.com/zwh9616/campus-claw-plus/backend/cmd/server	[no test files]
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/assignments	0.024s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/config	0.014s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/documentparser	0.626s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/documentqueue	0.028s
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/documents	0.029s

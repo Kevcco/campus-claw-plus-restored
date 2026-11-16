@@ -1,0 +1,6 @@
+{
+  "mutation": "default absent bearer to valid test token in isolated copy",
+  "active_source_unchanged": true,
+  "red": 1,
+  "restored_green": 0
+}

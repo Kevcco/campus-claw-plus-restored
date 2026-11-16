@@ -33,14 +33,16 @@ type Receipt struct {
 	Status     string `json:"status"`
 }
 type Revision struct {
-	DocumentID string `json:"document_id"`
-	Revision   int    `json:"revision"`
-	Kind       string `json:"kind"`
-	Body       string `json:"body"`
-	Pages      []Page `json:"pages"`
+	DocumentID      string `json:"document_id"`
+	OriginalVersion int    `json:"original_version"`
+	Revision        int    `json:"revision"`
+	Kind            string `json:"kind"`
+	Body            string `json:"body"`
+	Pages           []Page `json:"pages"`
 }
 type Citation struct {
 	DocumentID string `json:"document_id"`
+	Title      string `json:"title"`
 	Revision   int    `json:"revision"`
 	Page       int    `json:"page"`
 	Start      int    `json:"char_start"`
@@ -197,10 +199,10 @@ func (s *Store) Save(ctx context.Context, p identity.Principal, id, key string, 
 				offset += 2
 			}
 			runes := []rune(page.Text)
-			// Queries contain at most 200 codepoints. A 199-codepoint
+			// Queries contain at most MaxQuery codepoints. A MaxQuery-1
 			// overlap ensures every legal match fits in a persisted chunk.
-			for start := 0; start < len(runes); start += 313 {
-				end := min(start+512, len(runes))
+			for start := 0; start < len(runes); start += ChunkSize - MaxQuery + 1 {
+				end := min(start+ChunkSize, len(runes))
 				ordinal++
 				if _, e = tx.ExecContext(ctx, "INSERT INTO document_ocr_chunks(document_id,class_id,revision,ordinal,page,char_start,char_end,quote) VALUES(?,?,?,?,?,?,?,?)", id, p.ClassID, next, ordinal, page.Page, offset+start, offset+end, string(runes[start:end])); e != nil {
 					return e
@@ -256,6 +258,10 @@ func (s *Store) Read(ctx context.Context, p identity.Principal, id string, revis
 		return Revision{}, failure(ctx, e)
 	}
 	out.DocumentID = id
+	out.OriginalVersion = 1
+	if (out.Kind == "ocr" && out.Revision != 1) || (out.Kind == "review" && out.Revision < 2) {
+		return Revision{}, identity.ErrUnavailable
+	}
 	if json.Unmarshal(pages, &out.Pages) != nil {
 		return Revision{}, identity.ErrUnavailable
 	}
@@ -277,12 +283,12 @@ func (s *Store) Search(ctx context.Context, p identity.Principal, query string, 
 		return nil, identity.ErrUnauthenticated
 	}
 	query = strings.TrimSpace(query)
-	if !materials.Text(query, 1, 200) || limit < 1 || limit > 20 {
+	if !materials.Text(query, 1, MaxQuery) || limit < 1 || limit > 20 {
 		return nil, identity.ErrInvalid
 	}
 	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 	defer cancel()
-	rows, e := s.DB.QueryContext(ctx, "SELECT c.document_id,c.revision,c.page,c.char_start,c.char_end,c.quote,r.body FROM document_ocr_chunks c JOIN document_ocr_heads h ON h.document_id=c.document_id AND h.class_id=c.class_id AND h.published_revision=c.revision JOIN document_ocr_revisions r ON r.document_id=c.document_id AND r.class_id=c.class_id AND r.revision=c.revision WHERE c.class_id=? AND INSTR(c.quote,?)>0 ORDER BY c.document_id DESC,c.ordinal LIMIT ?", p.ClassID, query, limit)
+	rows, e := s.DB.QueryContext(ctx, "SELECT c.document_id,d.title,c.revision,c.page,c.char_start,c.char_end,c.quote,r.body FROM document_ocr_chunks c JOIN document_ocr_heads h ON h.document_id=c.document_id AND h.class_id=c.class_id AND h.published_revision=c.revision JOIN document_ocr_revisions r ON r.document_id=c.document_id AND r.class_id=c.class_id AND r.revision=c.revision JOIN documents d ON d.id=c.document_id AND d.class_id=c.class_id WHERE c.class_id=? AND INSTR(c.quote,?)>0 ORDER BY c.document_id DESC,c.ordinal LIMIT ?", p.ClassID, query, limit)
 	if e != nil {
 		return nil, failure(ctx, e)
 	}
@@ -290,7 +296,7 @@ func (s *Store) Search(ctx context.Context, p identity.Principal, query string, 
 	for rows.Next() {
 		var c Citation
 		var body string
-		if e = rows.Scan(&c.DocumentID, &c.Revision, &c.Page, &c.Start, &c.End, &c.Quote, &body); e != nil {
+		if e = rows.Scan(&c.DocumentID, &c.Title, &c.Revision, &c.Page, &c.Start, &c.End, &c.Quote, &body); e != nil {
 			return nil, failure(ctx, e)
 		}
 		runes := []rune(body)

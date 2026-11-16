@@ -1,0 +1,14 @@
+=== RUN   TestOCRHTTPWholeBodyDeadline
+=== RUN   TestOCRHTTPWholeBodyDeadline/ocr
+    ocr_test.go:163: keep-alive response exceeded5s body budget read tcp 127.0.0.1:35120->127.0.0.1:46507: i/o timeout
+=== RUN   TestOCRHTTPWholeBodyDeadline/document
+    ocr_test.go:163: keep-alive response exceeded5s body budget read tcp 127.0.0.1:46530->127.0.0.1:42567: i/o timeout
+=== RUN   TestOCRHTTPWholeBodyDeadline/txt
+    ocr_test.go:163: keep-alive response exceeded5s body budget read tcp 127.0.0.1:56050->127.0.0.1:39947: i/o timeout
+--- FAIL: TestOCRHTTPWholeBodyDeadline (22.02s)
+    --- FAIL: TestOCRHTTPWholeBodyDeadline/ocr (7.51s)
+    --- FAIL: TestOCRHTTPWholeBodyDeadline/document (7.50s)
+    --- FAIL: TestOCRHTTPWholeBodyDeadline/txt (7.00s)
+FAIL
+FAIL	github.com/zwh9616/campus-claw-plus/backend/internal/httpserver	22.022s
+FAIL

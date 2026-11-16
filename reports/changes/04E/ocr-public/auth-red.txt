@@ -1,0 +1,22 @@
+=== RUN   TestOCRHTTPBoundaryOrderAndStrictJSON
+=== RUN   TestOCRHTTPBoundaryOrderAndStrictJSON//unknownGETteacherprobe404
+=== RUN   TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/91/ocrPUTteacher405
+=== RUN   TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/91/ocr-reviewsPOSTteacher401
+    ocr_test.go:81: 400 401
+=== RUN   TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/91/ocr-reviewsPOSTstudentprobe403
+=== RUN   TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/92/ocr-reviewsPOSTteacherprobe404
+=== RUN   TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/91/ocr-reviewsPOSTteacherprobe400
+=== RUN   TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/91/ocr-reviewsPOSTteacherprobe400#01
+=== RUN   TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/91/ocr-reviewsPOSTteacherprobe201
+--- FAIL: TestOCRHTTPBoundaryOrderAndStrictJSON (0.00s)
+    --- PASS: TestOCRHTTPBoundaryOrderAndStrictJSON//unknownGETteacherprobe404 (0.00s)
+    --- PASS: TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/91/ocrPUTteacher405 (0.00s)
+    --- FAIL: TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/91/ocr-reviewsPOSTteacher401 (0.00s)
+    --- PASS: TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/91/ocr-reviewsPOSTstudentprobe403 (0.00s)
+    --- PASS: TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/92/ocr-reviewsPOSTteacherprobe404 (0.00s)
+    --- PASS: TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/91/ocr-reviewsPOSTteacherprobe400 (0.00s)
+    --- PASS: TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/91/ocr-reviewsPOSTteacherprobe400#01 (0.00s)
+    --- PASS: TestOCRHTTPBoundaryOrderAndStrictJSON//api/v1/documents/91/ocr-reviewsPOSTteacherprobe201 (0.00s)
+FAIL
+FAIL	github.com/zwh9616/campus-claw-plus/backend/internal/httpserver	0.008s
+FAIL

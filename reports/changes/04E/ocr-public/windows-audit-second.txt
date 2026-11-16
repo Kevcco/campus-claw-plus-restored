@@ -1,0 +1,9 @@
+
+> campus-claw-plus@0.0.1 audit
+> npm audit --audit-level=high && npm audit --prefix frontend --audit-level=high
+
+found 0 vulnerabilities
+npm warn audit request to https://registry.npmjs.org/-/npm/v1/security/advisories/bulk failed, reason: Client network socket disconnected before secure TLS connection was established
+undefined
+npm error audit endpoint returned an error
+npm error A complete log of this run can be found in: C:\Users\lenovo\AppData\Local\npm-cache\_logs\2026-11-16T13_01_58_118Z-debug-0.log

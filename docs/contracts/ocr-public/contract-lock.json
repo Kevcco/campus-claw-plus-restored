@@ -1,0 +1,37 @@
+{
+  "status": "frozen-component",
+  "files": [
+    {
+      "path": "docs/contracts/ocr-draft/OCRResult.schema.json",
+      "sha256": "c79778405ee8742a97e308fe9cd3c8603521430345303e221ac55d7dbc8ee7b5"
+    },
+    {
+      "path": "docs/contracts/ocr-draft/OCRReview.schema.json",
+      "sha256": "2e16bc1f43f220856a84ecfe3ab0d1114dfcaf1e6f6b72e38e6c154d82cf743f"
+    },
+    {
+      "path": "docs/contracts/ocr-draft/OCRReviewReceipt.schema.json",
+      "sha256": "6e8215f35373d8164690eaa89598a2ed004b604ced04527ffc85cfdc3b69c273"
+    },
+    {
+      "path": "docs/contracts/ocr-public/OCRPublic.schema.json",
+      "sha256": "891472a3e0c7cc3a2af01f8c6171379598ff564621c8a74da92f12075a3f9757"
+    },
+    {
+      "path": "docs/contracts/ocr-public/openapi.json",
+      "sha256": "b155d2b5c632f56b23ab83390a2cff1fa77e7e836712949023d8b647edbee1f8"
+    },
+    {
+      "path": "docs/contracts/ocr-public/profile.json",
+      "sha256": "9cbe5cec9ab97b62bb7e5360815c2ff3072852f058cd75cd8b5c5db08645986a"
+    },
+    {
+      "path": "docs/contracts/schemas/Error.schema.json",
+      "sha256": "dc57724b263f8a172196c39974bc9f6571711c05ae365b93f9b15b00e8118a6a"
+    },
+    {
+      "path": "docs/contracts/schemas/ID.schema.json",
+      "sha256": "04d8dcf14eaed954cb2219036a8d71fc15e5a89bc07185b4f5c955d1e2d1b7d4"
+    }
+  ]
+}

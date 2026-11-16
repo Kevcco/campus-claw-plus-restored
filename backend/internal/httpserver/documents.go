@@ -2,18 +2,15 @@ package httpserver
 
 import (
 	"bytes"
-	"context"
 	"encoding/json"
 	"errors"
 	"io"
 	"log/slog"
 	"mime"
 	"mime/multipart"
-	"net"
 	"net/http"
 	"strconv"
 	"strings"
-	"time"
 
 	"github.com/zwh9616/campus-claw-plus/backend/internal/documents"
 	"github.com/zwh9616/campus-claw-plus/backend/internal/identity"
@@ -61,7 +58,7 @@ func documentUpload(r *http.Request) (documents.Upload, error) {
 		return documents.Upload{}, documents.ErrTooLarge
 	}
 	if e != nil {
-		return documents.Upload{}, documentReadError(r.Context(), e)
+		return documents.Upload{}, requestReadError(r.Context(), e)
 	}
 	reader := multipart.NewReader(bytes.NewReader(raw), params["boundary"])
 	seen := map[string]bool{}
@@ -100,13 +97,6 @@ func documentUpload(r *http.Request) (documents.Upload, error) {
 	}
 	return documents.PrepareUpload(title, filename, file)
 }
-func documentReadError(ctx context.Context, e error) error {
-	var timeout net.Error
-	if ctx.Err() != nil || (errors.As(e, &timeout) && timeout.Timeout()) {
-		return identity.ErrTimeout
-	}
-	return identity.ErrInvalid
-}
 
 // DocumentsHandler supplies only the six approved DI operations. Authentication,
 // action and resource checks precede business input; no parser call enters SQL.
@@ -115,18 +105,14 @@ func DocumentsHandler(logger *slog.Logger, auth materialAuthenticator, service *
 		kind, id, methods := documentRoute(r.URL.Path)
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		w.Header().Set("Cache-Control", "no-store")
+		r, cancel := businessRequest(w, r)
+		defer cancel()
+		ctx := r.Context()
 		if !strings.Contains(","+strings.ReplaceAll(methods, " ", "")+",", ","+r.Method+",") {
 			w.Header().Set("Allow", methods)
 			w.WriteHeader(405)
 			return
 		}
-		ctx, cancel := context.WithTimeout(r.Context(), 5*time.Second)
-		defer cancel()
-		r = r.WithContext(ctx)
-		deadline, _ := ctx.Deadline()
-		control := http.NewResponseController(w)
-		_ = control.SetReadDeadline(deadline)
-		defer control.SetReadDeadline(time.Time{})
 		fail := func(e error) {
 			if errors.Is(e, documents.ErrTooLarge) {
 				writeIdentityCode(w, 413, "PAYLOAD_TOO_LARGE", "文件或请求过大")

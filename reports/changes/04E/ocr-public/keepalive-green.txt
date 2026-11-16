@@ -1,0 +1,10 @@
+=== RUN   TestOCRHTTPWholeBodyDeadline
+=== RUN   TestOCRHTTPWholeBodyDeadline/ocr
+=== RUN   TestOCRHTTPWholeBodyDeadline/document
+=== RUN   TestOCRHTTPWholeBodyDeadline/txt
+--- PASS: TestOCRHTTPWholeBodyDeadline (16.52s)
+    --- PASS: TestOCRHTTPWholeBodyDeadline/ocr (5.51s)
+    --- PASS: TestOCRHTTPWholeBodyDeadline/document (5.51s)
+    --- PASS: TestOCRHTTPWholeBodyDeadline/txt (5.51s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/httpserver	16.529s

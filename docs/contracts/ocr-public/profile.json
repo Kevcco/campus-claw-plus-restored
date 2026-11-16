@@ -1,0 +1,71 @@
+{
+  "status": "frozen-component",
+  "owner": "小张",
+  "runtime_activation": false,
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/api/v1/documents/{id}/ocr",
+      "operationId": "getOCRStatus"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/documents/{id}/ocr-source",
+      "operationId": "getOCRSource"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/documents/{id}/ocr-revisions/{revision}",
+      "operationId": "getOCRRevision"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/documents/{id}/ocr-reviews",
+      "operationId": "createOCRReview"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/documents/{id}/ocr-jobs",
+      "operationId": "startOCR"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/documents/{id}/ocr-retry",
+      "operationId": "retryOCR"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ocr-search",
+      "operationId": "searchOCR"
+    }
+  ],
+  "target_required": 7,
+  "production_target": 6,
+  "current_public_operations": 28,
+  "query_codepoints": 2000,
+  "chunk_codepoints": 4096,
+  "overlap_codepoints": 1999,
+  "body_utf8_bytes": 2097152,
+  "review_request_bytes": 12648448,
+  "business_ms": 5000,
+  "shared_user_writes_per_minute": 12,
+  "source_teacher_only": true,
+  "student_revision_kind": "review",
+  "student_status": "published-only",
+  "same_class": true,
+  "original_version": 1,
+  "review_idempotency_scope": [
+    "user",
+    "class",
+    "document",
+    "key"
+  ],
+  "retry": "teacher explicit; failed timeout/interrupted/internal only; attempts<3",
+  "original_v1_mutation": false,
+  "production_activation_pending": [
+    "image original compatibility and list/download",
+    "Target7 activation and configuration consumers",
+    "default OCR image/worker/UI",
+    "native security and formal quality"
+  ]
+}

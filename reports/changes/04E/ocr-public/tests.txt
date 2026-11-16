@@ -1,0 +1,10 @@
+=== RUN   TestOCRPublicRealIdentityVersionsAndCitations
+--- PASS: TestOCRPublicRealIdentityVersionsAndCitations (0.80s)
+=== RUN   TestOCRPublicQueueRetryAndSharedQuota
+--- PASS: TestOCRPublicQueueRetryAndSharedQuota (0.74s)
+=== RUN   TestOCRPublicStrictBodyRollbackAndDependency
+--- PASS: TestOCRPublicStrictBodyRollbackAndDependency (0.70s)
+=== RUN   TestOCRPublicExactDecodedAndEscapedBodyBudget
+--- PASS: TestOCRPublicExactDecodedAndEscapedBodyBudget (1.38s)
+PASS
+ok  	github.com/zwh9616/campus-claw-plus/backend/internal/integration/ocrpublic	3.633s
